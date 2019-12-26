@@ -39,21 +39,15 @@
     <h1 class="post-title">Cathy</h1>
   </header>
 
-  <div class="post-content">
-    <p>谁更帅？</p>
-<ul class="task-list">
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />A.杨洋</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />B.图中帅哥</li>
-</ul>
+  <div class="post-content" id="postContent">
 
 <form>
   谁更帅？<br>
   <input type="radio" name="options" id="yangyang">A.杨洋<br>
-  <input type="radio" name="options" id="me">B.图中帅哥<br>
+  <input type="radio" name="options" id="me">B.图中帅哥<br>  
 </form>
-  <button onclick="test()" onfocus="check()" id="yes">确定</button><br>
-  <img src="/images/1.PNG" alt="my_image" />
-
+	<button onclick="test()" onfocus="check()" id="yes">确定</button><br>  
+	<img src="/images/1.PNG" id="myImage" alt="my_image" />
 
   </div>
 
@@ -87,16 +81,24 @@
 </footer>
 
 <script>
+var promptMessages = ["回答正确", "有眼光", "毫无疑问"];
+var promptIndex = 1;
 function check() {
   document.getElementById("me").checked = true;
 }
 function uncheck() {
   document.getElementById("yangyang").checked = false;
 }
-function test() {
-	alert("有眼光");
+function test() {	
+	alert(promptMessages[promptIndex%3]);
+	promptIndex++;
+	newImage();
 }
 document.getElementById("yes").onmouseover = function() {check()};
+function newImage() {
+	if(promptIndex<=8) document.getElementById("myImage").src = "/images/"+promptIndex.toString()+".PNG";
+	else document.getElementById("postContent").innerHTML = "周年纪念快乐吧~~~~";
+}
 </script>
 
 </body>
