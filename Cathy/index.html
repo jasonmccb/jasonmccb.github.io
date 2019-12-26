@@ -89,7 +89,8 @@ function check() {
 function uncheck() {
   document.getElementById("yangyang").checked = false;
 }
-function test() {	
+function test() {
+	check();
 	alert(promptMessages[promptIndex%3]);
 	promptIndex++;
 	newImage();
