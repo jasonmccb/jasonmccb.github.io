@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-12-26T16:55:31+13:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jason Liu’s blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Annual leave</title><link href="http://localhost:4000/blog/2019/12/20/Annual-leave" rel="alternate" type="text/html" title="Annual leave" /><published>2019-12-20T23:30:00+13:00</published><updated>2019-12-20T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/20/Annual%20leave</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/20/Annual-leave">&lt;p&gt;Annual leave.&lt;/p&gt;</content><author><name></name></author><summary type="html">Annual leave.</summary></entry><entry><title type="html">Fixed the duplicate record bug while importing from Excel to DB</title><link href="http://localhost:4000/blog/2019/12/19/Fixed-the-duplicate-record-bug-while-importing-from-Excel-to-DB" rel="alternate" type="text/html" title="Fixed the duplicate record bug while importing from Excel to DB" /><published>2019-12-19T23:30:00+13:00</published><updated>2019-12-19T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/19/Fixed%20the%20duplicate%20record%20bug%20while%20importing%20from%20Excel%20to%20DB</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/19/Fixed-the-duplicate-record-bug-while-importing-from-Excel-to-DB">&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Fixed the duplicate record bug while importing from excel to DB.&lt;/li&gt;
+  &lt;li&gt;Refactor the code of the fix.&lt;/li&gt;
+  &lt;li&gt;Install mongoDB on AWS server.&lt;/li&gt;
+  &lt;li&gt;Release to production.&lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">What have been done:</summary></entry><entry><title type="html">Fixed the bug in Excel writing</title><link href="http://localhost:4000/blog/2019/12/18/Fixed-the-bug-in-Excel-writing" rel="alternate" type="text/html" title="Fixed the bug in Excel writing" /><published>2019-12-18T23:30:00+13:00</published><updated>2019-12-18T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/18/Fixed%20the%20bug%20in%20Excel%20writing</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/18/Fixed-the-bug-in-Excel-writing">&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Fixed the bug in Excel writing.&lt;/li&gt;
+  &lt;li&gt;Created the page to handle the request “import-new-specials” from Excel spreadsheet to MongoDB.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Problems encountered:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Opening output stream of Excel file without closing it input stream will empty the file content.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Solution:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The correct sequence of updating Excel file is:
+    &lt;ul&gt;
+      &lt;li&gt;Open the input stream and read the rows&lt;/li&gt;
+      &lt;li&gt;Close input stream&lt;/li&gt;
+      &lt;li&gt;Update the rows&lt;/li&gt;
+      &lt;li&gt;Open the output stream&lt;/li&gt;
+      &lt;li&gt;Write the rows to the file via output stream&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">What have been done:</summary></entry><entry><title type="html">Studied about Mongo DB</title><link href="http://localhost:4000/blog/2019/12/17/Studied-about-Mongo-DB" rel="alternate" type="text/html" title="Studied about Mongo DB" /><published>2019-12-17T23:30:00+13:00</published><updated>2019-12-17T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/17/Studied%20about%20Mongo%20DB</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/17/Studied-about-Mongo-DB">&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Studied about Mongo DB.&lt;br /&gt;
+MongoDB is a no-SQL, distributed, file-based DB.
+Basic concepts and commands:&lt;br /&gt;
+&lt;strong&gt;database&lt;/strong&gt;&lt;br /&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;show databases&lt;/code&gt;&lt;br /&gt;
+&lt;strong&gt;collection&lt;/strong&gt;&lt;br /&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;show collections&lt;/code&gt;&lt;br /&gt;
+&lt;strong&gt;object&lt;/strong&gt;&lt;br /&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;db.{collection name}.find()&lt;/code&gt;&lt;br /&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;db.{collection name}.findOne()&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Discussed what data to store in DB.&lt;br /&gt;
+&lt;strong&gt;mandatory&lt;/strong&gt;:&lt;br /&gt;
+effective date&lt;br /&gt;
+expiry date&lt;br /&gt;
+&lt;strong&gt;optional&lt;/strong&gt;:&lt;br /&gt;
+approved date&lt;br /&gt;
+approved duration level&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Discussed spring injection.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">What have been done:</summary></entry><entry><title type="html">Fixed MongoDB related issues</title><link href="http://localhost:4000/blog/2019/12/16/Fixed-MongoDB-related-issues" rel="alternate" type="text/html" title="Fixed MongoDB related issues" /><published>2019-12-16T23:30:00+13:00</published><updated>2019-12-16T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/16/Fixed%20MongoDB%20related%20issues</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/16/Fixed-MongoDB-related-issues">&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Fixed AWS server time out issues when trying to connect to GitHub to update codes.&lt;/li&gt;
+  &lt;li&gt;Remove all compiling errors related to MongoDB by commenting out incomplete codes.&lt;/li&gt;
+  &lt;li&gt;Install MongoDB locally.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Problems encountered:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;On AWS server, it will time out when trying to connect to GitHub.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Solution:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Run below commands.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bat highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-list &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-system
+&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-list &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-global
+&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-system &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-unset &lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;credential&lt;/span&gt;.helper
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Note:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The link below is the guide to install MongoDB.&lt;br /&gt;
+&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows&quot;&gt;https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">What have been done:</summary></entry><entry><title type="html">Annual leave</title><link href="http://localhost:4000/blog/2019/12/13/Annual-leave" rel="alternate" type="text/html" title="Annual leave" /><published>2019-12-13T23:30:00+13:00</published><updated>2019-12-13T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/13/Annual%20leave</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/13/Annual-leave">&lt;p&gt;Annual leave.&lt;/p&gt;</content><author><name></name></author><summary type="html">Annual leave.</summary></entry><entry><title type="html">UI improvements</title><link href="http://localhost:4000/blog/2019/12/12/UI-improvements" rel="alternate" type="text/html" title="UI improvements" /><published>2019-12-12T23:30:00+13:00</published><updated>2019-12-12T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/12/UI%20improvements</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/12/UI-improvements">&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Added the link of venues’ websites to table displayed.&lt;/li&gt;
+  &lt;li&gt;Changed the order of columns in the table.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/old GUI 12-Dec.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/new GUI 23-Dec.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">What have been done:</summary></entry><entry><title type="html">Merged MongoDB branch into master</title><link href="http://localhost:4000/blog/2019/12/11/Merged-MongoDB-branch-into-master" rel="alternate" type="text/html" title="Merged MongoDB branch into master" /><published>2019-12-11T23:30:00+13:00</published><updated>2019-12-11T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/11/Merged%20MongoDB%20branch%20into%20master</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/11/Merged-MongoDB-branch-into-master">&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Released logging features to production.&lt;/li&gt;
+  &lt;li&gt;Merge MongoDB branch with master into production.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Note:&lt;br /&gt;
+Procedure of merging:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout master&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull origin master&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull origin add_mongodb&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Fix the conflicts in Eclipse IDE&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git add &quot;files after conflicts resolved&quot;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git commit -m &quot;Resolved merging conflicts&quot;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git push origin master&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">What have been done:</summary></entry><entry><title type="html">Fixed logging issues</title><link href="http://localhost:4000/blog/2019/12/10/Fixed-logging-issues" rel="alternate" type="text/html" title="Fixed logging issues" /><published>2019-12-10T23:30:00+13:00</published><updated>2019-12-10T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/10/Fixed%20logging%20issues</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/10/Fixed-logging-issues">&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Added logging for specials, approved or rejected.&lt;br /&gt;
+Each special item now is logged in the debug mode.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Problems encountered:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;@Slf4j cannot be added to domain module.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Solution:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The lombok dependency needs to be added to the POM of the domain module.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.projectlombok&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;lombok&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;scope&amp;gt;&lt;/span&gt;provided&lt;span class=&quot;nt&quot;&gt;&amp;lt;/scope&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">What have been done:</summary></entry><entry><title type="html">Sick leave</title><link href="http://localhost:4000/blog/2019/12/09/Sick-leave" rel="alternate" type="text/html" title="Sick leave" /><published>2019-12-09T23:30:00+13:00</published><updated>2019-12-09T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/09/Sick%20leave</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/09/Sick-leave">&lt;p&gt;Nothing has been today as I am on sick leave.&lt;/p&gt;</content><author><name></name></author><summary type="html">Nothing has been today as I am on sick leave.</summary></entry></feed>
