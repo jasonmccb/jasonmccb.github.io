@@ -1,4 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-12-29T19:01:50+13:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jason Liu’s blog</title><subtitle>You know what a true victory is?  It's not beating someone strong.  It's being able to protect something important to you!</subtitle><entry><title type="html">Discussed and confirmed the email system logic</title><link href="http://localhost:4000/blog/2019/12/23/Discussed-and-confirmed-the-email-system-logic" rel="alternate" type="text/html" title="Discussed and confirmed the email system logic" /><published>2019-12-23T23:30:00+13:00</published><updated>2019-12-23T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/23/Discussed%20and%20confirmed%20the%20email%20system%20logic</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/23/Discussed-and-confirmed-the-email-system-logic">&lt;p&gt;What have been done:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-12-29T19:08:20+13:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jason Liu’s blog</title><subtitle>You know what a true victory is?  It's not beating someone strong.  It's being able to protect something important to you!</subtitle><entry><title type="html">Public holiday</title><link href="http://localhost:4000/blog/2019/12/26/Public-holiday" rel="alternate" type="text/html" title="Public holiday" /><published>2019-12-26T23:30:00+13:00</published><updated>2019-12-26T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/26/Public%20holiday</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/26/Public-holiday">&lt;p&gt;Public holiday.
+Merry Christmas.&lt;/p&gt;</content><author><name></name></author><summary type="html">Public holiday. Merry Christmas.</summary></entry><entry><title type="html">Public holiday</title><link href="http://localhost:4000/blog/2019/12/25/Public-holiday" rel="alternate" type="text/html" title="Public holiday" /><published>2019-12-25T23:30:00+13:00</published><updated>2019-12-25T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/25/Public%20holiday</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/25/Public-holiday">&lt;p&gt;Public holiday.
+Merry Christmas.&lt;/p&gt;</content><author><name></name></author><summary type="html">Public holiday. Merry Christmas.</summary></entry><entry><title type="html">Public holiday</title><link href="http://localhost:4000/blog/2019/12/24/Public-holiday" rel="alternate" type="text/html" title="Public holiday" /><published>2019-12-24T23:30:00+13:00</published><updated>2019-12-24T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/24/Public%20holiday</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/24/Public-holiday">&lt;p&gt;Public holiday.
+Merry Christmas.&lt;/p&gt;</content><author><name></name></author><summary type="html">Public holiday. Merry Christmas.</summary></entry><entry><title type="html">Discussed and confirmed the email system logic</title><link href="http://localhost:4000/blog/2019/12/23/Discussed-and-confirmed-the-email-system-logic" rel="alternate" type="text/html" title="Discussed and confirmed the email system logic" /><published>2019-12-23T23:30:00+13:00</published><updated>2019-12-23T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/23/Discussed%20and%20confirmed%20the%20email%20system%20logic</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/23/Discussed-and-confirmed-the-email-system-logic">&lt;p&gt;What have been done:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Discussed and confirmed the email system logic.&lt;/li&gt;
@@ -102,58 +105,4 @@ approved duration level&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;The link below is the guide to install MongoDB.&lt;br /&gt;
 &lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows&quot;&gt;https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><summary type="html">What have been done:</summary></entry><entry><title type="html">Annual leave</title><link href="http://localhost:4000/blog/2019/12/13/Annual-leave" rel="alternate" type="text/html" title="Annual leave" /><published>2019-12-13T23:30:00+13:00</published><updated>2019-12-13T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/13/Annual%20leave</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/13/Annual-leave">&lt;p&gt;Annual leave.&lt;/p&gt;</content><author><name></name></author><summary type="html">Annual leave.</summary></entry><entry><title type="html">UI improvements</title><link href="http://localhost:4000/blog/2019/12/12/UI-improvements" rel="alternate" type="text/html" title="UI improvements" /><published>2019-12-12T23:30:00+13:00</published><updated>2019-12-12T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/12/UI%20improvements</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/12/UI-improvements">&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Added the link of venues’ websites to table displayed.&lt;/li&gt;
-  &lt;li&gt;Changed the order of columns in the table.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Before:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/old GUI 12-Dec.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;After:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/new GUI 23-Dec.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">What have been done:</summary></entry><entry><title type="html">Merged MongoDB branch into master</title><link href="http://localhost:4000/blog/2019/12/11/Merged-MongoDB-branch-into-master" rel="alternate" type="text/html" title="Merged MongoDB branch into master" /><published>2019-12-11T23:30:00+13:00</published><updated>2019-12-11T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/11/Merged%20MongoDB%20branch%20into%20master</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/11/Merged-MongoDB-branch-into-master">&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Released logging features to production.&lt;/li&gt;
-  &lt;li&gt;Merge MongoDB branch with master into production.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Note:&lt;br /&gt;
-Procedure of merging:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout master&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull origin master&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull origin add_mongodb&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Fix the conflicts in Eclipse IDE&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git add &quot;files after conflicts resolved&quot;&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git commit -m &quot;Resolved merging conflicts&quot;&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git push origin master&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><summary type="html">What have been done:</summary></entry><entry><title type="html">Fixed logging issues</title><link href="http://localhost:4000/blog/2019/12/10/Fixed-logging-issues" rel="alternate" type="text/html" title="Fixed logging issues" /><published>2019-12-10T23:30:00+13:00</published><updated>2019-12-10T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/10/Fixed%20logging%20issues</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/10/Fixed-logging-issues">&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Added logging for specials, approved or rejected.&lt;br /&gt;
-Each special item now is logged in the debug mode.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Problems encountered:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;@Slf4j cannot be added to domain module.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Solution:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;The lombok dependency needs to be added to the POM of the domain module.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.projectlombok&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;lombok&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;scope&amp;gt;&lt;/span&gt;provided&lt;span class=&quot;nt&quot;&gt;&amp;lt;/scope&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">What have been done:</summary></entry></feed>
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">What have been done:</summary></entry><entry><title type="html">Annual leave</title><link href="http://localhost:4000/blog/2019/12/13/Annual-leave" rel="alternate" type="text/html" title="Annual leave" /><published>2019-12-13T23:30:00+13:00</published><updated>2019-12-13T23:30:00+13:00</updated><id>http://localhost:4000/blog/2019/12/13/Annual%20leave</id><content type="html" xml:base="http://localhost:4000/blog/2019/12/13/Annual-leave">&lt;p&gt;Annual leave.&lt;/p&gt;</content><author><name></name></author><summary type="html">Annual leave.</summary></entry></feed>
