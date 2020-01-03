@@ -1,0 +1,26 @@
+# Site settings
+name: Jason Liu's blog
+email: jasonmccb@gmail.com
+author: Jason Liu
+url: https://jasonmccb.github.io
+resume_site: https://www.linkedin.com/in/junwen-liu-7261aa138/
+github: https://github.com/jasonmccb
+baseurl: ""
+description: Less is more template
+meta_description: Jason的个人博客;世事苍茫成云烟，天地孤影任我行
+motto: True victory is not beating someone strong but being able to protect something important to you.
+banner: 世事苍茫成云烟，天地孤影任我行。
+
+#permalink: /:categories/:year/:month/:day/:title/
+permalink: /:year/:month/:day/:title/
+paginate: 10
+
+exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
+
+github_username: jasonmccb
+
+# Build settings
+markdown: kramdown
+
+baidu_analysis: 94be4b0f9fc5d94cc0d0415ea6761ae9
+
