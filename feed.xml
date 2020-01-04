@@ -5,8 +5,8 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 04 Jan 2020 16:31:57 +1300</pubDate>
-    <lastBuildDate>Sat, 04 Jan 2020 16:31:57 +1300</lastBuildDate>
+    <pubDate>Sat, 04 Jan 2020 17:38:14 +1300</pubDate>
+    <lastBuildDate>Sat, 04 Jan 2020 17:38:14 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -24,9 +24,7 @@
         <guid isPermaLink="true">http://localhost:4000/2019/12/27/Added-email-module-and-related-DB-query-methods/</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>theScene.Co</category>
         
       </item>
     
@@ -40,9 +38,7 @@ Merry Christmas.&lt;/p&gt;
         <guid isPermaLink="true">http://localhost:4000/2019/12/26/Public-holiday/</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>theScene.Co</category>
         
       </item>
     
@@ -56,9 +52,7 @@ Merry Christmas.&lt;/p&gt;
         <guid isPermaLink="true">http://localhost:4000/2019/12/25/Public-holiday/</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>theScene.Co</category>
         
       </item>
     
@@ -72,9 +66,7 @@ Merry Christmas.&lt;/p&gt;
         <guid isPermaLink="true">http://localhost:4000/2019/12/24/Public-holiday/</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>theScene.Co</category>
         
       </item>
     
@@ -102,10 +94,10 @@ Merry Christmas.&lt;/p&gt;
         <link>http://localhost:4000/2019/12/23/Discussed-and-confirmed-the-email-system-logic/</link>
         <guid isPermaLink="true">http://localhost:4000/2019/12/23/Discussed-and-confirmed-the-email-system-logic/</guid>
         
+        <category>project management</category>
         
-        <category>jekyll</category>
         
-        <category>update</category>
+        <category>theScene.Co</category>
         
       </item>
     
@@ -118,9 +110,7 @@ Merry Christmas.&lt;/p&gt;
         <guid isPermaLink="true">http://localhost:4000/2019/12/20/Annual-leave/</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>theScene.Co</category>
         
       </item>
     
@@ -141,9 +131,7 @@ Merry Christmas.&lt;/p&gt;
         <guid isPermaLink="true">http://localhost:4000/2019/12/19/Fixed-the-duplicate-record-bug-while-importing-from-Excel-to-DB/</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>theScene.Co</category>
         
       </item>
     
@@ -181,10 +169,10 @@ Merry Christmas.&lt;/p&gt;
         <link>http://localhost:4000/2019/12/18/Fixed-the-bug-in-Excel-writing/</link>
         <guid isPermaLink="true">http://localhost:4000/2019/12/18/Fixed-the-bug-in-Excel-writing/</guid>
         
+        <category>Java</category>
         
-        <category>jekyll</category>
         
-        <category>update</category>
+        <category>theScene.Co</category>
         
       </item>
     
@@ -223,10 +211,10 @@ approved duration level&lt;/p&gt;
         <link>http://localhost:4000/2019/12/17/Studied-about-Mongo-DB/</link>
         <guid isPermaLink="true">http://localhost:4000/2019/12/17/Studied-about-Mongo-DB/</guid>
         
+        <category>MongoDB</category>
         
-        <category>jekyll</category>
         
-        <category>update</category>
+        <category>theScene.Co</category>
         
       </item>
     
@@ -268,10 +256,10 @@ approved duration level&lt;/p&gt;
         <link>http://localhost:4000/2019/12/16/Fixed-MongoDB-related-issues/</link>
         <guid isPermaLink="true">http://localhost:4000/2019/12/16/Fixed-MongoDB-related-issues/</guid>
         
+        <category>MongoDB</category>
         
-        <category>jekyll</category>
         
-        <category>update</category>
+        <category>theScene.Co</category>
         
       </item>
     
