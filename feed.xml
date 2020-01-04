@@ -1,30 +1,279 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
+    <title></title>
+    <description>True victory is not beating someone strong but being able to protect something important to you</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 04 Jan 2020 16:31:57 +1300</pubDate>
+    <lastBuildDate>Sat, 04 Jan 2020 16:31:57 +1300</lastBuildDate>
+    <generator>Jekyll v4.0.0</generator>
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-        {% for tag in post.tags %}
-        <category>{{ tag | xml_escape }}</category>
-        {% endfor %}
-        {% for cat in post.categories %}
-        <category>{{ cat | xml_escape }}</category>
-        {% endfor %}
+        <title>Added email module and related DB query methods</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Added email module according to the design.&lt;/li&gt;
+  &lt;li&gt;Added DB related query methods.&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Fri, 27 Dec 2019 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2019/12/27/Added-email-module-and-related-DB-query-methods/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/27/Added-email-module-and-related-DB-query-methods/</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>Public holiday</title>
+        <description>&lt;p&gt;Public holiday.
+Merry Christmas.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 26 Dec 2019 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2019/12/26/Public-holiday/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/26/Public-holiday/</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Public holiday</title>
+        <description>&lt;p&gt;Public holiday.
+Merry Christmas.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 25 Dec 2019 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2019/12/25/Public-holiday/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/25/Public-holiday/</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Public holiday</title>
+        <description>&lt;p&gt;Public holiday.
+Merry Christmas.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 24 Dec 2019 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2019/12/24/Public-holiday/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/24/Public-holiday/</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Discussed and confirmed the email system logic</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Discussed and confirmed the email system logic.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;The state flow of specials:
+&lt;img src=&quot;/images/state flow of specials.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The email sending mechanism:
+&lt;img src=&quot;/images/manuscript - email sending mechanism.jpg&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Mon, 23 Dec 2019 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2019/12/23/Discussed-and-confirmed-the-email-system-logic/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/23/Discussed-and-confirmed-the-email-system-logic/</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Annual leave</title>
+        <description>&lt;p&gt;Annual leave.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 20 Dec 2019 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2019/12/20/Annual-leave/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/20/Annual-leave/</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Fixed the duplicate record bug while importing from Excel to DB</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Fixed the duplicate record bug while importing from excel to DB.&lt;/li&gt;
+  &lt;li&gt;Refactor the code of the fix.&lt;/li&gt;
+  &lt;li&gt;Install mongoDB on AWS server.&lt;/li&gt;
+  &lt;li&gt;Release to production.&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Thu, 19 Dec 2019 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2019/12/19/Fixed-the-duplicate-record-bug-while-importing-from-Excel-to-DB/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/19/Fixed-the-duplicate-record-bug-while-importing-from-Excel-to-DB/</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Fixed the bug in Excel writing</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Fixed the bug in Excel writing.&lt;/li&gt;
+  &lt;li&gt;Created the page to handle the request “import-new-specials” from Excel spreadsheet to MongoDB.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Problems encountered:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Opening output stream of Excel file without closing it input stream will empty the file content.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Solution:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The correct sequence of updating Excel file is:
+    &lt;ul&gt;
+      &lt;li&gt;Open the input stream and read the rows&lt;/li&gt;
+      &lt;li&gt;Close input stream&lt;/li&gt;
+      &lt;li&gt;Update the rows&lt;/li&gt;
+      &lt;li&gt;Open the output stream&lt;/li&gt;
+      &lt;li&gt;Write the rows to the file via output stream&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Wed, 18 Dec 2019 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2019/12/18/Fixed-the-bug-in-Excel-writing/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/18/Fixed-the-bug-in-Excel-writing/</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Studied about Mongo DB</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Studied about Mongo DB.&lt;br /&gt;
+MongoDB is a no-SQL, distributed, file-based DB.
+Basic concepts and commands:&lt;br /&gt;
+&lt;strong&gt;database&lt;/strong&gt;&lt;br /&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;show databases&lt;/code&gt;&lt;br /&gt;
+&lt;strong&gt;collection&lt;/strong&gt;&lt;br /&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;show collections&lt;/code&gt;&lt;br /&gt;
+&lt;strong&gt;object&lt;/strong&gt;&lt;br /&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;db.{collection name}.find()&lt;/code&gt;&lt;br /&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;db.{collection name}.findOne()&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Discussed what data to store in DB.&lt;br /&gt;
+&lt;strong&gt;mandatory&lt;/strong&gt;:&lt;br /&gt;
+effective date&lt;br /&gt;
+expiry date&lt;br /&gt;
+&lt;strong&gt;optional&lt;/strong&gt;:&lt;br /&gt;
+approved date&lt;br /&gt;
+approved duration level&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Discussed spring injection.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Tue, 17 Dec 2019 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2019/12/17/Studied-about-Mongo-DB/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/17/Studied-about-Mongo-DB/</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Fixed MongoDB related issues</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Fixed AWS server time out issues when trying to connect to GitHub to update codes.&lt;/li&gt;
+  &lt;li&gt;Remove all compiling errors related to MongoDB by commenting out incomplete codes.&lt;/li&gt;
+  &lt;li&gt;Install MongoDB locally.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Problems encountered:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;On AWS server, it will time out when trying to connect to GitHub.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Solution:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Run below commands.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bat highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-list &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-system
+&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-list &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-global
+&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-system &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-unset &lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;credential&lt;/span&gt;.helper
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Note:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The link below is the guide to install MongoDB.&lt;br /&gt;
+&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows&quot;&gt;https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Mon, 16 Dec 2019 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2019/12/16/Fixed-MongoDB-related-issues/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/16/Fixed-MongoDB-related-issues/</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
   </channel>
 </rss>

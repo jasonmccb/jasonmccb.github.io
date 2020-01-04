@@ -1,45 +1,575 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
 
- <div class="container docs-container">
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> - Jason Liu's blog</title>
+
+	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
+	<link rel="icon" href="/styles/images/favicon.jpg">
+
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/styles/css/syntax.css">
+	<link rel="canonical" href="/">
+	<link rel="alternate" type="application/rss+xml" title="Jason Liu's blog" href="/feed.xml">
+	
+	<meta name="keywords" content=", Jason Liu's blog, Jason的个人博客;世事苍茫成云烟，天地孤影任我行">
+	<meta name="description" content="Jason的个人博客;世事苍茫成云烟，天地孤影任我行">
+
+	<script src="/styles/js/jquery.min.js"></script>
+	<!--[if lt IE 9]>
+    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  	<![endif]-->
+  	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?94be4b0f9fc5d94cc0d0415ea6761ae9";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+  	<style type="text/css">
+	  	.docs-content{
+	  		margin-bottom: 10px;
+	  	}
+  	</style>
+</head>
+
+  <body class="index">
+
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.jpg">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/categories/">Categories</a>
+        </li>
+        <li>
+          <a href="/tag">Tags</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a><span id="busuanzi_container_site_pv">Total visits: <span id="busuanzi_value_site_pv"></span></span></a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a rel="nofollow" target="_blank" href="https://github.com/jasonmccb">Github</a></li>
+            <li><a rel="nofollow" target="_blank" href="https://www.linkedin.com/in/junwen-liu-7261aa138/">About me</a></li>
+            <!-- <li><a rel="nofollow" href="/books">我的书单</a></li> -->
+            <!-- <li><a rel="nofollow" href="http://www.hifreud.com/domains/">域名管理</a></li> -->
+            <li><a rel="nofollow" href="/reference">Related links</a></li>
+            <li><a href="/feed.xml">RSS</a></li>
+            <li class="divider"></li>
+            <!-- <li><a rel="nofollow" target="_blank" href="https://github.com/luoyan35714/LessOrMore.git">本项目</a></li> -->
+			<li><a rel="nofollow" target="_blank" href="https://github.com/jasonmccb/jasonmccb.github.io.git">Git</a></li>			
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header" id="content">
+  <div class="container">
+  	
+	    <h1>Jason Liu's blog</h1>
+	    <p>True victory is not beating someone strong but being able to protect something important to you</p>
+    
+  </div>
+</div>
+    
+
+     <div class="container docs-container">
       <div class="row">
         <div class="col-md-3">
           <div class="sidebar hidden-print" role="complementary">
             <div id="navigation">
-              <h1>目录</h1>
+              <h1>Catalog</h1>
               <ul class="nav sidenav">
-                {% for post in site.posts  %}
-                  {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
-                  {% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}
-                  {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
-                  {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
-                  {% if forloop.first %}
-                    <li><a href="#year_{{this_year}}">{{this_year}}</a>
+                
+                  
+                  
+                  
+                  
+                  
+                    <li><a href="#year_2019">2019</a>
                       <ul class="nav">
-                        <li><a href="#month_{{this_year}}_{{this_month}}">{{this_month}}</a></li>
-                  {% endif %}
-                  {% if forloop.last %}
+                        <li><a href="#month_2019_December">December</a></li>
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                          <li><a href="#month_2019_November">November</a></li>
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                    
                         </ul>
                       </li>
-                  {% else %}
-                    {% if this_year != next_year %}
-                        </ul>
-                      </li>
-                      <li><a href="#year_{{next_year}}">{{next_year}}</a>
+                      <li><a href="#year_2017">2017</a>
                         <ul class="nav">
-                          <li><a href="#month_{{next_year}}_{{next_month}}">{{next_month}}</a></li>
-                    {% else %}    
-                      {% if this_month != next_month %}
-                          <li><a href="#month_{{next_year}}_{{next_month}}">{{next_month}}</a></li>
-                      {% endif %}
-                    {% endif %}
-                  {% endif %}
-                {% endfor %}
+                          <li><a href="#month_2017_July">July</a></li>
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                          <li><a href="#month_2017_June">June</a></li>
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                    
+                        </ul>
+                      </li>
+                      <li><a href="#year_2016">2016</a>
+                        <ul class="nav">
+                          <li><a href="#month_2016_August">August</a></li>
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                    
+                        </ul>
+                      </li>
+                      <li><a href="#year_2014">2014</a>
+                        <ul class="nav">
+                          <li><a href="#month_2014_December">December</a></li>
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        
+                      
+                          <li><a href="#month_2014_November">November</a></li>
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                        </ul>
+                      </li>
+                  
+                
               </ul>
               <div style="height: 200px;width: 200px;">
                 
-                <script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i={{ site.revolvermaps }}&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"> 
+                <script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"> 
                 </script>
               </div>
             </div>
@@ -49,41 +579,691 @@ layout: default
           <div class="panel docs-content">
             <div class="wrapper">
               <div class="home">
-                {% for post in site.posts  %}
-                  {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
-                  {% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}
-                  {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
-                  {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
+                
+                  
+                  
+                  
+                  
 
-                  {% if forloop.first %}
-                    <h1 id="year_{{this_year}}">{{this_year}}</h1>
-                    <h2 id="month_{{this_year}}_{{this_month}}">{{this_month}}</h2>
+                  
+                    <h1 id="year_2019">2019</h1>
+                    <h2 id="month_2019_December">December</h2>
                     <ul>
-                  {% endif %}
+                  
 
                   <ol class="breadcrumb">
-                   <li><span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo; <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
+                   <li><span>December 27, 2019</span> &raquo; <a href="/2019/12/27/Added-email-module-and-related-DB-query-methods/">Added email module and related DB query methods</a></li>
                   </ol>
-                  {% if forloop.last %}
-                    </ul>
-                  {% else %}
-                    {% if this_year != next_year %}
-                      </ul>
-                      <h1 id="year_{{next_year}}">{{next_year}}</h1>
-                      <h2 id="month_{{next_year}}_{{next_month}}">{{next_month}}</h2>
-                      <ul>
-                    {% else %}    
-                      {% if this_month != next_month %}
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December 26, 2019</span> &raquo; <a href="/2019/12/26/Public-holiday/">Public holiday</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December 25, 2019</span> &raquo; <a href="/2019/12/25/Public-holiday/">Public holiday</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December 24, 2019</span> &raquo; <a href="/2019/12/24/Public-holiday/">Public holiday</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December 23, 2019</span> &raquo; <a href="/2019/12/23/Discussed-and-confirmed-the-email-system-logic/">Discussed and confirmed the email system logic</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December 20, 2019</span> &raquo; <a href="/2019/12/20/Annual-leave/">Annual leave</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December 19, 2019</span> &raquo; <a href="/2019/12/19/Fixed-the-duplicate-record-bug-while-importing-from-Excel-to-DB/">Fixed the duplicate record bug while importing from Excel to DB</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December 18, 2019</span> &raquo; <a href="/2019/12/18/Fixed-the-bug-in-Excel-writing/">Fixed the bug in Excel writing</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December 17, 2019</span> &raquo; <a href="/2019/12/17/Studied-about-Mongo-DB/">Studied about Mongo DB</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December 16, 2019</span> &raquo; <a href="/2019/12/16/Fixed-MongoDB-related-issues/">Fixed MongoDB related issues</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December 13, 2019</span> &raquo; <a href="/2019/12/13/Annual-leave/">Annual leave</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December 12, 2019</span> &raquo; <a href="/2019/12/12/UI-improvements/">UI improvements</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December 11, 2019</span> &raquo; <a href="/2019/12/11/Merged-MongoDB-branch-into-master/">Merged MongoDB branch into master</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December 10, 2019</span> &raquo; <a href="/2019/12/10/Fixed-logging-issues/">Fixed logging issues</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December  9, 2019</span> &raquo; <a href="/2019/12/09/Sick-leave/">Sick leave</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December  6, 2019</span> &raquo; <a href="/2019/12/06/Discussion-on-the-new-architecture-of-the-application/">Discussion on the new architecture of the application</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December  5, 2019</span> &raquo; <a href="/2019/12/05/Added-logger-to-the-program/">Added logger to the program</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December  4, 2019</span> &raquo; <a href="/2019/12/04/Reprioritization-on-business-requirements/">Reprioritization on business requirements</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December  3, 2019</span> &raquo; <a href="/2019/12/03/Production-release,-using-jar-instead-of-GitHub/">Production release, using jar instead of GitHub</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December  2, 2019</span> &raquo; <a href="/2019/12/02/Fixed-issues-related-to-data-and-format/">Fixed issues related to data and format</a></li>
+                  </ol>
+                  
+                        
+                      
                         </ul>
-                        <h2 id="month_{{next_year}}_{{next_month}}">{{next_month}}</h2>
+                        <h2 id="month_2019_November">November</h2>
                         <ul>
-                      {% endif %}
-                    {% endif %}
-                  {% endif %}
-                {% endfor %}
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>November 29, 2019</span> &raquo; <a href="/2019/11/29/misc-enhancements/">Misc enhancements</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>November 28, 2019</span> &raquo; <a href="/2019/11/28/Reading-new-columns-for-validation/">Reading new columns for validation</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>November 27, 2019</span> &raquo; <a href="/2019/11/27/Exception-handling/">Improved exception handling</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>November 26, 2019</span> &raquo; <a href="/2019/11/26/Production-release,-excel-reader-enhancement/">Excel reader enhancement</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>November 25, 2019</span> &raquo; <a href="/2019/11/25/enhancement,-java-script-(continued)/">Collect data from bars and restaurants</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>November 22, 2019</span> &raquo; <a href="/2019/11/22/Collect-data-from-bars-and-restaurants-Copy/">Collect data from bars and restaurants</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>November 21, 2019</span> &raquo; <a href="/2019/11/21/enhancement,-java-script/">enhancement - java script</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>November 20, 2019</span> &raquo; <a href="/2019/11/20/enhancement,-webpage-and-GUI/">enhancement, webpage and GUI</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>November 19, 2019</span> &raquo; <a href="/2019/11/19/Tue-release,-fixed-issues-caused-by-configuration-and-input-spreadsheet/">Prod release - fixed issues caused by configuration and input data</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>November 18, 2019</span> &raquo; <a href="/2019/11/18/Implemented-functionalities-with-top-priority-listed-in-issue-14/">Implemented functionalities with top priority</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>November 15, 2019</span> &raquo; <a href="/2019/11/15/review-of-the-week/">Review of the week</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>November 14, 2019</span> &raquo; <a href="/2019/11/14/define-product-backlogs-and-priorities/">Define product backlogs and priorities</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>November 13, 2019</span> &raquo; <a href="/2019/11/13/the-beer-web-is-live-in-production/">The beer web is live in production</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>November 12, 2019</span> &raquo; <a href="/2019/11/12/diagnose-existing-problems/">Diagnose existing problems</a></li>
+                  </ol>
+                  
+                        
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>November 11, 2019</span> &raquo; <a href="/2019/11/11/beer-web-day-1/">Beer web day 1</a></li>
+                  </ol>
+                  
+                    
+                      </ul>
+                      <h1 id="year_2017">2017</h1>
+                      <h2 id="month_2017_July">July</h2>
+                      <ul>
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>July 24, 2017</span> &raquo; <a href="/2017/07/24/abandon-the-comment-feature/">永久放弃评论功能</a></li>
+                  </ol>
+                  
+                        
+                      
+                        </ul>
+                        <h2 id="month_2017_June">June</h2>
+                        <ul>
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>June  8, 2017</span> &raquo; <a href="/2017/06/08/change-the-comment-provider-to-yuntentie/">更换评论系统之从多说到云跟帖</a></li>
+                  </ol>
+                  
+                    
+                      </ul>
+                      <h1 id="year_2016">2016</h1>
+                      <h2 id="month_2016_August">August</h2>
+                      <ul>
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>August 27, 2016</span> &raquo; <a href="/2016/08/27/how-to-use-this-jekyll-theme/">如何使用LessOrMore这个Jekyll模版</a></li>
+                  </ol>
+                  
+                    
+                      </ul>
+                      <h1 id="year_2014">2014</h1>
+                      <h2 id="month_2014_December">December</h2>
+                      <ul>
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>December 21, 2014</span> &raquo; <a href="/2014/12/21/I-ve-Interviewed-100s-of-Candidates-and-the-Ones-I-Hire-Always-Do-This/">我面试过的上百个候选者中成功的人总会做的事情</a></li>
+                  </ol>
+                  
+                        
+                      
+                        </ul>
+                        <h2 id="month_2014_November">November</h2>
+                        <ul>
+                      
+                    
+                  
+                
+                  
+                  
+                  
+                  
+
+                  
+
+                  <ol class="breadcrumb">
+                   <li><span>November 17, 2014</span> &raquo; <a href="/2014/11/17/welcome-to-jekyll/">Welcome to Jekyll!</a></li>
+                  </ol>
+                  
+                    </ul>
+                  
+                
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    
+    <footer class="footer" role="contentinfo">
+	<div class="container">
+		<p class="copyright">Copyright &copy; 2014-2020 <a href="https://www.linkedin.com/in/junwen-liu-7261aa138/"><code>Jason Liu</code></a>.</p>
+		<p>Powered by <a href="http://jekyllrb.com">Jekyll</a>, themed from <a href="http://lesscss.cn/">Less</a>, template from <a href="http://jekyllthemes.org/themes/Less-Or-More/">Freud Kang</a></p>
+	</div>
+</footer>
+
+<script src="/styles/js/jquery.min.js"></script>
+<script src="/styles/js/bootstrap.min.js"></script>
+<script src="/styles/js/holder.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  </body>
+</html>
