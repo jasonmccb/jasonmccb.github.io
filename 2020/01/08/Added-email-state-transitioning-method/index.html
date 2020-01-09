@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Annual leave - Jason Liu's blog</title>
+	<title>Added email state transitioning method - Jason Liu's blog</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/2019/12/13/Annual-leave/">
+	<link rel="canonical" href="/2020/01/08/Added-email-state-transitioning-method/">
 	<link rel="alternate" type="application/rss+xml" title="Jason Liu's blog" href="/feed.xml">
 	
-	<meta name="keywords" content="Annual leave, Jason Liu's blog, Jason的个人博客;世事苍茫成云烟，天地孤影任我行">
+	<meta name="keywords" content="Added email state transitioning method, Jason Liu's blog, Jason的个人博客;世事苍茫成云烟，天地孤影任我行">
 	<meta name="description" content="Jason的个人博客;世事苍茫成云烟，天地孤影任我行">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -92,8 +92,8 @@
   <div class="container">
   	
   		<!--
-		    <h1>Annual leave</h1>
-		    <p>Post on Dec 13, 2019 by <a href="/about">Jason Liu</a></p>
+		    <h1>Added email state transitioning method</h1>
+		    <p>Post on Jan 08, 2020 by <a href="/about">Jason Liu</a></p>
 		-->
 		    <h1>The meaning of life is to explore the world</h1>
     
@@ -105,7 +105,7 @@
   <div class="container">
   	
     	<a href="/categories/#theScene.Co-ref">theScene.Co</a>	/
-    	<a href="/tag/#-ref"></a>
+    	<a href="/tag/#GitHub-ref">GitHub</a>
     
   </div>
 </div>
@@ -133,15 +133,39 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">Annual leave</h1>
+              <h1 class="post-title">Added email state transitioning method</h1>
               <!--
-                <p class="post-meta">Dec 13, 2019</p>
+                <p class="post-meta">Jan 8, 2020</p>
               -->
-              <div class="meta">Posted on <span class="postdate">Dec 13, 2019</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
+              <div class="meta">Posted on <span class="postdate">Jan 08, 2020</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
               <br />
             </header>
             <article class="post-content">
-              <p>Annual leave.</p>
+              <p>What have been done:</p>
+
+<ol>
+  <li>
+    <p>Added email state transitioning method, according to email domain model below.
+<img src="/images/Domain model.png" alt="image" /></p>
+  </li>
+  <li>
+    <p>Resolved github checkout ambiguity issue.</p>
+  </li>
+</ol>
+
+<p>Problems encountered:</p>
+
+<ol>
+  <li>Branch name has same name as folder/file name therefore GitHub doesn’t know which one to check out.
+<img src="/images/github checkout ambiguity issue.PNG" alt="image" /></li>
+</ol>
+
+<p>Solution:</p>
+
+<ol>
+  <li>Separate the branch name and folder/file name by “–”.
+<img src="/images/github checkout ambiguity solution.PNG" alt="image" /></li>
+</ol>
 
             </article>
         </div>

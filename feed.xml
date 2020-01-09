@@ -5,9 +5,85 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 04 Jan 2020 20:48:27 +1300</pubDate>
-    <lastBuildDate>Sat, 04 Jan 2020 20:48:27 +1300</lastBuildDate>
+    <pubDate>Thu, 09 Jan 2020 16:32:15 +1300</pubDate>
+    <lastBuildDate>Thu, 09 Jan 2020 16:32:15 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Added email state transitioning method</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Added email state transitioning method, according to email domain model below.
+&lt;img src=&quot;/images/Domain model.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Resolved github checkout ambiguity issue.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Problems encountered:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Branch name has same name as folder/file name therefore GitHub doesn’t know which one to check out.
+&lt;img src=&quot;/images/github checkout ambiguity issue.PNG&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Solution:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Separate the branch name and folder/file name by “–”.
+&lt;img src=&quot;/images/github checkout ambiguity solution.PNG&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Wed, 08 Jan 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/08/Added-email-state-transitioning-method/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/08/Added-email-state-transitioning-method/</guid>
+        
+        <category>GitHub</category>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Added 3 more headers in Excel spreadsheet and corresponding reading logic</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Added 3 more headers in Excel spreadsheet: “Confirmation Period”, “Confirmation Period Start Offset”, “Confirmation Date”.&lt;/li&gt;
+  &lt;li&gt;Added corresponding reading logic for the new headers&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Tue, 07 Jan 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/07/Added-3-more-headers-in-Excel-spreadsheet-and-corresponding-reading-logic-Copy/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/07/Added-3-more-headers-in-Excel-spreadsheet-and-corresponding-reading-logic-Copy/</guid>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Implemented the logic to get date cell from Excel</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Implemented the logic to get date cell from Excel&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Mon, 06 Jan 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/06/Implemented-the-logic-to-get-date-cell-from-Excel/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/06/Implemented-the-logic-to-get-date-cell-from-Excel/</guid>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
     
       <item>
         <title>Public holiday</title>
@@ -24,7 +100,8 @@
     
       <item>
         <title>Public holiday</title>
-        <description>&lt;p&gt;Public holiday.&lt;/p&gt;
+        <description>&lt;p&gt;Public holiday.
+Went tramping at Orongorongo Track, having a good time.&lt;/p&gt;
 </description>
         <pubDate>Thu, 02 Jan 2020 23:30:00 +1300</pubDate>
         <link>http://localhost:4000/2020/01/02/Public-holiday/</link>
@@ -110,65 +187,6 @@ Merry Christmas.&lt;/p&gt;
         <pubDate>Thu, 26 Dec 2019 23:30:00 +1300</pubDate>
         <link>http://localhost:4000/2019/12/26/Public-holiday/</link>
         <guid isPermaLink="true">http://localhost:4000/2019/12/26/Public-holiday/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Public holiday</title>
-        <description>&lt;p&gt;Public holiday.
-Merry Christmas.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 25 Dec 2019 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2019/12/25/Public-holiday/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/12/25/Public-holiday/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Public holiday</title>
-        <description>&lt;p&gt;Public holiday.
-Merry Christmas.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 24 Dec 2019 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2019/12/24/Public-holiday/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/12/24/Public-holiday/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Discussed and confirmed the email system logic</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Discussed and confirmed the email system logic.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;The state flow of specials:
-&lt;img src=&quot;/images/state flow of specials.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The email sending mechanism:
-&lt;img src=&quot;/images/manuscript - email sending mechanism.jpg&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        <pubDate>Mon, 23 Dec 2019 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2019/12/23/Discussed-and-confirmed-the-email-system-logic/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/12/23/Discussed-and-confirmed-the-email-system-logic/</guid>
-        
-        <category>project management</category>
         
         
         <category>theScene.Co</category>
