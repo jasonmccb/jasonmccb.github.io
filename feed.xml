@@ -5,9 +5,125 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 09 Jan 2020 16:32:15 +1300</pubDate>
-    <lastBuildDate>Thu, 09 Jan 2020 16:32:15 +1300</lastBuildDate>
+    <pubDate>Sat, 18 Jan 2020 18:18:55 +1300</pubDate>
+    <lastBuildDate>Sat, 18 Jan 2020 18:18:55 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Comany holiday</title>
+        <description>&lt;p&gt;Comany holiday.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 17 Jan 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/17/Company-holiday/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/17/Company-holiday/</guid>
+        
+        <category>GitHub</category>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Comany holiday</title>
+        <description>&lt;p&gt;Comany holiday.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 16 Jan 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/16/Company-holiday/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/16/Company-holiday/</guid>
+        
+        <category>GitHub</category>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Added more test cases for the special and email transition funtion</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Added more test cases for the special and email transition funtion
+The new test cases have been added to the Atlassian Confluence Wiki:
+&lt;a href=&quot;https://thescene.atlassian.net/wiki/spaces/HG/pages/559644674/Architecture+for+email+update&quot;&gt;https://thescene.atlassian.net/wiki/spaces/HG/pages/559644674/Architecture+for+email+update&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Wed, 15 Jan 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/15/Added-more-test-cases-for-the-special-and-email-transition-funtion/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/15/Added-more-test-cases-for-the-special-and-email-transition-funtion/</guid>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Comany holiday</title>
+        <description>&lt;p&gt;Comany holiday.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 14 Jan 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/14/Company-holiday/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/14/Company-holiday/</guid>
+        
+        <category>GitHub</category>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Corrected the workflow for emails and special transitioning</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Corrected status flow chart for emails and specials. The new workflow is based on the assumption that one speical will generate one individual email.
+The new design has been added to the Atlassian Confluence Wiki:
+&lt;a href=&quot;https://thescene.atlassian.net/wiki/spaces/HG/pages/559644674/Architecture+for+email+update&quot;&gt;https://thescene.atlassian.net/wiki/spaces/HG/pages/559644674/Architecture+for+email+update&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Updated the transition funtion accordingly&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Mon, 13 Jan 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/13/Corrected-the-workflow-for-emails-and-special-transitioning/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/13/Corrected-the-workflow-for-emails-and-special-transitioning/</guid>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>JUnit test for state transitioning method</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;JUnit test for state transitioning method&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Fri, 10 Jan 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/10/JUnit-test-for-state-transitioning-method/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/10/JUnit-test-for-state-transitioning-method/</guid>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Comany holiday</title>
+        <description>&lt;p&gt;Comany holiday.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 09 Jan 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/09/Company-holiday/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/09/Company-holiday/</guid>
+        
+        <category>GitHub</category>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
     
       <item>
         <title>Added email state transitioning method</title>
@@ -79,114 +195,6 @@
         <pubDate>Mon, 06 Jan 2020 23:30:00 +1300</pubDate>
         <link>http://localhost:4000/2020/01/06/Implemented-the-logic-to-get-date-cell-from-Excel/</link>
         <guid isPermaLink="true">http://localhost:4000/2020/01/06/Implemented-the-logic-to-get-date-cell-from-Excel/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Public holiday</title>
-        <description>&lt;p&gt;Public holiday.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 03 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/03/Public-holiday/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/03/Public-holiday/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Public holiday</title>
-        <description>&lt;p&gt;Public holiday.
-Went tramping at Orongorongo Track, having a good time.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 02 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/02/Public-holiday/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/02/Public-holiday/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Public holiday</title>
-        <description>&lt;p&gt;Public holiday.
-Happy 2020.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 01 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/01/Public-holiday/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/01/Public-holiday/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Annual leave</title>
-        <description>&lt;p&gt;Annual leave.
-Happy new year.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 31 Dec 2019 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2019/12/31/Annual-leave/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/12/31/Annual-leave/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Corrected the filtering logic</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Moved the filtering logic from ExcelReader class to FilteringStrategy class&lt;/li&gt;
-  &lt;li&gt;Records in INCOMPLETE state now can be imported into MongoDB&lt;/li&gt;
-  &lt;li&gt;New headers are added to the Excel spreadsheet as well as the Special class&lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        <pubDate>Mon, 30 Dec 2019 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2019/12/30/Corrected-the-filtering-logic/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/12/30/Corrected-the-filtering-logic/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Added email module and related DB query methods</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Added email module according to the design.&lt;/li&gt;
-  &lt;li&gt;Added DB related query methods.&lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        <pubDate>Fri, 27 Dec 2019 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2019/12/27/Added-email-module-and-related-DB-query-methods/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/12/27/Added-email-module-and-related-DB-query-methods/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Public holiday</title>
-        <description>&lt;p&gt;Public holiday.
-Merry Christmas.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 26 Dec 2019 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2019/12/26/Public-holiday/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/12/26/Public-holiday/</guid>
         
         
         <category>theScene.Co</category>
