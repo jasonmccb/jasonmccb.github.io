@@ -5,159 +5,75 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 18 Jan 2020 18:18:55 +1300</pubDate>
-    <lastBuildDate>Sat, 18 Jan 2020 18:18:55 +1300</lastBuildDate>
+    <pubDate>Sun, 02 Feb 2020 18:36:52 +1300</pubDate>
+    <lastBuildDate>Sun, 02 Feb 2020 18:36:52 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
-        <title>Comany holiday</title>
-        <description>&lt;p&gt;Comany holiday.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 17 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/17/Company-holiday/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/17/Company-holiday/</guid>
-        
-        <category>GitHub</category>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Comany holiday</title>
-        <description>&lt;p&gt;Comany holiday.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 16 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/16/Company-holiday/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/16/Company-holiday/</guid>
-        
-        <category>GitHub</category>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Added more test cases for the special and email transition funtion</title>
+        <title>(Shifted from Jan.31) Email file names are generated from special data</title>
         <description>&lt;p&gt;What have been done:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Added more test cases for the special and email transition funtion
-The new test cases have been added to the Atlassian Confluence Wiki:
-&lt;a href=&quot;https://thescene.atlassian.net/wiki/spaces/HG/pages/559644674/Architecture+for+email+update&quot;&gt;https://thescene.atlassian.net/wiki/spaces/HG/pages/559644674/Architecture+for+email+update&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;(Shifted from Jan.31) Email file names can now be generated from special data.&lt;/li&gt;
 &lt;/ol&gt;
-</description>
-        <pubDate>Wed, 15 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/15/Added-more-test-cases-for-the-special-and-email-transition-funtion/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/15/Added-more-test-cases-for-the-special-and-email-transition-funtion/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Comany holiday</title>
-        <description>&lt;p&gt;Comany holiday.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 14 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/14/Company-holiday/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/14/Company-holiday/</guid>
-        
-        <category>GitHub</category>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Corrected the workflow for emails and special transitioning</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;p&gt;Note:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Corrected status flow chart for emails and specials. The new workflow is based on the assumption that one speical will generate one individual email.
-The new design has been added to the Atlassian Confluence Wiki:
-&lt;a href=&quot;https://thescene.atlassian.net/wiki/spaces/HG/pages/559644674/Architecture+for+email+update&quot;&gt;https://thescene.atlassian.net/wiki/spaces/HG/pages/559644674/Architecture+for+email+update&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Updated the transition funtion accordingly&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Mon, 13 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/13/Corrected-the-workflow-for-emails-and-special-transitioning/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/13/Corrected-the-workflow-for-emails-and-special-transitioning/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>JUnit test for state transitioning method</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;JUnit test for state transitioning method&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Fri, 10 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/10/JUnit-test-for-state-transitioning-method/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/10/JUnit-test-for-state-transitioning-method/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Comany holiday</title>
-        <description>&lt;p&gt;Comany holiday.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 09 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/09/Company-holiday/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/09/Company-holiday/</guid>
-        
-        <category>GitHub</category>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Added email state transitioning method</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Added email state transitioning method, according to email domain model below.
-&lt;img src=&quot;/images/Domain model.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+  &lt;li&gt;E.g. of JPA format used in the program:
+    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nd&quot;&gt;@Query&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{\&quot;status\&quot; : { $ne: \&quot;INCOMPLETE\&quot;} }&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Special&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;excludeIncompletes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Status&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Resolved github checkout ambiguity issue.&lt;/p&gt;
-  &lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Sat, 01 Feb 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/02/01/(Shifted-from-Jan.31)-Email-file-names-are-generated-from-special-data/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/01/(Shifted-from-Jan.31)-Email-file-names-are-generated-from-special-data/</guid>
+        
+        <category>Java</category>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Fixed the null properties issues for Special import</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Fixed the issue where Specials have lots of null properties caused by the empty constructor used to avoid Lombok default mapping.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;Problems encountered:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Branch name has same name as folder/file name therefore GitHub doesn’t know which one to check out.
-&lt;img src=&quot;/images/github checkout ambiguity issue.PNG&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;It’s difficult to control which properties need to be constructed and how they behave using Lombok. Properties will become null if we don’t specify them in an constructor with @Builder annotation.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;Solution:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Separate the branch name and folder/file name by “–”.
-&lt;img src=&quot;/images/github checkout ambiguity solution.PNG&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Write our own SpecialBuilder class, instead of using Lombok. Eg.
+    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Special&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SpecialBuilder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
+
 </description>
-        <pubDate>Wed, 08 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/08/Added-email-state-transitioning-method/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/08/Added-email-state-transitioning-method/</guid>
+        <pubDate>Thu, 30 Jan 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/30/Fixed-the-null-properties-issues-for-Special-import/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/30/Fixed-the-null-properties-issues-for-Special-import/</guid>
         
-        <category>GitHub</category>
+        <category>Java</category>
         
         
         <category>theScene.Co</category>
@@ -165,18 +81,20 @@ The new design has been added to the Atlassian Confluence Wiki:
       </item>
     
       <item>
-        <title>Added 3 more headers in Excel spreadsheet and corresponding reading logic</title>
+        <title>Fixed Thymeleaf parsing error on single quotation mark</title>
         <description>&lt;p&gt;What have been done:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Added 3 more headers in Excel spreadsheet: “Confirmation Period”, “Confirmation Period Start Offset”, “Confirmation Date”.&lt;/li&gt;
-  &lt;li&gt;Added corresponding reading logic for the new headers&lt;/li&gt;
+  &lt;li&gt;Fixed Thymeleaf parsing error on single quotation mark. Use ' to escape ‘ in a string in Thymeleaf.&lt;/li&gt;
+  &lt;li&gt;Enriched emails with dates from specials.&lt;/li&gt;
 &lt;/ol&gt;
 
 </description>
-        <pubDate>Tue, 07 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/07/Added-3-more-headers-in-Excel-spreadsheet-and-corresponding-reading-logic-Copy/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/07/Added-3-more-headers-in-Excel-spreadsheet-and-corresponding-reading-logic-Copy/</guid>
+        <pubDate>Wed, 29 Jan 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/29/Fixed-Thymeleaf-parsing-error-on-single-quotation-mark/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/29/Fixed-Thymeleaf-parsing-error-on-single-quotation-mark/</guid>
+        
+        <category>Thymeleaf</category>
         
         
         <category>theScene.Co</category>
@@ -184,17 +102,158 @@ The new design has been added to the Atlassian Confluence Wiki:
       </item>
     
       <item>
-        <title>Implemented the logic to get date cell from Excel</title>
+        <title>Updated email template and fixed a bug causing error to save special to DB</title>
         <description>&lt;p&gt;What have been done:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Implemented the logic to get date cell from Excel&lt;/li&gt;
+  &lt;li&gt;Updated email html template from Oscar.&lt;/li&gt;
+  &lt;li&gt;Fixed the exception where Clock used in Special class cannot be saved into MongoDB.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Problems encountered:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Exception triggered while saving Special class to DB: “Can’t find a codec for class java.time.Clock$SystemClock.”.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Solution:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Use the annotation @Transient on the Clock property to prevent Spring Framework mapping&lt;/li&gt;
+  &lt;li&gt;Use the annotation @Builder on an empty contructor to prevent Lombok automatic mapping. Refer to link below:&lt;br /&gt;
+&lt;a href=&quot;https://stackoverflow.com/questions/30717640/how-to-exclude-property-from-lombok-builder&quot;&gt;https://stackoverflow.com/questions/30717640/how-to-exclude-property-from-lombok-builder&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 </description>
-        <pubDate>Mon, 06 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/06/Implemented-the-logic-to-get-date-cell-from-Excel/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/06/Implemented-the-logic-to-get-date-cell-from-Excel/</guid>
+        <pubDate>Tue, 28 Jan 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/28/Updated-email-template-and-fixed-a-bug-causing-error-to-save-special-to-DB/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/28/Updated-email-template-and-fixed-a-bug-causing-error-to-save-special-to-DB/</guid>
+        
+        <category>Lombok</category>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Annual leave</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Annual leave. Happy Chinese New Year.&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Mon, 27 Jan 2020 09:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/27/Annual-leave/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/27/Annual-leave/</guid>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Fixed a Thymeleaf parsing exception</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Fixed a Thymeleaf parsing exception which says “Could not parse as expression”.&lt;br /&gt;
+It was caused by missing the “th:” scope in the html template.&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Fri, 24 Jan 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/24/Fixed-a-Thymeleaf-parsing-exception/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/24/Fixed-a-Thymeleaf-parsing-exception/</guid>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Product branding</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Discussed the product branding with a professional branding consultant.&lt;br /&gt;
+It was done by a small game with about 50 cards.
+Each card has two sides with a word on each that has opposite meaning to the other side.
+We need to categorize all cards into 3 categories, “what it is”, “what it is NOT” and “N/A”.
+Eventually we need to narrow down the top 4 words in each category.&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Thu, 23 Jan 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/23/Product-branding/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/23/Product-branding/</guid>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Created email template using Thymeleaf</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Created email template using Thymeleaf.&lt;br /&gt;
+The look of the email template:&lt;br /&gt;
+&lt;img src=&quot;/images/email_template.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Wed, 22 Jan 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/22/Created-email-template-using-Thymeleaf/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/22/Created-email-template-using-Thymeleaf/</guid>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Added Thymeleaf in Java</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Studied basics of Thymeleaf.&lt;br /&gt;
+FYI, the Thymeleaf introduction:
+&lt;a href=&quot;https://www.thymeleaf.org/doc/articles/springmail.html&quot;&gt;https://www.thymeleaf.org/doc/articles/springmail.html&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Added Thymeleaf in Java configuration.&lt;br /&gt;
+&lt;img src=&quot;/images/Thymeleaf_POM.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Tue, 21 Jan 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/21/Added-Thymeleaf-in-Java/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/21/Added-Thymeleaf-in-Java/</guid>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Fixed the defects on transitioning method found by 7 test cases</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Fixed the defects on transitioning method found by 7 test cases.
+FYI, the latest test cases in Atlassian Confluence Wiki:
+&lt;a href=&quot;https://thescene.atlassian.net/wiki/spaces/HG/pages/559644674/Architecture+for+email+update&quot;&gt;https://thescene.atlassian.net/wiki/spaces/HG/pages/559644674/Architecture+for+email+update&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Mon, 20 Jan 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/01/20/Fixed-the-defects-on-transitioning-method-found-by-7-test-cases/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/20/Fixed-the-defects-on-transitioning-method-found-by-7-test-cases/</guid>
         
         
         <category>theScene.Co</category>
