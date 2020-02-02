@@ -5,8 +5,8 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 02 Feb 2020 18:36:52 +1300</pubDate>
-    <lastBuildDate>Sun, 02 Feb 2020 18:36:52 +1300</lastBuildDate>
+    <pubDate>Sun, 02 Feb 2020 22:13:21 +1300</pubDate>
+    <lastBuildDate>Sun, 02 Feb 2020 22:13:21 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -168,6 +168,8 @@ It was caused by missing the “th:” scope in the html template.&lt;/li&gt;
         <link>http://localhost:4000/2020/01/24/Fixed-a-Thymeleaf-parsing-exception/</link>
         <guid isPermaLink="true">http://localhost:4000/2020/01/24/Fixed-a-Thymeleaf-parsing-exception/</guid>
         
+        <category>Thymeleaf</category>
+        
         
         <category>theScene.Co</category>
         
@@ -182,13 +184,16 @@ It was caused by missing the “th:” scope in the html template.&lt;/li&gt;
 It was done by a small game with about 50 cards.
 Each card has two sides with a word on each that has opposite meaning to the other side.
 We need to categorize all cards into 3 categories, “what it is”, “what it is NOT” and “N/A”.
-Eventually we need to narrow down the top 4 words in each category.&lt;/li&gt;
+Eventually we need to narrow down the top 4 words in each category. 
+In the example of “Happy Gigs”, top 5 characteristics of it are “effortless”, “current”, “progressive”, “vibrant” and “welcoming”.&lt;/li&gt;
 &lt;/ol&gt;
 
 </description>
         <pubDate>Thu, 23 Jan 2020 23:30:00 +1300</pubDate>
         <link>http://localhost:4000/2020/01/23/Product-branding/</link>
         <guid isPermaLink="true">http://localhost:4000/2020/01/23/Product-branding/</guid>
+        
+        <category>project management</category>
         
         
         <category>theScene.Co</category>
