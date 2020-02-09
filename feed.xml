@@ -5,9 +5,116 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 02 Feb 2020 22:13:21 +1300</pubDate>
-    <lastBuildDate>Sun, 02 Feb 2020 22:13:21 +1300</lastBuildDate>
+    <pubDate>Mon, 10 Feb 2020 10:34:01 +1300</pubDate>
+    <lastBuildDate>Mon, 10 Feb 2020 10:34:01 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Company holiday</title>
+        <description>&lt;p&gt;Company holiday&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 07 Feb 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/02/07/Company-holiday/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/07/Company-holiday/</guid>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Public holiday</title>
+        <description>&lt;p&gt;Public holiday&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 06 Feb 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/02/06/Public-holiday/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/06/Public-holiday/</guid>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Confirmation link handling</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Created new web page in response to user confirmation.&lt;/li&gt;
+  &lt;li&gt;Implemented authorization code generation and parsing method.&lt;/li&gt;
+  &lt;li&gt;Merged codes with other updates on spreadsheet including “region” and “initial email date”.&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Wed, 05 Feb 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/02/05/Confirmation-link-handling/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/05/Confirmation-link-handling/</guid>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Email ID generation and usage</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Generated EmailId and used it in the confirmation link in email&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Tue, 04 Feb 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/02/04/Email-ID-generation-and-usage/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/04/Email-ID-generation-and-usage/</guid>
+        
+        <category>Java</category>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Fixed a Thymeleaf error in getting template</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Fixed a Thymeleaf error in getting template.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Problems encountered:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;An example of Thymeleaf ERROR:&lt;br /&gt;
+2020-02-03 22:35:27.782 [scheduling-1] ERROR org.thymeleaf.TemplateEngine - [THYMELEAF][scheduling-1] Exception processing template “”: Error resolving template [], template might not exist or might not be accessible by any of the configured Template Resolvers
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [], template might not exist or might not be accessible by any of the configured Template Resolvers&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Root cause:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;TemplateEngine has not been initialized before used.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Solution:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;private TemplateEngine templateEngine = new TemplateEngine();&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Mon, 03 Feb 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/02/03/Fixed-a-Thymeleaf-error-in-getting-template/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/03/Fixed-a-Thymeleaf-error-in-getting-template/</guid>
+        
+        <category>Thymeleaf</category>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
     
       <item>
         <title>(Shifted from Jan.31) Email file names are generated from special data</title>
@@ -148,117 +255,6 @@
         <pubDate>Mon, 27 Jan 2020 09:30:00 +1300</pubDate>
         <link>http://localhost:4000/2020/01/27/Annual-leave/</link>
         <guid isPermaLink="true">http://localhost:4000/2020/01/27/Annual-leave/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Fixed a Thymeleaf parsing exception</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Fixed a Thymeleaf parsing exception which says “Could not parse as expression”.&lt;br /&gt;
-It was caused by missing the “th:” scope in the html template.&lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        <pubDate>Fri, 24 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/24/Fixed-a-Thymeleaf-parsing-exception/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/24/Fixed-a-Thymeleaf-parsing-exception/</guid>
-        
-        <category>Thymeleaf</category>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Product branding</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Discussed the product branding with a professional branding consultant.&lt;br /&gt;
-It was done by a small game with about 50 cards.
-Each card has two sides with a word on each that has opposite meaning to the other side.
-We need to categorize all cards into 3 categories, “what it is”, “what it is NOT” and “N/A”.
-Eventually we need to narrow down the top 4 words in each category. 
-In the example of “Happy Gigs”, top 5 characteristics of it are “effortless”, “current”, “progressive”, “vibrant” and “welcoming”.&lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        <pubDate>Thu, 23 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/23/Product-branding/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/23/Product-branding/</guid>
-        
-        <category>project management</category>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Created email template using Thymeleaf</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Created email template using Thymeleaf.&lt;br /&gt;
-The look of the email template:&lt;br /&gt;
-&lt;img src=&quot;/images/email_template.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        <pubDate>Wed, 22 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/22/Created-email-template-using-Thymeleaf/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/22/Created-email-template-using-Thymeleaf/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Added Thymeleaf in Java</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Studied basics of Thymeleaf.&lt;br /&gt;
-FYI, the Thymeleaf introduction:
-&lt;a href=&quot;https://www.thymeleaf.org/doc/articles/springmail.html&quot;&gt;https://www.thymeleaf.org/doc/articles/springmail.html&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Added Thymeleaf in Java configuration.&lt;br /&gt;
-&lt;img src=&quot;/images/Thymeleaf_POM.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        <pubDate>Tue, 21 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/21/Added-Thymeleaf-in-Java/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/21/Added-Thymeleaf-in-Java/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Fixed the defects on transitioning method found by 7 test cases</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Fixed the defects on transitioning method found by 7 test cases.
-FYI, the latest test cases in Atlassian Confluence Wiki:
-&lt;a href=&quot;https://thescene.atlassian.net/wiki/spaces/HG/pages/559644674/Architecture+for+email+update&quot;&gt;https://thescene.atlassian.net/wiki/spaces/HG/pages/559644674/Architecture+for+email+update&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Mon, 20 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/20/Fixed-the-defects-on-transitioning-method-found-by-7-test-cases/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/20/Fixed-the-defects-on-transitioning-method-found-by-7-test-cases/</guid>
         
         
         <category>theScene.Co</category>
