@@ -5,9 +5,100 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 13 Feb 2020 02:50:06 +1300</pubDate>
-    <lastBuildDate>Thu, 13 Feb 2020 02:50:06 +1300</lastBuildDate>
+    <pubDate>Fri, 21 Feb 2020 21:10:44 +1300</pubDate>
+    <lastBuildDate>Fri, 21 Feb 2020 21:10:44 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Review and clean up for the whole internship</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Review and clean up for the whole internship.&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Fri, 14 Feb 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/02/14/Review-and-clean-up-for-the-whole-internship/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/14/Review-and-clean-up-for-the-whole-internship/</guid>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Presentation has been done</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Presentation has been done to Whitireia.&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Thu, 13 Feb 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/02/13/Presentation-has-been-done/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/13/Presentation-has-been-done/</guid>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Working on the presentation and report</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Working on the presentation and report.&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Wed, 12 Feb 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/02/12/Working-on-the-presentation-and-report/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/12/Working-on-the-presentation-and-report/</guid>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Working on the presentation and report</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Working on the presentation and report.&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Tue, 11 Feb 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/02/11/Working-on-the-presentation-and-report/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/11/Working-on-the-presentation-and-report/</guid>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
+    
+      <item>
+        <title>Email confirmation is working on database</title>
+        <description>&lt;p&gt;What have been done:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Email confirmation is working on database.&lt;/li&gt;
+  &lt;li&gt;Merged codes with other updates on spreadsheet including “ready to process”.&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Mon, 10 Feb 2020 23:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/02/10/Email-confirmation-is-working-on-database/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/02/10/Email-confirmation-is-working-on-database/</guid>
+        
+        
+        <category>theScene.Co</category>
+        
+      </item>
     
       <item>
         <title>Company holiday</title>
@@ -110,151 +201,6 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template [], te
         <guid isPermaLink="true">http://localhost:4000/2020/02/03/Fixed-a-Thymeleaf-error-in-getting-template/</guid>
         
         <category>Thymeleaf</category>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>(Shifted from Jan.31) Email file names are generated from special data</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;(Shifted from Jan.31) Email file names can now be generated from special data.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Note:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;E.g. of JPA format used in the program:
-    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nd&quot;&gt;@Query&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{\&quot;status\&quot; : { $ne: \&quot;INCOMPLETE\&quot;} }&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
- &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Special&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;excludeIncompletes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Status&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        <pubDate>Sat, 01 Feb 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/02/01/(Shifted-from-Jan.31)-Email-file-names-are-generated-from-special-data/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/02/01/(Shifted-from-Jan.31)-Email-file-names-are-generated-from-special-data/</guid>
-        
-        <category>Java</category>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Fixed the null properties issues for Special import</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Fixed the issue where Specials have lots of null properties caused by the empty constructor used to avoid Lombok default mapping.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Problems encountered:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;It’s difficult to control which properties need to be constructed and how they behave using Lombok. Properties will become null if we don’t specify them in an constructor with @Builder annotation.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Solution:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Write our own SpecialBuilder class, instead of using Lombok. Eg.
-    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Special&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
- &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SpecialBuilder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-     &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-     &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
- &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
- &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        <pubDate>Thu, 30 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/30/Fixed-the-null-properties-issues-for-Special-import/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/30/Fixed-the-null-properties-issues-for-Special-import/</guid>
-        
-        <category>Java</category>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Fixed Thymeleaf parsing error on single quotation mark</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Fixed Thymeleaf parsing error on single quotation mark. Use ' to escape ‘ in a string in Thymeleaf.&lt;/li&gt;
-  &lt;li&gt;Enriched emails with dates from specials.&lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        <pubDate>Wed, 29 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/29/Fixed-Thymeleaf-parsing-error-on-single-quotation-mark/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/29/Fixed-Thymeleaf-parsing-error-on-single-quotation-mark/</guid>
-        
-        <category>Thymeleaf</category>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Updated email template and fixed a bug causing error to save special to DB</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Updated email html template from Oscar.&lt;/li&gt;
-  &lt;li&gt;Fixed the exception where Clock used in Special class cannot be saved into MongoDB.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Problems encountered:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Exception triggered while saving Special class to DB: “Can’t find a codec for class java.time.Clock$SystemClock.”.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Solution:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Use the annotation @Transient on the Clock property to prevent Spring Framework mapping&lt;/li&gt;
-  &lt;li&gt;Use the annotation @Builder on an empty contructor to prevent Lombok automatic mapping. Refer to link below:&lt;br /&gt;
-&lt;a href=&quot;https://stackoverflow.com/questions/30717640/how-to-exclude-property-from-lombok-builder&quot;&gt;https://stackoverflow.com/questions/30717640/how-to-exclude-property-from-lombok-builder&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        <pubDate>Tue, 28 Jan 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/28/Updated-email-template-and-fixed-a-bug-causing-error-to-save-special-to-DB/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/28/Updated-email-template-and-fixed-a-bug-causing-error-to-save-special-to-DB/</guid>
-        
-        <category>Lombok</category>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Annual leave</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Annual leave. Happy Chinese New Year.&lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        <pubDate>Mon, 27 Jan 2020 09:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/01/27/Annual-leave/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/01/27/Annual-leave/</guid>
         
         
         <category>theScene.Co</category>
