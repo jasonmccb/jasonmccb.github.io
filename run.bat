@@ -1,4 +1,4 @@
-d:
+D:
 cd D:\JekyllBlog\myblog
 jekyll server
-:: bundle exec jekyll serve --watch
+::bundle exec jekyll serve --watch

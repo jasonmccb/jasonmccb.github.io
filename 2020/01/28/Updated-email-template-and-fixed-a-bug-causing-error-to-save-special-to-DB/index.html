@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Updated email template and fixed a bug causing error to save special to DB - Jason Liu's blog</title>
+	<title>Updated email template and fixed a bug causing error to save special to DB - Jason's Blog</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -14,10 +14,10 @@
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
 	<link rel="canonical" href="/2020/01/28/Updated-email-template-and-fixed-a-bug-causing-error-to-save-special-to-DB/">
-	<link rel="alternate" type="application/rss+xml" title="Jason Liu's blog" href="/feed.xml">
+	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
 	
-	<meta name="keywords" content="Updated email template and fixed a bug causing error to save special to DB, Jason Liu's blog, Jason的个人博客;世事苍茫成云烟，天地孤影任我行">
-	<meta name="description" content="Jason的个人博客;世事苍茫成云烟，天地孤影任我行">
+	<meta name="keywords" content="Updated email template and fixed a bug causing error to save special to DB, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 
 	<script src="/styles/js/jquery.min.js"></script>
 	<!--[if lt IE 9]>
@@ -27,7 +27,7 @@
 		var _hmt = _hmt || [];
 		(function() {
 		  var hm = document.createElement("script");
-		  hm.src = "//hm.baidu.com/hm.js?94be4b0f9fc5d94cc0d0415ea6761ae9";
+		  hm.src = "//hm.baidu.com/hm.js?718c90aec0b27f2b5ba1b7eeb0827810";
 		  var s = document.getElementsByTagName("script")[0]; 
 		  s.parentNode.insertBefore(hm, s);
 		})();
@@ -72,16 +72,12 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a rel="nofollow" target="_blank" href="https://github.com/jasonmccb">My Github</a></li>
-            <!-- <li><a rel="nofollow" target="_blank" href="https://www.linkedin.com/in/junwen-liu-7261aa138/">About me</a></li> -->
-			<li><a rel="nofollow" target="_blank" href="/about">About me</a></li>
-            <!-- <li><a rel="nofollow" href="/books">我的书单</a></li> -->
-            <!-- <li><a rel="nofollow" href="http://www.hifreud.com/domains/">域名管理</a></li> -->
+            <li><a rel="nofollow" target="_blank" href="https://github.com/jasonmccb/">My Github</a></li>
+            <li><a rel="nofollow" target="_blank" href="/about/">About me</a></li>
             <li><a rel="nofollow" href="/reference">Related links</a></li>
             <li><a href="/feed.xml">RSS</a></li>
             <li class="divider"></li>
-            <!-- <li><a rel="nofollow" target="_blank" href="https://github.com/luoyan35714/LessOrMore.git">本项目</a></li> -->
-			<li><a rel="nofollow" target="_blank" href="https://github.com/jasonmccb/jasonmccb.github.io.git">This site in Git</a></li>			
+            <li><a rel="nofollow" target="_blank" href="https://github.com/jasonmccb/jasonmccb.github.io">This site in Git</a></li>
           </ul>
         </li>
       </ul>
@@ -145,23 +141,26 @@
 
 <ol>
   <li>Updated email html template from Oscar.</li>
-  <li>Fixed the exception where Clock used in Special class cannot be saved into MongoDB.</li>
+  <li>Fixed the exception where Clock used in Special class cannot be
+saved into MongoDB.</li>
 </ol>
 
 <p>Problems encountered:</p>
 
 <ol>
-  <li>Exception triggered while saving Special class to DB: “Can’t find a codec for class java.time.Clock$SystemClock.”.</li>
+  <li>Exception triggered while saving Special class to DB: “Can’t find a
+codec for class java.time.Clock$SystemClock.”.</li>
 </ol>
 
 <p>Solution:</p>
 
 <ol>
-  <li>Use the annotation @Transient on the Clock property to prevent Spring Framework mapping</li>
-  <li>Use the annotation @Builder on an empty contructor to prevent Lombok automatic mapping. Refer to link below:<br />
+  <li>Use the annotation @Transient on the Clock property to prevent
+Spring Framework mapping</li>
+  <li>Use the annotation @Builder on an empty contructor to prevent
+Lombok automatic mapping. Refer to link below:<br />
 <a href="https://stackoverflow.com/questions/30717640/how-to-exclude-property-from-lombok-builder">https://stackoverflow.com/questions/30717640/how-to-exclude-property-from-lombok-builder</a></li>
 </ol>
-
 
             </article>
         </div>
