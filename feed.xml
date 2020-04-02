@@ -5,9 +5,127 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Apr 2020 11:59:57 +1300</pubDate>
-    <lastBuildDate>Thu, 02 Apr 2020 11:59:57 +1300</lastBuildDate>
+    <pubDate>Thu, 02 Apr 2020 16:28:08 +1300</pubDate>
+    <lastBuildDate>Thu, 02 Apr 2020 16:28:08 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Review of the GitHub procedure</title>
+        <description>&lt;p&gt;Summary:&lt;/p&gt;
+
+&lt;div class=&quot;language-bat highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;:: From local repo to GitHub:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;:: 1.Create repository manually on github.com&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;:: 2.Create locally and push to the remote repository&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;# my source&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;README&lt;/span&gt;.md
+&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;init&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;README&lt;/span&gt;.md
+&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;commit&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;-m &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;first commit&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;::(git remote remove origin)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;::HTTP:&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;remote&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;origin&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;https&lt;/span&gt;://github.com/jasonmccb/myblog_Jekyll_source.git
+&lt;span class=&quot;c&quot;&gt;::SSH: (needs to set up SSH RSA key)&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;remote&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;origin&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt;@github.com:jasonmccb/myblog_Jekyll_source.git
+&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;remote&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;-v
+&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;-u &lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;origin&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;master&lt;/span&gt;
+
+
+&lt;span class=&quot;c&quot;&gt;:: From GitHub to local repo:&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;clone&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;https&lt;/span&gt;://github.com/jasonmccb/&amp;lt;repository_name&amp;gt;.git &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;local_folder_name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Thu, 02 Apr 2020 11:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/04/02/Review-of-the-GitHub-procedure/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/04/02/Review-of-the-GitHub-procedure/</guid>
+        
+        <category>GitHub</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Pandoc</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#show-ubuntu-version&quot; id=&quot;markdown-toc-show-ubuntu-version&quot;&gt;Show Ubuntu version&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#install-pandoc-on-ubuntu&quot; id=&quot;markdown-toc-install-pandoc-on-ubuntu&quot;&gt;Install Pandoc on Ubuntu&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#pandoc-usage&quot; id=&quot;markdown-toc-pandoc-usage&quot;&gt;Pandoc usage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Pandoc is a universal and powerful converter for markup languages&lt;br /&gt;
+&lt;a href=&quot;https://pandoc.org/&quot;&gt;https://pandoc.org/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;show-ubuntu-version&quot;&gt;Show Ubuntu version&lt;/h1&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;lsb_release &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;
+
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 18.04.4 LTS
+Release:        18.04
+Codename:       bionic
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;install-pandoc-on-ubuntu&quot;&gt;Install Pandoc on Ubuntu&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://packages.ubuntu.com/search?keywords=pandoc&quot;&gt;https://packages.ubuntu.com/search?keywords=pandoc&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://packages.ubuntu.com/search?keywords=pandoc&quot;&gt;https://packages.ubuntu.com/bionic/i386/pandoc/download&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Some of the mirror site for download:&lt;/strong&gt;&lt;br /&gt;
+deb http://cz.archive.ubuntu.com/ubuntu eoan main universe&lt;br /&gt;
+deb th.archive.ubuntu.com/ubuntu/pool/universe/p/pandoc/pandoc_2.5-2_i386.deb eoan main universe&lt;br /&gt;
+deb http://th.archive.ubuntu.com/ubuntu/ eoan main universe&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#Installation commands:&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;deb http://th.archive.ubuntu.com/ubuntu/ eoan main universe&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;  /etc/apt/sources.list
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;add-apt-repository universe
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;add-apt-repository multiverse
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;pandoc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;pandoc-usage&quot;&gt;Pandoc usage&lt;/h1&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pandoc &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; html &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; markdown /mnt/d/JekyllBlog/index.html &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; index.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;FYI, installation path for Pandoc on Windows:&lt;br /&gt;
+C:\Program Files\Pandoc\pandoc.exe&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 30 Mar 2020 11:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/03/30/Pandoc/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/03/30/Pandoc/</guid>
+        
+        <category>Linux</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Install Ubuntu on Windows 10</title>
+        <description>&lt;p&gt;Windows 10 does support Linux subsystem.(&lt;a href=&quot;https://docs.microsoft.com/en-us/windows/wsl/install-win10&quot;&gt;A link to guide&lt;/a&gt;)&lt;br /&gt;
+Here’s a summary of how to install Ubuntu on Win 10.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Enable Windows subsystem for Linux
+Run PowerShell with Admin:
+    &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;Enable-WindowsOptionalFeature&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-Online&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-FeatureName&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Microsoft-Windows-Subsystem-Linux&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Download and install Ubuntu from Microsoft Store&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Run it in cmd
+    &lt;div class=&quot;language-bat highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;bash&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Sun, 29 Mar 2020 11:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/03/29/Install-Ubuntu-on-Windows-10/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/03/29/Install-Ubuntu-on-Windows-10/</guid>
+        
+        <category>Linux</category>
+        
+        
+      </item>
     
       <item>
         <title>Review and clean up for the whole internship</title>
@@ -116,90 +234,6 @@ process”.&lt;/li&gt;
         <pubDate>Thu, 06 Feb 2020 23:30:00 +1300</pubDate>
         <link>http://localhost:4000/2020/02/06/Public-holiday/</link>
         <guid isPermaLink="true">http://localhost:4000/2020/02/06/Public-holiday/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Confirmation link handling</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Created new web page in response to user confirmation.&lt;/li&gt;
-  &lt;li&gt;Implemented authorization code generation and parsing method.&lt;/li&gt;
-  &lt;li&gt;Merged codes with other updates on spreadsheet including “region”
-and “initial email date”.&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Wed, 05 Feb 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/02/05/Confirmation-link-handling/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/02/05/Confirmation-link-handling/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Email ID generation and usage</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Generated EmailId and used it in the confirmation link in email&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Tue, 04 Feb 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/02/04/Email-ID-generation-and-usage/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/02/04/Email-ID-generation-and-usage/</guid>
-        
-        <category>Java</category>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Fixed a Thymeleaf error in getting template</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Fixed a Thymeleaf error in getting template.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Problems encountered:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;An example of Thymeleaf ERROR:&lt;br /&gt;
-2020-02-03 22:35:27.782 [scheduling-1] ERROR
-org.thymeleaf.TemplateEngine - [THYMELEAF][scheduling-1]
-Exception processing template “”: Error resolving template [],
-template might not exist or might not be accessible by any of the
-configured Template Resolvers
-org.thymeleaf.exceptions.TemplateInputException: Error resolving
-template [], template might not exist or might not be accessible
-by any of the configured Template Resolvers&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Root cause:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;TemplateEngine has not been initialized before used.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Solution:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;private TemplateEngine templateEngine = new TemplateEngine();&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Mon, 03 Feb 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/02/03/Fixed-a-Thymeleaf-error-in-getting-template/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/02/03/Fixed-a-Thymeleaf-error-in-getting-template/</guid>
-        
-        <category>Thymeleaf</category>
         
         
         <category>theScene.Co</category>
