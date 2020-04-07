@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Related links - Jason's Blog</title>
+	<title>Algolia implementation - Jason's Blog</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/reference/">
+	<link rel="canonical" href="/2020/04/06/Algolia/">
 	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
 	
-	<meta name="keywords" content="Related links, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="keywords" content="Algolia implementation, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -91,8 +91,8 @@
   <div class="container">
   	
   		<!--
-		    <h1>Related links</h1>
-		    <p>Post on Apr 07, 2020 by <a href="/about">Jason Liu</a></p>
+		    <h1>Algolia implementation</h1>
+		    <p>Post on Apr 06, 2020 by <a href="/about">Jason Liu</a></p>
 		-->
 		    <h1>The meaning of life is to explore the world</h1>			
     
@@ -103,8 +103,8 @@
 <div class="banner">
   <div class="container">
   	
-    	<a href="/categories/#theScene.Co-ref">theScene.Co</a>	/
-    	<a href="/tag/#-ref"></a>
+    	<a href="/categories/#-ref"></a>	/
+    	<a href="/tag/#Algolia-ref">Algolia</a>
     
   </div>
 </div>
@@ -132,32 +132,60 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">Related links</h1>
+              <h1 class="post-title">Algolia implementation</h1>
               <!--
-                <p class="post-meta">Apr 7, 2020</p>
+                <p class="post-meta">Apr 6, 2020</p>
               -->
-              <div class="meta">Posted on <span class="postdate">Apr 07, 2020</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
+              <div class="meta">Posted on <span class="postdate">Apr 06, 2020</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
               <br />
             </header>
             <article class="post-content">
-              <ul id="markdown-toc">
-  <li><a href="#happygigs" id="markdown-toc-happygigs">HappyGigs</a></li>
-  <li><a href="#whitireia" id="markdown-toc-whitireia">Whitireia</a></li>
-  <li><a href="#jekyll-quickstart" id="markdown-toc-jekyll-quickstart">Jekyll Quickstart</a></li>
-</ul>
+              <p>How to install Algolia and push content?<br />
+<a href="https://community.algolia.com/jekyll-algolia/getting-started.html">https://community.algolia.com/jekyll-algolia/getting-started.html</a></p>
 
-<h1 id="happygigs">HappyGigs</h1>
+<p>How to imlement Algolia search in your website?<br />
+<a href="https://community.algolia.com/jekyll-algolia/blog.html">https://community.algolia.com/jekyll-algolia/blog.html</a></p>
 
-<p><a href="https://happygigs.co.nz/">HappyGigs</a></p>
+<p><strong>Key words:</strong><br />
+Application name: ****<br />
+Index name: ****<br />
+Admin API key: ****</p>
 
-<h1 id="whitireia">Whitireia</h1>
+<p><strong>Note:</strong></p>
+<ol>
+  <li>Below commands doesn’t work under Windows
+    <div class="language-bat highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">ALGOLIA_API_KEY</span><span class="o">=</span><span class="s1">'saldfjpwoeifjlsdfjkoweifj9837592'</span> <span class="kd">bundle</span> <span class="kd">exec</span> <span class="kd">jekyll</span> <span class="kd">algolia</span>
+<span class="s1">'ALGOLIA_API_KEY'</span> <span class="kd">is</span> <span class="ow">not</span> <span class="kd">recognized</span> <span class="kd">as</span> <span class="kd">an</span> <span class="kd">internal</span> <span class="kd">or</span> <span class="kd">external</span> <span class="kd">command</span><span class="o">,</span>
+</code></pre></div>    </div>
+  </li>
+  <li>“jekyll algolia” doesn’t support Chinese under Windows coz cmd is not UTF-8 by default.<br />
+Error message:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Updating settings of index jekyll
+jekyll 4.0.0 | Error:  invalid byte sequence in GBK
+</code></pre></div>    </div>
+    <p>FYI, running in a start temp.bat doesn’t work either, and running in Powershell doesn’t work either</p>
+  </li>
+  <li>Below commands works</li>
+</ol>
 
-<p><a href="https://moodle.whitireia.ac.nz/">Whitireia</a></p>
+<div class="language-bat highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">:: There is no quotation mark while setting Windows environment variable</span>
+<span class="kd">set</span> <span class="kd">ALGOLIA_API_KEY</span><span class="o">=</span><span class="kd">saldfjpwoeifjlsdfjkoweifj9837592</span>
+<span class="c">:: Change Code Page in command prompt to UTF-8</span>
+<span class="nb">chcp</span> <span class="m">65001</span>
+<span class="c">:: Wait for the finish of pushing to Algolia </span>
+<span class="nb">start</span> <span class="na">/WAIT </span><span class="kd">bundle</span> <span class="kd">exec</span> <span class="kd">jekyll</span> <span class="kd">algolia</span>
+<span class="c">:: Change Code Page in command prompt back to ANSI Chinese GB2312</span>
+<span class="nb">chcp</span> <span class="m">936</span>
 
-<h1 id="jekyll-quickstart">Jekyll Quickstart</h1>
-
-<p><a href="https://jekyllrb.com/docs/">Jekyll</a></p>
-
+<span class="kd">Configuration</span> <span class="kd">file</span>: <span class="kd">D</span>:/JekyllBlog/myblog/_config.yml
+<span class="kd">Processing</span> <span class="kd">site</span>...
+<span class="kd">Rendering</span> <span class="kd">to</span> <span class="kd">HTML</span> <span class="o">(</span><span class="m">100</span><span class="err">%</span><span class="o">)</span> <span class="o">|=====================================================|</span>
+<span class="kd">Extracting</span> <span class="kd">records</span> <span class="o">(</span><span class="m">100</span><span class="err">%</span><span class="o">)</span> <span class="o">|====================================================|</span>
+<span class="kd">Settings</span> <span class="kd">are</span> <span class="kd">already</span> <span class="kd">up</span> <span class="kd">to</span> <span class="nb">date</span>.
+<span class="kd">Getting</span> <span class="kd">list</span> <span class="kd">of</span> <span class="kd">existing</span> <span class="kd">records</span>
+<span class="kd">Content</span> <span class="kd">is</span> <span class="kd">already</span> <span class="kd">up</span> <span class="kd">to</span> <span class="nb">date</span>.
+<span class="o">?</span> <span class="kd">Indexing</span> <span class="kd">complete</span>
+</code></pre></div></div>
 
             </article>
         </div>
