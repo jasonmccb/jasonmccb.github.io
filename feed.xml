@@ -5,9 +5,155 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 07 Apr 2020 18:04:26 +1200</pubDate>
-    <lastBuildDate>Tue, 07 Apr 2020 18:04:26 +1200</lastBuildDate>
+    <pubDate>Mon, 04 May 2020 23:40:28 +1200</pubDate>
+    <lastBuildDate>Mon, 04 May 2020 23:40:28 +1200</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>GitHub tips on changing commit history</title>
+        <description>&lt;p&gt;&lt;strong&gt;Tips&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Use &lt;code class=&quot;highlighter-rouge&quot;&gt;git help &amp;lt;verb&amp;gt;&lt;/code&gt; to learn the Git commands.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;How to delete unpushed commits?&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;git reset --hard origin/master&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;How to delete orphan commits?&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;git gc --prune=now --aggressive&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;How to undo pushed commits?
+    &lt;div class=&quot;language-bat highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;log&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;checkout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;older&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;commit&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;hash&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;checkout&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;master&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;revert&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;older&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;commit&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;hash&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;commit&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;-m &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Undo &amp;lt;older commit hash tag&amp;gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;revert&lt;/span&gt; ...
+&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;commit&lt;/span&gt; ...
+&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;revert&lt;/span&gt; ...
+&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;commit&lt;/span&gt; ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;BTW, We can use &lt;code class=&quot;highlighter-rouge&quot;&gt;git log --oneline&lt;/code&gt; to view a short list of log history.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;How to remove big file in pushed GitHub history?&lt;br /&gt;
+&lt;a href=&quot;https://help.github.com/en/github/authenticating-to-github/removing-sensitive-data-from-a-repository&quot;&gt;https://help.github.com/en/github/authenticating-to-github/removing-sensitive-data-from-a-repository&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;5.1 Run in the repo
+    &lt;div class=&quot;language-bat highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-branch &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-force &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-index-filter &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;git rm -r --cached --ignore-unmatch &amp;lt;unwanted_folder/[unwanted_file]&amp;gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-prune-empty &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-all
+&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;Rewrite&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;abcdefabcdedfefcfefafcfefd98738127382630&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;24&lt;/span&gt;/29&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;28&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;passed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;remaining&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;predicted&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;kd&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'XXXX/YYYY.ZZZ'&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;Rewrite&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;cfaecbacfdedfefc394893fefd987381273826ec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;29&lt;/span&gt;/29&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;34&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;passed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;remaining&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;predicted&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;Ref&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'refs/heads/master'&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;was&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;rewritten&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;WARNING&lt;/span&gt;: &lt;span class=&quot;kd&quot;&gt;Ref&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'refs/remotes/origin/Cathy'&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;unchanged&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;Ref&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'refs/remotes/origin/master'&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;was&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;rewritten&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;WARNING&lt;/span&gt;: &lt;span class=&quot;kd&quot;&gt;Ref&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'refs/remotes/origin/master'&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;unchanged&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;!--
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch path/to/filename.ext' --prune-empty --tag-name-filter cat -- --all
+--&gt;
+    &lt;p&gt;Possible error encountered:&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;fatal: bad revision 'rm'&lt;/code&gt;&lt;br /&gt;
+Cause:&lt;br /&gt;
+Windows must use “ instead of ‘&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;5.2 Success
+    &lt;div class=&quot;language-bat highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;C&lt;/span&gt;:\XXXX\YYYY&amp;gt;git &lt;span class=&quot;kd&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;origin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-force &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-all
+&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;Enumerating&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;objects&lt;/span&gt;: &lt;span class=&quot;m&quot;&gt;1744&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;done&lt;/span&gt;.
+&lt;span class=&quot;kd&quot;&gt;Counting&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;objects&lt;/span&gt;: &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1744&lt;/span&gt;/1744&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;done&lt;/span&gt;.
+&lt;span class=&quot;kd&quot;&gt;Delta&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;compression&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;up&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;threads&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;Compressing&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;objects&lt;/span&gt;: &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;488&lt;/span&gt;/488&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;done&lt;/span&gt;.
+&lt;span class=&quot;kd&quot;&gt;Writing&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;objects&lt;/span&gt;: &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1744&lt;/span&gt;/1744&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;39&lt;/span&gt;.24 &lt;span class=&quot;kd&quot;&gt;MiB&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;378&lt;/span&gt;.00 &lt;span class=&quot;kd&quot;&gt;KiB&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;/s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;done&lt;/span&gt;.
+&lt;span class=&quot;kd&quot;&gt;Total&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1744&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;delta&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;645&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;reused&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1738&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;delta&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;642&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;remote&lt;/span&gt;: &lt;span class=&quot;kd&quot;&gt;Resolving&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;deltas&lt;/span&gt;: &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;645&lt;/span&gt;/645&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;done&lt;/span&gt;.
+&lt;span class=&quot;kd&quot;&gt;To&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;https&lt;/span&gt;://github.com/XXXX/YYYY.git
+ &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;03&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;f9ee8&lt;/span&gt;...9085268 &lt;span class=&quot;kd&quot;&gt;master&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;master&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;forced&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Possible error encountered:&lt;/p&gt;
+    &lt;div class=&quot;language-bat highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;C&lt;/span&gt;:\XXXX\YYYY&amp;gt;git &lt;span class=&quot;kd&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;origin&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;master&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-force
+&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;Enumerating&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;objects&lt;/span&gt;: &lt;span class=&quot;m&quot;&gt;1744&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;done&lt;/span&gt;.
+&lt;span class=&quot;kd&quot;&gt;Counting&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;objects&lt;/span&gt;: &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1744&lt;/span&gt;/1744&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;done&lt;/span&gt;.
+&lt;span class=&quot;kd&quot;&gt;Delta&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;compression&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;up&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;threads&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;Compressing&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;objects&lt;/span&gt;: &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;488&lt;/span&gt;/488&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;done&lt;/span&gt;.
+&lt;span class=&quot;kd&quot;&gt;error&lt;/span&gt;: &lt;span class=&quot;kd&quot;&gt;RPC&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;failed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;curl&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;56&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;OpenSSL&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;SSL_read&lt;/span&gt;: &lt;span class=&quot;kd&quot;&gt;SSL_ERROR_SYSCALL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;errno&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10054&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;Writing&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;objects&lt;/span&gt;: &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1744&lt;/span&gt;/1744&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;39&lt;/span&gt;.24 &lt;span class=&quot;kd&quot;&gt;MiB&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;107&lt;/span&gt;.00 &lt;span class=&quot;kd&quot;&gt;KiB&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;/s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;done&lt;/span&gt;.
+&lt;span class=&quot;kd&quot;&gt;Total&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1744&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;delta&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;645&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;reused&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1738&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;delta&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;642&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;fatal&lt;/span&gt;: &lt;span class=&quot;kd&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;remote&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;hung&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;up&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;unexpectedly&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;Everything&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;up&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-to-date
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Cause:&lt;br /&gt;
+Network slowness&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Note!!!&lt;/strong&gt;&lt;br /&gt;
+The current branch still have big files, even if you run &lt;code class=&quot;highlighter-rouge&quot;&gt;git gc --prune=now --aggressive&lt;/code&gt;.&lt;br /&gt;
+But the big file will be only removed in remote and new-cloned repositories.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 04 May 2020 20:30:00 +1200</pubDate>
+        <link>http://localhost:4000/2020/05/04/GitHub-tips-on-changing-commit-history/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/05/04/GitHub-tips-on-changing-commit-history/</guid>
+        
+        <category>GitHub</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>C# Dependency Injection and Singleton</title>
+        <description>&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Why Singleton class needs to be sealed?&lt;br /&gt;
+&lt;a href=&quot;https://dotnettutorials.net/lesson/singleton-class-sealed/&quot;&gt;https://dotnettutorials.net/lesson/singleton-class-sealed/&lt;/a&gt;&lt;br /&gt;
+In short, internal derived class will be able to create instances.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;.NET DI framework list.&lt;br /&gt;
+&lt;a href=&quot;https://www.claudiobernasconi.ch/2019/01/24/the-ultimate-list-of-net-dependency-injection-frameworks/&quot;&gt;https://www.claudiobernasconi.ch/2019/01/24/the-ultimate-list-of-net-dependency-injection-frameworks/&lt;/a&gt;&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Framework&lt;/th&gt;
+          &lt;th&gt;Comment&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Spring.NET&lt;/td&gt;
+          &lt;td&gt;Famous&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Unity Container&lt;/td&gt;
+          &lt;td&gt;Supports .NET core, exception management, logging&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Autofac&lt;/td&gt;
+          &lt;td&gt;Supports .NET core&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Ninject&lt;/td&gt;
+          &lt;td&gt;Lightweight, easy&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Singleton vs Dependency Injection.&lt;br /&gt;
+&lt;a href=&quot;https://enterprisecraftsmanship.com/posts/singleton-vs-dependency-injection/&quot;&gt;https://enterprisecraftsmanship.com/posts/singleton-vs-dependency-injection/&lt;/a&gt;&lt;br /&gt;
+In short, Singleton is better for ambient dependencies, i.e. dependencies used everywhere&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Fri, 01 May 2020 20:30:00 +1200</pubDate>
+        <link>http://localhost:4000/2020/05/01/C-Dependency-Injection-and-Singleton/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/05/01/C-Dependency-Injection-and-Singleton/</guid>
+        
+        <category>C#</category>
+        
+        
+      </item>
     
       <item>
         <title>Algolia implementation</title>
@@ -261,40 +407,6 @@ Run PowerShell with Admin:
         <pubDate>Thu, 13 Feb 2020 23:30:00 +1300</pubDate>
         <link>http://localhost:4000/2020/02/13/Presentation-has-been-done/</link>
         <guid isPermaLink="true">http://localhost:4000/2020/02/13/Presentation-has-been-done/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Working on the presentation and report</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Working on the presentation and report.&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Wed, 12 Feb 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/02/12/Working-on-the-presentation-and-report/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/02/12/Working-on-the-presentation-and-report/</guid>
-        
-        
-        <category>theScene.Co</category>
-        
-      </item>
-    
-      <item>
-        <title>Working on the presentation and report</title>
-        <description>&lt;p&gt;What have been done:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Working on the presentation and report.&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Tue, 11 Feb 2020 23:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/02/11/Working-on-the-presentation-and-report/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/02/11/Working-on-the-presentation-and-report/</guid>
         
         
         <category>theScene.Co</category>
