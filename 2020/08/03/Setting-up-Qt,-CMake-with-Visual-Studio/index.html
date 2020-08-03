@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>About me - Jason's Blog</title>
+	<title>Setting up Qt, CMake with Visual Studio - Jason's Blog</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/about/">
+	<link rel="canonical" href="/2020/08/03/Setting-up-Qt,-CMake-with-Visual-Studio/">
 	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
 	
-	<meta name="keywords" content="About me, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="keywords" content="Setting up Qt, CMake with Visual Studio, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -91,8 +91,8 @@
   <div class="container">
   	
   		<!--
-		    <h1>About me</h1>
-		    <p>Post on Aug 04, 2020 by <a href="/about">Jason Liu</a></p>
+		    <h1>Setting up Qt, CMake with Visual Studio</h1>
+		    <p>Post on Aug 03, 2020 by <a href="/about">Jason Liu</a></p>
 		-->
 		    <h1>The meaning of life is to explore the world</h1>			
     
@@ -103,7 +103,8 @@
 <div class="banner">
   <div class="container">
   	
-    	世事苍茫成云烟，天地孤影任我行。
+    	<a href="/categories/#-ref"></a>	/
+    	<a href="/tag/#C++-ref">C++</a>
     
   </div>
 </div>
@@ -131,24 +132,67 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">About me</h1>
+              <h1 class="post-title">Setting up Qt, CMake with Visual Studio</h1>
               <!--
-                <p class="post-meta">Aug 4, 2020</p>
+                <p class="post-meta">Aug 3, 2020</p>
               -->
-              <div class="meta">Posted on <span class="postdate">Aug 04, 2020</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
+              <div class="meta">Posted on <span class="postdate">Aug 03, 2020</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
               <br />
             </header>
             <article class="post-content">
-              <p>Hi my name is Jason Junwen Liu. 
-I have 10 years of experience in IT. 
-My main interests include C#.NET, Linux, Java and AWS.
-In the past few months I built a web based system for specials in bars and restaurants in Wellington, mainly by Java. 
-I have logged the progress and the adopted technologies in this blog. 
-And I will keep updating it with technical stuff I found useful.</p>
+              <h2 id="a-link-to-cmake-set-up">A link to CMake set up:</h2>
+<p><a href="https://blog.csdn.net/Bruce_0712/article/details/53574170">https://blog.csdn.net/Bruce_0712/article/details/53574170</a></p>
 
-<p>More information about me is available at <a href="https://www.linkedin.com/in/junwen-liu-7261aa138/">LinkedIn</a></p>
+<h2 id="some-errors-that-may-occur">Some errors that may occur:</h2>
+<ol>
+  <li><strong>VS Compiling Error</strong>
+    <blockquote>
+      <p>Microsoft Visual Studio</p>
 
-<p><img src="/images/me_queenstown.JPG" alt="my_image" /></p>
+      <p>Unable to start program ‘D:\jobs\8i\CodingTest\ForegroundExtractionApp\out\build\x64\Debug\ALL_BUILD’.</p>
+
+      <p>Access is denied.</p>
+    </blockquote>
+
+    <p><strong>Solution:</strong><br />
+ Don’t set ALL_BUILD as startup project</p>
+  </li>
+  <li><strong>VS Linking Error</strong>
+    <blockquote>
+      <p>ForegroundExtractionApp.exe - 系统错误</p>
+
+      <p>由于找不到 VCRUNTIME140D_APP.dll，无法继续执行代码。重新安装程序可能会解决此问题。</p>
+    </blockquote>
+
+    <p><strong>Solution:</strong><br />
+ Copy DLLs from msvc2017_64\bin instead of winrt_x64_msvc2017\bin</p>
+  </li>
+  <li><strong>CMake Error</strong>
+    <blockquote>
+      <p>qt_wrap_ui called with incorrect number of arguments</p>
+    </blockquote>
+
+    <p><strong>Solution:</strong><br />
+ Use qt5_wrap_ui instead</p>
+  </li>
+  <li><strong>Runtime Error (debug)</strong>
+    <blockquote>
+      <p>Cannot find Qt5Cored.dll</p>
+    </blockquote>
+
+    <p><strong>Solution:</strong><br />
+ Find them and copy to build\MyCMakeLearner\Debug</p>
+  </li>
+  <li><strong>Linking Error</strong>
+    <blockquote>
+      <p>Error	LNK2001	unresolved external symbol “public: virtual struct QMetaObject const * __cdecl MyImageLabel::metaObject(void)const “ (?metaObject@MyImageLabel@@UEBAPEBUQMetaObject@@XZ)	ForegroundExtractionApp	D:\jobs\8i\CodingTest\ForegroundExtractionApp\out\build\ForegroundExtractionApp\mainwindow.obj	1</p>
+    </blockquote>
+
+    <p><strong>Solution:</strong><br />
+ Include .h into qt5_wrap_cpp (source_moc ${headers})</p>
+  </li>
+</ol>
+
 
             </article>
         </div>

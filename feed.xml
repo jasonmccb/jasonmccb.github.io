@@ -5,9 +5,74 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 20 Jul 2020 23:54:51 +1200</pubDate>
-    <lastBuildDate>Mon, 20 Jul 2020 23:54:51 +1200</lastBuildDate>
+    <pubDate>Tue, 04 Aug 2020 10:53:32 +1200</pubDate>
+    <lastBuildDate>Tue, 04 Aug 2020 10:53:32 +1200</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Setting up Qt, CMake with Visual Studio</title>
+        <description>&lt;h2 id=&quot;a-link-to-cmake-set-up&quot;&gt;A link to CMake set up:&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/Bruce_0712/article/details/53574170&quot;&gt;https://blog.csdn.net/Bruce_0712/article/details/53574170&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;some-errors-that-may-occur&quot;&gt;Some errors that may occur:&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;VS Compiling Error&lt;/strong&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;Microsoft Visual Studio&lt;/p&gt;
+
+      &lt;p&gt;Unable to start program ‘D:\jobs\8i\CodingTest\ForegroundExtractionApp\out\build\x64\Debug\ALL_BUILD’.&lt;/p&gt;
+
+      &lt;p&gt;Access is denied.&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
+ Don’t set ALL_BUILD as startup project&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;VS Linking Error&lt;/strong&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;ForegroundExtractionApp.exe - 系统错误&lt;/p&gt;
+
+      &lt;p&gt;由于找不到 VCRUNTIME140D_APP.dll，无法继续执行代码。重新安装程序可能会解决此问题。&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
+ Copy DLLs from msvc2017_64\bin instead of winrt_x64_msvc2017\bin&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;CMake Error&lt;/strong&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;qt_wrap_ui called with incorrect number of arguments&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
+ Use qt5_wrap_ui instead&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Runtime Error (debug)&lt;/strong&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;Cannot find Qt5Cored.dll&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
+ Find them and copy to build\MyCMakeLearner\Debug&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Linking Error&lt;/strong&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;Error	LNK2001	unresolved external symbol “public: virtual struct QMetaObject const * __cdecl MyImageLabel::metaObject(void)const “ (?metaObject@MyImageLabel@@UEBAPEBUQMetaObject@@XZ)	ForegroundExtractionApp	D:\jobs\8i\CodingTest\ForegroundExtractionApp\out\build\ForegroundExtractionApp\mainwindow.obj	1&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
+ Include .h into qt5_wrap_cpp (source_moc ${headers})&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Mon, 03 Aug 2020 11:00:00 +1200</pubDate>
+        <link>http://localhost:4000/2020/08/03/Setting-up-Qt,-CMake-with-Visual-Studio/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/08/03/Setting-up-Qt,-CMake-with-Visual-Studio/</guid>
+        
+        <category>C++</category>
+        
+        
+      </item>
     
       <item>
         <title>Common programming characteristics</title>
@@ -424,36 +489,6 @@ C:\Program Files\Pandoc\pandoc.exe&lt;/p&gt;
         <pubDate>Mon, 30 Mar 2020 11:30:00 +1300</pubDate>
         <link>http://localhost:4000/2020/03/30/Pandoc/</link>
         <guid isPermaLink="true">http://localhost:4000/2020/03/30/Pandoc/</guid>
-        
-        <category>Linux</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Install Ubuntu on Windows 10</title>
-        <description>&lt;p&gt;Windows 10 does support Linux subsystem.(&lt;a href=&quot;https://docs.microsoft.com/en-us/windows/wsl/install-win10&quot;&gt;A link to guide&lt;/a&gt;)&lt;br /&gt;
-Here’s a summary of how to install Ubuntu on Win 10.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Enable Windows subsystem for Linux
-Run PowerShell with Admin:
-    &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;Enable-WindowsOptionalFeature&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-Online&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-FeatureName&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Microsoft-Windows-Subsystem-Linux&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Download and install Ubuntu from Microsoft Store&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Run it in cmd
-    &lt;div class=&quot;language-bat highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;bash&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        <pubDate>Sun, 29 Mar 2020 11:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/03/29/Install-Ubuntu-on-Windows-10/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/03/29/Install-Ubuntu-on-Windows-10/</guid>
         
         <category>Linux</category>
         
