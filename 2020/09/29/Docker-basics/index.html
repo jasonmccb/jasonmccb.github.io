@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Docker basics - Jason's Blog</title>
+
+	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
+	<link rel="icon" href="/styles/images/favicon.jpg">
+
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/styles/css/syntax.css">
+	<link rel="canonical" href="/2020/09/29/Docker-basics/">
+	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
+	
+	<meta name="keywords" content="Docker basics, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+
+	<script src="/styles/js/jquery.min.js"></script>
+	<!--[if lt IE 9]>
+    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  	<![endif]-->
+  	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?718c90aec0b27f2b5ba1b7eeb0827810";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+  	<style type="text/css">
+	  	.docs-content{
+	  		margin-bottom: 10px;
+	  	}
+  	</style>
+</head>
+
+  <body class="index">
+
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.jpg">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/categories/">Categories</a>
+        </li>
+        <li>
+          <a href="/tag">Tags</a>
+        </li>
+		<li>
+          <a href="/search">Search</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a><span id="busuanzi_container_site_pv">Total visits: <span id="busuanzi_value_site_pv"></span></span></a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a rel="nofollow" target="_blank" href="https://github.com/jasonmccb/">My Github</a></li>
+            <li><a rel="nofollow" target="_blank" href="/about/">About me</a></li>
+            <li><a rel="nofollow" href="/reference">Related links</a></li>
+            <li><a href="/feed.xml">RSS</a></li>
+            <li class="divider"></li>
+            <li><a rel="nofollow" target="_blank" href="https://github.com/jasonmccb/jasonmccb.github.io">This site in Git</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header" id="content">
+  <div class="container">
+  	
+  		<!--
+		    <h1>Docker basics</h1>
+		    <p>Post on Sep 29, 2020 by <a href="/about">Jason Liu</a></p>
+		-->
+		    <h1>The meaning of life is to explore the world</h1>			
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container">
+  	
+    	<a href="/categories/#-ref"></a>	/
+    	<a href="/tag/#Docker-ref">Docker</a>
+    
+  </div>
+</div>
+
+    
+	
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>Catalog</h1>
+  <ul class="nav sidenav">
+  </ul>
+  <div style="height: 200px;width: 200px;">
+    <script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"> 
+    </script>
+  </div>
+</div>
+
+ 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">Docker basics</h1>
+              <!--
+                <p class="post-meta">Sep 29, 2020</p>
+              -->
+              <div class="meta">Posted on <span class="postdate">Sep 29, 2020</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
+              <br />
+            </header>
+            <article class="post-content">
+              <h2 id="commands">Commands</h2>
+
+<ol>
+  <li>
+    <p>Official Docker reference documentation<br />
+<a href="https://docs.docker.com/reference/">https://docs.docker.com/reference/</a></p>
+  </li>
+  <li>Docker registry commands
+    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="nf">docker</span><span class="w"> </span><span class="nx">pull</span><span class="w"> </span><span class="nx">ubuntu</span><span class="w">
+ </span><span class="nf">docker</span><span class="w"> </span><span class="nx">push</span><span class="w"> </span><span class="nx">jasonmccb/drives_bash_sync</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>Docker image commands
+    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="c"># Listing</span><span class="w">
+ </span><span class="nf">docker</span><span class="w"> </span><span class="nx">images</span><span class="w">
+
+ </span><span class="c"># Removing</span><span class="w">
+ </span><span class="nf">docker</span><span class="w"> </span><span class="nx">rmi</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">image-name</span><span class="err">&gt;</span><span class="w">
+ </span><span class="nf">docker</span><span class="w"> </span><span class="nx">rmi</span><span class="w"> </span><span class="err">$</span><span class="p">(</span><span class="nf">docker</span><span class="w"> </span><span class="nx">images</span><span class="w"> </span><span class="nt">-q</span><span class="w"> </span><span class="nt">-f</span><span class="w"> </span><span class="nx">dangling</span><span class="o">=</span><span class="nf">true</span><span class="p">)</span><span class="w">
+
+ </span><span class="c"># Building using "docker build"</span><span class="w">
+ </span><span class="nf">docker</span><span class="w"> </span><span class="nx">build</span><span class="w"> </span><span class="nt">-t</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">image</span><span class="w"> </span><span class="nx">name</span><span class="p">[:</span><span class="kt">image</span><span class="w"> </span><span class="kt">tag</span><span class="p">]</span><span class="err">&gt;</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">dockerfile</span><span class="w"> </span><span class="nx">dir</span><span class="err">&gt;</span><span class="w">
+ </span><span class="c"># -f option</span><span class="w">
+ </span><span class="nf">docker</span><span class="w"> </span><span class="nx">build</span><span class="w"> </span><span class="nt">-t</span><span class="w"> </span><span class="nx">image-name</span><span class="w"> </span><span class="nt">-f</span><span class="w"> </span><span class="nx">folder_name/Dockerfile</span><span class="w"> </span><span class="o">.</span><span class="w">
+ </span><span class="c"># Building using "docker-compose" ("up" will build/create and run)</span><span class="w">
+ </span><span class="nf">docker-compose</span><span class="w"> </span><span class="nx">up</span><span class="w"> </span><span class="nt">-d</span><span class="w">
+ </span><span class="c"># To rebuild after changed</span><span class="w">
+ </span><span class="nf">docker-compose</span><span class="w"> </span><span class="nx">build</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>Docker container commands
+    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="c"># Listing</span><span class="w">
+ </span><span class="nf">docker</span><span class="w"> </span><span class="nx">ps</span><span class="w"> </span><span class="nt">-a</span><span class="w">
+ </span><span class="c"># Show all details</span><span class="w">
+ </span><span class="nf">docker</span><span class="w"> </span><span class="nx">inspect</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">container</span><span class="w"> </span><span class="nx">id</span><span class="err">&gt;</span><span class="w">
+ </span><span class="c"># Only show bind mounts</span><span class="w">
+ </span><span class="nf">docker</span><span class="w"> </span><span class="nx">inspect</span><span class="w"> </span><span class="nt">-f</span><span class="w"> </span><span class="s2">"{ { .Mounts }}"</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">container</span><span class="w"> </span><span class="nx">id</span><span class="err">&gt;</span><span class="w">
+	
+ </span><span class="c"># Running a new container</span><span class="w">
+ </span><span class="nf">docker</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">image</span><span class="w"> </span><span class="nx">name</span><span class="err">&gt;</span><span class="w">
+ </span><span class="c"># -d runs from background, -it runs interactively, -v mounts volume, -w for working dir</span><span class="w">
+ </span><span class="nf">docker</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nt">-v</span><span class="w"> </span><span class="s2">"D:/programming/Docker container/sharing:/root"</span><span class="w"> </span><span class="nt">-w</span><span class="w"> </span><span class="nx">/root</span><span class="w"> </span><span class="nt">-it</span><span class="w"> </span><span class="nx">my-wsl-sync</span><span class="w">
+ </span><span class="c"># Running from docker-compose, the "app" service in a shell</span><span class="w">
+ </span><span class="nf">docker-compose</span><span class="w"> </span><span class="nx">exec</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="nx">sh</span><span class="w">
+	
+ </span><span class="c"># Managing existing container</span><span class="w">
+ </span><span class="nf">docker</span><span class="w"> </span><span class="nx">start/stop/kill/rm</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">container</span><span class="w"> </span><span class="nx">id</span><span class="err">&gt;</span><span class="w">
+	
+ </span><span class="c"># Checking log</span><span class="w">
+ </span><span class="nf">docker</span><span class="w"> </span><span class="nx">logs</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">container</span><span class="w"> </span><span class="nx">id</span><span class="err">&gt;</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="issues">Issues</h2>
+
+<ol>
+  <li>Cannot find package
+    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">docker</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="nt">-c</span><span class="w"> </span><span class="s2">"yarn install &amp;&amp; yarn run env"</span><span class="w">
+</span><span class="o">...</span><span class="w">
+</span><span class="nf">yarn</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">v1.22.4</span><span class="w">
+</span><span class="nf">error</span><span class="w"> </span><span class="nx">Couldn</span><span class="s1">'t find a package.json file in "/app"
+</span></code></pre></div>    </div>
+    <p>Solution:
+<code class="highlighter-rouge">cd "xxxx/app"</code></p>
+  </li>
+  <li>Executable file not found in $PATH
+    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">docker</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nt">-it</span><span class="w"> </span><span class="nx">ubuntu</span><span class="w"> </span><span class="nt">-v</span><span class="w"> </span><span class="s2">"D:/programming/Docker container/sharing:/root"</span><span class="w">
+</span><span class="nf">docker:</span><span class="w"> </span><span class="nx">Error</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="nx">from</span><span class="w"> </span><span class="nx">daemon:</span><span class="w"> </span><span class="nx">OCI</span><span class="w"> </span><span class="nx">runtime</span><span class="w"> </span><span class="nx">create</span><span class="w"> </span><span class="nx">failed:</span><span class="w"> </span><span class="nx">container_linux.go:349:</span><span class="w"> </span><span class="nx">starting</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="nx">process</span><span class="w"> </span><span class="nx">caused</span><span class="w"> </span><span class="s2">"exec: \"</span><span class="nt">-v</span><span class="nx">\</span><span class="s2">": executable file not found in </span><span class="nv">$PATH</span><span class="s2">"</span><span class="p">:</span><span class="w"> </span><span class="nx">unknown.</span><span class="w">
+</span></code></pre></div>    </div>
+    <p>Solution:
+<code class="highlighter-rouge">docker run -v "D:/programming/Docker container/sharing:/root" -it ubuntu</code></p>
+  </li>
+  <li>COPY failed<br />
+Dockerfile:
+<code class="highlighter-rouge">COPY ../sharing/myWSLSync.sh /tmp/</code>
+    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">docker</span><span class="w"> </span><span class="nx">build</span><span class="w"> </span><span class="nt">-t</span><span class="w"> </span><span class="nx">my-wsl-sync</span><span class="w"> </span><span class="nx">folder_name</span><span class="w">
+</span><span class="nf">Step</span><span class="w"> </span><span class="nx">2/2</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nx">COPY</span><span class="w"> </span><span class="nx">sharing/myWSLSync.sh</span><span class="w"> </span><span class="nx">/tmp/</span><span class="w">
+</span><span class="nf">COPY</span><span class="w"> </span><span class="nx">failed:</span><span class="w"> </span><span class="nx">stat</span><span class="w"> </span><span class="nx">/var/lib/docker/tmp/docker-builder764373298/sharing/myWSLSync.sh:</span><span class="w"> </span><span class="nx">no</span><span class="w"> </span><span class="nx">such</span><span class="w"> </span><span class="nx">file</span><span class="w"> </span><span class="nx">or</span><span class="w"> </span><span class="nx">directory</span><span class="w">
+</span></code></pre></div>    </div>
+    <p>Solution: don’t use “..”, and use “-f”<br />
+<code class="highlighter-rouge">docker build -t my-wsl-sync -f folder_name/Dockerfile .</code></p>
+  </li>
+  <li>Warning on non-Windows host
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
+</code></pre></div>    </div>
+    <p>Solution: Ignore</p>
+  </li>
+</ol>
+
+<h2 id="example">Example</h2>
+
+<p>I’ve written an example of Bash program in Docker:<br />
+<a href="https://github.com/jasonmccb/drives_bash_sync">https://github.com/jasonmccb/drives_bash_sync</a></p>
+
+
+            </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    <footer class="footer" role="contentinfo">
+	<div class="container">
+		<p class="copyright">Copyright &copy; 2019-2020 <a href="https://www.linkedin.com/in/junwen-liu-7261aa138/"><code>Jason Liu</code></a>.</p>
+		<p>Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme from <a href="http://lesscss.cn/">Less</a>, template from <a href="http://jekyllthemes.org/themes/Less-Or-More/">Freud Kang</a></p>
+	</div>
+</footer>
+
+<script src="/styles/js/jquery.min.js"></script>
+<script src="/styles/js/bootstrap.min.js"></script>
+<script src="/styles/js/holder.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  </body>
+</html>

@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>About me - Jason's Blog</title>
+	<title>Ubuntu Docker container missing Chinese - Jason's Blog</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/about/">
+	<link rel="canonical" href="/2020/09/29/Ubuntu-Docker-container-missing-Chinese/">
 	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
 	
-	<meta name="keywords" content="About me, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="keywords" content="Ubuntu Docker container missing Chinese, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -91,7 +91,7 @@
   <div class="container">
   	
   		<!--
-		    <h1>About me</h1>
+		    <h1>Ubuntu Docker container missing Chinese</h1>
 		    <p>Post on Sep 29, 2020 by <a href="/about">Jason Liu</a></p>
 		-->
 		    <h1>The meaning of life is to explore the world</h1>			
@@ -103,7 +103,8 @@
 <div class="banner">
   <div class="container">
   	
-    	世事苍茫成云烟，天地孤影任我行。
+    	<a href="/categories/#-ref"></a>	/
+    	<a href="/tag/#Linux-ref">Linux</a>
     
   </div>
 </div>
@@ -131,7 +132,7 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">About me</h1>
+              <h1 class="post-title">Ubuntu Docker container missing Chinese</h1>
               <!--
                 <p class="post-meta">Sep 29, 2020</p>
               -->
@@ -139,16 +140,44 @@
               <br />
             </header>
             <article class="post-content">
-              <p>Hi my name is Jason Junwen Liu. 
-I have 10 years of experience in IT. 
-My main interests include C#.NET, Linux, Java and AWS.
-In the past few months I built a web based system for specials in bars and restaurants in Wellington, mainly by Java. 
-I have logged the progress and the adopted technologies in this blog. 
-And I will keep updating it with technical stuff I found useful.</p>
+              <ol>
+  <li>Ubuntu Docker container doesn’t have Chinese by default.<br />
+Solution:
+    <ul>
+      <li>Option 1: install Chinese manually
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">#Check locale</span>
+  locale <span class="nt">-a</span>
+  <span class="c">#Check installed packages</span>
+  dpkg <span class="nt">-l</span> | less
 
-<p>More information about me is available at <a href="https://www.linkedin.com/in/junwen-liu-7261aa138/">LinkedIn</a></p>
-
-<p><img src="/images/me_queenstown.JPG" alt="my_image" /></p>
+  <span class="c">#Set environment variables LANG, and LC_ALL</span>
+  <span class="nv">LANG</span><span class="o">=</span><span class="s1">'C.UTF-8'</span>
+  <span class="nb">set</span> |grep LANG
+  <span class="nv">LC_ALL</span><span class="o">=</span><span class="s1">'C.UTF-8'</span>
+  <span class="nb">set</span> |grep LC_ALL
+  <span class="nb">export </span>LANG
+  <span class="nb">printenv</span> |grep LANG
+  <span class="nb">export </span>LC_ALL
+  <span class="nb">printenv</span> |grep LC_ALL
+</code></pre></div>        </div>
+      </li>
+      <li>Option 2: install it in Dockerfile
+        <pre><code class="language-Dockerfile">  RUN apt-get update
+  RUN apt-get install -y locales
+  ENV LANG C.UTF-8
+  ENV LC_ALL C.UTF-8
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>Failed to install locales.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> apt-get <span class="nb">install</span> <span class="nt">-y</span> locales
+ E: Package <span class="s1">'locales'</span> has no installation candidate
+</code></pre></div>    </div>
+    <p>Solution:<br />
+ Run <code class="highlighter-rouge">apt-get update</code> first</p>
+  </li>
+</ol>
 
             </article>
         </div>

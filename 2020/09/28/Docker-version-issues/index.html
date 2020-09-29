@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Docker version issues - Jason's Blog</title>
+
+	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
+	<link rel="icon" href="/styles/images/favicon.jpg">
+
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/styles/css/syntax.css">
+	<link rel="canonical" href="/2020/09/28/Docker-version-issues/">
+	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
+	
+	<meta name="keywords" content="Docker version issues, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+
+	<script src="/styles/js/jquery.min.js"></script>
+	<!--[if lt IE 9]>
+    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  	<![endif]-->
+  	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?718c90aec0b27f2b5ba1b7eeb0827810";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+  	<style type="text/css">
+	  	.docs-content{
+	  		margin-bottom: 10px;
+	  	}
+  	</style>
+</head>
+
+  <body class="index">
+
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.jpg">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/categories/">Categories</a>
+        </li>
+        <li>
+          <a href="/tag">Tags</a>
+        </li>
+		<li>
+          <a href="/search">Search</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a><span id="busuanzi_container_site_pv">Total visits: <span id="busuanzi_value_site_pv"></span></span></a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a rel="nofollow" target="_blank" href="https://github.com/jasonmccb/">My Github</a></li>
+            <li><a rel="nofollow" target="_blank" href="/about/">About me</a></li>
+            <li><a rel="nofollow" href="/reference">Related links</a></li>
+            <li><a href="/feed.xml">RSS</a></li>
+            <li class="divider"></li>
+            <li><a rel="nofollow" target="_blank" href="https://github.com/jasonmccb/jasonmccb.github.io">This site in Git</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header" id="content">
+  <div class="container">
+  	
+  		<!--
+		    <h1>Docker version issues</h1>
+		    <p>Post on Sep 28, 2020 by <a href="/about">Jason Liu</a></p>
+		-->
+		    <h1>The meaning of life is to explore the world</h1>			
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container">
+  	
+    	<a href="/categories/#-ref"></a>	/
+    	<a href="/tag/#Docker-ref">Docker</a>
+    
+  </div>
+</div>
+
+    
+	
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>Catalog</h1>
+  <ul class="nav sidenav">
+  </ul>
+  <div style="height: 200px;width: 200px;">
+    <script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"> 
+    </script>
+  </div>
+</div>
+
+ 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">Docker version issues</h1>
+              <!--
+                <p class="post-meta">Sep 28, 2020</p>
+              -->
+              <div class="meta">Posted on <span class="postdate">Sep 28, 2020</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
+              <br />
+            </header>
+            <article class="post-content">
+              <ol>
+  <li>Failed to upgrade to 2.3.0.5
+    <div class="language-bat highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">Attempted</span> <span class="kd">to</span> <span class="kd">perform</span> <span class="kd">an</span> <span class="kd">unauthorized</span> <span class="kd">operation</span>.
+    <span class="nb">at</span> <span class="kd">Microsoft</span>.Win32.RegistryKey.Win32Error<span class="o">(</span><span class="kd">Int32</span> <span class="kd">errorCode</span><span class="o">,</span> <span class="kd">String</span> <span class="kd">str</span><span class="o">)</span>
+    <span class="nb">at</span> <span class="kd">Microsoft</span>.Win32.RegistryKey.SetValue<span class="o">(</span><span class="kd">String</span> <span class="kd">name</span><span class="o">,</span> <span class="kd">Object</span> <span class="kd">value</span><span class="o">,</span> <span class="kd">RegistryValueKind</span> <span class="kd">valueKind</span><span class="o">)</span>
+    <span class="nb">at</span> <span class="kd">CommunityInstaller</span>.AutoStartAction.DoAsync<span class="o">(</span><span class="kd">CancellationToken</span> <span class="kd">cancelToken</span><span class="o">)</span>
+    <span class="nb">at</span> <span class="kd">CommunityInstaller</span>.InstallWorkflow.&lt;HandleD4WPackageAsync&gt;d__34.MoveNext<span class="o">()</span>
+ <span class="o">---</span> <span class="kd">End</span> <span class="kd">of</span> <span class="kd">stack</span> <span class="kd">trace</span> <span class="kd">from</span> <span class="kd">previous</span> <span class="kd">location</span> <span class="nb">where</span> <span class="kd">exception</span> <span class="kd">was</span> <span class="kd">thrown</span> <span class="o">---</span>
+    <span class="nb">at</span> <span class="kd">System</span>.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw<span class="o">()</span>
+    <span class="nb">at</span> <span class="kd">System</span>.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification<span class="o">(</span><span class="kd">Task</span> <span class="kd">task</span><span class="o">)</span>
+    <span class="nb">at</span> <span class="kd">CommunityInstaller</span>.InstallWorkflow.&lt;DoProcessAsync&gt;d__29.MoveNext<span class="o">()</span>
+
+ <span class="k">exit</span> <span class="kd">code</span> <span class="m">1</span>
+    <span class="nb">at</span> <span class="kd">CommunityInstaller</span>.InstallWorkflow.&lt;&gt;c__DisplayClass31_0.&lt;HandlePrePackagedExeAsync&gt;b__0<span class="o">()</span>
+    <span class="nb">at</span> <span class="kd">System</span>.Threading.Tasks.Task.Execute<span class="o">()</span>
+ <span class="o">---</span> <span class="kd">End</span> <span class="kd">of</span> <span class="kd">stack</span> <span class="kd">trace</span> <span class="kd">from</span> <span class="kd">previous</span> <span class="kd">location</span> <span class="nb">where</span> <span class="kd">exception</span> <span class="kd">was</span> <span class="kd">thrown</span> <span class="o">---</span>
+    <span class="nb">at</span> <span class="kd">System</span>.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw<span class="o">()</span>
+    <span class="nb">at</span> <span class="kd">System</span>.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification<span class="o">(</span><span class="kd">Task</span> <span class="kd">task</span><span class="o">)</span>
+    <span class="nb">at</span> <span class="kd">CommunityInstaller</span>.InstallWorkflow.&lt;HandlePrePackagedExeAsync&gt;d__31.MoveNext<span class="o">()</span>
+ <span class="o">---</span> <span class="kd">End</span> <span class="kd">of</span> <span class="kd">stack</span> <span class="kd">trace</span> <span class="kd">from</span> <span class="kd">previous</span> <span class="kd">location</span> <span class="nb">where</span> <span class="kd">exception</span> <span class="kd">was</span> <span class="kd">thrown</span> <span class="o">---</span>
+    <span class="nb">at</span> <span class="kd">System</span>.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw<span class="o">()</span>
+    <span class="nb">at</span> <span class="kd">System</span>.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification<span class="o">(</span><span class="kd">Task</span> <span class="kd">task</span><span class="o">)</span>
+    <span class="nb">at</span> <span class="kd">CommunityInstaller</span>.InstallWorkflow.&lt;DoProcessAsync&gt;d__29.MoveNext<span class="o">()</span>
+</code></pre></div>    </div>
+    <p>Solution:<br />
+ Don’t upgrade</p>
+  </li>
+  <li>Failed to use WSL 2<br />
+ Minimum version for WSL 2:<br />
+ Run <code class="highlighter-rouge">winver</code>, e.g.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Windows 10 Version 2004 (OS Build 19041.329)
+</code></pre></div>    </div>
+    <p>Version 1903 build 18362 needs to join Windows <strong>Insider Program</strong></p>
+
+    <p>Solution:<br />
+ Cannot use WSL 2 on low versions of Windows 10.<br />
+ FYI, how to convert docker to WSL 2:<br />
+ <a href="https://docs.docker.com/docker-for-windows/wsl/">https://docs.docker.com/docker-for-windows/wsl/</a></p>
+  </li>
+</ol>
+
+            </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    <footer class="footer" role="contentinfo">
+	<div class="container">
+		<p class="copyright">Copyright &copy; 2019-2020 <a href="https://www.linkedin.com/in/junwen-liu-7261aa138/"><code>Jason Liu</code></a>.</p>
+		<p>Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme from <a href="http://lesscss.cn/">Less</a>, template from <a href="http://jekyllthemes.org/themes/Less-Or-More/">Freud Kang</a></p>
+	</div>
+</footer>
+
+<script src="/styles/js/jquery.min.js"></script>
+<script src="/styles/js/bootstrap.min.js"></script>
+<script src="/styles/js/holder.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  </body>
+</html>

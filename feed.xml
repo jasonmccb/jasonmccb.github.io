@@ -5,9 +5,218 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 13 Aug 2020 23:20:36 +1200</pubDate>
-    <lastBuildDate>Thu, 13 Aug 2020 23:20:36 +1200</lastBuildDate>
+    <pubDate>Tue, 29 Sep 2020 17:35:22 +1300</pubDate>
+    <lastBuildDate>Tue, 29 Sep 2020 17:35:22 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Ubuntu Docker container missing Chinese</title>
+        <description>&lt;ol&gt;
+  &lt;li&gt;Ubuntu Docker container doesn’t have Chinese by default.&lt;br /&gt;
+Solution:
+    &lt;ul&gt;
+      &lt;li&gt;Option 1: install Chinese manually
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;c&quot;&gt;#Check locale&lt;/span&gt;
+  locale &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#Check installed packages&lt;/span&gt;
+  dpkg &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; | less
+
+  &lt;span class=&quot;c&quot;&gt;#Set environment variables LANG, and LC_ALL&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;LANG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'C.UTF-8'&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; |grep LANG
+  &lt;span class=&quot;nv&quot;&gt;LC_ALL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'C.UTF-8'&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; |grep LC_ALL
+  &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;LANG
+  &lt;span class=&quot;nb&quot;&gt;printenv&lt;/span&gt; |grep LANG
+  &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;LC_ALL
+  &lt;span class=&quot;nb&quot;&gt;printenv&lt;/span&gt; |grep LC_ALL
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Option 2: install it in Dockerfile
+        &lt;pre&gt;&lt;code class=&quot;language-Dockerfile&quot;&gt;  RUN apt-get update
+  RUN apt-get install -y locales
+  ENV LANG C.UTF-8
+  ENV LC_ALL C.UTF-8
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Failed to install locales.
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; apt-get &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; locales
+ E: Package &lt;span class=&quot;s1&quot;&gt;'locales'&lt;/span&gt; has no installation candidate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Solution:&lt;br /&gt;
+ Run &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get update&lt;/code&gt; first&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Tue, 29 Sep 2020 13:00:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/09/29/Ubuntu-Docker-container-missing-Chinese/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/09/29/Ubuntu-Docker-container-missing-Chinese/</guid>
+        
+        <category>Linux</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Docker basics</title>
+        <description>&lt;h2 id=&quot;commands&quot;&gt;Commands&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Official Docker reference documentation&lt;br /&gt;
+&lt;a href=&quot;https://docs.docker.com/reference/&quot;&gt;https://docs.docker.com/reference/&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Docker registry commands
+    &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pull&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;jasonmccb/drives_bash_sync&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Docker image commands
+    &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Listing&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Removing&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rmi&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;image-name&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rmi&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-q&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dangling&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Building using &quot;docker build&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dockerfile&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# -f option&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;image-name&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;folder_name/Dockerfile&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Building using &quot;docker-compose&quot; (&quot;up&quot; will build/create and run)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker-compose&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;up&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# To rebuild after changed&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker-compose&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Docker container commands
+    &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Listing&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ps&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Show all details&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;inspect&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Only show bind mounts&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;inspect&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{ { .Mounts }}&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	
+ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Running a new container&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# -d runs from background, -it runs interactively, -v mounts volume, -w for working dir&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;D:/programming/Docker container/sharing:/root&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;/root&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;my-wsl-sync&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Running from docker-compose, the &quot;app&quot; service in a shell&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker-compose&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sh&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	
+ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Managing existing container&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;start/stop/kill/rm&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	
+ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Checking log&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logs&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;issues&quot;&gt;Issues&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Cannot find package
+    &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;yarn install &amp;amp;&amp;amp; yarn run env&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;yarn&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;v1.22.4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Couldn&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'t find a package.json file in &quot;/app&quot;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Solution:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;cd &quot;xxxx/app&quot;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Executable file not found in $PATH
+    &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;D:/programming/Docker container/sharing:/root&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;docker:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;daemon:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;OCI&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;runtime&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;failed:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;container_linux.go:349:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;starting&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;caused&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;exec: \&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;: executable file not found in &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;unknown.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Solution:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;docker run -v &quot;D:/programming/Docker container/sharing:/root&quot; -it ubuntu&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;COPY failed&lt;br /&gt;
+Dockerfile:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;COPY ../sharing/myWSLSync.sh /tmp/&lt;/code&gt;
+    &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;my-wsl-sync&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;folder_name&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Step&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;2/2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;COPY&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sharing/myWSLSync.sh&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;/tmp/&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;COPY&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;failed:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stat&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;/var/lib/docker/tmp/docker-builder764373298/sharing/myWSLSync.sh:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;no&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;such&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;or&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;directory&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Solution: don’t use “..”, and use “-f”&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;docker build -t my-wsl-sync -f folder_name/Dockerfile .&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Warning on non-Windows host
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Solution: Ignore&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;example&quot;&gt;Example&lt;/h2&gt;
+
+&lt;p&gt;I’ve written an example of Bash program in Docker:&lt;br /&gt;
+&lt;a href=&quot;https://github.com/jasonmccb/drives_bash_sync&quot;&gt;https://github.com/jasonmccb/drives_bash_sync&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 29 Sep 2020 10:00:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/09/29/Docker-basics/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/09/29/Docker-basics/</guid>
+        
+        <category>Docker</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Docker version issues</title>
+        <description>&lt;ol&gt;
+  &lt;li&gt;Failed to upgrade to 2.3.0.5
+    &lt;div class=&quot;language-bat highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;kd&quot;&gt;Attempted&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;perform&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;an&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;unauthorized&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;operation&lt;/span&gt;.
+    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;Microsoft&lt;/span&gt;.Win32.RegistryKey.Win32Error&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;Int32&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;errorCode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;Microsoft&lt;/span&gt;.Win32.RegistryKey.SetValue&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;RegistryValueKind&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;valueKind&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;CommunityInstaller&lt;/span&gt;.AutoStartAction.DoAsync&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;CancellationToken&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;cancelToken&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;CommunityInstaller&lt;/span&gt;.InstallWorkflow.&amp;lt;HandleD4WPackageAsync&amp;gt;d__34.MoveNext&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;stack&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;trace&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;previous&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;exception&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;was&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;thrown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;System&lt;/span&gt;.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;System&lt;/span&gt;.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;Task&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;CommunityInstaller&lt;/span&gt;.InstallWorkflow.&amp;lt;DoProcessAsync&amp;gt;d__29.MoveNext&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+
+ &lt;span class=&quot;k&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;CommunityInstaller&lt;/span&gt;.InstallWorkflow.&amp;lt;&amp;gt;c__DisplayClass31_0.&amp;lt;HandlePrePackagedExeAsync&amp;gt;b__0&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;System&lt;/span&gt;.Threading.Tasks.Task.Execute&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;stack&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;trace&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;previous&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;exception&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;was&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;thrown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;System&lt;/span&gt;.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;System&lt;/span&gt;.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;Task&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;CommunityInstaller&lt;/span&gt;.InstallWorkflow.&amp;lt;HandlePrePackagedExeAsync&amp;gt;d__31.MoveNext&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;stack&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;trace&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;previous&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;exception&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;was&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;thrown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;System&lt;/span&gt;.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;System&lt;/span&gt;.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;Task&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;CommunityInstaller&lt;/span&gt;.InstallWorkflow.&amp;lt;DoProcessAsync&amp;gt;d__29.MoveNext&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Solution:&lt;br /&gt;
+ Don’t upgrade&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Failed to use WSL 2&lt;br /&gt;
+ Minimum version for WSL 2:&lt;br /&gt;
+ Run &lt;code class=&quot;highlighter-rouge&quot;&gt;winver&lt;/code&gt;, e.g.
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; Windows 10 Version 2004 (OS Build 19041.329)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Version 1903 build 18362 needs to join Windows &lt;strong&gt;Insider Program&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;Solution:&lt;br /&gt;
+ Cannot use WSL 2 on low versions of Windows 10.&lt;br /&gt;
+ FYI, how to convert docker to WSL 2:&lt;br /&gt;
+ &lt;a href=&quot;https://docs.docker.com/docker-for-windows/wsl/&quot;&gt;https://docs.docker.com/docker-for-windows/wsl/&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Mon, 28 Sep 2020 10:00:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/09/28/Docker-version-issues/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/09/28/Docker-version-issues/</guid>
+        
+        <category>Docker</category>
+        
+        
+      </item>
     
       <item>
         <title>GitHub connection issue</title>
@@ -397,155 +606,6 @@ But the big file will be only removed in remote and new-cloned repositories.&lt;
         <guid isPermaLink="true">http://localhost:4000/2020/05/04/GitHub-tips-on-changing-commit-history/</guid>
         
         <category>GitHub</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>C# Dependency Injection and Singleton</title>
-        <description>&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Why Singleton class needs to be sealed?&lt;br /&gt;
-&lt;a href=&quot;https://dotnettutorials.net/lesson/singleton-class-sealed/&quot;&gt;https://dotnettutorials.net/lesson/singleton-class-sealed/&lt;/a&gt;&lt;br /&gt;
-In short, internal derived class will be able to create instances.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;.NET DI framework list.&lt;br /&gt;
-&lt;a href=&quot;https://www.claudiobernasconi.ch/2019/01/24/the-ultimate-list-of-net-dependency-injection-frameworks/&quot;&gt;https://www.claudiobernasconi.ch/2019/01/24/the-ultimate-list-of-net-dependency-injection-frameworks/&lt;/a&gt;&lt;/p&gt;
-
-    &lt;table&gt;
-      &lt;thead&gt;
-        &lt;tr&gt;
-          &lt;th&gt;Framework&lt;/th&gt;
-          &lt;th&gt;Comment&lt;/th&gt;
-        &lt;/tr&gt;
-      &lt;/thead&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;Spring.NET&lt;/td&gt;
-          &lt;td&gt;Famous&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;Unity Container&lt;/td&gt;
-          &lt;td&gt;Supports .NET core, exception management, logging&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;Autofac&lt;/td&gt;
-          &lt;td&gt;Supports .NET core&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;Ninject&lt;/td&gt;
-          &lt;td&gt;Lightweight, easy&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Singleton vs Dependency Injection.&lt;br /&gt;
-&lt;a href=&quot;https://enterprisecraftsmanship.com/posts/singleton-vs-dependency-injection/&quot;&gt;https://enterprisecraftsmanship.com/posts/singleton-vs-dependency-injection/&lt;/a&gt;&lt;br /&gt;
-In short, Singleton is better for ambient dependencies, i.e. dependencies used everywhere&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Fri, 01 May 2020 20:30:00 +1200</pubDate>
-        <link>http://localhost:4000/2020/05/01/C-Dependency-Injection-and-Singleton/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/05/01/C-Dependency-Injection-and-Singleton/</guid>
-        
-        <category>C#</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Algolia implementation</title>
-        <description>&lt;p&gt;How to install Algolia and push content?&lt;br /&gt;
-&lt;a href=&quot;https://community.algolia.com/jekyll-algolia/getting-started.html&quot;&gt;https://community.algolia.com/jekyll-algolia/getting-started.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;How to imlement Algolia search in your website?&lt;br /&gt;
-&lt;a href=&quot;https://community.algolia.com/jekyll-algolia/blog.html&quot;&gt;https://community.algolia.com/jekyll-algolia/blog.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Key words:&lt;/strong&gt;&lt;br /&gt;
-Application name: ****&lt;br /&gt;
-Index name: ****&lt;br /&gt;
-Admin API key: ****&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Below commands doesn’t work under Windows
-    &lt;div class=&quot;language-bat highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;ALGOLIA_API_KEY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'saldfjpwoeifjlsdfjkoweifj9837592'&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;bundle&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;jekyll&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;algolia&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;'ALGOLIA_API_KEY'&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;recognized&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;an&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;internal&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;external&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;“jekyll algolia” doesn’t support Chinese under Windows coz cmd is not UTF-8 by default.&lt;br /&gt;
-Error message:
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Updating settings of index jekyll
-jekyll 4.0.0 | Error:  invalid byte sequence in GBK
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;FYI, running in a start temp.bat doesn’t work either, and running in Powershell doesn’t work either&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Below commands works&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;language-bat highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;:: There is no quotation mark while setting Windows environment variable&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;ALGOLIA_API_KEY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;saldfjpwoeifjlsdfjkoweifj9837592&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;:: Change Code Page in command prompt to UTF-8&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;chcp&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;65001&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;:: Wait for the finish of pushing to Algolia &lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;/WAIT &lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;bundle&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;jekyll&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;algolia&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;:: Change Code Page in command prompt back to ANSI Chinese GB2312&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;chcp&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;936&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;Configuration&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;file&lt;/span&gt;: &lt;span class=&quot;kd&quot;&gt;D&lt;/span&gt;:/JekyllBlog/myblog/_config.yml
-&lt;span class=&quot;kd&quot;&gt;Processing&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;site&lt;/span&gt;...
-&lt;span class=&quot;kd&quot;&gt;Rendering&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;HTML&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|=====================================================|&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;Extracting&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;records&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|====================================================|&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;Settings&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;are&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;already&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;up&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;.
-&lt;span class=&quot;kd&quot;&gt;Getting&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;existing&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;records&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;Content&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;already&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;up&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;.
-&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;Indexing&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;complete&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Mon, 06 Apr 2020 20:30:00 +1200</pubDate>
-        <link>http://localhost:4000/2020/04/06/Algolia/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/04/06/Algolia/</guid>
-        
-        <category>Algolia</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Ruby on rails basics</title>
-        <description>&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;How to run Ruby program:&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;ruby test.rb&lt;/code&gt;&lt;br /&gt;
-or&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;irb&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Gemfile standard and help:&lt;br /&gt;
-&lt;a href=&quot;https://tosbourn.com/what-is-the-gemfile/&quot;&gt;https://tosbourn.com/what-is-the-gemfile&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Gemfile example:&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'https://rubygems.org'&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'jekyll'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'~&amp;gt; 3.6'&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:jekyll_plugins&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'jekyll-algolia'&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Sun, 05 Apr 2020 20:30:00 +1200</pubDate>
-        <link>http://localhost:4000/2020/04/05/Ruby-on-rails-basics/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/04/05/Ruby-on-rails-basics/</guid>
-        
-        <category>ruby on rails</category>
         
         
       </item>
