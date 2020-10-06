@@ -5,8 +5,8 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 29 Sep 2020 17:35:22 +1300</pubDate>
-    <lastBuildDate>Tue, 29 Sep 2020 17:35:22 +1300</lastBuildDate>
+    <pubDate>Wed, 07 Oct 2020 10:01:26 +1300</pubDate>
+    <lastBuildDate>Wed, 07 Oct 2020 10:01:26 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -147,7 +147,7 @@ Dockerfile:
   &lt;li&gt;Warning on non-Windows host
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;Solution: Ignore&lt;/p&gt;
+    &lt;p&gt;Solution: Because folders will become files, we should not copy folders from Windows to Linux image, we should only copy files. And also our program should not rely on the permissions of files and folders.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
