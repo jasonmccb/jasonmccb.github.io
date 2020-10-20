@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Related links - Jason's Blog</title>
+	<title>Docker mistakes some files for folders, and folders for files. - Jason's Blog</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/reference/">
+	<link rel="canonical" href="/2020/10/21/Docker-file-type-issue/">
 	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
 	
-	<meta name="keywords" content="Related links, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="keywords" content="Docker mistakes some files for folders, and folders for files., Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -91,7 +91,7 @@
   <div class="container">
   	
   		<!--
-		    <h1>Related links</h1>
+		    <h1>Docker mistakes some files for folders, and folders for files.</h1>
 		    <p>Post on Oct 21, 2020 by <a href="/about">Jason Liu</a></p>
 		-->
 		    <h1>The meaning of life is to explore the world</h1>			
@@ -103,8 +103,8 @@
 <div class="banner">
   <div class="container">
   	
-    	<a href="/categories/#theScene.Co-ref">theScene.Co</a>	/
-    	<a href="/tag/#-ref"></a>
+    	<a href="/categories/#-ref"></a>	/
+    	<a href="/tag/#Docker-ref">Docker</a>
     
   </div>
 </div>
@@ -132,7 +132,7 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">Related links</h1>
+              <h1 class="post-title">Docker mistakes some files for folders, and folders for files.</h1>
               <!--
                 <p class="post-meta">Oct 21, 2020</p>
               -->
@@ -140,24 +140,20 @@
               <br />
             </header>
             <article class="post-content">
-              <ul id="markdown-toc">
-  <li><a href="#happygigs" id="markdown-toc-happygigs">HappyGigs</a></li>
-  <li><a href="#whitireia" id="markdown-toc-whitireia">Whitireia</a></li>
-  <li><a href="#jekyll-quickstart" id="markdown-toc-jekyll-quickstart">Jekyll Quickstart</a></li>
-</ul>
+              <p><strong>1. Docker mistakes some files for folders, and folders for files.</strong><br />
+<img src="/images/Docker mounted volume mistakes folders for files.png" alt="my_image" /></p>
 
-<h1 id="happygigs">HappyGigs</h1>
+<p><strong>Root cause:</strong><br />
+Could be related to mounting Windows volume onto Linux container, but most files/folders don’t have this problem.</p>
 
-<p><a href="https://happygigs.co.nz/">HappyGigs</a></p>
+<p><strong>Impact:</strong></p>
+<div class="language-bat highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">rsync</span>: <span class="kd">chgrp</span> <span class="s2">"/mnt/e/......"</span> <span class="kd">failed</span>: <span class="kd">Operation</span> <span class="ow">not</span> <span class="kd">permitted</span> <span class="o">(</span><span class="m">1</span><span class="o">)</span>
+......
+<span class="kd">rsync</span> <span class="kd">error</span>: <span class="kd">some</span> <span class="kd">files</span><span class="na">/attrs </span><span class="kd">were</span> <span class="ow">not</span> <span class="kd">transferred</span> <span class="o">(</span><span class="kd">see</span> <span class="kd">previous</span> <span class="kd">errors</span><span class="o">)</span> <span class="o">(</span><span class="kd">code</span> <span class="m">23</span><span class="o">)</span> <span class="nb">at</span> <span class="kd">main</span>.c<span class="o">(</span><span class="m">1207</span><span class="o">)</span> <span class="o">[</span><span class="kd">sender</span><span class="o">=</span><span class="m">3</span>.1.3<span class="o">]</span>
+</code></pre></div></div>
 
-<h1 id="whitireia">Whitireia</h1>
-
-<p><a href="https://moodle.whitireia.ac.nz/">Whitireia</a></p>
-
-<h1 id="jekyll-quickstart">Jekyll Quickstart</h1>
-
-<p><a href="https://jekyllrb.com/docs/">Jekyll</a></p>
-
+<p><strong>Solution:</strong><br />
+It is a Docker bug/limitation. Those files/folders cannot be synced using rsync, but have to be done manually.</p>
 
             </article>
         </div>
