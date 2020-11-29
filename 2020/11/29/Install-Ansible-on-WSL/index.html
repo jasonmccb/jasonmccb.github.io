@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Review of the GitHub procedure - Jason's Blog</title>
+	<title>How to install Ansible on WSL - Jason's Blog</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/2020/04/02/Review-of-the-GitHub-procedure/">
+	<link rel="canonical" href="/2020/11/29/Install-Ansible-on-WSL/">
 	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
 	
-	<meta name="keywords" content="Review of the GitHub procedure, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="keywords" content="How to install Ansible on WSL, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -91,8 +91,8 @@
   <div class="container">
   	
   		<!--
-		    <h1>Review of the GitHub procedure</h1>
-		    <p>Post on Apr 02, 2020 by <a href="/about">Jason Liu</a></p>
+		    <h1>How to install Ansible on WSL</h1>
+		    <p>Post on Nov 29, 2020 by <a href="/about">Jason Liu</a></p>
 		-->
 		    <h1>The meaning of life is to explore the world</h1>			
     
@@ -104,7 +104,7 @@
   <div class="container">
   	
     	<a href="/categories/#-ref"></a>	/
-    	<a href="/tag/#GitHub-ref">GitHub</a>
+    	<a href="/tag/#Ansible-ref">Ansible</a>
     
   </div>
 </div>
@@ -132,36 +132,63 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">Review of the GitHub procedure</h1>
+              <h1 class="post-title">How to install Ansible on WSL</h1>
               <!--
-                <p class="post-meta">Apr 2, 2020</p>
+                <p class="post-meta">Nov 29, 2020</p>
               -->
-              <div class="meta">Posted on <span class="postdate">Apr 02, 2020</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
+              <div class="meta">Posted on <span class="postdate">Nov 29, 2020</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
               <br />
             </header>
             <article class="post-content">
-              <p>Summary:</p>
-
-<div class="language-bat highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">:: From local repo to GitHub:</span>
-<span class="c">:: 1.Create repository manually on github.com</span>
-<span class="c">:: 2.Create locally and push to the remote repository</span>
-<span class="nb">echo</span> <span class="s2">"# my source"</span> <span class="o">&gt;&gt;</span> <span class="kd">README</span>.md
-<span class="kd">git</span> <span class="kd">init</span>
-<span class="kd">git</span> <span class="kd">add</span> <span class="kd">README</span>.md
-<span class="kd">git</span> <span class="kd">commit</span> <span class="na">-m </span><span class="s2">"first commit"</span>
-<span class="c">::(git remote remove origin)</span>
-<span class="c">::HTTP:</span>
-	<span class="kd">git</span> <span class="kd">remote</span> <span class="kd">add</span> <span class="kd">origin</span> <span class="kd">https</span>://github.com/jasonmccb/myblog_Jekyll_source.git
-<span class="c">::SSH: (needs to set up SSH RSA key)</span>
-	<span class="kd">git</span> <span class="kd">remote</span> <span class="kd">add</span> <span class="kd">origin</span> <span class="kd">git</span>@github.com:jasonmccb/myblog_Jekyll_source.git
-<span class="kd">git</span> <span class="kd">remote</span> <span class="na">-v
-</span><span class="kd">git</span> <span class="kd">pull</span> <span class="kd">origin</span> <span class="kd">master</span> <span class="o">-</span><span class="na">-allow-unrelated-histories
-</span><span class="kd">git</span> <span class="kd">push</span> <span class="na">-u </span><span class="kd">origin</span> <span class="kd">master</span>
-
-
-<span class="c">:: From GitHub to local repo:</span>
-<span class="kd">git</span> <span class="kd">clone</span> <span class="kd">https</span>://github.com/jasonmccb/&lt;repository_name&gt;.git <span class="o">&lt;</span><span class="kd">local_folder_name</span><span class="o">&gt;</span>
+              <p><strong>1. Update apt</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
+......
+Fetched 7978 kB <span class="k">in </span>1min 41s <span class="o">(</span>79.3 kB/s<span class="o">)</span>
+Reading package lists... Done
 </code></pre></div></div>
+
+<p><strong>2. Install Python etc</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>python-pip git libffi-dev libssl-dev <span class="nt">-y</span>
+......
+W: APT had planned <span class="k">for </span>dpkg to <span class="k">do </span>more than it reported back <span class="o">(</span>330 vs 356<span class="o">)</span><span class="nb">.</span>
+   Affected packages: libgdbm-compat4:amd64 libgdbm6:amd64 libperl5.28:amd64 perl-base:amd64 perl-modules-5.28:amd64
+</code></pre></div></div>
+
+<p><strong>3. Install Ansible and Pywinrm</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>ansible pywinrm
+......
+<span class="k">done
+  </span>Stored <span class="k">in </span>directory: /home/jason/.cache/pip/wheels/41/79/b5/1f6f77b8a80eab71e9edd46169ab72940d15dba1e346a64134
+......
+<span class="k">****</span>  The script chardetect is installed <span class="k">in</span> <span class="s1">'/home/jason/.local/bin'</span> which is not on PATH.
+  Consider adding this directory to PATH or, <span class="k">if </span>you prefer to suppress this warning, use <span class="nt">--no-warn-script-location</span><span class="nb">.</span>
+Successfully installed MarkupSafe-1.1.1 PyYAML-5.3.1 ansible-2.10.3 ansible-base-2.10.3 certifi-2020.11.8 chardet-3.0.4 idna-2.10 jinja2-2.11.2 ntlm-auth-1.5.0 packaging-20.4 pyparsing-2.4.7 pywinrm-0.4.1 requests-2.25.0 requests-ntlm-1.1.0 urllib3-1.26.2 xmltodict-0.12.0 <span class="k">****</span>
+</code></pre></div></div>
+
+<p><strong>4. Add Ansible to $PATH</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible <span class="nt">--version</span>
+Command <span class="s1">'ansible'</span> not found, but can be installed with:
+<span class="nb">sudo </span>apt <span class="nb">install </span>ansible
+
+<span class="c">#  Add Ansible command installation dir to the $PATH</span>
+<span class="nb">echo</span> <span class="s1">'PATH=$HOME/.local/bin:$PATH'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+
+<span class="c"># Reload bash profile</span>
+<span class="nb">source</span> .bashrc
+</code></pre></div></div>
+
+<p><strong>5. Verify success</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible <span class="nt">--version</span>
+ansible 2.10.3
+  config file <span class="o">=</span> None
+  configured module search path <span class="o">=</span> <span class="o">[</span>u<span class="s1">'/home/jason/.ansible/plugins/modules'</span>, u<span class="s1">'/usr/share/ansible/plugins/modules'</span><span class="o">]</span>
+  ansible python module location <span class="o">=</span> /home/jason/.local/lib/python2.7/site-packages/ansible
+  executable location <span class="o">=</span> /home/jason/.local/bin/ansible
+  python version <span class="o">=</span> 2.7.17 <span class="o">(</span>default, Sep 30 2020, 13:38:04<span class="o">)</span> <span class="o">[</span>GCC 7.5.0]
+</code></pre></div></div>
+
+<p><strong>Reference link:</strong>
+<a href="https://www.jeffgeerling.com/blog/2017/using-ansible-through-windows-10s-subsystem-linux">https://www.jeffgeerling.com/blog/2017/using-ansible-through-windows-10s-subsystem-linux</a></p>
 
             </article>
         </div>

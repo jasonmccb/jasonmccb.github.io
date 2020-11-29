@@ -5,9 +5,70 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 21 Oct 2020 11:40:48 +1300</pubDate>
-    <lastBuildDate>Wed, 21 Oct 2020 11:40:48 +1300</lastBuildDate>
+    <pubDate>Sun, 29 Nov 2020 17:43:22 +1300</pubDate>
+    <lastBuildDate>Sun, 29 Nov 2020 17:43:22 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>How to install Ansible on WSL</title>
+        <description>&lt;p&gt;&lt;strong&gt;1. Update apt&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
+......
+Fetched 7978 kB &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;1min 41s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;79.3 kB/s&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+Reading package lists... Done
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Install Python etc&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;python-pip git libffi-dev libssl-dev &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
+......
+W: APT had planned &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;dpkg to &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;more than it reported back &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;330 vs 356&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+   Affected packages: libgdbm-compat4:amd64 libgdbm6:amd64 libperl5.28:amd64 perl-base:amd64 perl-modules-5.28:amd64
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Install Ansible and Pywinrm&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ansible pywinrm
+......
+&lt;span class=&quot;k&quot;&gt;done
+  &lt;/span&gt;Stored &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;directory: /home/jason/.cache/pip/wheels/41/79/b5/1f6f77b8a80eab71e9edd46169ab72940d15dba1e346a64134
+......
+&lt;span class=&quot;k&quot;&gt;****&lt;/span&gt;  The script chardetect is installed &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'/home/jason/.local/bin'&lt;/span&gt; which is not on PATH.
+  Consider adding this directory to PATH or, &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;you prefer to suppress this warning, use &lt;span class=&quot;nt&quot;&gt;--no-warn-script-location&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+Successfully installed MarkupSafe-1.1.1 PyYAML-5.3.1 ansible-2.10.3 ansible-base-2.10.3 certifi-2020.11.8 chardet-3.0.4 idna-2.10 jinja2-2.11.2 ntlm-auth-1.5.0 packaging-20.4 pyparsing-2.4.7 pywinrm-0.4.1 requests-2.25.0 requests-ntlm-1.1.0 urllib3-1.26.2 xmltodict-0.12.0 &lt;span class=&quot;k&quot;&gt;****&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;4. Add Ansible to $PATH&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ansible &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
+Command &lt;span class=&quot;s1&quot;&gt;'ansible'&lt;/span&gt; not found, but can be installed with:
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ansible
+
+&lt;span class=&quot;c&quot;&gt;#  Add Ansible command installation dir to the $PATH&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'PATH=$HOME/.local/bin:$PATH'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.bashrc
+
+&lt;span class=&quot;c&quot;&gt;# Reload bash profile&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; .bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;5. Verify success&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ansible &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
+ansible 2.10.3
+  config file &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; None
+  configured module search path &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;u&lt;span class=&quot;s1&quot;&gt;'/home/jason/.ansible/plugins/modules'&lt;/span&gt;, u&lt;span class=&quot;s1&quot;&gt;'/usr/share/ansible/plugins/modules'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+  ansible python module location &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; /home/jason/.local/lib/python2.7/site-packages/ansible
+  executable location &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; /home/jason/.local/bin/ansible
+  python version &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2.7.17 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default, Sep 30 2020, 13:38:04&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;GCC 7.5.0]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Reference link:&lt;/strong&gt;
+&lt;a href=&quot;https://www.jeffgeerling.com/blog/2017/using-ansible-through-windows-10s-subsystem-linux&quot;&gt;https://www.jeffgeerling.com/blog/2017/using-ansible-through-windows-10s-subsystem-linux&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 29 Nov 2020 11:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/11/29/Install-Ansible-on-WSL/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/11/29/Install-Ansible-on-WSL/</guid>
+        
+        <category>Ansible</category>
+        
+        
+      </item>
     
       <item>
         <title>Docker mistakes some files for folders, and folders for files.</title>
@@ -524,23 +585,6 @@ rsync &lt;span class=&quot;nt&quot;&gt;-avr&lt;/span&gt; &lt;span class=&quot;nt
         <guid isPermaLink="true">http://localhost:4000/2020/07/20/Common-programming-characteristics/</guid>
         
         <category>C#</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>AWS cheat sheet</title>
-        <description>&lt;ol&gt;
-  &lt;li&gt;AWS cheat sheet is a good reference for basic AWS concepts. It also has a site search function.&lt;br /&gt;
-&lt;a href=&quot;https://digitalcloud.training/certification-training/aws-certified-cloud-practitioner/&quot;&gt;https://digitalcloud.training/certification-training/aws-certified-cloud-practitioner/&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        <pubDate>Tue, 02 Jun 2020 20:30:00 +1200</pubDate>
-        <link>http://localhost:4000/2020/06/02/AWS-cheatsheet/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/06/02/AWS-cheatsheet/</guid>
-        
-        <category>AWS</category>
         
         
       </item>
