@@ -5,9 +5,42 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 29 Nov 2020 17:43:22 +1300</pubDate>
-    <lastBuildDate>Sun, 29 Nov 2020 17:43:22 +1300</lastBuildDate>
+    <pubDate>Sun, 29 Nov 2020 18:21:37 +1300</pubDate>
+    <lastBuildDate>Sun, 29 Nov 2020 18:21:37 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>How to fix: chmod doesn't work in WSL</title>
+        <description>&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt;&lt;br /&gt;
+After chmod, the permissions got lost due to being overwritten by Windows&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
+The correct way to handle this:&lt;/p&gt;
+
+&lt;p&gt;Create a file named /etc/wsl.conf and edit it to contain the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[automount]
+enabled = true
+root = /mnt/
+options = &quot;metadata,umask=22,fmask=11&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To understand the meaning of each parameter above, please refer to &lt;a href=&quot;https://blogs.msdn.microsoft.com/commandline/2018/02/07/automatically-configuring-wsl/&quot;&gt;this article&lt;/a&gt; on msdn:&lt;/p&gt;
+
+&lt;p&gt;Close all open WSL terminal then open a new one.&lt;/p&gt;
+
+&lt;p&gt;Now you are all set, changing permissions of a file in windows from /mnt/c/ will be reflected correctly on the Linux Subsystem through the WSL “metadata” feature.&lt;/p&gt;
+
+&lt;p&gt;The WSL configuration will always mount correctly on startup of WSL.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 29 Nov 2020 17:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2020/11/29/chmod-doesn't-work-in-WSL/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/11/29/chmod-doesn't-work-in-WSL/</guid>
+        
+        <category>Linux</category>
+        
+        
+      </item>
     
       <item>
         <title>How to install Ansible on WSL</title>
@@ -521,70 +554,6 @@ rsync &lt;span class=&quot;nt&quot;&gt;-avr&lt;/span&gt; &lt;span class=&quot;nt
         <guid isPermaLink="true">http://localhost:4000/2020/08/03/Setting-up-Qt,-CMake-with-Visual-Studio/</guid>
         
         <category>C++</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Common programming characteristics</title>
-        <description>&lt;ol&gt;
-  &lt;li&gt;Please see the table below.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/1.png&quot; alt=&quot;image1&quot; /&gt;
-&lt;img src=&quot;/images/2.png&quot; alt=&quot;image2&quot; /&gt;&lt;/p&gt;
-
-&lt;!--
-&lt;table id=&quot;summaryTable&quot; class=&quot;display&quot; style=&quot;border: 1px solid black&quot;&gt;
-   &lt;thead style=&quot;background-color:green; border-left: 10px solid black; border-right: 10px solid black&quot;&gt;
-      &lt;tr&gt;
-         &lt;th&gt;&lt;/th&gt;
-         &lt;th&gt;&lt;/th&gt;
-         &lt;th&gt;&lt;/th&gt;
-         &lt;th&gt;Java&lt;/th&gt;
-		 &lt;th&gt;C#&lt;/th&gt;
-		 &lt;th&gt;C++&lt;/th&gt;
-      &lt;/tr&gt;
-   &lt;/thead&gt;
-   &lt;tbody&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Parameter 1&lt;/td&gt;
-         &lt;td&gt;Sample description
-         &lt;/td&gt;
-         &lt;td&gt;Sample type&lt;/td&gt;
-         &lt;td&gt;Sample default value&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Parameter 2&lt;/td&gt;
-         &lt;td&gt;Sample description
-         &lt;/td&gt;
-         &lt;td&gt;Sample type&lt;/td&gt;
-         &lt;td&gt;Sample default value&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;tr&gt;
-       &lt;td&gt;Parameter 3&lt;/td&gt;
-       &lt;td&gt;Sample description
-       &lt;/td&gt;
-       &lt;td&gt;Sample type&lt;/td&gt;
-       &lt;td&gt;Sample default value&lt;/td&gt;
-    &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Parameter 4&lt;/td&gt;
-         &lt;td&gt;Sample description
-         &lt;/td&gt;
-         &lt;td&gt;Sample type&lt;/td&gt;
-         &lt;td&gt;Sample default value&lt;/td&gt;
-      &lt;/tr&gt;
-   &lt;/tbody&gt;
-&lt;/table&gt;
---&gt;
-
-</description>
-        <pubDate>Mon, 20 Jul 2020 20:30:00 +1200</pubDate>
-        <link>http://localhost:4000/2020/07/20/Common-programming-characteristics/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/07/20/Common-programming-characteristics/</guid>
-        
-        <category>C#</category>
         
         
       </item>
