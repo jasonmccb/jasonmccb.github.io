@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Titleeeeeeee</title>
+	<script>
+		function changeColor(inputElement) {
+            var newColor = inputElement.style.color == "red" ? "blue" : "red";
+			inputElement.style.color = newColor;
+		}
+		let fnChangeColor = function (inputElement) {
+            var newColor = inputElement.style.color == "red" ? "green" : "red";
+            inputElement.style.color = newColor;
+        }
+	</script>
+</head>
+<body>
+	<h1>Hello World!</h1>
+	<script>document.write("<h4>这是一个用document.write写的标题</h4>");</script>
+	<a href="#fuck">Jump to some tag</a>
+	<br />
+	<button type="button" onclick="alert('我是一个alert!')">trigger alert</button>
+	<br />
+	<button type="button" onclick="window.open('https://www.google.com','aaaaaaa')">open Google</button>
+	<p>
+		<button type="button" onclick="nextElementSibling.innerHTML = Date()">Show date.</button>
+		<output></output>
+	</p>
+	<p>
+		<!--button type="button" onclick="changeColor(this.parentNode.parentNode.firstChild)">Change color<button-->
+		<button type="button" id="btnChangeColor">Change color</button>
+	</p>
+
+	<script src="js-object-demo.js"></script>
+
+	<script>
+		for (i = 1; i <= 100; i++) { document.write("<br/>"); }
+	</script>
+	<!--a href="#" id="fuck" onclick="document.execCommand('Saveas',false,'D:\\programming\\javascript\\JS-basics\\test.html')">保存文件</a-->
+	<a href="#" id="fuck">save file? Jump to top</a>
+	<script src="index.js"></script>
+
+
+
+</body>
+</html>
