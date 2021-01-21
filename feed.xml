@@ -5,9 +5,44 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 30 Dec 2020 23:55:24 +1300</pubDate>
-    <lastBuildDate>Wed, 30 Dec 2020 23:55:24 +1300</lastBuildDate>
+    <pubDate>Thu, 21 Jan 2021 23:06:37 +1300</pubDate>
+    <lastBuildDate>Thu, 21 Jan 2021 23:06:37 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Ansible tips</title>
+        <description>&lt;p&gt;&lt;strong&gt;Ansible tips&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;set_stats&lt;/code&gt; must have &lt;code class=&quot;highlighter-rouge&quot;&gt;data&lt;/code&gt;
+    &lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;set_stats&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+ &lt;span class=&quot;na&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;na&quot;&gt;failure_reason&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Duplicate.&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Cannot loop on a &lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;debug&lt;/code&gt; cannot show up in a play, but only in &lt;code class=&quot;highlighter-rouge&quot;&gt;tasks&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;set_stats&lt;/code&gt; variables cannot be used within same playbook, but only in other playbooks&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;set_stats&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;set_fact&lt;/code&gt; cannot partially change a dictionary, the correct way is to use “combine” filter&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;unless in a role, &lt;code class=&quot;highlighter-rouge&quot;&gt;include&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;import&lt;/code&gt; cannot be inside &lt;code class=&quot;highlighter-rouge&quot;&gt;tasks&lt;/code&gt;, but only outside&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Thu, 21 Jan 2021 22:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2021/01/21/Ansible-tips/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/01/21/Ansible-tips/</guid>
+        
+        <category>Ansible</category>
+        
+        
+      </item>
     
       <item>
         <title>JavaScript basics</title>
@@ -462,54 +497,6 @@ Dockerfile:
         <pubDate>Thu, 13 Aug 2020 11:00:00 +1200</pubDate>
         <link>http://localhost:4000/2020/08/13/WSL-tips/</link>
         <guid isPermaLink="true">http://localhost:4000/2020/08/13/WSL-tips/</guid>
-        
-        <category>Linux</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>rsync usage</title>
-        <description>&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;rsync Linux man page:&lt;br /&gt;
-&lt;a href=&quot;https://linux.die.net/man/1/rsync&quot;&gt;https://linux.die.net/man/1/rsync&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;rsync -navur “sourceDir&lt;span style=&quot;color:red&quot;&gt;&lt;b&gt;/&lt;/b&gt;&lt;/span&gt;” “targetDir”.&lt;br /&gt;
--n: dry run&lt;br /&gt;
--a: archive&lt;br /&gt;
--v: verbose&lt;br /&gt;
--u: newer&lt;br /&gt;
--r: recursion&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;rsync filter rules only apply to the first match.
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# &quot;test&quot; will be included:&lt;/span&gt;
-rsync &lt;span class=&quot;nt&quot;&gt;-av&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--include&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;test&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--exclude&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;test&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;source&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;target&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;rsync filter rules do not consider directories in source or target.
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# &quot;subDir&quot; will not be matched or filtered out:&lt;/span&gt;
-rsync &lt;span class=&quot;nt&quot;&gt;-av&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--exclude&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;subDir&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;source/subDir/&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;target/subDir&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;rsync filter rules for include pattern only work step by step.
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Without the first two include, the 3rd one won't match anything&lt;/span&gt;
-rsync &lt;span class=&quot;nt&quot;&gt;-navur&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--include&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Melanie/'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--include&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Melanie/temp/'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--include&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Melanie/temp/**'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--exclude&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'*'&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/mnt/d/&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/mnt/e&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;rsync filter rule patterns does not expand * with /, only ** expands /.
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# source/dir1/dir2/dir3 won't be excluded&lt;/span&gt;
-rsync &lt;span class=&quot;nt&quot;&gt;-avr&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--exclude&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;dir1/*&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;source/&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;target&quot;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# source/dir1/dir2/dir3 will be excluded&lt;/span&gt;
-rsync &lt;span class=&quot;nt&quot;&gt;-avr&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--exclude&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;dir3/**&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;source/&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;target&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Wed, 12 Aug 2020 20:00:00 +1200</pubDate>
-        <link>http://localhost:4000/2020/08/12/rsync-usage/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/08/12/rsync-usage/</guid>
         
         <category>Linux</category>
         

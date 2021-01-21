@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Production release, excel reader enhancement - Jason's Blog</title>
+	<title>Ansible tips - Jason's Blog</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/2019/11/26/Production-release,-excel-reader-enhancement/">
+	<link rel="canonical" href="/2021/01/21/Ansible-tips/">
 	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
 	
-	<meta name="keywords" content="Production release, excel reader enhancement, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="keywords" content="Ansible tips, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -91,8 +91,8 @@
   <div class="container">
   	
   		<!--
-		    <h1>Production release, excel reader enhancement</h1>
-		    <p>Post on Nov 26, 2019 by <a href="/about">Jason Liu</a></p>
+		    <h1>Ansible tips</h1>
+		    <p>Post on Jan 21, 2021 by <a href="/about">Jason Liu</a></p>
 		-->
 		    <h1>The meaning of life is to explore the world</h1>			
     
@@ -103,8 +103,8 @@
 <div class="banner">
   <div class="container">
   	
-    	<a href="/categories/#theScene.Co-ref">theScene.Co</a>	/
-    	<a href="/tag/#-ref"></a>
+    	<a href="/categories/#-ref"></a>	/
+    	<a href="/tag/#Ansible-ref">Ansible</a>
     
   </div>
 </div>
@@ -132,22 +132,36 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">Production release, excel reader enhancement</h1>
+              <h1 class="post-title">Ansible tips</h1>
               <!--
-                <p class="post-meta">Nov 26, 2019</p>
+                <p class="post-meta">Jan 21, 2021</p>
               -->
-              <div class="meta">Posted on <span class="postdate">Nov 26, 2019</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
+              <div class="meta">Posted on <span class="postdate">Jan 21, 2021</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
               <br />
             </header>
             <article class="post-content">
-              <p>What have been done:</p>
+              <p><strong>Ansible tips</strong></p>
 
 <ol>
-  <li>Enhanced the program so that it can read both text and numeric data
-from Excel cells.</li>
-  <li>Added handling on invalid data including empty data and wrong time
-format.</li>
-  <li>Created new branch for it named “excelReader”</li>
+  <li><code class="highlighter-rouge">set_stats</code> must have <code class="highlighter-rouge">data</code>
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">set_stats</span><span class="pi">:</span>
+ <span class="na">data</span><span class="pi">:</span>
+     <span class="na">failure_reason</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Duplicate."</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Cannot loop on a <code class="highlighter-rouge">block</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">debug</code> cannot show up in a play, but only in <code class="highlighter-rouge">tasks</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">set_stats</code> variables cannot be used within same playbook, but only in other playbooks</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">set_stats</code>/<code class="highlighter-rouge">set_fact</code> cannot partially change a dictionary, the correct way is to use “combine” filter</p>
+  </li>
+  <li>unless in a role, <code class="highlighter-rouge">include</code>/<code class="highlighter-rouge">import</code> cannot be inside <code class="highlighter-rouge">tasks</code>, but only outside</li>
 </ol>
 
             </article>
