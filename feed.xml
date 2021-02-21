@@ -5,9 +5,51 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 21 Jan 2021 23:06:37 +1300</pubDate>
-    <lastBuildDate>Thu, 21 Jan 2021 23:06:37 +1300</lastBuildDate>
+    <pubDate>Sun, 21 Feb 2021 23:08:11 +1300</pubDate>
+    <lastBuildDate>Sun, 21 Feb 2021 23:08:11 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Ansible variable precedence</title>
+        <description>&lt;p&gt;&lt;strong&gt;Ansible variable precedence&lt;/strong&gt;&lt;br /&gt;
+(Bottom has the highest precedence)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;command line values (for example, -u my_user, these are not variables)
+role defaults (defined in role/defaults/main.yml)
+inventory file or script group vars
+inventory group_vars/all
+playbook group_vars/all
+inventory group_vars/*
+playbook group_vars/*
+inventory file or script host vars
+inventory host_vars/*
+playbook host_vars/*
+host facts / cached set_facts
+play vars
+play vars_prompt
+play vars_files
+role vars (defined in role/vars/main.yml)
+block vars (only for tasks in block)
+task vars (only for the task)
+include_vars
+set_facts / registered vars
+role (and include_role) params
+include params
+extra vars (for example, -e &quot;user=my_user&quot;)(always win precedence)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Please refer to the link below:&lt;br /&gt;
+&lt;a href=&quot;https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable&quot;&gt;https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 21 Feb 2021 23:00:00 +1300</pubDate>
+        <link>http://localhost:4000/2021/02/21/Ansible-variable-precedence/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/02/21/Ansible-variable-precedence/</guid>
+        
+        <category>Ansible</category>
+        
+        
+      </item>
     
       <item>
         <title>Ansible tips</title>
@@ -32,7 +74,18 @@
   &lt;li&gt;
     &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;set_stats&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;set_fact&lt;/code&gt; cannot partially change a dictionary, the correct way is to use “combine” filter&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;unless in a role, &lt;code class=&quot;highlighter-rouge&quot;&gt;include&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;import&lt;/code&gt; cannot be inside &lt;code class=&quot;highlighter-rouge&quot;&gt;tasks&lt;/code&gt;, but only outside&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;unless in a role, &lt;code class=&quot;highlighter-rouge&quot;&gt;include&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;import&lt;/code&gt; cannot be inside &lt;code class=&quot;highlighter-rouge&quot;&gt;tasks&lt;/code&gt;, but only outside&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;import&lt;/code&gt; is static, &lt;code class=&quot;highlighter-rouge&quot;&gt;include&lt;/code&gt; is dynamic&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vars&lt;/code&gt; in a task is NOT recognizable in the where clause, but &lt;code class=&quot;highlighter-rouge&quot;&gt;loop_control&lt;/code&gt; var is. &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;vars&lt;/code&gt; in a task is recognizable in the &lt;code class=&quot;highlighter-rouge&quot;&gt;loop&lt;/code&gt; clause&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;variable scope (e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;set_fact&lt;/code&gt;) covers all the descendant and ancestor playbooks included. &lt;br /&gt;
+Therefore vars in descendant/ancestor playbooks are alwasy overwritten by parent/offspring &lt;code class=&quot;highlighter-rouge&quot;&gt;set_fact&lt;/code&gt; due to precedence.&lt;/li&gt;
 &lt;/ol&gt;
 </description>
         <pubDate>Thu, 21 Jan 2021 22:30:00 +1300</pubDate>
@@ -455,50 +508,6 @@ Dockerfile:
         <guid isPermaLink="true">http://localhost:4000/2020/08/13/github-connection-issue/</guid>
         
         <category>GitHub</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>A few tips of using WSL</title>
-        <description>&lt;p&gt;Please reference the bash code example of syncing folders from one drive to another under WSL here:&lt;br /&gt;
-&lt;a href=&quot;https://github.com/jasonmccb/myWSLSync.git&quot;&gt;https://github.com/jasonmccb/myWSLSync.git&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;USB disk needs to be mounted MANUALLY from time to time&lt;/strong&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo mkdir&lt;/span&gt; /mnt/e
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;mount &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; drvfs E: /mnt/e
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;umount /mnt/e
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;WSL may not be able to read correct permissions from time to time&lt;/strong&gt;&lt;br /&gt;
- Below screenshot shows different results of running same command between a few seconds
- &lt;img src=&quot;/images/Same cmd diff result in WSL.png&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
- Manually add permission to such folders/files.&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;a+r,a+x folder1 file1
- &lt;span class=&quot;nb&quot;&gt;sudo chmod&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; 777 folder2	&lt;span class=&quot;c&quot;&gt;#-R for recursion&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;File or folder name can contain % symbol&lt;/strong&gt;&lt;br /&gt;
- This can be a problem to some commands such as &lt;code class=&quot;highlighter-rouge&quot;&gt;find . -printf &quot;$fileName=%f\n&quot;&lt;/code&gt;.&lt;br /&gt;
- When bash expands $fileName, it may considers %xxx as a directive.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
- Use %% as % in variable for the “find -printf”.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        <pubDate>Thu, 13 Aug 2020 11:00:00 +1200</pubDate>
-        <link>http://localhost:4000/2020/08/13/WSL-tips/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/08/13/WSL-tips/</guid>
-        
-        <category>Linux</category>
         
         
       </item>
