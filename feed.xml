@@ -5,9 +5,43 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 26 Mar 2021 16:53:28 +1300</pubDate>
-    <lastBuildDate>Fri, 26 Mar 2021 16:53:28 +1300</lastBuildDate>
+    <pubDate>Wed, 28 Apr 2021 22:15:52 +1200</pubDate>
+    <lastBuildDate>Wed, 28 Apr 2021 22:15:52 +1200</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>SQL table joining special skill</title>
+        <description>&lt;h3 id=&quot;an-example-of-sql-table-joining-special-skill&quot;&gt;An example of SQL table joining special skill&lt;/h3&gt;
+
+&lt;h4 id=&quot;problem&quot;&gt;Problem:&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/images/augment_join.1.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After the BigTable joins SmallTable, the smallCol cannot exceeds n&lt;br /&gt;
+Now we want all records including unmatched_K in BigTable have smallCol&lt;br /&gt;
+But we are not allowed to change these two tables or change the joining logic on matched_K&lt;br /&gt;
+It seems impossible right?&lt;br /&gt;
+&lt;strong&gt;It is possible!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;solution&quot;&gt;Solution:&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/images/augment_join.2.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If BigTable joins MIdTable then joins SmallTable, then it can be done (where 1&amp;lt;=x&amp;lt;=y&amp;lt;=n in MidTable)
+Use the SQL below:&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;coalesce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BigTable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;join&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MidTable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;join&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SmallTable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;join&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SmallTable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sm&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Wed, 28 Apr 2021 22:00:00 +1200</pubDate>
+        <link>http://localhost:4000/2021/04/28/SQL-table-joining-special-skill/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/04/28/SQL-table-joining-special-skill/</guid>
+        
+        <category>SQL</category>
+        
+        
+      </item>
     
       <item>
         <title>Microsoft Ignite Azure Admin Challenge</title>
@@ -455,58 +489,6 @@ Dockerfile:
         <pubDate>Tue, 29 Sep 2020 10:00:00 +1300</pubDate>
         <link>http://localhost:4000/2020/09/29/Docker-basics/</link>
         <guid isPermaLink="true">http://localhost:4000/2020/09/29/Docker-basics/</guid>
-        
-        <category>Docker</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Docker version issues</title>
-        <description>&lt;ol&gt;
-  &lt;li&gt;Failed to upgrade to 2.3.0.5
-    &lt;div class=&quot;language-bat highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;kd&quot;&gt;Attempted&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;perform&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;an&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;unauthorized&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;operation&lt;/span&gt;.
-    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;Microsoft&lt;/span&gt;.Win32.RegistryKey.Win32Error&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;Int32&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;errorCode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;Microsoft&lt;/span&gt;.Win32.RegistryKey.SetValue&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;RegistryValueKind&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;valueKind&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;CommunityInstaller&lt;/span&gt;.AutoStartAction.DoAsync&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;CancellationToken&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;cancelToken&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;CommunityInstaller&lt;/span&gt;.InstallWorkflow.&amp;lt;HandleD4WPackageAsync&amp;gt;d__34.MoveNext&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
- &lt;span class=&quot;o&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;stack&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;trace&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;previous&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;exception&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;was&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;thrown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;System&lt;/span&gt;.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;System&lt;/span&gt;.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;Task&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;CommunityInstaller&lt;/span&gt;.InstallWorkflow.&amp;lt;DoProcessAsync&amp;gt;d__29.MoveNext&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-
- &lt;span class=&quot;k&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;CommunityInstaller&lt;/span&gt;.InstallWorkflow.&amp;lt;&amp;gt;c__DisplayClass31_0.&amp;lt;HandlePrePackagedExeAsync&amp;gt;b__0&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;System&lt;/span&gt;.Threading.Tasks.Task.Execute&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
- &lt;span class=&quot;o&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;stack&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;trace&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;previous&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;exception&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;was&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;thrown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;System&lt;/span&gt;.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;System&lt;/span&gt;.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;Task&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;CommunityInstaller&lt;/span&gt;.InstallWorkflow.&amp;lt;HandlePrePackagedExeAsync&amp;gt;d__31.MoveNext&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
- &lt;span class=&quot;o&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;stack&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;trace&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;previous&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;exception&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;was&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;thrown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;System&lt;/span&gt;.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;System&lt;/span&gt;.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;Task&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;CommunityInstaller&lt;/span&gt;.InstallWorkflow.&amp;lt;DoProcessAsync&amp;gt;d__29.MoveNext&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;Solution:&lt;br /&gt;
- Don’t upgrade&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Failed to use WSL 2&lt;br /&gt;
- Minimum version for WSL 2:&lt;br /&gt;
- Run &lt;code class=&quot;highlighter-rouge&quot;&gt;winver&lt;/code&gt;, e.g.
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; Windows 10 Version 2004 (OS Build 19041.329)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;Version 1903 build 18362 needs to join Windows &lt;strong&gt;Insider Program&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;Solution:&lt;br /&gt;
- Cannot use WSL 2 on low versions of Windows 10.&lt;br /&gt;
- FYI, how to convert docker to WSL 2:&lt;br /&gt;
- &lt;a href=&quot;https://docs.docker.com/docker-for-windows/wsl/&quot;&gt;https://docs.docker.com/docker-for-windows/wsl/&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Mon, 28 Sep 2020 10:00:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/09/28/Docker-version-issues/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/09/28/Docker-version-issues/</guid>
         
         <category>Docker</category>
         
