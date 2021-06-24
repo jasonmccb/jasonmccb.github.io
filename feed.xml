@@ -5,9 +5,59 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 30 May 2021 17:30:03 +1200</pubDate>
-    <lastBuildDate>Sun, 30 May 2021 17:30:03 +1200</lastBuildDate>
+    <pubDate>Thu, 24 Jun 2021 17:01:46 +1200</pubDate>
+    <lastBuildDate>Thu, 24 Jun 2021 17:01:46 +1200</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>IEnumerable and yield usage</title>
+        <description>&lt;p&gt;Below is an example of using IEnumerable and yield.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-C#&quot;&gt;static void Main(string[] args)
+{
+	Console.WriteLine(&quot;==== Multiple IEnumerable with values NOT changed:&quot;);
+	foreach (var item in TestYield(3, false))
+		Console.WriteLine(item.data);
+	IEnumerable&amp;lt;C&amp;gt; iec;
+	iec = TestYield(3, false);
+	foreach (C item in iec) Console.WriteLine(item.data);
+	iec = TestYield(3, false);
+	foreach (C item in iec) Console.WriteLine(item.data);
+	Console.WriteLine(&quot;==== Multiple IEnumerable with values changed:&quot;);
+	iec = TestYield(3, true);
+	foreach (var v in iec) Console.WriteLine(v.data);
+	iec = TestYield(3, true);
+	foreach (var v in iec) Console.WriteLine(v.data);
+}
+
+public class C
+{
+	public C(int dataIn) { data = dataIn; }
+	public int data;
+}
+
+public static IEnumerable&amp;lt;C&amp;gt; TestYield(int count, bool addRandom)
+{
+	int initValue = addRandom ? new Random().Next(10, 90) : 0;
+	for( int i=0; i&amp;lt;count; i++ )
+	{
+		yield return new C(initValue + 2 * i);
+		//initValue = -99;      // iteration resumes from the end of last yield, not the start of next yield
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Program result:&lt;br /&gt;
+&lt;img src=&quot;/images/yield_result.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 24 Jun 2021 16:00:00 +1200</pubDate>
+        <link>http://localhost:4000/2021/06/24/IEnumerable-and-yield/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/06/24/IEnumerable-and-yield/</guid>
+        
+        <category>C#</category>
+        
+        
+      </item>
     
       <item>
         <title>Microsoft Azure Administrator Associate</title>
@@ -351,56 +401,6 @@ It is a Docker bug/limitation. Those files/folders cannot be synced using rsync,
         <guid isPermaLink="true">http://localhost:4000/2020/10/21/Docker-file-type-issue/</guid>
         
         <category>Docker</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Ubuntu Docker container missing Chinese</title>
-        <description>&lt;ol&gt;
-  &lt;li&gt;Ubuntu Docker container doesn’t have Chinese by default.&lt;br /&gt;
-Solution:
-    &lt;ul&gt;
-      &lt;li&gt;Option 1: install Chinese manually
-        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;c&quot;&gt;#Check locale&lt;/span&gt;
-  locale &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#Check installed packages&lt;/span&gt;
-  dpkg &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; | less
-
-  &lt;span class=&quot;c&quot;&gt;#Set environment variables LANG, and LC_ALL&lt;/span&gt;
-  &lt;span class=&quot;nv&quot;&gt;LANG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'C.UTF-8'&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; |grep LANG
-  &lt;span class=&quot;nv&quot;&gt;LC_ALL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'C.UTF-8'&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; |grep LC_ALL
-  &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;LANG
-  &lt;span class=&quot;nb&quot;&gt;printenv&lt;/span&gt; |grep LANG
-  &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;LC_ALL
-  &lt;span class=&quot;nb&quot;&gt;printenv&lt;/span&gt; |grep LC_ALL
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Option 2: install it in Dockerfile
-        &lt;pre&gt;&lt;code class=&quot;language-Dockerfile&quot;&gt;  RUN apt-get update
-  RUN apt-get install -y locales
-  ENV LANG C.UTF-8
-  ENV LC_ALL C.UTF-8
-&lt;/code&gt;&lt;/pre&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Failed to install locales.
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; apt-get &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; locales
- E: Package &lt;span class=&quot;s1&quot;&gt;'locales'&lt;/span&gt; has no installation candidate
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;Solution:&lt;br /&gt;
- Run &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get update&lt;/code&gt; first&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Tue, 29 Sep 2020 13:00:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/09/29/Ubuntu-Docker-container-missing-Chinese/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/09/29/Ubuntu-Docker-container-missing-Chinese/</guid>
-        
-        <category>Linux</category>
         
         
       </item>
