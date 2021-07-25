@@ -5,9 +5,60 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 24 Jun 2021 17:01:46 +1200</pubDate>
-    <lastBuildDate>Thu, 24 Jun 2021 17:01:46 +1200</lastBuildDate>
+    <pubDate>Sun, 25 Jul 2021 22:45:40 +1200</pubDate>
+    <lastBuildDate>Sun, 25 Jul 2021 22:45:40 +1200</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>LINQ compared with SQL</title>
+        <description>&lt;p&gt;LINQ is better than SQL in some ways.
+&lt;a href=&quot;https://www.linqpad.net/WhyLINQBeatsSQL.aspx&quot;&gt;https://www.linqpad.net/WhyLINQBeatsSQL.aspx&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;E.g.&lt;br /&gt;
+LINQ:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-LINQ&quot;&gt;from p in db.Purchases
+where p.Customer.Address.State == &quot;WA&quot; || p.Customer == null
+let purchaseValue = p.PurchaseItems.Sum (pi =&amp;gt; pi.SaleAmount)
+where purchaseValue &amp;gt; 1000
+orderby purchaseValue descending
+select new
+{
+   p.Description,
+   p.Customer.SalesPerson.Name,
+   PurchaseItemCount = p.PurchaseItems.Count()
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;SQL:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;SELECT 
+    p.Description,
+    s.Name,
+    (SELECT COUNT(*) FROM PurchaseItem pi WHERE p.ID = pi.PurchaseID) PurchaseItemCount	
+FROM Purchase p
+    LEFT OUTER JOIN 
+        Customer c 
+            INNER JOIN Address a ON c.AddressID = a.ID
+            LEFT OUTER JOIN SalesPerson s ON c.SalesPersonID = s.ID
+    ON p.CustomerID = c.ID	
+WHERE
+    (a.State = 'WA' OR p.CustomerID IS NULL)
+    AND p.ID in
+    (
+        SELECT PurchaseID FROM PurchaseItem
+        GROUP BY PurchaseID HAVING SUM (SaleAmount) &amp;gt; 1000
+    )
+ORDER BY
+    (SELECT SUM (SaleAmount) FROM PurchaseItem pi WHERE p.ID = pi.PurchaseID) DESC
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Sun, 25 Jul 2021 22:00:00 +1200</pubDate>
+        <link>http://localhost:4000/2021/07/25/LINQ-compared-with-SQL/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/07/25/LINQ-compared-with-SQL/</guid>
+        
+        <category>LINQ</category>
+        
+        
+      </item>
     
       <item>
         <title>IEnumerable and yield usage</title>
@@ -375,32 +426,6 @@ ansible 2.10.3
         <guid isPermaLink="true">http://localhost:4000/2020/11/29/Install-Ansible-on-WSL/</guid>
         
         <category>Ansible</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Docker mistakes some files for folders, and folders for files.</title>
-        <description>&lt;p&gt;&lt;strong&gt;1. Docker mistakes some files for folders, and folders for files.&lt;/strong&gt;&lt;br /&gt;
-&lt;img src=&quot;/images/Docker mounted volume mistakes folders for files.png&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Root cause:&lt;/strong&gt;&lt;br /&gt;
-Could be related to mounting Windows volume onto Linux container, but most files/folders don’t have this problem.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Impact:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-bat highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;rsync&lt;/span&gt;: &lt;span class=&quot;kd&quot;&gt;chgrp&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/mnt/e/......&quot;&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;failed&lt;/span&gt;: &lt;span class=&quot;kd&quot;&gt;Operation&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;permitted&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-......
-&lt;span class=&quot;kd&quot;&gt;rsync&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;error&lt;/span&gt;: &lt;span class=&quot;kd&quot;&gt;some&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;/attrs &lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;were&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;transferred&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;see&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;previous&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;main&lt;/span&gt;.c&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1207&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;sender&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;.1.3&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
-It is a Docker bug/limitation. Those files/folders cannot be synced using rsync, but have to be done manually.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 21 Oct 2020 11:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/10/21/Docker-file-type-issue/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/10/21/Docker-file-type-issue/</guid>
-        
-        <category>Docker</category>
         
         
       </item>
