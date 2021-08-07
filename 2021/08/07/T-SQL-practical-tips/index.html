@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Related links - Jason's Blog</title>
+	<title>T-SQL practical tips - Jason's Blog</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/reference/">
+	<link rel="canonical" href="/2021/08/07/T-SQL-practical-tips/">
 	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
 	
-	<meta name="keywords" content="Related links, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="keywords" content="T-SQL practical tips, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -91,8 +91,8 @@
   <div class="container">
   	
   		<!--
-		    <h1>Related links</h1>
-		    <p>Post on Aug 08, 2021 by <a href="/about">Jason Liu</a></p>
+		    <h1>T-SQL practical tips</h1>
+		    <p>Post on Aug 07, 2021 by <a href="/about">Jason Liu</a></p>
 		-->
 		    <h1>The meaning of life is to explore the world</h1>			
     
@@ -103,8 +103,8 @@
 <div class="banner">
   <div class="container">
   	
-    	<a href="/categories/#theScene.Co-ref">theScene.Co</a>	/
-    	<a href="/tag/#-ref"></a>
+    	<a href="/categories/#-ref"></a>	/
+    	<a href="/tag/#SQL-ref">SQL</a>
     
   </div>
 </div>
@@ -132,31 +132,69 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">Related links</h1>
+              <h1 class="post-title">T-SQL practical tips</h1>
               <!--
-                <p class="post-meta">Aug 8, 2021</p>
+                <p class="post-meta">Aug 7, 2021</p>
               -->
-              <div class="meta">Posted on <span class="postdate">Aug 08, 2021</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
+              <div class="meta">Posted on <span class="postdate">Aug 07, 2021</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
               <br />
             </header>
             <article class="post-content">
-              <ul id="markdown-toc">
-  <li><a href="#happygigs" id="markdown-toc-happygigs">HappyGigs</a></li>
-  <li><a href="#whitireia" id="markdown-toc-whitireia">Whitireia</a></li>
-  <li><a href="#jekyll-quickstart" id="markdown-toc-jekyll-quickstart">Jekyll Quickstart</a></li>
-</ul>
+              <p>Some practical tips against traps in T-SQL</p>
 
-<h1 id="happygigs">HappyGigs</h1>
+<h3 id="1-value-can-be-truncated-by-isnull">1. Value can be truncated by ISNULL()</h3>
+<pre><code class="language-SQL">--ISNULL truncation
+declare @x varchar(5) = NULL
+if ISNULL(@x, '123456789') = '12345'
+	print 'truncated'
+</code></pre>
 
-<p><a href="https://happygigs.co.nz/">HappyGigs</a></p>
+<h3 id="2-transaction-roll-back-doesnt-affect-local-variables-including-table-variables">2. Transaction roll back doesn’t affect local variables including table variables</h3>
+<p><a href="https://www.brentozar.com/archive/2020/08/half-of-you-dont-understand-variables-and-transactions/">https://www.brentozar.com/archive/2020/08/half-of-you-dont-understand-variables-and-transactions/</a></p>
 
-<h1 id="whitireia">Whitireia</h1>
+<h3 id="3-cursor-may-deadloop-with-continue">3. Cursor may deadloop with CONTINUE</h3>
+<pre><code class="language-SQL">DECLARE @t TABLE(id INT)
+INSERT INTO @t VALUES (11),(22)
+DECLARE test_cursor CURSOR FOR
+SELECT id from @t ORDER BY id
 
-<p><a href="https://moodle.whitireia.ac.nz/">Whitireia</a></p>
+OPEN test_cursor
+DECLARE @tempInt INT
+DECLARE @n INT = 0
+FETCH NEXT FROM test_cursor INTO @tempInt
+WHILE @@FETCH_STATUS = 0
+BEGIN
+	SET @n += 1
+	PRINT @n
+	IF @n &lt; 99
+		--will always loop regardless how many records in the table
+		--needs to put another FETCH here
+		CONTINUE
+	FETCH NEXT FROM test_cursor INTO @tempInt
+END
+CLOSE test_cursor
+DEALLOCATE test_cursor
+</code></pre>
 
-<h1 id="jekyll-quickstart">Jekyll Quickstart</h1>
+<h3 id="4-null-fails-arithmetic-comparisons">4. NULL fails arithmetic comparisons</h3>
+<pre><code class="language-SQL">--NULL fails arithmetic comparisons
+DECLARE @bbb BIT
+SET @bbb = NULL
+IF @bbb=0 PRINT '000'
+ELSE IF @bbb=1 PRINT '111'
+ELSE PRINT 'bbb'
+</code></pre>
 
-<p><a href="https://jekyllrb.com/docs/">Jekyll</a></p>
+<h3 id="5-how-to-choose-columns-on-conditions">5. How to choose columns on conditions</h3>
+<pre><code class="language-SQL">--conditional column
+DECLARE @tempTable (id INT, msg VARCHAR(20))
+DECLARE @preferColumn1 bit = 1
+--conditional column in SELECT
+SELECT CASE WHEN @preferColumn1=1 THEN id ELSE msg END
+FROM @tempTable
+--conditional column in WHERE
+WHERE (@preferColumn1=1 AND id&lt;99) OR (@preferColumn1&lt;&gt;1 AND msg LIKE '%Hello%')
+</code></pre>
 
 
             </article>

@@ -5,9 +5,77 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 25 Jul 2021 22:45:40 +1200</pubDate>
-    <lastBuildDate>Sun, 25 Jul 2021 22:45:40 +1200</lastBuildDate>
+    <pubDate>Sat, 07 Aug 2021 23:33:00 +1200</pubDate>
+    <lastBuildDate>Sat, 07 Aug 2021 23:33:00 +1200</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>T-SQL practical tips</title>
+        <description>&lt;p&gt;Some practical tips against traps in T-SQL&lt;/p&gt;
+
+&lt;h3 id=&quot;1-value-can-be-truncated-by-isnull&quot;&gt;1. Value can be truncated by ISNULL()&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;--ISNULL truncation
+declare @x varchar(5) = NULL
+if ISNULL(@x, '123456789') = '12345'
+	print 'truncated'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;2-transaction-roll-back-doesnt-affect-local-variables-including-table-variables&quot;&gt;2. Transaction roll back doesn’t affect local variables including table variables&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.brentozar.com/archive/2020/08/half-of-you-dont-understand-variables-and-transactions/&quot;&gt;https://www.brentozar.com/archive/2020/08/half-of-you-dont-understand-variables-and-transactions/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;3-cursor-may-deadloop-with-continue&quot;&gt;3. Cursor may deadloop with CONTINUE&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;DECLARE @t TABLE(id INT)
+INSERT INTO @t VALUES (11),(22)
+DECLARE test_cursor CURSOR FOR
+SELECT id from @t ORDER BY id
+
+OPEN test_cursor
+DECLARE @tempInt INT
+DECLARE @n INT = 0
+FETCH NEXT FROM test_cursor INTO @tempInt
+WHILE @@FETCH_STATUS = 0
+BEGIN
+	SET @n += 1
+	PRINT @n
+	IF @n &amp;lt; 99
+		--will always loop regardless how many records in the table
+		--needs to put another FETCH here
+		CONTINUE
+	FETCH NEXT FROM test_cursor INTO @tempInt
+END
+CLOSE test_cursor
+DEALLOCATE test_cursor
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;4-null-fails-arithmetic-comparisons&quot;&gt;4. NULL fails arithmetic comparisons&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;--NULL fails arithmetic comparisons
+DECLARE @bbb BIT
+SET @bbb = NULL
+IF @bbb=0 PRINT '000'
+ELSE IF @bbb=1 PRINT '111'
+ELSE PRINT 'bbb'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;5-how-to-choose-columns-on-conditions&quot;&gt;5. How to choose columns on conditions&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;--conditional column
+DECLARE @tempTable (id INT, msg VARCHAR(20))
+DECLARE @preferColumn1 bit = 1
+--conditional column in SELECT
+SELECT CASE WHEN @preferColumn1=1 THEN id ELSE msg END
+FROM @tempTable
+--conditional column in WHERE
+WHERE (@preferColumn1=1 AND id&amp;lt;99) OR (@preferColumn1&amp;lt;&amp;gt;1 AND msg LIKE '%Hello%')
+&lt;/code&gt;&lt;/pre&gt;
+
+</description>
+        <pubDate>Sat, 07 Aug 2021 23:00:00 +1200</pubDate>
+        <link>http://localhost:4000/2021/08/07/T-SQL-practical-tips/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/08/07/T-SQL-practical-tips/</guid>
+        
+        <category>SQL</category>
+        
+        
+      </item>
     
       <item>
         <title>LINQ compared with SQL</title>
@@ -365,67 +433,6 @@ options = &quot;metadata,umask=22,fmask=11&quot;
         <guid isPermaLink="true">http://localhost:4000/2020/11/29/chmod-doesn't-work-in-WSL/</guid>
         
         <category>Linux</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>How to install Ansible on WSL</title>
-        <description>&lt;p&gt;&lt;strong&gt;1. Update apt&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
-......
-Fetched 7978 kB &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;1min 41s &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;79.3 kB/s&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-Reading package lists... Done
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;2. Install Python etc&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;python-pip git libffi-dev libssl-dev &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
-......
-W: APT had planned &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;dpkg to &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;more than it reported back &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;330 vs 356&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-   Affected packages: libgdbm-compat4:amd64 libgdbm6:amd64 libperl5.28:amd64 perl-base:amd64 perl-modules-5.28:amd64
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;3. Install Ansible and Pywinrm&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ansible pywinrm
-......
-&lt;span class=&quot;k&quot;&gt;done
-  &lt;/span&gt;Stored &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;directory: /home/jason/.cache/pip/wheels/41/79/b5/1f6f77b8a80eab71e9edd46169ab72940d15dba1e346a64134
-......
-&lt;span class=&quot;k&quot;&gt;****&lt;/span&gt;  The script chardetect is installed &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'/home/jason/.local/bin'&lt;/span&gt; which is not on PATH.
-  Consider adding this directory to PATH or, &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;you prefer to suppress this warning, use &lt;span class=&quot;nt&quot;&gt;--no-warn-script-location&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-Successfully installed MarkupSafe-1.1.1 PyYAML-5.3.1 ansible-2.10.3 ansible-base-2.10.3 certifi-2020.11.8 chardet-3.0.4 idna-2.10 jinja2-2.11.2 ntlm-auth-1.5.0 packaging-20.4 pyparsing-2.4.7 pywinrm-0.4.1 requests-2.25.0 requests-ntlm-1.1.0 urllib3-1.26.2 xmltodict-0.12.0 &lt;span class=&quot;k&quot;&gt;****&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;4. Add Ansible to $PATH&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ansible &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
-Command &lt;span class=&quot;s1&quot;&gt;'ansible'&lt;/span&gt; not found, but can be installed with:
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ansible
-
-&lt;span class=&quot;c&quot;&gt;#  Add Ansible command installation dir to the $PATH&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'PATH=$HOME/.local/bin:$PATH'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.bashrc
-
-&lt;span class=&quot;c&quot;&gt;# Reload bash profile&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; .bashrc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;5. Verify success&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ansible &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
-ansible 2.10.3
-  config file &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; None
-  configured module search path &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;u&lt;span class=&quot;s1&quot;&gt;'/home/jason/.ansible/plugins/modules'&lt;/span&gt;, u&lt;span class=&quot;s1&quot;&gt;'/usr/share/ansible/plugins/modules'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-  ansible python module location &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; /home/jason/.local/lib/python2.7/site-packages/ansible
-  executable location &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; /home/jason/.local/bin/ansible
-  python version &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2.7.17 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default, Sep 30 2020, 13:38:04&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;GCC 7.5.0]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Reference link:&lt;/strong&gt;
-&lt;a href=&quot;https://www.jeffgeerling.com/blog/2017/using-ansible-through-windows-10s-subsystem-linux&quot;&gt;https://www.jeffgeerling.com/blog/2017/using-ansible-through-windows-10s-subsystem-linux&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 29 Nov 2020 11:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/11/29/Install-Ansible-on-WSL/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/11/29/Install-Ansible-on-WSL/</guid>
-        
-        <category>Ansible</category>
         
         
       </item>
