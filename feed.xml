@@ -5,9 +5,43 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 07 Aug 2021 23:33:00 +1200</pubDate>
-    <lastBuildDate>Sat, 07 Aug 2021 23:33:00 +1200</lastBuildDate>
+    <pubDate>Sat, 14 Aug 2021 21:32:10 +1200</pubDate>
+    <lastBuildDate>Sat, 14 Aug 2021 21:32:10 +1200</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Git branching tips</title>
+        <description>&lt;p&gt;Some tips of Git branching&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Creating a local branch&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;git branch &amp;lt;target branch&amp;gt; &amp;lt;source branch&amp;gt;&lt;/code&gt;&lt;br /&gt;
+Create a local branch and switch to that branch:&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout -b &amp;lt;target branch&amp;gt; &amp;lt;source branch&amp;gt;&lt;/code&gt;&lt;br /&gt;
+If &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;source branch&amp;gt;&lt;/code&gt; is omitted then it’ll branch from the current branch.&lt;br /&gt;
+It can be a problem if we branch from X branch, push then create pull request to merge into Y branch.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We don’t need to have an exsiting remote branch for the push, otherwise we’ll have to pull and merge locally first.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Creating pull request after pushing may cause merge conflict, which happens after code review approval in Azure DevOps.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Deleting a local branch with &lt;code class=&quot;highlighter-rouge&quot;&gt;git branch -D &amp;lt;branch name&amp;gt;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Fri, 13 Aug 2021 15:00:00 +1200</pubDate>
+        <link>http://localhost:4000/2021/08/13/Git-branching/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/08/13/Git-branching/</guid>
+        
+        <category>GitHub</category>
+        
+        
+      </item>
     
       <item>
         <title>T-SQL practical tips</title>
@@ -400,39 +434,6 @@ Therefore vars in descendant/ancestor playbooks are alwasy overwritten by parent
         <guid isPermaLink="true">http://localhost:4000/2020/12/30/JavaScript-basics/</guid>
         
         <category>JavaScript</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>How to fix: chmod doesn't work in WSL</title>
-        <description>&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt;&lt;br /&gt;
-After chmod, the permissions got lost due to being overwritten by Windows&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
-The correct way to handle this:&lt;/p&gt;
-
-&lt;p&gt;Create a file named /etc/wsl.conf and edit it to contain the following:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[automount]
-enabled = true
-root = /mnt/
-options = &quot;metadata,umask=22,fmask=11&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;To understand the meaning of each parameter above, please refer to &lt;a href=&quot;https://blogs.msdn.microsoft.com/commandline/2018/02/07/automatically-configuring-wsl/&quot;&gt;this article&lt;/a&gt; on msdn:&lt;/p&gt;
-
-&lt;p&gt;Close all open WSL terminal then open a new one.&lt;/p&gt;
-
-&lt;p&gt;Now you are all set, changing permissions of a file in windows from /mnt/c/ will be reflected correctly on the Linux Subsystem through the WSL “metadata” feature.&lt;/p&gt;
-
-&lt;p&gt;The WSL configuration will always mount correctly on startup of WSL.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 29 Nov 2020 17:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2020/11/29/chmod-doesn't-work-in-WSL/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/11/29/chmod-doesn't-work-in-WSL/</guid>
-        
-        <category>Linux</category>
         
         
       </item>
