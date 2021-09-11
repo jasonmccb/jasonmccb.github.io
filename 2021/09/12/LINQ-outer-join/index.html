@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Related links - Jason's Blog</title>
+	<title>LINQ outer join - Jason's Blog</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/reference/">
+	<link rel="canonical" href="/2021/09/12/LINQ-outer-join/">
 	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
 	
-	<meta name="keywords" content="Related links, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="keywords" content="LINQ outer join, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -91,7 +91,7 @@
   <div class="container">
   	
   		<!--
-		    <h1>Related links</h1>
+		    <h1>LINQ outer join</h1>
 		    <p>Post on Sep 12, 2021 by <a href="/about">Jason Liu</a></p>
 		-->
 		    <h1>The meaning of life is to explore the world</h1>			
@@ -103,8 +103,8 @@
 <div class="banner">
   <div class="container">
   	
-    	<a href="/categories/#theScene.Co-ref">theScene.Co</a>	/
-    	<a href="/tag/#-ref"></a>
+    	<a href="/categories/#-ref"></a>	/
+    	<a href="/tag/#LINQ-ref">LINQ</a>
     
   </div>
 </div>
@@ -132,7 +132,7 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">Related links</h1>
+              <h1 class="post-title">LINQ outer join</h1>
               <!--
                 <p class="post-meta">Sep 12, 2021</p>
               -->
@@ -140,23 +140,46 @@
               <br />
             </header>
             <article class="post-content">
-              <ul id="markdown-toc">
-  <li><a href="#happygigs" id="markdown-toc-happygigs">HappyGigs</a></li>
-  <li><a href="#whitireia" id="markdown-toc-whitireia">Whitireia</a></li>
-  <li><a href="#jekyll-quickstart" id="markdown-toc-jekyll-quickstart">Jekyll Quickstart</a></li>
-</ul>
+              <p>Some tips on how to do outer joins in LINQ</p>
 
-<h1 id="happygigs">HappyGigs</h1>
-
-<p><a href="https://happygigs.co.nz/">HappyGigs</a></p>
-
-<h1 id="whitireia">Whitireia</h1>
-
-<p><a href="https://moodle.whitireia.ac.nz/">Whitireia</a></p>
-
-<h1 id="jekyll-quickstart">Jekyll Quickstart</h1>
-
-<p><a href="https://jekyllrb.com/docs/">Jekyll</a></p>
+<ol>
+  <li>
+    <p>The introduction of joins in LINQ<br />
+<a href="https://stackoverflow.com/questions/36882478/how-to-do-sql-joins-in-lambda/36883214">https://stackoverflow.com/questions/36882478/how-to-do-sql-joins-in-lambda/36883214</a></p>
+  </li>
+  <li>Right outer join without Lambda
+    <pre><code class="language-C#">int[] arrayLeft = { 2, 3, 5, 6, 8 };
+int[] arrayRight = { 9, 7, 6, 5, 3 };
+// In theory LINQ only supports left outer join
+// Swap the table sequence to do a right outer join with LINQ
+var result = from r in arrayRight where r &gt; 5
+         join l in arrayLeft on r equals l into joined
+         where r &lt; 8
+         from j in joined.DefaultIfEmpty()
+         where j + r &lt; 10
+         select new { Left = j, Right = r };
+Console.WriteLine("After right outer joined in LINQ: ====");
+foreach (var r in result)
+ Console.WriteLine(r);
+//{ Left = 0, Right = 7 }
+</code></pre>
+  </li>
+  <li>Right outer join with Lambda
+    <pre><code class="language-C#">int[] arrayLeft = { 2, 3, 5, 6, 8 };
+int[] arrayRight = { 9, 7, 6, 5, 3 };
+// Equivalent right outer join in LINQ with Lambda
+var result = arrayRight.Where( r =&gt; r &gt; 5 )
+         .GroupJoin(arrayLeft, outer =&gt; outer, inner =&gt; inner, (r, l) =&gt; new {Right = r, Left = l })
+         .Where( row =&gt; row.Right &lt; 8 )
+         .SelectMany(toFlatten =&gt; toFlatten.Left.DefaultIfEmpty(), (row, flatterned) =&gt; new { Left = flatterned, Right = row.Right })
+         .Where(x =&gt; x.Left + x.Right &lt; 10);
+Console.WriteLine("After right outer joined with Lambda in LINQ: ====");
+foreach (var r in result)
+ Console.WriteLine(r);
+//{ Left = 0, Right = 7 }
+</code></pre>
+  </li>
+</ol>
 
 
             </article>
