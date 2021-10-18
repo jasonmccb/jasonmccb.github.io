@@ -5,9 +5,54 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 12 Sep 2021 09:33:12 +1200</pubDate>
-    <lastBuildDate>Sun, 12 Sep 2021 09:33:12 +1200</lastBuildDate>
+    <pubDate>Mon, 18 Oct 2021 18:28:00 +1300</pubDate>
+    <lastBuildDate>Mon, 18 Oct 2021 18:28:00 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>SQL traps - DISTINCT and IN clauses</title>
+        <description>&lt;p&gt;Test your knowledge with below questions:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;--What are the outputs?
+
+IF 3 IN (SELECT 3 UNION SELECT 4 UNION SELECT NULL)
+	PRINT 'TRUE'
+ELSE
+	PRINT 'FALSE'
+	
+IF 5 NOT IN (SELECT 3 UNION SELECT 4 UNION SELECT NULL)
+	PRINT 'TRUE'
+ELSE
+	PRINT 'FALSE'
+		
+IF 5 NOT IN (SELECT DISTINCT Col FROM (SELECT 3 Col UNION SELECT 4 UNION SELECT NULL) T)
+	PRINT 'TRUE'
+ELSE
+	PRINT 'FALSE'
+	
+SELECT COUNT(DISTINCT Col) FROM (SELECT 3 Col UNION SELECT 4 UNION SELECT NULL) T
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Answers:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;--Answers:
+
+--TRUE
+--FALSE
+--FALSE
+--2
+&lt;/code&gt;&lt;/pre&gt;
+
+</description>
+        <pubDate>Mon, 18 Oct 2021 16:00:00 +1300</pubDate>
+        <link>http://localhost:4000/2021/10/18/SQL-traps-DISTINCT-and-IN-clauses/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/10/18/SQL-traps-DISTINCT-and-IN-clauses/</guid>
+        
+        <category>SQL</category>
+        
+        
+      </item>
     
       <item>
         <title>LINQ outer join</title>
@@ -416,52 +461,6 @@ extra vars (for example, -e &quot;user=my_user&quot;)(always win precedence)
         <pubDate>Sun, 21 Feb 2021 23:02:00 +1300</pubDate>
         <link>http://localhost:4000/2021/02/21/Ansible-variable-precedence/</link>
         <guid isPermaLink="true">http://localhost:4000/2021/02/21/Ansible-variable-precedence/</guid>
-        
-        <category>Ansible</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Ansible tips</title>
-        <description>&lt;p&gt;&lt;strong&gt;Ansible tips&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;set_stats&lt;/code&gt; must have &lt;code class=&quot;highlighter-rouge&quot;&gt;data&lt;/code&gt;
-    &lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;set_stats&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
- &lt;span class=&quot;na&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;na&quot;&gt;failure_reason&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Duplicate.&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Cannot loop on a &lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;debug&lt;/code&gt; cannot show up in a play, but only in &lt;code class=&quot;highlighter-rouge&quot;&gt;tasks&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;set_stats&lt;/code&gt; variables cannot be used within same playbook, but only in other playbooks&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;set_stats&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;set_fact&lt;/code&gt; cannot partially change a dictionary, the correct way is to use “combine” filter&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;unless in a role, &lt;code class=&quot;highlighter-rouge&quot;&gt;include&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;import&lt;/code&gt; cannot be inside &lt;code class=&quot;highlighter-rouge&quot;&gt;tasks&lt;/code&gt;, but only outside&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;import&lt;/code&gt; is static, &lt;code class=&quot;highlighter-rouge&quot;&gt;include&lt;/code&gt; is dynamic&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vars&lt;/code&gt; in a task is NOT recognizable in the where clause, but &lt;code class=&quot;highlighter-rouge&quot;&gt;loop_control&lt;/code&gt; var is. &lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;vars&lt;/code&gt; in a task is recognizable in the &lt;code class=&quot;highlighter-rouge&quot;&gt;loop&lt;/code&gt; clause&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;variable scope (e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;set_fact&lt;/code&gt;) covers all the descendant and ancestor playbooks included. &lt;br /&gt;
-Therefore vars in descendant/ancestor playbooks are alwasy overwritten by parent/offspring &lt;code class=&quot;highlighter-rouge&quot;&gt;set_fact&lt;/code&gt; due to precedence.&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Thu, 21 Jan 2021 22:30:00 +1300</pubDate>
-        <link>http://localhost:4000/2021/01/21/Ansible-tips/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/01/21/Ansible-tips/</guid>
         
         <category>Ansible</category>
         
