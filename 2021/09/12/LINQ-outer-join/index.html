@@ -142,44 +142,40 @@
             <article class="post-content">
               <p>Some tips on how to do outer joins in LINQ</p>
 
-<ol>
-  <li>
-    <p>The introduction of joins in LINQ<br />
+<p>1.The introduction of joins in LINQ<br />
 <a href="https://stackoverflow.com/questions/36882478/how-to-do-sql-joins-in-lambda/36883214">https://stackoverflow.com/questions/36882478/how-to-do-sql-joins-in-lambda/36883214</a></p>
-  </li>
-  <li>Right outer join without Lambda
-    <pre><code class="language-C#">int[] arrayLeft = { 2, 3, 5, 6, 8 };
-int[] arrayRight = { 9, 7, 6, 5, 3 };
-// In theory LINQ only supports left outer join
-// Swap the table sequence to do a right outer join with LINQ
-var result = from r in arrayRight where r &gt; 5
-         join l in arrayLeft on r equals l into joined
-         where r &lt; 8
-         from j in joined.DefaultIfEmpty()
-         where j + r &lt; 10
-         select new { Left = j, Right = r };
-Console.WriteLine("After right outer joined in LINQ: ====");
-foreach (var r in result)
- Console.WriteLine(r);
-//{ Left = 0, Right = 7 }
-</code></pre>
-  </li>
-  <li>Right outer join with Lambda
-    <pre><code class="language-C#">int[] arrayLeft = { 2, 3, 5, 6, 8 };
-int[] arrayRight = { 9, 7, 6, 5, 3 };
-// Equivalent right outer join in LINQ with Lambda
-var result = arrayRight.Where( r =&gt; r &gt; 5 )
-         .GroupJoin(arrayLeft, outer =&gt; outer, inner =&gt; inner, (r, l) =&gt; new {Right = r, Left = l })
-         .Where( row =&gt; row.Right &lt; 8 )
-         .SelectMany(toFlatten =&gt; toFlatten.Left.DefaultIfEmpty(), (row, flatterned) =&gt; new { Left = flatterned, Right = row.Right })
-         .Where(x =&gt; x.Left + x.Right &lt; 10);
-Console.WriteLine("After right outer joined with Lambda in LINQ: ====");
-foreach (var r in result)
- Console.WriteLine(r);
-//{ Left = 0, Right = 7 }
-</code></pre>
-  </li>
-</ol>
+
+<p>2.Right outer join without Lambda</p>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="kt">int</span><span class="p">[]</span> <span class="n">arrayLeft</span> <span class="p">=</span> <span class="p">{</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">8</span> <span class="p">};</span>
+<span class="kt">int</span><span class="p">[]</span> <span class="n">arrayRight</span> <span class="p">=</span> <span class="p">{</span> <span class="m">9</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">3</span> <span class="p">};</span>
+<span class="c1">// In theory LINQ only supports left outer join</span>
+<span class="c1">// Swap the table sequence to do a right outer join with LINQ</span>
+<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="k">from</span> <span class="n">r</span> <span class="k">in</span> <span class="n">arrayRight</span> <span class="k">where</span> <span class="n">r</span> <span class="p">&gt;</span> <span class="m">5</span>
+			<span class="k">join</span> <span class="n">l</span> <span class="k">in</span> <span class="n">arrayLeft</span> <span class="k">on</span> <span class="n">r</span> <span class="k">equals</span> <span class="n">l</span> <span class="k">into</span> <span class="n">joined</span>
+			<span class="k">where</span> <span class="n">r</span> <span class="p">&lt;</span> <span class="m">8</span>
+			<span class="k">from</span> <span class="n">j</span> <span class="k">in</span> <span class="n">joined</span><span class="p">.</span><span class="nf">DefaultIfEmpty</span><span class="p">()</span>
+			<span class="k">where</span> <span class="n">j</span> <span class="p">+</span> <span class="n">r</span> <span class="p">&lt;</span> <span class="m">10</span>
+			<span class="k">select</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Left</span> <span class="p">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">Right</span> <span class="p">=</span> <span class="n">r</span> <span class="p">};</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"After right outer joined in LINQ: ===="</span><span class="p">);</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">r</span> <span class="k">in</span> <span class="n">result</span><span class="p">)</span>
+	<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">r</span><span class="p">);</span>
+<span class="c1">//{ Left = 0, Right = 7 }</span></code></pre></figure>
+
+<p>3.Right outer join with Lambda</p>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="kt">int</span><span class="p">[]</span> <span class="n">arrayLeft</span> <span class="p">=</span> <span class="p">{</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">8</span> <span class="p">};</span>
+<span class="kt">int</span><span class="p">[]</span> <span class="n">arrayRight</span> <span class="p">=</span> <span class="p">{</span> <span class="m">9</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">3</span> <span class="p">};</span>
+<span class="c1">// Equivalent right outer join in LINQ with Lambda</span>
+<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">arrayRight</span><span class="p">.</span><span class="nf">Where</span><span class="p">(</span> <span class="n">r</span> <span class="p">=&gt;</span> <span class="n">r</span> <span class="p">&gt;</span> <span class="m">5</span> <span class="p">)</span>
+			<span class="p">.</span><span class="nf">GroupJoin</span><span class="p">(</span><span class="n">arrayLeft</span><span class="p">,</span> <span class="n">outer</span> <span class="p">=&gt;</span> <span class="n">outer</span><span class="p">,</span> <span class="n">inner</span> <span class="p">=&gt;</span> <span class="n">inner</span><span class="p">,</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="p">{</span><span class="n">Right</span> <span class="p">=</span> <span class="n">r</span><span class="p">,</span> <span class="n">Left</span> <span class="p">=</span> <span class="n">l</span> <span class="p">})</span>
+			<span class="p">.</span><span class="nf">Where</span><span class="p">(</span> <span class="n">row</span> <span class="p">=&gt;</span> <span class="n">row</span><span class="p">.</span><span class="n">Right</span> <span class="p">&lt;</span> <span class="m">8</span> <span class="p">)</span>
+			<span class="p">.</span><span class="nf">SelectMany</span><span class="p">(</span><span class="n">toFlatten</span> <span class="p">=&gt;</span> <span class="n">toFlatten</span><span class="p">.</span><span class="n">Left</span><span class="p">.</span><span class="nf">DefaultIfEmpty</span><span class="p">(),</span> <span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">flatterned</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Left</span> <span class="p">=</span> <span class="n">flatterned</span><span class="p">,</span> <span class="n">Right</span> <span class="p">=</span> <span class="n">row</span><span class="p">.</span><span class="n">Right</span> <span class="p">})</span>
+			<span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">Left</span> <span class="p">+</span> <span class="n">x</span><span class="p">.</span><span class="n">Right</span> <span class="p">&lt;</span> <span class="m">10</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"After right outer joined with Lambda in LINQ: ===="</span><span class="p">);</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">r</span> <span class="k">in</span> <span class="n">result</span><span class="p">)</span>
+	<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">r</span><span class="p">);</span>
+<span class="c1">//{ Left = 0, Right = 7 }</span></code></pre></figure>
 
 
             </article>

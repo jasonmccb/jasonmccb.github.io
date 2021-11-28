@@ -142,39 +142,38 @@
             <article class="post-content">
               <p>Below is an example of using IEnumerable and yield.</p>
 
-<pre><code class="language-C#">static void Main(string[] args)
-{
-	Console.WriteLine("==== Multiple IEnumerable with values NOT changed:");
-	foreach (var item in TestYield(3, false))
-		Console.WriteLine(item.data);
-	IEnumerable&lt;C&gt; iec;
-	iec = TestYield(3, false);
-	foreach (C item in iec) Console.WriteLine(item.data);
-	iec = TestYield(3, false);
-	foreach (C item in iec) Console.WriteLine(item.data);
-	Console.WriteLine("==== Multiple IEnumerable with values changed:");
-	iec = TestYield(3, true);
-	foreach (var v in iec) Console.WriteLine(v.data);
-	iec = TestYield(3, true);
-	foreach (var v in iec) Console.WriteLine(v.data);
-}
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"==== Multiple IEnumerable with values NOT changed:"</span><span class="p">);</span>
+	<span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">item</span> <span class="k">in</span> <span class="nf">TestYield</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="k">false</span><span class="p">))</span>
+		<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+	<span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">C</span><span class="p">&gt;</span> <span class="n">iec</span><span class="p">;</span>
+	<span class="n">iec</span> <span class="p">=</span> <span class="nf">TestYield</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+	<span class="k">foreach</span> <span class="p">(</span><span class="n">C</span> <span class="n">item</span> <span class="k">in</span> <span class="n">iec</span><span class="p">)</span> <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+	<span class="n">iec</span> <span class="p">=</span> <span class="nf">TestYield</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+	<span class="k">foreach</span> <span class="p">(</span><span class="n">C</span> <span class="n">item</span> <span class="k">in</span> <span class="n">iec</span><span class="p">)</span> <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+	<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"==== Multiple IEnumerable with values changed:"</span><span class="p">);</span>
+	<span class="n">iec</span> <span class="p">=</span> <span class="nf">TestYield</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+	<span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">v</span> <span class="k">in</span> <span class="n">iec</span><span class="p">)</span> <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+	<span class="n">iec</span> <span class="p">=</span> <span class="nf">TestYield</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+	<span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">v</span> <span class="k">in</span> <span class="n">iec</span><span class="p">)</span> <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+<span class="p">}</span>
 
-public class C
-{
-	public C(int dataIn) { data = dataIn; }
-	public int data;
-}
+<span class="k">public</span> <span class="k">class</span> <span class="nc">C</span>
+<span class="p">{</span>
+	<span class="k">public</span> <span class="nf">C</span><span class="p">(</span><span class="kt">int</span> <span class="n">dataIn</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span> <span class="p">=</span> <span class="n">dataIn</span><span class="p">;</span> <span class="p">}</span>
+	<span class="k">public</span> <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+<span class="p">}</span>
 
-public static IEnumerable&lt;C&gt; TestYield(int count, bool addRandom)
-{
-	int initValue = addRandom ? new Random().Next(10, 90) : 0;
-	for( int i=0; i&lt;count; i++ )
-	{
-		yield return new C(initValue + 2 * i);
-		//initValue = -99;      // iteration resumes from the end of last yield, not the start of next yield
-	}
-}
-</code></pre>
+<span class="k">public</span> <span class="k">static</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">C</span><span class="p">&gt;</span> <span class="nf">TestYield</span><span class="p">(</span><span class="kt">int</span> <span class="n">count</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">addRandom</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="kt">int</span> <span class="n">initValue</span> <span class="p">=</span> <span class="n">addRandom</span> <span class="p">?</span> <span class="k">new</span> <span class="nf">Random</span><span class="p">().</span><span class="nf">Next</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">90</span><span class="p">)</span> <span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+	<span class="k">for</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span><span class="p">=</span><span class="m">0</span><span class="p">;</span> <span class="n">i</span><span class="p">&lt;</span><span class="n">count</span><span class="p">;</span> <span class="n">i</span><span class="p">++</span> <span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">yield</span> <span class="k">return</span> <span class="k">new</span> <span class="nf">C</span><span class="p">(</span><span class="n">initValue</span> <span class="p">+</span> <span class="m">2</span> <span class="p">*</span> <span class="n">i</span><span class="p">);</span>
+		<span class="c1">//initValue = -99;      // iteration resumes from the end of last yield, not the start of next yield</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
 <p>Program result:<br />
 <img src="/images/yield_result.PNG" alt="my_image" /></p>

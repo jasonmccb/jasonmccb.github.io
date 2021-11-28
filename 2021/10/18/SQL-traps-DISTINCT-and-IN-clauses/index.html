@@ -142,36 +142,33 @@
             <article class="post-content">
               <p>Test your knowledge with below questions:</p>
 
-<pre><code class="language-SQL">--What are the outputs?
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="c1">--What are the outputs?</span>
 
-IF 3 IN (SELECT 3 UNION SELECT 4 UNION SELECT NULL)
-	PRINT 'TRUE'
-ELSE
-	PRINT 'FALSE'
+<span class="n">IF</span> <span class="mi">3</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="mi">3</span> <span class="k">UNION</span> <span class="k">SELECT</span> <span class="mi">4</span> <span class="k">UNION</span> <span class="k">SELECT</span> <span class="k">NULL</span><span class="p">)</span>
+	<span class="n">PRINT</span> <span class="s1">'TRUE'</span>
+<span class="k">ELSE</span>
+	<span class="n">PRINT</span> <span class="s1">'FALSE'</span>
 	
-IF 5 NOT IN (SELECT 3 UNION SELECT 4 UNION SELECT NULL)
-	PRINT 'TRUE'
-ELSE
-	PRINT 'FALSE'
+<span class="n">IF</span> <span class="mi">5</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="mi">3</span> <span class="k">UNION</span> <span class="k">SELECT</span> <span class="mi">4</span> <span class="k">UNION</span> <span class="k">SELECT</span> <span class="k">NULL</span><span class="p">)</span>
+	<span class="n">PRINT</span> <span class="s1">'TRUE'</span>
+<span class="k">ELSE</span>
+	<span class="n">PRINT</span> <span class="s1">'FALSE'</span>
 		
-IF 5 NOT IN (SELECT DISTINCT Col FROM (SELECT 3 Col UNION SELECT 4 UNION SELECT NULL) T)
-	PRINT 'TRUE'
-ELSE
-	PRINT 'FALSE'
+<span class="n">IF</span> <span class="mi">5</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">Col</span> <span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="mi">3</span> <span class="n">Col</span> <span class="k">UNION</span> <span class="k">SELECT</span> <span class="mi">4</span> <span class="k">UNION</span> <span class="k">SELECT</span> <span class="k">NULL</span><span class="p">)</span> <span class="n">T</span><span class="p">)</span>
+	<span class="n">PRINT</span> <span class="s1">'TRUE'</span>
+<span class="k">ELSE</span>
+	<span class="n">PRINT</span> <span class="s1">'FALSE'</span>
 	
-SELECT COUNT(DISTINCT Col) FROM (SELECT 3 Col UNION SELECT 4 UNION SELECT NULL) T
-
-</code></pre>
+<span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">Col</span><span class="p">)</span> <span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="mi">3</span> <span class="n">Col</span> <span class="k">UNION</span> <span class="k">SELECT</span> <span class="mi">4</span> <span class="k">UNION</span> <span class="k">SELECT</span> <span class="k">NULL</span><span class="p">)</span> <span class="n">T</span></code></pre></figure>
 
 <p>Answers:</p>
 
-<pre><code class="language-SQL">--Answers:
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="c1">--Answers:</span>
 
---TRUE
---FALSE
---FALSE
---2
-</code></pre>
+<span class="c1">--TRUE</span>
+<span class="c1">--FALSE</span>
+<span class="c1">--FALSE</span>
+<span class="c1">--2</span></code></pre></figure>
 
 
             </article>

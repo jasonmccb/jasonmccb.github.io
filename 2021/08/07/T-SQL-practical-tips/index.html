@@ -143,58 +143,58 @@
               <p>Some practical tips against traps in T-SQL</p>
 
 <h3 id="1-value-can-be-truncated-by-isnull">1. Value can be truncated by ISNULL()</h3>
-<pre><code class="language-SQL">--ISNULL truncation
-declare @x varchar(5) = NULL
-if ISNULL(@x, '123456789') = '12345'
-	print 'truncated'
-</code></pre>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="c1">--ISNULL truncation</span>
+<span class="k">declare</span> <span class="o">@</span><span class="n">x</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="k">NULL</span>
+<span class="n">if</span> <span class="k">ISNULL</span><span class="p">(</span><span class="o">@</span><span class="n">x</span><span class="p">,</span> <span class="s1">'123456789'</span><span class="p">)</span> <span class="o">=</span> <span class="s1">'12345'</span>
+	<span class="n">print</span> <span class="s1">'truncated'</span></code></pre></figure>
 
 <h3 id="2-transaction-roll-back-doesnt-affect-local-variables-including-table-variables">2. Transaction roll back doesn’t affect local variables including table variables</h3>
 <p><a href="https://www.brentozar.com/archive/2020/08/half-of-you-dont-understand-variables-and-transactions/">https://www.brentozar.com/archive/2020/08/half-of-you-dont-understand-variables-and-transactions/</a></p>
 
 <h3 id="3-cursor-may-deadloop-with-continue">3. Cursor may deadloop with CONTINUE</h3>
-<pre><code class="language-SQL">DECLARE @t TABLE(id INT)
-INSERT INTO @t VALUES (11),(22)
-DECLARE test_cursor CURSOR FOR
-SELECT id from @t ORDER BY id
 
-OPEN test_cursor
-DECLARE @tempInt INT
-DECLARE @n INT = 0
-FETCH NEXT FROM test_cursor INTO @tempInt
-WHILE @@FETCH_STATUS = 0
-BEGIN
-	SET @n += 1
-	PRINT @n
-	IF @n &lt; 99
-		--will always loop regardless how many records in the table
-		--needs to put another FETCH here
-		CONTINUE
-	FETCH NEXT FROM test_cursor INTO @tempInt
-END
-CLOSE test_cursor
-DEALLOCATE test_cursor
-</code></pre>
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DECLARE</span> <span class="o">@</span><span class="n">t</span> <span class="k">TABLE</span><span class="p">(</span><span class="n">id</span> <span class="nb">INT</span><span class="p">)</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">@</span><span class="n">t</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">11</span><span class="p">),(</span><span class="mi">22</span><span class="p">)</span>
+<span class="k">DECLARE</span> <span class="n">test_cursor</span> <span class="k">CURSOR</span> <span class="k">FOR</span>
+<span class="k">SELECT</span> <span class="n">id</span> <span class="k">from</span> <span class="o">@</span><span class="n">t</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">id</span>
+
+<span class="k">OPEN</span> <span class="n">test_cursor</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">tempInt</span> <span class="nb">INT</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">n</span> <span class="nb">INT</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">FETCH</span> <span class="k">NEXT</span> <span class="k">FROM</span> <span class="n">test_cursor</span> <span class="k">INTO</span> <span class="o">@</span><span class="n">tempInt</span>
+<span class="n">WHILE</span> <span class="o">@@</span><span class="n">FETCH_STATUS</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">BEGIN</span>
+	<span class="k">SET</span> <span class="o">@</span><span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+	<span class="n">PRINT</span> <span class="o">@</span><span class="n">n</span>
+	<span class="n">IF</span> <span class="o">@</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">99</span>
+		<span class="c1">--will always loop regardless how many records in the table</span>
+		<span class="c1">--needs to put another FETCH here</span>
+		<span class="k">CONTINUE</span>
+	<span class="k">FETCH</span> <span class="k">NEXT</span> <span class="k">FROM</span> <span class="n">test_cursor</span> <span class="k">INTO</span> <span class="o">@</span><span class="n">tempInt</span>
+<span class="k">END</span>
+<span class="k">CLOSE</span> <span class="n">test_cursor</span>
+<span class="k">DEALLOCATE</span> <span class="n">test_cursor</span></code></pre></figure>
 
 <h3 id="4-null-fails-arithmetic-comparisons">4. NULL fails arithmetic comparisons</h3>
-<pre><code class="language-SQL">--NULL fails arithmetic comparisons
-DECLARE @bbb BIT
-SET @bbb = NULL
-IF @bbb=0 PRINT '000'
-ELSE IF @bbb=1 PRINT '111'
-ELSE PRINT 'bbb'
-</code></pre>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="c1">--NULL fails arithmetic comparisons</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">bbb</span> <span class="nb">BIT</span>
+<span class="k">SET</span> <span class="o">@</span><span class="n">bbb</span> <span class="o">=</span> <span class="k">NULL</span>
+<span class="n">IF</span> <span class="o">@</span><span class="n">bbb</span><span class="o">=</span><span class="mi">0</span> <span class="n">PRINT</span> <span class="s1">'000'</span>
+<span class="k">ELSE</span> <span class="n">IF</span> <span class="o">@</span><span class="n">bbb</span><span class="o">=</span><span class="mi">1</span> <span class="n">PRINT</span> <span class="s1">'111'</span>
+<span class="k">ELSE</span> <span class="n">PRINT</span> <span class="s1">'bbb'</span></code></pre></figure>
 
 <h3 id="5-how-to-choose-columns-on-conditions">5. How to choose columns on conditions</h3>
-<pre><code class="language-SQL">--conditional column
-DECLARE @tempTable (id INT, msg VARCHAR(20))
-DECLARE @preferColumn1 bit = 1
---conditional column in SELECT
-SELECT CASE WHEN @preferColumn1=1 THEN id ELSE msg END
-FROM @tempTable
---conditional column in WHERE
-WHERE (@preferColumn1=1 AND id&lt;99) OR (@preferColumn1&lt;&gt;1 AND msg LIKE '%Hello%')
-</code></pre>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="c1">--conditional column</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">tempTable</span> <span class="p">(</span><span class="n">id</span> <span class="nb">INT</span><span class="p">,</span> <span class="n">msg</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">preferColumn1</span> <span class="nb">bit</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1">--conditional column in SELECT</span>
+<span class="k">SELECT</span> <span class="k">CASE</span> <span class="k">WHEN</span> <span class="o">@</span><span class="n">preferColumn1</span><span class="o">=</span><span class="mi">1</span> <span class="k">THEN</span> <span class="n">id</span> <span class="k">ELSE</span> <span class="n">msg</span> <span class="k">END</span>
+<span class="k">FROM</span> <span class="o">@</span><span class="n">tempTable</span>
+<span class="c1">--conditional column in WHERE</span>
+<span class="k">WHERE</span> <span class="p">(</span><span class="o">@</span><span class="n">preferColumn1</span><span class="o">=</span><span class="mi">1</span> <span class="k">AND</span> <span class="n">id</span><span class="o">&lt;</span><span class="mi">99</span><span class="p">)</span> <span class="k">OR</span> <span class="p">(</span><span class="o">@</span><span class="n">preferColumn1</span><span class="o">&lt;&gt;</span><span class="mi">1</span> <span class="k">AND</span> <span class="n">msg</span> <span class="k">LIKE</span> <span class="s1">'%Hello%'</span><span class="p">)</span></code></pre></figure>
 
 
             </article>

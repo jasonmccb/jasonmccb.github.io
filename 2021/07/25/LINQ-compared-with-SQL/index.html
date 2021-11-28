@@ -145,40 +145,40 @@
 
 <p>E.g.<br />
 LINQ:</p>
-<pre><code class="language-LINQ">from p in db.Purchases
-where p.Customer.Address.State == "WA" || p.Customer == null
-let purchaseValue = p.PurchaseItems.Sum (pi =&gt; pi.SaleAmount)
-where purchaseValue &gt; 1000
-orderby purchaseValue descending
-select new
-{
-   p.Description,
-   p.Customer.SalesPerson.Name,
-   PurchaseItemCount = p.PurchaseItems.Count()
-}
-</code></pre>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">from</span> <span class="n">p</span> <span class="k">in</span> <span class="n">db</span><span class="p">.</span><span class="n">Purchases</span>
+<span class="k">where</span> <span class="n">p</span><span class="p">.</span><span class="n">Customer</span><span class="p">.</span><span class="n">Address</span><span class="p">.</span><span class="n">State</span> <span class="p">==</span> <span class="s">"WA"</span> <span class="p">||</span> <span class="n">p</span><span class="p">.</span><span class="n">Customer</span> <span class="p">==</span> <span class="k">null</span>
+<span class="k">let</span> <span class="n">purchaseValue</span> <span class="p">=</span> <span class="n">p</span><span class="p">.</span><span class="n">PurchaseItems</span><span class="p">.</span><span class="nf">Sum</span> <span class="p">(</span><span class="n">pi</span> <span class="p">=&gt;</span> <span class="n">pi</span><span class="p">.</span><span class="n">SaleAmount</span><span class="p">)</span>
+<span class="k">where</span> <span class="n">purchaseValue</span> <span class="p">&gt;</span> <span class="m">1000</span>
+<span class="k">orderby</span> <span class="n">purchaseValue</span> <span class="k">descending</span>
+<span class="k">select</span> <span class="k">new</span>
+<span class="p">{</span>
+   <span class="n">p</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span>
+   <span class="n">p</span><span class="p">.</span><span class="n">Customer</span><span class="p">.</span><span class="n">SalesPerson</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span>
+   <span class="n">PurchaseItemCount</span> <span class="p">=</span> <span class="n">p</span><span class="p">.</span><span class="n">PurchaseItems</span><span class="p">.</span><span class="nf">Count</span><span class="p">()</span>
+<span class="p">}</span></code></pre></figure>
 
 <p>SQL:</p>
-<pre><code class="language-SQL">SELECT 
-    p.Description,
-    s.Name,
-    (SELECT COUNT(*) FROM PurchaseItem pi WHERE p.ID = pi.PurchaseID) PurchaseItemCount	
-FROM Purchase p
-    LEFT OUTER JOIN 
-        Customer c 
-            INNER JOIN Address a ON c.AddressID = a.ID
-            LEFT OUTER JOIN SalesPerson s ON c.SalesPersonID = s.ID
-    ON p.CustomerID = c.ID	
-WHERE
-    (a.State = 'WA' OR p.CustomerID IS NULL)
-    AND p.ID in
-    (
-        SELECT PurchaseID FROM PurchaseItem
-        GROUP BY PurchaseID HAVING SUM (SaleAmount) &gt; 1000
-    )
-ORDER BY
-    (SELECT SUM (SaleAmount) FROM PurchaseItem pi WHERE p.ID = pi.PurchaseID) DESC
-</code></pre>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> 
+    <span class="n">p</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span>
+    <span class="n">s</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span>
+    <span class="p">(</span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">PurchaseItem</span> <span class="n">pi</span> <span class="k">WHERE</span> <span class="n">p</span><span class="p">.</span><span class="n">ID</span> <span class="o">=</span> <span class="n">pi</span><span class="p">.</span><span class="n">PurchaseID</span><span class="p">)</span> <span class="n">PurchaseItemCount</span>	
+<span class="k">FROM</span> <span class="n">Purchase</span> <span class="n">p</span>
+    <span class="k">LEFT</span> <span class="k">OUTER</span> <span class="k">JOIN</span> 
+        <span class="n">Customer</span> <span class="k">c</span> 
+            <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Address</span> <span class="n">a</span> <span class="k">ON</span> <span class="k">c</span><span class="p">.</span><span class="n">AddressID</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">ID</span>
+            <span class="k">LEFT</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">SalesPerson</span> <span class="n">s</span> <span class="k">ON</span> <span class="k">c</span><span class="p">.</span><span class="n">SalesPersonID</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">ID</span>
+    <span class="k">ON</span> <span class="n">p</span><span class="p">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="k">c</span><span class="p">.</span><span class="n">ID</span>	
+<span class="k">WHERE</span>
+    <span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="k">State</span> <span class="o">=</span> <span class="s1">'WA'</span> <span class="k">OR</span> <span class="n">p</span><span class="p">.</span><span class="n">CustomerID</span> <span class="k">IS</span> <span class="k">NULL</span><span class="p">)</span>
+    <span class="k">AND</span> <span class="n">p</span><span class="p">.</span><span class="n">ID</span> <span class="k">in</span>
+    <span class="p">(</span>
+        <span class="k">SELECT</span> <span class="n">PurchaseID</span> <span class="k">FROM</span> <span class="n">PurchaseItem</span>
+        <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">PurchaseID</span> <span class="k">HAVING</span> <span class="k">SUM</span> <span class="p">(</span><span class="n">SaleAmount</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1000</span>
+    <span class="p">)</span>
+<span class="k">ORDER</span> <span class="k">BY</span>
+    <span class="p">(</span><span class="k">SELECT</span> <span class="k">SUM</span> <span class="p">(</span><span class="n">SaleAmount</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">PurchaseItem</span> <span class="n">pi</span> <span class="k">WHERE</span> <span class="n">p</span><span class="p">.</span><span class="n">ID</span> <span class="o">=</span> <span class="n">pi</span><span class="p">.</span><span class="n">PurchaseID</span><span class="p">)</span> <span class="k">DESC</span></code></pre></figure>
 
             </article>
         </div>
