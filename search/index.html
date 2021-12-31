@@ -137,6 +137,34 @@
 				
 				  <div class="post-item">
 					
+					<span class="post-meta">Dec 31, 2021</span>
+
+					<h2>
+					  <a class="post-link" href="/2021/12/31/spring-boot-configuration-error-reflect.InaccessibleObjectException/">
+						Java spring-boot configuration error reflect.InaccessibleObjectException
+					  </a>
+					</h2>
+
+					<div class="post-snippet"><p><strong>Error message:</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>17:12:28.224 ERROR [com.Company.program.boot.programApplicationLauncher.main()] o.s.boot.SpringApplication - Application startup failed
+java.lang.IllegalStateException: Cannot load configuration class: com.Company.program.boot.config.ApplicationConfiguration
+ at org.springframework.context.annotation.ConfigurationClassPostProcessor.enhanceConfigurationClasses(ConfigurationClassPostProcessor.java:395) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+ ......
+ at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: java.lang.ExceptionInInitializerError: null
+ at org.springframework.cglib.core.KeyFactory$Generator.generateClass(KeyFactory.java:166) ~[spring-core-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+ ......
+ ... 17 common frames omitted
+Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @43905a1d
+ at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354) ~[na:na]
+ ......
+ ... 28 common frames omitted
+</code></pre></div></div>
+</div>
+				  </div>
+				
+				  <div class="post-item">
+					
 					<span class="post-meta">Nov 28, 2021</span>
 
 					<h2>

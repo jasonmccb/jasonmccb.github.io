@@ -5,9 +5,50 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 28 Nov 2021 18:36:07 +1300</pubDate>
-    <lastBuildDate>Sun, 28 Nov 2021 18:36:07 +1300</lastBuildDate>
+    <pubDate>Fri, 31 Dec 2021 18:34:57 +1300</pubDate>
+    <lastBuildDate>Fri, 31 Dec 2021 18:34:57 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Java spring-boot configuration error reflect.InaccessibleObjectException</title>
+        <description>&lt;p&gt;&lt;strong&gt;Error message:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;17:12:28.224 ERROR [com.Company.program.boot.programApplicationLauncher.main()] o.s.boot.SpringApplication - Application startup failed
+java.lang.IllegalStateException: Cannot load configuration class: com.Company.program.boot.config.ApplicationConfiguration
+ at org.springframework.context.annotation.ConfigurationClassPostProcessor.enhanceConfigurationClasses(ConfigurationClassPostProcessor.java:395) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+ ......
+ at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: java.lang.ExceptionInInitializerError: null
+ at org.springframework.cglib.core.KeyFactory$Generator.generateClass(KeyFactory.java:166) ~[spring-core-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+ ......
+ ... 17 common frames omitted
+Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not &quot;opens java.lang&quot; to unnamed module @43905a1d
+ at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354) ~[na:na]
+ ......
+ ... 28 common frames omitted
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Root cause:&lt;/strong&gt; &lt;br /&gt;
+     A warning in JDK-11 has become an error in JDK-17&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt; &lt;br /&gt;
+     In Eclipse Maven run configuration, JRE tab, change JDK-17 to JDK-11&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The warning after the fix:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.springframework.cglib.core.ReflectUtils$2 (file:/C:/Users/jason.liu/.m2/repository/org/springframework/spring-core/4.1.6.RELEASE/spring-core-4.1.6.RELEASE.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of org.springframework.cglib.core.ReflectUtils$2
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Fri, 31 Dec 2021 18:00:00 +1300</pubDate>
+        <link>http://localhost:4000/2021/12/31/spring-boot-configuration-error-reflect.InaccessibleObjectException/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/12/31/spring-boot-configuration-error-reflect.InaccessibleObjectException/</guid>
+        
+        <category>Java</category>
+        
+        
+      </item>
     
       <item>
         <title>Code block highlight not working in Jekyll</title>
@@ -369,70 +410,6 @@ Use the SQL below:&lt;/p&gt;
         <guid isPermaLink="true">http://localhost:4000/2021/04/28/SQL-table-joining-special-skill/</guid>
         
         <category>SQL</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Microsoft Ignite Azure Admin Challenge</title>
-        <description>&lt;h3 id=&quot;microsoft-ignite-azure-admin-challenge&quot;&gt;Microsoft Ignite Azure Admin Challenge&lt;/h3&gt;
-
-&lt;h4 id=&quot;modules&quot;&gt;Modules:&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Configure the network for your virtual machines&lt;/li&gt;
-  &lt;li&gt;Design an IP addressing schema for your Azure deployment&lt;/li&gt;
-  &lt;li&gt;Distribute your services across Azure virtual networks and integrate them by using virtual network peering&lt;/li&gt;
-  &lt;li&gt;Secure and isolate access to Azure resources by using network security groups and service endpoints&lt;/li&gt;
-  &lt;li&gt;Connect to virtual machines through the Azure portal by using Azure Bastion&lt;/li&gt;
-  &lt;li&gt;Host your domain on Azure DNS&lt;/li&gt;
-  &lt;li&gt;Manage and control traffic flow in your Azure deployment with routes&lt;/li&gt;
-  &lt;li&gt;Connect your on- premises network to Azure with VPN Gateway&lt;/li&gt;
-  &lt;li&gt;Connect your on- premises network to the Microsoft global network by using ExpressRoute&lt;/li&gt;
-  &lt;li&gt;Improve application scalability and resiliency by using Azure Load Balancer&lt;/li&gt;
-  &lt;li&gt;Troubleshoot inbound network connectivity for Azure Load Balancer&lt;/li&gt;
-  &lt;li&gt;Load balance your web service traffic with Application Gateway&lt;/li&gt;
-  &lt;li&gt;Monitor and troubleshoot your end- to- end Azure network infrastructure by using network monitoring tools&lt;/li&gt;
-  &lt;li&gt;Create an Azure Storage account&lt;/li&gt;
-  &lt;li&gt;Choose the right disk storage for your virtual machine workload&lt;/li&gt;
-  &lt;li&gt;Provide disaster recovery by replicating storage data across regions and failing over to a secondary location&lt;/li&gt;
-  &lt;li&gt;Secure your Azure Storage account&lt;/li&gt;
-  &lt;li&gt;Store and share files in your app with Azure Files&lt;/li&gt;
-  &lt;li&gt;Upload, download, and manage data with Azure Storage Explorer&lt;/li&gt;
-  &lt;li&gt;Export large amounts of data from Azure by using Azure Import/Export&lt;/li&gt;
-  &lt;li&gt;Move large amounts of data to the cloud by using Azure Data Box family&lt;/li&gt;
-  &lt;li&gt;Extend your on- premises file share capacity using Azure File Sync&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/azure ignite 100 percent.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;command-examples&quot;&gt;Command examples:&lt;/h4&gt;
-&lt;p&gt;Powershell:&lt;/p&gt;
-&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#create VPN gateway&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;New-AzVirtualNetworkGateway&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-Name&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$GWName&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-ResourceGroupName&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ResourceGroup&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-Location&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$Location&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-IpConfigurations&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ipconf&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-GatewayType&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Vpn&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-VpnType&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;RouteBased&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-EnableBgp&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;$false&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-GatewaySku&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;VpnGw1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-VpnClientProtocol&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IKEv2&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Bash:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#create a resource group&lt;/span&gt;
-az group create &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$RESOURCEGROUP&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--location&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$LOCATION&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Azure CLI:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#create a subnet&lt;/span&gt;
-az network vnet subnet create &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;--address-prefixes&lt;/span&gt; 10.10.2.0/24 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; BackendSubnet &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;--resource-group&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$RG&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;--vnet-name&lt;/span&gt; MyVNet1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Fri, 26 Mar 2021 16:40:00 +1300</pubDate>
-        <link>http://localhost:4000/2021/03/26/Microsoft-Ignite-Azure-Admin-Challenge/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/03/26/Microsoft-Ignite-Azure-Admin-Challenge/</guid>
-        
-        <category>Azure</category>
         
         
       </item>
