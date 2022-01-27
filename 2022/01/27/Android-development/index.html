@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Ubuntu Docker container missing Chinese - Jason's Blog</title>
+	<title>Tips for beginners using Kotlin in Android Studio - Jason's Blog</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/2020/09/29/Ubuntu-Docker-container-missing-Chinese/">
+	<link rel="canonical" href="/2022/01/27/Android-development/">
 	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
 	
-	<meta name="keywords" content="Ubuntu Docker container missing Chinese, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="keywords" content="Tips for beginners using Kotlin in Android Studio, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -91,8 +91,8 @@
   <div class="container">
   	
   		<!--
-		    <h1>Ubuntu Docker container missing Chinese</h1>
-		    <p>Post on Sep 29, 2020 by <a href="/about">Jason Liu</a></p>
+		    <h1>Tips for beginners using Kotlin in Android Studio</h1>
+		    <p>Post on Jan 27, 2022 by <a href="/about">Jason Liu</a></p>
 		-->
 		    <h1>The meaning of life is to explore the world</h1>			
     
@@ -104,7 +104,7 @@
   <div class="container">
   	
     	<a href="/categories/#-ref"></a>	/
-    	<a href="/tag/#Linux-ref">Linux</a>
+    	<a href="/tag/#Android-ref">Android</a>
     
   </div>
 </div>
@@ -132,52 +132,47 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">Ubuntu Docker container missing Chinese</h1>
+              <h1 class="post-title">Tips for beginners using Kotlin in Android Studio</h1>
               <!--
-                <p class="post-meta">Sep 29, 2020</p>
+                <p class="post-meta">Jan 27, 2022</p>
               -->
-              <div class="meta">Posted on <span class="postdate">Sep 29, 2020</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
+              <div class="meta">Posted on <span class="postdate">Jan 27, 2022</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
               <br />
             </header>
             <article class="post-content">
-              <ol>
-  <li>Ubuntu Docker container doesn’t have Chinese by default.<br />
-Solution:
+              <p>Some tips for beginners developing Android apps using Kotlin in Android Studio</p>
+<ol>
+  <li>Useful references:
     <ul>
-      <li>Option 1: install Chinese manually
-        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">#Check locale</span>
-  locale <span class="nt">-a</span>
-  <span class="c">#Check installed packages</span>
-  dpkg <span class="nt">-l</span> | less
-
-  <span class="c">#Set environment variables LANG, and LC_ALL</span>
-  <span class="nv">LANG</span><span class="o">=</span><span class="s1">'C.UTF-8'</span>
-  <span class="nb">set</span> |grep LANG
-  <span class="nv">LC_ALL</span><span class="o">=</span><span class="s1">'C.UTF-8'</span>
-  <span class="nb">set</span> |grep LC_ALL
-  <span class="nb">export </span>LANG
-  <span class="nb">printenv</span> |grep LANG
-  <span class="nb">export </span>LC_ALL
-  <span class="nb">printenv</span> |grep LC_ALL
-</code></pre></div>        </div>
+      <li>
+        <p>Google documentation <br />
+ <a href="https://developer.android.com/topic/architecture">https://developer.android.com/topic/architecture</a></p>
       </li>
-      <li>Option 2: install it in Dockerfile
-        <pre><code class="language-Dockerfile">  RUN apt-get update
-  RUN apt-get install -y locales
-  ENV LANG C.UTF-8
-  ENV LC_ALL C.UTF-8
-</code></pre>
+      <li>
+        <p>Example project in GitHub <br />
+ <a href="https://github.com/android/sunflower">https://github.com/android/sunflower</a></p>
+      </li>
+      <li>
+        <p>Stack Overflow <br />
+ E.g. How to make a delay call. <br />
+ <a href="https://stackoverflow.com/questions/3072173/how-to-call-a-method-after-a-delay-in-android">https://stackoverflow.com/questions/3072173/how-to-call-a-method-after-a-delay-in-android</a> <br />
+ <img src="/images/delay call.PNG" alt="my_image" /></p>
+      </li>
+      <li>
+        <p>Kotlin language guide <br />
+ <a href="https://book.kotlincn.net/">https://book.kotlincn.net/</a></p>
       </li>
     </ul>
   </li>
-  <li>Failed to install locales.
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> apt-get <span class="nb">install</span> <span class="nt">-y</span> locales
- E: Package <span class="s1">'locales'</span> has no installation candidate
-</code></pre></div>    </div>
-    <p>Solution:<br />
- Run <code class="highlighter-rouge">apt-get update</code> first</p>
+  <li>
+    <p><strong>Problem:</strong> Emulator not responding <br />
+ <img src="/images/UI_frozen.jpg" alt="my_image" /></p>
+
+    <p><strong>Solution:</strong> Cold boot device in AVD <br />
+ <img src="/images/AVD_cold_boot.jpg" alt="my_image" /></p>
   </li>
 </ol>
+
 
             </article>
         </div>

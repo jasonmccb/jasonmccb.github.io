@@ -5,9 +5,54 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 31 Dec 2021 18:34:57 +1300</pubDate>
-    <lastBuildDate>Fri, 31 Dec 2021 18:34:57 +1300</lastBuildDate>
+    <pubDate>Thu, 27 Jan 2022 22:53:39 +1300</pubDate>
+    <lastBuildDate>Thu, 27 Jan 2022 22:53:39 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Tips for beginners using Kotlin in Android Studio</title>
+        <description>&lt;p&gt;Some tips for beginners developing Android apps using Kotlin in Android Studio&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Useful references:
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Google documentation &lt;br /&gt;
+ &lt;a href=&quot;https://developer.android.com/topic/architecture&quot;&gt;https://developer.android.com/topic/architecture&lt;/a&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Example project in GitHub &lt;br /&gt;
+ &lt;a href=&quot;https://github.com/android/sunflower&quot;&gt;https://github.com/android/sunflower&lt;/a&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Stack Overflow &lt;br /&gt;
+ E.g. How to make a delay call. &lt;br /&gt;
+ &lt;a href=&quot;https://stackoverflow.com/questions/3072173/how-to-call-a-method-after-a-delay-in-android&quot;&gt;https://stackoverflow.com/questions/3072173/how-to-call-a-method-after-a-delay-in-android&lt;/a&gt; &lt;br /&gt;
+ &lt;img src=&quot;/images/delay call.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Kotlin language guide &lt;br /&gt;
+ &lt;a href=&quot;https://book.kotlincn.net/&quot;&gt;https://book.kotlincn.net/&lt;/a&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; Emulator not responding &lt;br /&gt;
+ &lt;img src=&quot;/images/UI_frozen.jpg&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt; Cold boot device in AVD &lt;br /&gt;
+ &lt;img src=&quot;/images/AVD_cold_boot.jpg&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Thu, 27 Jan 2022 20:00:00 +1300</pubDate>
+        <link>http://localhost:4000/2022/01/27/Android-development/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022/01/27/Android-development/</guid>
+        
+        <category>Android</category>
+        
+        
+      </item>
     
       <item>
         <title>Java spring-boot configuration error reflect.InaccessibleObjectException</title>
@@ -376,40 +421,6 @@ Badge as below.&lt;/p&gt;
         <guid isPermaLink="true">http://localhost:4000/2021/05/30/Azure-Administrator-Associate-Certificate/</guid>
         
         <category>Azure</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>SQL table joining special skill</title>
-        <description>&lt;h3 id=&quot;an-example-of-sql-table-joining-special-skill&quot;&gt;An example of SQL table joining special skill&lt;/h3&gt;
-
-&lt;h4 id=&quot;problem&quot;&gt;Problem:&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;/images/augment_join.1.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;After the BigTable joins SmallTable, the smallCol cannot exceeds n&lt;br /&gt;
-Now we want all records including unmatched_K in BigTable have smallCol&lt;br /&gt;
-But we are not allowed to change these two tables or change the joining logic on matched_K&lt;br /&gt;
-It seems impossible right?&lt;br /&gt;
-&lt;strong&gt;It is possible!&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;solution&quot;&gt;Solution:&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;/images/augment_join.2.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;If BigTable joins MIdTable then joins SmallTable, then it can be done (where 1&amp;lt;=x&amp;lt;=y&amp;lt;=n in MidTable)
-Use the SQL below:&lt;/p&gt;
-
-&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;coalesce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BigTable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;join&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MidTable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;join&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SmallTable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;join&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SmallTable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sm&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Wed, 28 Apr 2021 22:00:00 +1200</pubDate>
-        <link>http://localhost:4000/2021/04/28/SQL-table-joining-special-skill/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/04/28/SQL-table-joining-special-skill/</guid>
-        
-        <category>SQL</category>
         
         
       </item>
