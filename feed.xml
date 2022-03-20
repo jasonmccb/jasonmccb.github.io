@@ -5,9 +5,29 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 27 Jan 2022 22:53:39 +1300</pubDate>
-    <lastBuildDate>Thu, 27 Jan 2022 22:53:39 +1300</lastBuildDate>
+    <pubDate>Sun, 20 Mar 2022 18:15:29 +1300</pubDate>
+    <lastBuildDate>Sun, 20 Mar 2022 18:15:29 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Crash before class instantiation</title>
+        <description>&lt;p&gt;Is it possible to crash in a class before its constructor runs? &lt;br /&gt;
+Yes. &lt;br /&gt;
+One possibility is it cannot load the libraries it’s referencing. &lt;br /&gt;
+E.g. &lt;br /&gt;
+	&lt;img src=&quot;/images/referenced log4net library.jpg&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If the actual log4net.dll is not under version 1.2.13.0, then the crash will happen.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 20 Mar 2022 18:00:00 +1300</pubDate>
+        <link>http://localhost:4000/2022/03/20/crash-before-class-instantiation/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022/03/20/crash-before-class-instantiation/</guid>
+        
+        <category>C#</category>
+        
+        
+      </item>
     
       <item>
         <title>Tips for beginners using Kotlin in Android Studio</title>
@@ -404,23 +424,6 @@ LINQ:&lt;/p&gt;
         <guid isPermaLink="true">http://localhost:4000/2021/06/24/IEnumerable-and-yield/</guid>
         
         <category>C#</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Microsoft Azure Administrator Associate</title>
-        <description>&lt;p&gt;Early this month I got the Microsoft Azure Administrator Associate Certificate.&lt;br /&gt;
-Badge as below.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/azure-administrator-associate-600x600.png&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Sun, 30 May 2021 17:00:00 +1200</pubDate>
-        <link>http://localhost:4000/2021/05/30/Azure-Administrator-Associate-Certificate/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/05/30/Azure-Administrator-Associate-Certificate/</guid>
-        
-        <category>Azure</category>
         
         
       </item>
