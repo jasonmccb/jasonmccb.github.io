@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dependency update mechanism - Jason's Blog</title>
+
+	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
+	<link rel="icon" href="/styles/images/favicon.jpg">
+
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/styles/css/syntax.css">
+	<link rel="canonical" href="/2022/07/03/dependency-update-mechanism/">
+	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
+	
+	<meta name="keywords" content="Dependency update mechanism, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+
+	<script src="/styles/js/jquery.min.js"></script>
+	<!--[if lt IE 9]>
+    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  	<![endif]-->
+  	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?718c90aec0b27f2b5ba1b7eeb0827810";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+  	<style type="text/css">
+	  	.docs-content{
+	  		margin-bottom: 10px;
+	  	}
+  	</style>
+</head>
+
+  <body class="index">
+
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.jpg">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/categories/">Categories</a>
+        </li>
+        <li>
+          <a href="/tag">Tags</a>
+        </li>
+		<li>
+          <a href="/search">Search</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a><span id="busuanzi_container_site_pv">Total visits: <span id="busuanzi_value_site_pv"></span></span></a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a rel="nofollow" target="_blank" href="https://github.com/jasonmccb/">My Github</a></li>
+            <li><a rel="nofollow" target="_blank" href="/about/">About me</a></li>
+            <li><a rel="nofollow" href="/reference">Related links</a></li>
+            <li><a href="/feed.xml">RSS</a></li>
+            <li class="divider"></li>
+            <li><a rel="nofollow" target="_blank" href="https://github.com/jasonmccb/jasonmccb.github.io">This site in Git</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header" id="content">
+  <div class="container">
+  	
+  		<!--
+		    <h1>Dependency update mechanism</h1>
+		    <p>Post on Jul 03, 2022 by <a href="/about">Jason Liu</a></p>
+		-->
+		    <h1>The meaning of life is to explore the world</h1>			
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container">
+  	
+    	<a href="/categories/#-ref"></a>	/
+    	<a href="/tag/#C#-ref">C#</a>
+    
+  </div>
+</div>
+
+    
+	
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>Catalog</h1>
+  <ul class="nav sidenav">
+  </ul>
+  <div style="height: 200px;width: 200px;">
+    <script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"> 
+    </script>
+  </div>
+</div>
+
+ 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">Dependency update mechanism</h1>
+              <!--
+                <p class="post-meta">Jul 3, 2022</p>
+              -->
+              <div class="meta">Posted on <span class="postdate">Jul 03, 2022</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
+              <br />
+            </header>
+            <article class="post-content">
+              <p>Problem:</p>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="c1">// Create an Image class with two properties, Width and Height</span>
+<span class="c1">// Whenever Width is updated, Height should be updated in proportion</span>
+<span class="c1">// Tips: avoid below 2 traps</span>
+<span class="c1">// 1. Updating Width and Height triggers an infinite dead loop</span>
+<span class="c1">// 2. The dependent update triggered incorrectly by the object initialization or copy</span></code></pre></figure>
+
+<p>Solution 1:</p>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">class</span> <span class="nc">Image1</span>
+<span class="p">{</span>
+	<span class="c1">//private bool dependentUpdateLock;</span>
+	<span class="kt">int</span> <span class="n">_width</span><span class="p">;</span>
+	<span class="k">public</span> <span class="kt">int</span> <span class="n">Width</span>
+	<span class="p">{</span>
+		<span class="k">get</span> <span class="p">=&gt;</span> <span class="n">_width</span><span class="p">;</span>
+		<span class="k">set</span>
+		<span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">_width</span> <span class="p">!=</span> <span class="m">0</span><span class="p">)</span>
+				<span class="n">_height</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">Math</span><span class="p">.</span><span class="nf">Round</span><span class="p">(</span><span class="m">1.0</span> <span class="p">*</span> <span class="k">value</span> <span class="p">*</span> <span class="n">_height</span> <span class="p">/</span> <span class="n">_width</span><span class="p">);</span>
+			<span class="n">_width</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="kt">int</span> <span class="n">_height</span><span class="p">;</span>
+	<span class="k">public</span> <span class="kt">int</span> <span class="n">Height</span>
+	<span class="p">{</span>
+		<span class="k">get</span> <span class="p">=&gt;</span> <span class="n">_height</span><span class="p">;</span>
+		<span class="k">set</span>
+		<span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">_height</span> <span class="p">!=</span> <span class="m">0</span><span class="p">)</span>
+				<span class="n">_width</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">Math</span><span class="p">.</span><span class="nf">Round</span><span class="p">(</span><span class="m">1.0</span> <span class="p">*</span> <span class="k">value</span> <span class="p">*</span> <span class="n">_width</span> <span class="p">/</span> <span class="n">_height</span><span class="p">);</span>
+			<span class="n">_height</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">public</span> <span class="nf">Image1</span><span class="p">(</span><span class="kt">int</span> <span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">h</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">_width</span> <span class="p">=</span> <span class="n">w</span><span class="p">;</span>
+		<span class="n">_height</span> <span class="p">=</span> <span class="n">h</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">public</span> <span class="k">void</span> <span class="nf">Display</span><span class="p">()</span>
+	<span class="p">{</span>
+		<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="nf">Format</span><span class="p">(</span><span class="s">"W=={0}, H=={1}"</span><span class="p">,</span> <span class="n">Width</span><span class="p">,</span> <span class="n">Height</span><span class="p">));</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Solution 2:</p>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">class</span> <span class="nc">Image2</span>
+<span class="p">{</span>
+	<span class="k">public</span> <span class="kt">int</span> <span class="n">Width</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">private</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+	<span class="k">public</span> <span class="kt">int</span> <span class="n">Height</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">private</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+	<span class="k">public</span> <span class="k">void</span> <span class="nf">SetWidthAndHeight</span><span class="p">(</span><span class="kt">int</span> <span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">h</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">Width</span> <span class="p">=</span> <span class="n">w</span><span class="p">;</span>
+		<span class="n">Height</span> <span class="p">=</span> <span class="n">h</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">public</span> <span class="kt">int</span> <span class="nf">NewWidthFromNewHeight</span><span class="p">(</span><span class="kt">int</span> <span class="n">newHeight</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="n">Height</span> <span class="p">==</span> <span class="m">0</span> <span class="p">?</span> <span class="n">Width</span> <span class="p">:</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">Math</span><span class="p">.</span><span class="nf">Round</span><span class="p">(</span><span class="m">1.0</span> <span class="p">*</span> <span class="n">newHeight</span> <span class="p">*</span> <span class="n">Width</span> <span class="p">/</span> <span class="n">Height</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="k">public</span> <span class="kt">int</span> <span class="nf">NewHeightFromNewWidth</span><span class="p">(</span><span class="kt">int</span> <span class="n">newWidth</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="n">Width</span> <span class="p">==</span> <span class="m">0</span> <span class="p">?</span> <span class="n">Height</span> <span class="p">:</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">Math</span><span class="p">.</span><span class="nf">Round</span><span class="p">(</span><span class="m">1.0</span> <span class="p">*</span> <span class="n">newWidth</span> <span class="p">*</span> <span class="n">Height</span> <span class="p">/</span> <span class="n">Width</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="k">public</span> <span class="nf">Image2</span><span class="p">(</span><span class="kt">int</span> <span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">h</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="nf">SetWidthAndHeight</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="k">public</span> <span class="k">void</span> <span class="nf">Display</span><span class="p">()</span>
+	<span class="p">{</span>
+		<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="nf">Format</span><span class="p">(</span><span class="s">"W=={0}, H=={1}"</span><span class="p">,</span> <span class="n">Width</span><span class="p">,</span> <span class="n">Height</span><span class="p">));</span>
+	<span class="p">}</span>
+	<span class="k">public</span> <span class="n">Image2</span> <span class="nf">Clone</span><span class="p">()</span>
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="k">new</span> <span class="nf">Image2</span><span class="p">(</span><span class="n">Width</span><span class="p">,</span> <span class="n">Height</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Result in comparison:</p>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">void</span> <span class="nf">Test_Dependent_Update</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="n">Image1</span> <span class="n">image1A</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Image1</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">);</span>
+	<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"A:"</span><span class="p">);</span>
+	<span class="n">image1A</span><span class="p">.</span><span class="nf">Display</span><span class="p">();</span>
+	<span class="n">Image1</span> <span class="n">image1B</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Image1</span><span class="p">(</span><span class="m">15</span><span class="p">,</span> <span class="m">5</span><span class="p">);</span>
+	<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"B:"</span><span class="p">);</span>
+	<span class="n">image1B</span><span class="p">.</span><span class="nf">Display</span><span class="p">();</span>
+	<span class="n">image1A</span> <span class="p">=</span> <span class="n">image1B</span><span class="p">;</span>
+	<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"A = B:"</span><span class="p">);</span>
+	<span class="n">image1A</span><span class="p">.</span><span class="nf">Display</span><span class="p">();</span>
+	<span class="n">image1A</span><span class="p">.</span><span class="n">Width</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+	<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"A after W explicitly set:"</span><span class="p">);</span>
+	<span class="n">image1A</span><span class="p">.</span><span class="nf">Display</span><span class="p">();</span>
+	<span class="n">image1A</span><span class="p">.</span><span class="n">Height</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+	<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"A after H explicitly set:"</span><span class="p">);</span>
+	<span class="n">image1A</span><span class="p">.</span><span class="nf">Display</span><span class="p">();</span>
+	<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"================"</span><span class="p">);</span>
+	<span class="n">Image2</span> <span class="n">image2A</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Image2</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">);</span>
+	<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"A:"</span><span class="p">);</span>
+	<span class="n">image2A</span><span class="p">.</span><span class="nf">Display</span><span class="p">();</span>
+	<span class="n">Image2</span> <span class="n">image2B</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Image2</span><span class="p">(</span><span class="m">15</span><span class="p">,</span> <span class="m">5</span><span class="p">);</span>
+	<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"B:"</span><span class="p">);</span>
+	<span class="n">image2B</span><span class="p">.</span><span class="nf">Display</span><span class="p">();</span>
+	<span class="n">image2A</span> <span class="p">=</span> <span class="n">image2B</span><span class="p">.</span><span class="nf">Clone</span><span class="p">();</span>
+	<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"A = B.Clone():"</span><span class="p">);</span>
+	<span class="n">image2A</span><span class="p">.</span><span class="nf">Display</span><span class="p">();</span>
+	<span class="n">image2A</span><span class="p">.</span><span class="nf">SetWidthAndHeight</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">);</span>
+	<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"A after W&amp;H set separately:"</span><span class="p">);</span>
+	<span class="n">image2A</span><span class="p">.</span><span class="nf">Display</span><span class="p">();</span>
+	<span class="n">image2B</span><span class="p">.</span><span class="nf">SetWidthAndHeight</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="n">image2B</span><span class="p">.</span><span class="nf">NewHeightFromNewWidth</span><span class="p">(</span><span class="m">10</span><span class="p">));</span>
+	<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"B after W&amp;H set in relation:"</span><span class="p">);</span>
+	<span class="n">image2B</span><span class="p">.</span><span class="nf">Display</span><span class="p">();</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Output:</p>
+<div class="language-bat highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">A</span>:
+<span class="kd">W</span><span class="o">==</span><span class="m">10</span><span class="o">,</span> <span class="kd">H</span><span class="o">==</span><span class="m">10</span>
+<span class="kd">B</span>:
+<span class="kd">W</span><span class="o">==</span><span class="m">15</span><span class="o">,</span> <span class="kd">H</span><span class="o">==</span><span class="m">5</span>
+<span class="kd">A</span> <span class="o">=</span> <span class="kd">B</span>:
+<span class="kd">W</span><span class="o">==</span><span class="m">15</span><span class="o">,</span> <span class="kd">H</span><span class="o">==</span><span class="m">5</span>
+<span class="kd">A</span> <span class="kd">after</span> <span class="kd">W</span> <span class="kd">explicitly</span> <span class="kd">set</span>:
+<span class="kd">W</span><span class="o">==</span><span class="m">10</span><span class="o">,</span> <span class="kd">H</span><span class="o">==</span><span class="m">3</span>
+<span class="kd">A</span> <span class="kd">after</span> <span class="kd">H</span> <span class="kd">explicitly</span> <span class="kd">set</span>:
+<span class="kd">W</span><span class="o">==</span><span class="m">33</span><span class="o">,</span> <span class="kd">H</span><span class="o">==</span><span class="m">10</span>
+<span class="o">================</span>
+<span class="kd">A</span>:
+<span class="kd">W</span><span class="o">==</span><span class="m">10</span><span class="o">,</span> <span class="kd">H</span><span class="o">==</span><span class="m">10</span>
+<span class="kd">B</span>:
+<span class="kd">W</span><span class="o">==</span><span class="m">15</span><span class="o">,</span> <span class="kd">H</span><span class="o">==</span><span class="m">5</span>
+<span class="kd">A</span> <span class="o">=</span> <span class="kd">B</span>.Clone<span class="o">()</span>:
+<span class="kd">W</span><span class="o">==</span><span class="m">15</span><span class="o">,</span> <span class="kd">H</span><span class="o">==</span><span class="m">5</span>
+<span class="kd">A</span> <span class="kd">after</span> <span class="kd">W</span><span class="o">&amp;</span><span class="kd">H</span> <span class="kd">set</span> <span class="kd">separately</span>:
+<span class="kd">W</span><span class="o">==</span><span class="m">10</span><span class="o">,</span> <span class="kd">H</span><span class="o">==</span><span class="m">10</span>
+<span class="kd">B</span> <span class="kd">after</span> <span class="kd">W</span><span class="o">&amp;</span><span class="kd">H</span> <span class="kd">set</span> <span class="k">in</span> <span class="kd">relation</span>:
+<span class="kd">W</span><span class="o">==</span><span class="m">10</span><span class="o">,</span> <span class="kd">H</span><span class="o">==</span><span class="m">3</span>
+</code></pre></div></div>
+
+
+            </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    <footer class="footer" role="contentinfo">
+	<div class="container">
+		<p class="copyright">Copyright &copy; 2019-2022 <a href="https://www.linkedin.com/in/junwen-liu-7261aa138/"><code>Jason Liu</code></a>.</p>
+		<p>Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme from <a href="http://lesscss.cn/">Less</a>, template from <a href="http://jekyllthemes.org/themes/Less-Or-More/">Freud Kang</a></p>
+	</div>
+</footer>
+
+<script src="/styles/js/jquery.min.js"></script>
+<script src="/styles/js/bootstrap.min.js"></script>
+<script src="/styles/js/holder.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  </body>
+</html>
