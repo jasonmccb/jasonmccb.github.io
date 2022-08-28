@@ -141,7 +141,7 @@
             </header>
             <article class="post-content">
               <p><strong>Error message:</strong></p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>17:12:28.224 ERROR [com.Company.program.boot.programApplicationLauncher.main()] o.s.boot.SpringApplication - Application startup failed
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>17:12:28.224 ERROR [com.Company.program.boot.programApplicationLauncher.main()] o.s.boot.SpringApplication - Application startup failed
 java.lang.IllegalStateException: Cannot load configuration class: com.Company.program.boot.config.ApplicationConfiguration
  at org.springframework.context.annotation.ConfigurationClassPostProcessor.enhanceConfigurationClasses(ConfigurationClassPostProcessor.java:395) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
  ......
@@ -163,7 +163,7 @@ Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protect
      In Eclipse Maven run configuration, JRE tab, change JDK-17 to JDK-11</p>
 
 <p><strong>The warning after the fix:</strong></p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WARNING: An illegal reflective access operation has occurred
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WARNING: An illegal reflective access operation has occurred
 WARNING: Illegal reflective access by org.springframework.cglib.core.ReflectUtils$2 (file:/C:/Users/jason.liu/.m2/repository/org/springframework/spring-core/4.1.6.RELEASE/spring-core-4.1.6.RELEASE.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
 WARNING: Please consider reporting this to the maintainers of org.springframework.cglib.core.ReflectUtils$2
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations

@@ -143,36 +143,36 @@
               <p><strong>Ansible tips</strong></p>
 
 <ol>
-  <li><code class="highlighter-rouge">set_stats</code> must have <code class="highlighter-rouge">data</code>
+  <li><code class="language-plaintext highlighter-rouge">set_stats</code> must have <code class="language-plaintext highlighter-rouge">data</code>
     <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">set_stats</span><span class="pi">:</span>
  <span class="na">data</span><span class="pi">:</span>
      <span class="na">failure_reason</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Duplicate."</span>
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>Cannot loop on a <code class="highlighter-rouge">block</code></p>
+    <p>Cannot loop on a <code class="language-plaintext highlighter-rouge">block</code></p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">debug</code> cannot show up in a play, but only in <code class="highlighter-rouge">tasks</code></p>
+    <p><code class="language-plaintext highlighter-rouge">debug</code> cannot show up in a play, but only in <code class="language-plaintext highlighter-rouge">tasks</code></p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">set_stats</code> variables cannot be used within same playbook, but only in other playbooks</p>
+    <p><code class="language-plaintext highlighter-rouge">set_stats</code> variables cannot be used within same playbook, but only in other playbooks</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">set_stats</code>/<code class="highlighter-rouge">set_fact</code> cannot partially change a dictionary, the correct way is to use “combine” filter</p>
+    <p><code class="language-plaintext highlighter-rouge">set_stats</code>/<code class="language-plaintext highlighter-rouge">set_fact</code> cannot partially change a dictionary, the correct way is to use “combine” filter</p>
   </li>
   <li>
-    <p>unless in a role, <code class="highlighter-rouge">include</code>/<code class="highlighter-rouge">import</code> cannot be inside <code class="highlighter-rouge">tasks</code>, but only outside</p>
+    <p>unless in a role, <code class="language-plaintext highlighter-rouge">include</code>/<code class="language-plaintext highlighter-rouge">import</code> cannot be inside <code class="language-plaintext highlighter-rouge">tasks</code>, but only outside</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">import</code> is static, <code class="highlighter-rouge">include</code> is dynamic</p>
+    <p><code class="language-plaintext highlighter-rouge">import</code> is static, <code class="language-plaintext highlighter-rouge">include</code> is dynamic</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">vars</code> in a task is NOT recognizable in the where clause, but <code class="highlighter-rouge">loop_control</code> var is. <br />
-<code class="highlighter-rouge">vars</code> in a task is recognizable in the <code class="highlighter-rouge">loop</code> clause</p>
+    <p><code class="language-plaintext highlighter-rouge">vars</code> in a task is NOT recognizable in the where clause, but <code class="language-plaintext highlighter-rouge">loop_control</code> var is. <br />
+<code class="language-plaintext highlighter-rouge">vars</code> in a task is recognizable in the <code class="language-plaintext highlighter-rouge">loop</code> clause</p>
   </li>
-  <li>variable scope (e.g. <code class="highlighter-rouge">set_fact</code>) covers all the descendant and ancestor playbooks included. <br />
-Therefore vars in descendant/ancestor playbooks are alwasy overwritten by parent/offspring <code class="highlighter-rouge">set_fact</code> due to precedence.</li>
+  <li>variable scope (e.g. <code class="language-plaintext highlighter-rouge">set_fact</code>) covers all the descendant and ancestor playbooks included. <br />
+Therefore vars in descendant/ancestor playbooks are alwasy overwritten by parent/offspring <code class="language-plaintext highlighter-rouge">set_fact</code> due to precedence.</li>
 </ol>
 
             </article>

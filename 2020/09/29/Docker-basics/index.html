@@ -148,48 +148,48 @@
 <a href="https://docs.docker.com/reference/">https://docs.docker.com/reference/</a></p>
   </li>
   <li>Docker registry commands
-    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="nf">docker</span><span class="w"> </span><span class="nx">pull</span><span class="w"> </span><span class="nx">ubuntu</span><span class="w">
- </span><span class="nf">docker</span><span class="w"> </span><span class="nx">push</span><span class="w"> </span><span class="nx">jasonmccb/drives_bash_sync</span><span class="w">
+    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="nx">pull</span><span class="w"> </span><span class="nx">ubuntu</span><span class="w">
+ </span><span class="n">docker</span><span class="w"> </span><span class="nx">push</span><span class="w"> </span><span class="nx">jasonmccb/drives_bash_sync</span><span class="w">
 </span></code></pre></div>    </div>
   </li>
   <li>Docker image commands
     <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="c"># Listing</span><span class="w">
- </span><span class="nf">docker</span><span class="w"> </span><span class="nx">images</span><span class="w">
+ </span><span class="n">docker</span><span class="w"> </span><span class="nx">images</span><span class="w">
 
  </span><span class="c"># Removing</span><span class="w">
- </span><span class="nf">docker</span><span class="w"> </span><span class="nx">rmi</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">image-name</span><span class="err">&gt;</span><span class="w">
- </span><span class="nf">docker</span><span class="w"> </span><span class="nx">rmi</span><span class="w"> </span><span class="err">$</span><span class="p">(</span><span class="nf">docker</span><span class="w"> </span><span class="nx">images</span><span class="w"> </span><span class="nt">-q</span><span class="w"> </span><span class="nt">-f</span><span class="w"> </span><span class="nx">dangling</span><span class="o">=</span><span class="nf">true</span><span class="p">)</span><span class="w">
+ </span><span class="n">docker</span><span class="w"> </span><span class="nx">rmi</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">image-name</span><span class="err">&gt;</span><span class="w">
+ </span><span class="n">docker</span><span class="w"> </span><span class="nx">rmi</span><span class="w"> </span><span class="err">$</span><span class="p">(</span><span class="n">docker</span><span class="w"> </span><span class="nx">images</span><span class="w"> </span><span class="nt">-q</span><span class="w"> </span><span class="nt">-f</span><span class="w"> </span><span class="nx">dangling</span><span class="o">=</span><span class="n">true</span><span class="p">)</span><span class="w">
 
  </span><span class="c"># Building using "docker build"</span><span class="w">
- </span><span class="nf">docker</span><span class="w"> </span><span class="nx">build</span><span class="w"> </span><span class="nt">-t</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">image</span><span class="w"> </span><span class="nx">name</span><span class="p">[:</span><span class="kt">image</span><span class="w"> </span><span class="kt">tag</span><span class="p">]</span><span class="err">&gt;</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">dockerfile</span><span class="w"> </span><span class="nx">dir</span><span class="err">&gt;</span><span class="w">
+ </span><span class="n">docker</span><span class="w"> </span><span class="nx">build</span><span class="w"> </span><span class="nt">-t</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">image</span><span class="w"> </span><span class="nx">name</span><span class="p">[:</span><span class="n">image</span><span class="w"> </span><span class="n">tag</span><span class="p">]</span><span class="err">&gt;</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">dockerfile</span><span class="w"> </span><span class="nx">dir</span><span class="err">&gt;</span><span class="w">
  </span><span class="c"># -f option</span><span class="w">
- </span><span class="nf">docker</span><span class="w"> </span><span class="nx">build</span><span class="w"> </span><span class="nt">-t</span><span class="w"> </span><span class="nx">image-name</span><span class="w"> </span><span class="nt">-f</span><span class="w"> </span><span class="nx">folder_name/Dockerfile</span><span class="w"> </span><span class="o">.</span><span class="w">
+ </span><span class="n">docker</span><span class="w"> </span><span class="nx">build</span><span class="w"> </span><span class="nt">-t</span><span class="w"> </span><span class="nx">image-name</span><span class="w"> </span><span class="nt">-f</span><span class="w"> </span><span class="nx">folder_name/Dockerfile</span><span class="w"> </span><span class="o">.</span><span class="w">
  </span><span class="c"># Building using "docker-compose" ("up" will build/create and run)</span><span class="w">
- </span><span class="nf">docker-compose</span><span class="w"> </span><span class="nx">up</span><span class="w"> </span><span class="nt">-d</span><span class="w">
+ </span><span class="n">docker-compose</span><span class="w"> </span><span class="nx">up</span><span class="w"> </span><span class="nt">-d</span><span class="w">
  </span><span class="c"># To rebuild after changed</span><span class="w">
- </span><span class="nf">docker-compose</span><span class="w"> </span><span class="nx">build</span><span class="w">
+ </span><span class="n">docker-compose</span><span class="w"> </span><span class="nx">build</span><span class="w">
 </span></code></pre></div>    </div>
   </li>
   <li>Docker container commands
     <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="c"># Listing</span><span class="w">
- </span><span class="nf">docker</span><span class="w"> </span><span class="nx">ps</span><span class="w"> </span><span class="nt">-a</span><span class="w">
+ </span><span class="n">docker</span><span class="w"> </span><span class="nx">ps</span><span class="w"> </span><span class="nt">-a</span><span class="w">
  </span><span class="c"># Show all details</span><span class="w">
- </span><span class="nf">docker</span><span class="w"> </span><span class="nx">inspect</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">container</span><span class="w"> </span><span class="nx">id</span><span class="err">&gt;</span><span class="w">
+ </span><span class="n">docker</span><span class="w"> </span><span class="nx">inspect</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">container</span><span class="w"> </span><span class="nx">id</span><span class="err">&gt;</span><span class="w">
  </span><span class="c"># Only show bind mounts</span><span class="w">
- </span><span class="nf">docker</span><span class="w"> </span><span class="nx">inspect</span><span class="w"> </span><span class="nt">-f</span><span class="w"> </span><span class="s2">"{ { .Mounts }}"</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">container</span><span class="w"> </span><span class="nx">id</span><span class="err">&gt;</span><span class="w">
+ </span><span class="n">docker</span><span class="w"> </span><span class="nx">inspect</span><span class="w"> </span><span class="nt">-f</span><span class="w"> </span><span class="s2">"{ { .Mounts }}"</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">container</span><span class="w"> </span><span class="nx">id</span><span class="err">&gt;</span><span class="w">
 	
  </span><span class="c"># Running a new container</span><span class="w">
- </span><span class="nf">docker</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">image</span><span class="w"> </span><span class="nx">name</span><span class="err">&gt;</span><span class="w">
+ </span><span class="n">docker</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">image</span><span class="w"> </span><span class="nx">name</span><span class="err">&gt;</span><span class="w">
  </span><span class="c"># -d runs from background, -it runs interactively, -v mounts volume, -w for working dir</span><span class="w">
- </span><span class="nf">docker</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nt">-v</span><span class="w"> </span><span class="s2">"D:/programming/Docker container/sharing:/root"</span><span class="w"> </span><span class="nt">-w</span><span class="w"> </span><span class="nx">/root</span><span class="w"> </span><span class="nt">-it</span><span class="w"> </span><span class="nx">my-wsl-sync</span><span class="w">
+ </span><span class="n">docker</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nt">-v</span><span class="w"> </span><span class="s2">"D:/programming/Docker container/sharing:/root"</span><span class="w"> </span><span class="nt">-w</span><span class="w"> </span><span class="nx">/root</span><span class="w"> </span><span class="nt">-it</span><span class="w"> </span><span class="nx">my-wsl-sync</span><span class="w">
  </span><span class="c"># Running from docker-compose, the "app" service in a shell</span><span class="w">
- </span><span class="nf">docker-compose</span><span class="w"> </span><span class="nx">exec</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="nx">sh</span><span class="w">
+ </span><span class="n">docker-compose</span><span class="w"> </span><span class="nx">exec</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="nx">sh</span><span class="w">
 	
  </span><span class="c"># Managing existing container</span><span class="w">
- </span><span class="nf">docker</span><span class="w"> </span><span class="nx">start/stop/kill/rm</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">container</span><span class="w"> </span><span class="nx">id</span><span class="err">&gt;</span><span class="w">
+ </span><span class="n">docker</span><span class="w"> </span><span class="nx">start/stop/kill/rm</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">container</span><span class="w"> </span><span class="nx">id</span><span class="err">&gt;</span><span class="w">
 	
  </span><span class="c"># Checking log</span><span class="w">
- </span><span class="nf">docker</span><span class="w"> </span><span class="nx">logs</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">container</span><span class="w"> </span><span class="nx">id</span><span class="err">&gt;</span><span class="w">
+ </span><span class="n">docker</span><span class="w"> </span><span class="nx">logs</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">container</span><span class="w"> </span><span class="nx">id</span><span class="err">&gt;</span><span class="w">
 </span></code></pre></div>    </div>
   </li>
 </ol>
@@ -198,33 +198,33 @@
 
 <ol>
   <li>Cannot find package
-    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">docker</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="nt">-c</span><span class="w"> </span><span class="s2">"yarn install &amp;&amp; yarn run env"</span><span class="w">
+    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">docker</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="nt">-c</span><span class="w"> </span><span class="s2">"yarn install &amp;&amp; yarn run env"</span><span class="w">
 </span><span class="o">...</span><span class="w">
-</span><span class="nf">yarn</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">v1.22.4</span><span class="w">
-</span><span class="nf">error</span><span class="w"> </span><span class="nx">Couldn</span><span class="s1">'t find a package.json file in "/app"
+</span><span class="n">yarn</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">v1.22.4</span><span class="w">
+</span><span class="n">error</span><span class="w"> </span><span class="nx">Couldn</span><span class="s1">'t find a package.json file in "/app"
 </span></code></pre></div>    </div>
     <p>Solution:
-<code class="highlighter-rouge">cd "xxxx/app"</code></p>
+<code class="language-plaintext highlighter-rouge">cd "xxxx/app"</code></p>
   </li>
   <li>Executable file not found in $PATH
-    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">docker</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nt">-it</span><span class="w"> </span><span class="nx">ubuntu</span><span class="w"> </span><span class="nt">-v</span><span class="w"> </span><span class="s2">"D:/programming/Docker container/sharing:/root"</span><span class="w">
-</span><span class="nf">docker:</span><span class="w"> </span><span class="nx">Error</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="nx">from</span><span class="w"> </span><span class="nx">daemon:</span><span class="w"> </span><span class="nx">OCI</span><span class="w"> </span><span class="nx">runtime</span><span class="w"> </span><span class="nx">create</span><span class="w"> </span><span class="nx">failed:</span><span class="w"> </span><span class="nx">container_linux.go:349:</span><span class="w"> </span><span class="nx">starting</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="nx">process</span><span class="w"> </span><span class="nx">caused</span><span class="w"> </span><span class="s2">"exec: \"</span><span class="nt">-v</span><span class="nx">\</span><span class="s2">": executable file not found in </span><span class="nv">$PATH</span><span class="s2">"</span><span class="p">:</span><span class="w"> </span><span class="nx">unknown.</span><span class="w">
+    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">docker</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nt">-it</span><span class="w"> </span><span class="nx">ubuntu</span><span class="w"> </span><span class="nt">-v</span><span class="w"> </span><span class="s2">"D:/programming/Docker container/sharing:/root"</span><span class="w">
+</span><span class="n">docker:</span><span class="w"> </span><span class="nx">Error</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="nx">from</span><span class="w"> </span><span class="nx">daemon:</span><span class="w"> </span><span class="nx">OCI</span><span class="w"> </span><span class="nx">runtime</span><span class="w"> </span><span class="nx">create</span><span class="w"> </span><span class="nx">failed:</span><span class="w"> </span><span class="nx">container_linux.go:349:</span><span class="w"> </span><span class="nx">starting</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="nx">process</span><span class="w"> </span><span class="nx">caused</span><span class="w"> </span><span class="s2">"exec: \"</span><span class="nt">-v</span><span class="nx">\</span><span class="s2">": executable file not found in </span><span class="nv">$PATH</span><span class="s2">"</span><span class="p">:</span><span class="w"> </span><span class="nx">unknown.</span><span class="w">
 </span></code></pre></div>    </div>
     <p>Solution:
-<code class="highlighter-rouge">docker run -v "D:/programming/Docker container/sharing:/root" -it ubuntu</code></p>
+<code class="language-plaintext highlighter-rouge">docker run -v "D:/programming/Docker container/sharing:/root" -it ubuntu</code></p>
   </li>
   <li>COPY failed<br />
 Dockerfile:
-<code class="highlighter-rouge">COPY ../sharing/myWSLSync.sh /tmp/</code>
-    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">docker</span><span class="w"> </span><span class="nx">build</span><span class="w"> </span><span class="nt">-t</span><span class="w"> </span><span class="nx">my-wsl-sync</span><span class="w"> </span><span class="nx">folder_name</span><span class="w">
-</span><span class="nf">Step</span><span class="w"> </span><span class="nx">2/2</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nx">COPY</span><span class="w"> </span><span class="nx">sharing/myWSLSync.sh</span><span class="w"> </span><span class="nx">/tmp/</span><span class="w">
-</span><span class="nf">COPY</span><span class="w"> </span><span class="nx">failed:</span><span class="w"> </span><span class="nx">stat</span><span class="w"> </span><span class="nx">/var/lib/docker/tmp/docker-builder764373298/sharing/myWSLSync.sh:</span><span class="w"> </span><span class="nx">no</span><span class="w"> </span><span class="nx">such</span><span class="w"> </span><span class="nx">file</span><span class="w"> </span><span class="nx">or</span><span class="w"> </span><span class="nx">directory</span><span class="w">
+<code class="language-plaintext highlighter-rouge">COPY ../sharing/myWSLSync.sh /tmp/</code>
+    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">docker</span><span class="w"> </span><span class="nx">build</span><span class="w"> </span><span class="nt">-t</span><span class="w"> </span><span class="nx">my-wsl-sync</span><span class="w"> </span><span class="nx">folder_name</span><span class="w">
+</span><span class="n">Step</span><span class="w"> </span><span class="nx">2/2</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nx">COPY</span><span class="w"> </span><span class="nx">sharing/myWSLSync.sh</span><span class="w"> </span><span class="nx">/tmp/</span><span class="w">
+</span><span class="n">COPY</span><span class="w"> </span><span class="nx">failed:</span><span class="w"> </span><span class="nx">stat</span><span class="w"> </span><span class="nx">/var/lib/docker/tmp/docker-builder764373298/sharing/myWSLSync.sh:</span><span class="w"> </span><span class="nx">no</span><span class="w"> </span><span class="nx">such</span><span class="w"> </span><span class="nx">file</span><span class="w"> </span><span class="nx">or</span><span class="w"> </span><span class="nx">directory</span><span class="w">
 </span></code></pre></div>    </div>
     <p>Solution: don’t use “..”, and use “-f”<br />
-<code class="highlighter-rouge">docker build -t my-wsl-sync -f folder_name/Dockerfile .</code></p>
+<code class="language-plaintext highlighter-rouge">docker build -t my-wsl-sync -f folder_name/Dockerfile .</code></p>
   </li>
   <li>Warning on non-Windows host
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
 </code></pre></div>    </div>
     <p>Solution: Because folders will become files, we should not copy folders from Windows to Linux image, we should only copy files. And also our program should not rely on the permissions of files and folders.</p>
   </li>

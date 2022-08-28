@@ -162,11 +162,11 @@ Solution:
 </code></pre></div>        </div>
       </li>
       <li>Option 2: install it in Dockerfile
-        <pre><code class="language-Dockerfile">  RUN apt-get update
+        <div class="language-Dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  RUN apt-get update
   RUN apt-get install -y locales
   ENV LANG C.UTF-8
   ENV LC_ALL C.UTF-8
-</code></pre>
+</code></pre></div>        </div>
       </li>
     </ul>
   </li>
@@ -175,7 +175,7 @@ Solution:
  E: Package <span class="s1">'locales'</span> has no installation candidate
 </code></pre></div>    </div>
     <p>Solution:<br />
- Run <code class="highlighter-rouge">apt-get update</code> first</p>
+ Run <code class="language-plaintext highlighter-rouge">apt-get update</code> first</p>
   </li>
 </ol>
 

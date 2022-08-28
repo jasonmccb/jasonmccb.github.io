@@ -5,9 +5,37 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 31 Jul 2022 17:47:18 +1200</pubDate>
-    <lastBuildDate>Sun, 31 Jul 2022 17:47:18 +1200</lastBuildDate>
-    <generator>Jekyll v4.0.0</generator>
+    <pubDate>Sun, 28 Aug 2022 22:36:55 +1200</pubDate>
+    <lastBuildDate>Sun, 28 Aug 2022 22:36:55 +1200</lastBuildDate>
+    <generator>Jekyll v4.2.2</generator>
+    
+      <item>
+        <title>GitHub Dependabot alerts on old libraries</title>
+        <description>&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt;&lt;br /&gt;
+GitHub Dependabot alerts on old libraries, pointing out security vulnerabilities.&lt;/p&gt;
+
+&lt;p&gt;gem names e.g.:&lt;br /&gt;
+kramdown&lt;br /&gt;
+nokogiri&lt;br /&gt;
+addressable&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
+Add particular gem version in GEMFILE e.g.:&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gem 'kramdown', '&amp;gt;= 2.3.0'&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Update the libraries.&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle update &amp;lt;gem name&amp;gt;&lt;/code&gt; for particular.&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle update&lt;/code&gt; for all.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 28 Aug 2022 22:00:00 +1200</pubDate>
+        <link>http://localhost:4000/2022/08/28/GitHub-alert-on-old-library/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022/08/28/GitHub-alert-on-old-library/</guid>
+        
+        <category>ruby on rails</category>
+        
+        
+      </item>
     
       <item>
         <title>grep does not support UTF-16</title>
@@ -275,7 +303,7 @@ E.g. &lt;br /&gt;
       <item>
         <title>Java spring-boot configuration error reflect.InaccessibleObjectException</title>
         <description>&lt;p&gt;&lt;strong&gt;Error message:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;17:12:28.224 ERROR [com.Company.program.boot.programApplicationLauncher.main()] o.s.boot.SpringApplication - Application startup failed
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;17:12:28.224 ERROR [com.Company.program.boot.programApplicationLauncher.main()] o.s.boot.SpringApplication - Application startup failed
 java.lang.IllegalStateException: Cannot load configuration class: com.Company.program.boot.config.ApplicationConfiguration
  at org.springframework.context.annotation.ConfigurationClassPostProcessor.enhanceConfigurationClasses(ConfigurationClassPostProcessor.java:395) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
  ......
@@ -297,7 +325,7 @@ Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protect
      In Eclipse Maven run configuration, JRE tab, change JDK-17 to JDK-11&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;The warning after the fix:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;WARNING: An illegal reflective access operation has occurred
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;WARNING: An illegal reflective access operation has occurred
 WARNING: Illegal reflective access by org.springframework.cglib.core.ReflectUtils$2 (file:/C:/Users/jason.liu/.m2/repository/org/springframework/spring-core/4.1.6.RELEASE/spring-core-4.1.6.RELEASE.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
 WARNING: Please consider reporting this to the maintainers of org.springframework.cglib.core.ReflectUtils$2
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
@@ -318,8 +346,8 @@ WARNING: All illegal access operations will be denied in a future release
         <description>&lt;p&gt;Triple back ticks ``` used to work but no longer does now.&lt;/p&gt;
 
 &lt;p&gt;I have to replace them with the highlight tags below.
-&lt;code class=&quot;highlighter-rouge&quot;&gt;{ % highlight &amp;lt;language&amp;gt; % }&lt;/code&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;{ % endhighlight % }&lt;/code&gt;&lt;/p&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{ % highlight &amp;lt;language&amp;gt; % }&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{ % endhighlight % }&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Root cause remains unknown for now.&lt;/p&gt;
 
@@ -420,40 +448,6 @@ WARNING: All illegal access operations will be denied in a future release
         <guid isPermaLink="true">http://localhost:4000/2021/09/12/LINQ-outer-join/</guid>
         
         <category>LINQ</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Git branching tips</title>
-        <description>&lt;p&gt;Some tips of Git branching&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Creating a local branch&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;git branch &amp;lt;target branch&amp;gt; &amp;lt;source branch&amp;gt;&lt;/code&gt;&lt;br /&gt;
-Create a local branch and switch to that branch:&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout -b &amp;lt;target branch&amp;gt; &amp;lt;source branch&amp;gt;&lt;/code&gt;&lt;br /&gt;
-If &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;source branch&amp;gt;&lt;/code&gt; is omitted then it’ll branch from the current branch.&lt;br /&gt;
-It can be a problem if we branch from X branch, push then create pull request to merge into Y branch.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;We don’t need to have an exsiting remote branch for the push, otherwise we’ll have to pull and merge locally first.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Creating pull request after pushing may cause merge conflict, which happens after code review approval in Azure DevOps.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Deleting a local branch with &lt;code class=&quot;highlighter-rouge&quot;&gt;git branch -D &amp;lt;branch name&amp;gt;&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        <pubDate>Fri, 13 Aug 2021 15:00:00 +1200</pubDate>
-        <link>http://localhost:4000/2021/08/13/Git-branching/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/08/13/Git-branching/</guid>
-        
-        <category>GitHub</category>
         
         
       </item>

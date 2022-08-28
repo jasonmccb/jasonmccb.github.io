@@ -143,15 +143,15 @@
               <p><strong>Tips</strong></p>
 <ol>
   <li>
-    <p>Use <code class="highlighter-rouge">git help &lt;verb&gt;</code> to learn the Git commands.</p>
+    <p>Use <code class="language-plaintext highlighter-rouge">git help &lt;verb&gt;</code> to learn the Git commands.</p>
   </li>
   <li>
     <p>How to delete unpushed commits?<br />
-<code class="highlighter-rouge">git reset --hard origin/master</code></p>
+<code class="language-plaintext highlighter-rouge">git reset --hard origin/master</code></p>
   </li>
   <li>
     <p>How to delete orphan commits?<br />
-<code class="highlighter-rouge">git gc --prune=now --aggressive</code></p>
+<code class="language-plaintext highlighter-rouge">git gc --prune=now --aggressive</code></p>
   </li>
   <li>How to undo pushed commits?
     <div class="language-bat highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">git</span> <span class="kd">log</span>
@@ -164,7 +164,7 @@
 <span class="kd">git</span> <span class="kd">revert</span> ...
 <span class="kd">git</span> <span class="kd">commit</span> ...
 </code></pre></div>    </div>
-    <p>BTW, We can use <code class="highlighter-rouge">git log --oneline</code> to view a short list of log history.</p>
+    <p>BTW, We can use <code class="language-plaintext highlighter-rouge">git log --oneline</code> to view a short list of log history.</p>
   </li>
   <li>How to remove big file in pushed GitHub history?<br />
 <a href="https://help.github.com/en/github/authenticating-to-github/removing-sensitive-data-from-a-repository">https://help.github.com/en/github/authenticating-to-github/removing-sensitive-data-from-a-repository</a></li>
@@ -172,7 +172,7 @@
 
 <ul>
   <li>5.1 Run in the repo
-    <div class="language-bat highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">git</span> <span class="kd">filter</span><span class="na">-branch </span><span class="o">-</span><span class="na">-force </span><span class="o">-</span><span class="na">-index-filter </span><span class="s2">"git rm -r --cached --ignore-unmatch &lt;unwanted_folder/[unwanted_file]&gt;"</span> <span class="o">-</span><span class="na">-prune-empty </span><span class="o">--</span> <span class="o">-</span><span class="na">-all
+    <div class="language-bat highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">git</span> <span class="kd">filter</span><span class="na">-branch --force --index-filter </span><span class="s2">"git rm -r --cached --ignore-unmatch &lt;unwanted_folder/[unwanted_file]&gt;"</span> <span class="na">--prune-empty </span><span class="o">--</span> <span class="na">--all
 </span><span class="kd">Rewrite</span> <span class="kd">abcdefabcdedfefcfefafcfefd98738127382630</span> <span class="o">(</span><span class="m">24</span>/29<span class="o">)</span> <span class="o">(</span><span class="m">28</span> <span class="kd">seconds</span> <span class="kd">passed</span><span class="o">,</span> <span class="kd">remaining</span> <span class="m">5</span> <span class="kd">predicted</span><span class="o">)</span>    <span class="kd">rm</span> <span class="s1">'XXXX/YYYY.ZZZ'</span>
 <span class="kd">Rewrite</span> <span class="kd">cfaecbacfdedfefc394893fefd987381273826ec</span> <span class="o">(</span><span class="m">29</span>/29<span class="o">)</span> <span class="o">(</span><span class="m">34</span> <span class="kd">seconds</span> <span class="kd">passed</span><span class="o">,</span> <span class="kd">remaining</span> <span class="m">0</span> <span class="kd">predicted</span><span class="o">)</span>
 <span class="kd">Ref</span> <span class="s1">'refs/heads/master'</span> <span class="kd">was</span> <span class="kd">rewritten</span>
@@ -184,12 +184,12 @@
 git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch path/to/filename.ext' --prune-empty --tag-name-filter cat -- --all
 -->
     <p>Possible error encountered:<br />
-<code class="highlighter-rouge">fatal: bad revision 'rm'</code><br />
+<code class="language-plaintext highlighter-rouge">fatal: bad revision 'rm'</code><br />
 Cause:<br />
 Windows must use “ instead of ‘</p>
   </li>
   <li>5.2 Success
-    <div class="language-bat highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">C</span>:\XXXX\YYYY&gt;git <span class="kd">push</span> <span class="kd">origin</span> <span class="o">-</span><span class="na">-force </span><span class="o">-</span><span class="na">-all
+    <div class="language-bat highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">C</span>:\XXXX\YYYY&gt;git <span class="kd">push</span> <span class="kd">origin</span> <span class="na">--force --all
 </span><span class="kd">Enumerating</span> <span class="kd">objects</span>: <span class="m">1744</span><span class="o">,</span> <span class="kd">done</span>.
 <span class="kd">Counting</span> <span class="kd">objects</span>: <span class="m">100</span><span class="err">%</span> <span class="o">(</span><span class="m">1744</span>/1744<span class="o">),</span> <span class="kd">done</span>.
 <span class="kd">Delta</span> <span class="kd">compression</span> <span class="kd">using</span> <span class="kd">up</span> <span class="kd">to</span> <span class="m">12</span> <span class="kd">threads</span>
@@ -201,7 +201,7 @@ Windows must use “ instead of ‘</p>
  <span class="o">+</span><span class="m">03</span><span class="kd">f9ee8</span>...9085268 <span class="kd">master</span> <span class="o">-&gt;</span> <span class="kd">master</span> <span class="o">(</span><span class="kd">forced</span> <span class="kd">update</span><span class="o">)</span>
 </code></pre></div>    </div>
     <p>Possible error encountered:</p>
-    <div class="language-bat highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">C</span>:\XXXX\YYYY&gt;git <span class="kd">push</span> <span class="kd">origin</span> <span class="kd">master</span> <span class="o">-</span><span class="na">-force
+    <div class="language-bat highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">C</span>:\XXXX\YYYY&gt;git <span class="kd">push</span> <span class="kd">origin</span> <span class="kd">master</span> <span class="na">--force
 </span><span class="kd">Enumerating</span> <span class="kd">objects</span>: <span class="m">1744</span><span class="o">,</span> <span class="kd">done</span>.
 <span class="kd">Counting</span> <span class="kd">objects</span>: <span class="m">100</span><span class="err">%</span> <span class="o">(</span><span class="m">1744</span>/1744<span class="o">),</span> <span class="kd">done</span>.
 <span class="kd">Delta</span> <span class="kd">compression</span> <span class="kd">using</span> <span class="kd">up</span> <span class="kd">to</span> <span class="m">12</span> <span class="kd">threads</span>
@@ -216,7 +216,7 @@ Windows must use “ instead of ‘</p>
 Network slowness</p>
   </li>
   <li><strong>Note!!!</strong><br />
-The current branch still have big files, even if you run <code class="highlighter-rouge">git gc --prune=now --aggressive</code>.<br />
+The current branch still have big files, even if you run <code class="language-plaintext highlighter-rouge">git gc --prune=now --aggressive</code>.<br />
 But the big file will be only removed in remote and new-cloned repositories.</li>
 </ul>
 
