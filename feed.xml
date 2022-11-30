@@ -5,9 +5,40 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 31 Oct 2022 22:52:16 +1300</pubDate>
-    <lastBuildDate>Mon, 31 Oct 2022 22:52:16 +1300</lastBuildDate>
+    <pubDate>Wed, 30 Nov 2022 22:45:47 +1300</pubDate>
+    <lastBuildDate>Wed, 30 Nov 2022 22:45:47 +1300</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
+    
+      <item>
+        <title>Intellij basics</title>
+        <description>&lt;h3 id=&quot;intellij-intellisense-does-not-recognize-classes-or-methods-how-to-fix-it&quot;&gt;Intellij intellisense does not recognize classes or methods. How to fix it?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Set up JDK&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/JDK1.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/JDK2.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Set up source roots&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Sources-Root.1.png&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Sources-Root.2.png&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Set up dependency libraries&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/dependency-libraries.1.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/dependency-libraries.2.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 30 Nov 2022 22:00:00 +1300</pubDate>
+        <link>http://localhost:4000/2022/11/30/Intellij-basics/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022/11/30/Intellij-basics/</guid>
+        
+        <category>Java</category>
+        
+        
+      </item>
     
       <item>
         <title>Powershell tips</title>
@@ -422,26 +453,6 @@ WARNING: All illegal access operations will be denied in a future release
         <guid isPermaLink="true">http://localhost:4000/2021/12/31/spring-boot-configuration-error-reflect.InaccessibleObjectException/</guid>
         
         <category>Java</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Code block highlight not working in Jekyll</title>
-        <description>&lt;p&gt;Triple back ticks ``` used to work but no longer does now.&lt;/p&gt;
-
-&lt;p&gt;I have to replace them with the highlight tags below.
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{ % highlight &amp;lt;language&amp;gt; % }&lt;/code&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{ % endhighlight % }&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Root cause remains unknown for now.&lt;/p&gt;
-
-</description>
-        <pubDate>Sun, 28 Nov 2021 18:00:00 +1300</pubDate>
-        <link>http://localhost:4000/2021/11/28/code-block-highlight-not-working/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/11/28/code-block-highlight-not-working/</guid>
-        
-        <category>Jekyll</category>
         
         
       </item>
