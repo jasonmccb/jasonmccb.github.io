@@ -5,9 +5,72 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 30 Nov 2022 22:45:47 +1300</pubDate>
-    <lastBuildDate>Wed, 30 Nov 2022 22:45:47 +1300</lastBuildDate>
-    <generator>Jekyll v4.2.2</generator>
+    <pubDate>Tue, 27 Dec 2022 17:32:53 +0800</pubDate>
+    <lastBuildDate>Tue, 27 Dec 2022 17:32:53 +0800</lastBuildDate>
+    <generator>Jekyll v4.3.1</generator>
+    
+      <item>
+        <title>React.js basics for beginners</title>
+        <description>&lt;h3 id=&quot;you-may-want-to-use-npx-create-react-app-my-app-name-as-a-starting-point&quot;&gt;You may want to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npx create-react-app my-app-name&lt;/code&gt; as a starting point.&lt;/h3&gt;
+&lt;h3 id=&quot;but-there-still-can-be-issues-like-below&quot;&gt;But there still can be issues like below.&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Install Node.js&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;There’s no &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npx&lt;/code&gt; command without installing Node.js first.&lt;br /&gt;
+You have to install with admin right in Windows otherwise it’ll likely come to the below error.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Creating a new React app in C:\JJJJJJ\codes\metro-learner\my-app.
+
+Installing packages. This might take a couple of minutes.
+Installing react, react-dom, and react-scripts with cra-template...
+
+npm ERR! Cannot read properties of null (reading 'pickAlgorithm')
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\jason.liu\AppData\Local\npm-cache\_logs\2022-10-21T01_14_53_148Z-debug-0.log
+
+Aborting installation.
+  npm install --no-audit --save --save-exact --loglevel error react react-dom react-scripts cra-template has failed.
+
+Deleting generated file... package.json
+Deleting my-app/ from C:\JJJJJJ\codes\metro-learner
+Done.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Using 3rd party React libraries&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;import&lt;/code&gt; statements to the JavaScript&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;react&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ClassName&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;./the-path-to-3rd-party-library/xxxx.jsx&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Error that will likely appear:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Support for the experimental syntax 'jsx' isn't currently enabled&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
+Do modifications on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;node_modules\react-scripts\config\webpack.config.js&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;1.Add babel reference&lt;br /&gt;
+&lt;img src=&quot;/images/webpack.config.add.babel.png&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2.Add JSX to the test for outside app&lt;br /&gt;
+&lt;img src=&quot;/images/webpack.config.add.jsx.png&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Deployment&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm run build&lt;/code&gt; to deploy the uglified web pages to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;build&lt;/code&gt; folder.&lt;br /&gt;
+However, other web host may fail to call the deployed web pages.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
+	Create a new .env file. Set the PUBLIC_URL in it according to the web host home page.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 27 Dec 2022 02:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2022/12/27/React.js-for-beginners/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022/12/27/React.js-for-beginners/</guid>
+        
+        <category>React</category>
+        
+        
+      </item>
     
       <item>
         <title>Intellij basics</title>
@@ -31,7 +94,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/images/dependency-libraries.2.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
 </description>
-        <pubDate>Wed, 30 Nov 2022 22:00:00 +1300</pubDate>
+        <pubDate>Wed, 30 Nov 2022 17:00:00 +0800</pubDate>
         <link>http://localhost:4000/2022/11/30/Intellij-basics/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/11/30/Intellij-basics/</guid>
         
@@ -88,7 +151,7 @@
 &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;local-2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 </description>
-        <pubDate>Mon, 31 Oct 2022 21:00:00 +1300</pubDate>
+        <pubDate>Mon, 31 Oct 2022 16:00:00 +0800</pubDate>
         <link>http://localhost:4000/2022/10/31/Powershell-tips/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/10/31/Powershell-tips/</guid>
         
@@ -116,7 +179,7 @@ UnityContainer is one of the libraries to implement dependency injection in C#.&
 Each project needs to have its own unity container because it’s not cross project.&lt;/p&gt;
 
 </description>
-        <pubDate>Sun, 02 Oct 2022 16:00:00 +1300</pubDate>
+        <pubDate>Sun, 02 Oct 2022 11:00:00 +0800</pubDate>
         <link>http://localhost:4000/2022/10/02/Dependency-injection-via-Unity-Container/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/10/02/Dependency-injection-via-Unity-Container/</guid>
         
@@ -144,7 +207,7 @@ Add particular gem version in GEMFILE e.g.:&lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle update&lt;/code&gt; for all.&lt;/p&gt;
 
 </description>
-        <pubDate>Sun, 28 Aug 2022 22:00:00 +1200</pubDate>
+        <pubDate>Sun, 28 Aug 2022 18:00:00 +0800</pubDate>
         <link>http://localhost:4000/2022/08/28/GitHub-alert-on-old-library/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/08/28/GitHub-alert-on-old-library/</guid>
         
@@ -165,7 +228,7 @@ Use other editors e.g. Notepad++ or Visual Studio.&lt;/p&gt;
 &lt;p&gt;Notepad++ supports UTF-16
 &lt;img src=&quot;/images/notepad++_supports_UTF-16.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
 </description>
-        <pubDate>Sun, 31 Jul 2022 17:00:00 +1200</pubDate>
+        <pubDate>Sun, 31 Jul 2022 13:00:00 +0800</pubDate>
         <link>http://localhost:4000/2022/07/31/grep-does-not-support-UTF-16/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/07/31/grep-does-not-support-UTF-16/</guid>
         
@@ -317,7 +380,7 @@ Use other editors e.g. Notepad++ or Visual Studio.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 </description>
-        <pubDate>Sun, 03 Jul 2022 22:00:00 +1200</pubDate>
+        <pubDate>Sun, 03 Jul 2022 18:00:00 +0800</pubDate>
         <link>http://localhost:4000/2022/07/03/dependency-update-mechanism/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/07/03/dependency-update-mechanism/</guid>
         
@@ -342,7 +405,7 @@ Use other editors e.g. Notepad++ or Visual Studio.&lt;/p&gt;
 &lt;/ol&gt;
 
 </description>
-        <pubDate>Sat, 30 Apr 2022 22:00:00 +1200</pubDate>
+        <pubDate>Sat, 30 Apr 2022 18:00:00 +0800</pubDate>
         <link>http://localhost:4000/2022/04/30/async-and-await-in-C/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/04/30/async-and-await-in-C/</guid>
         
@@ -362,7 +425,7 @@ E.g. &lt;br /&gt;
 &lt;p&gt;If the actual log4net.dll is not under version 1.2.13.0, then the crash will happen.&lt;/p&gt;
 
 </description>
-        <pubDate>Sun, 20 Mar 2022 18:00:00 +1300</pubDate>
+        <pubDate>Sun, 20 Mar 2022 13:00:00 +0800</pubDate>
         <link>http://localhost:4000/2022/03/20/crash-before-class-instantiation/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/03/20/crash-before-class-instantiation/</guid>
         
@@ -407,52 +470,11 @@ E.g. &lt;br /&gt;
 &lt;/ol&gt;
 
 </description>
-        <pubDate>Thu, 27 Jan 2022 20:00:00 +1300</pubDate>
+        <pubDate>Thu, 27 Jan 2022 15:00:00 +0800</pubDate>
         <link>http://localhost:4000/2022/01/27/Android-development/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/01/27/Android-development/</guid>
         
         <category>Android</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Java spring-boot configuration error reflect.InaccessibleObjectException</title>
-        <description>&lt;p&gt;&lt;strong&gt;Error message:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;17:12:28.224 ERROR [com.Company.program.boot.programApplicationLauncher.main()] o.s.boot.SpringApplication - Application startup failed
-java.lang.IllegalStateException: Cannot load configuration class: com.Company.program.boot.config.ApplicationConfiguration
- at org.springframework.context.annotation.ConfigurationClassPostProcessor.enhanceConfigurationClasses(ConfigurationClassPostProcessor.java:395) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
- ......
- at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
-Caused by: java.lang.ExceptionInInitializerError: null
- at org.springframework.cglib.core.KeyFactory$Generator.generateClass(KeyFactory.java:166) ~[spring-core-4.1.6.RELEASE.jar:4.1.6.RELEASE]
- ......
- ... 17 common frames omitted
-Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not &quot;opens java.lang&quot; to unnamed module @43905a1d
- at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354) ~[na:na]
- ......
- ... 28 common frames omitted
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Root cause:&lt;/strong&gt; &lt;br /&gt;
-     A warning in JDK-11 has become an error in JDK-17&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt; &lt;br /&gt;
-     In Eclipse Maven run configuration, JRE tab, change JDK-17 to JDK-11&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The warning after the fix:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;WARNING: An illegal reflective access operation has occurred
-WARNING: Illegal reflective access by org.springframework.cglib.core.ReflectUtils$2 (file:/C:/Users/jason.liu/.m2/repository/org/springframework/spring-core/4.1.6.RELEASE/spring-core-4.1.6.RELEASE.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
-WARNING: Please consider reporting this to the maintainers of org.springframework.cglib.core.ReflectUtils$2
-WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
-WARNING: All illegal access operations will be denied in a future release
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Fri, 31 Dec 2021 18:00:00 +1300</pubDate>
-        <link>http://localhost:4000/2021/12/31/spring-boot-configuration-error-reflect.InaccessibleObjectException/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/12/31/spring-boot-configuration-error-reflect.InaccessibleObjectException/</guid>
-        
-        <category>Java</category>
         
         
       </item>
