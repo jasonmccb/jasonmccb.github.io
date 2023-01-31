@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>rsync usage - Jason's Blog</title>
+	<title>React state pitfall - Jason's Blog</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/2020/08/12/rsync-usage/">
+	<link rel="canonical" href="/2023/01/31/React-state-pitfall/">
 	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
 	
-	<meta name="keywords" content="rsync usage, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="keywords" content="React state pitfall, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -91,8 +91,8 @@
   <div class="container">
   	
   		<!--
-		    <h1>rsync usage</h1>
-		    <p>Post on Aug 12, 2020 by <a href="/about">Jason Liu</a></p>
+		    <h1>React state pitfall</h1>
+		    <p>Post on Jan 31, 2023 by <a href="/about">Jason Liu</a></p>
 		-->
 		    <h1>The meaning of life is to explore the world</h1>			
     
@@ -104,7 +104,7 @@
   <div class="container">
   	
     	<a href="/categories/#-ref"></a>	/
-    	<a href="/tag/#Linux-ref">Linux</a>
+    	<a href="/tag/#React-ref">React</a>
     
   </div>
 </div>
@@ -132,50 +132,23 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">rsync usage</h1>
+              <h1 class="post-title">React state pitfall</h1>
               <!--
-                <p class="post-meta">Aug 12, 2020</p>
+                <p class="post-meta">Jan 31, 2023</p>
               -->
-              <div class="meta">Posted on <span class="postdate">Aug 12, 2020</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
+              <div class="meta">Posted on <span class="postdate">Jan 31, 2023</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
               <br />
             </header>
             <article class="post-content">
-              <ol>
-  <li>
-    <p>rsync Linux man page:<br />
-<a href="https://linux.die.net/man/1/rsync">https://linux.die.net/man/1/rsync</a></p>
-  </li>
-  <li>
-    <p>rsync -navur “sourceDir<span style="color:red"><b>/</b></span>” “targetDir”.<br />
--n: dry run<br />
--a: archive<br />
--v: verbose<br />
--u: newer<br />
--r: recursion</p>
-  </li>
-  <li>rsync filter rules only apply to the first match.
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># "test" will be included:</span>
-rsync <span class="nt">-av</span> <span class="nt">--include</span><span class="o">=</span><span class="s2">"test"</span> <span class="nt">--exclude</span><span class="o">=</span><span class="s2">"test"</span> <span class="s2">"source"</span> <span class="s2">"target"</span>
-</code></pre></div>    </div>
-  </li>
-  <li>rsync filter rules do not consider directories in source or target.
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># "subDir" will not be matched or filtered out:</span>
-rsync <span class="nt">-av</span> <span class="nt">--exclude</span><span class="o">=</span><span class="s2">"subDir"</span> <span class="s2">"source/subDir/"</span> <span class="s2">"target/subDir"</span>
-</code></pre></div>    </div>
-  </li>
-  <li>rsync filter rules for include pattern only work step by step.
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Without the first two include, the 3rd one won't match anything</span>
-rsync <span class="nt">-navur</span> <span class="nt">--include</span><span class="o">=</span><span class="s1">'Melanie/'</span> <span class="nt">--include</span><span class="o">=</span><span class="s1">'Melanie/temp/'</span> <span class="nt">--include</span><span class="o">=</span><span class="s1">'Melanie/temp/**'</span> <span class="nt">--exclude</span><span class="o">=</span><span class="s1">'*'</span> <span class="s2">"/mnt/d/"</span> <span class="s2">"/mnt/e"</span>
-</code></pre></div>    </div>
-  </li>
-  <li>rsync filter rule patterns does not expand * with /, only ** expands /.
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># source/dir1/dir2/dir3 won't be excluded</span>
-rsync <span class="nt">-avr</span> <span class="nt">--exclude</span><span class="o">=</span><span class="s2">"dir1/*"</span> <span class="s2">"source/"</span> <span class="s2">"target"</span>
-<span class="c"># source/dir1/dir2/dir3 will be excluded</span>
-rsync <span class="nt">-avr</span> <span class="nt">--exclude</span><span class="o">=</span><span class="s2">"dir3/**"</span> <span class="s2">"source/"</span> <span class="s2">"target"</span>
-</code></pre></div>    </div>
-  </li>
-</ol>
+              <p><strong>setState() may have delayed effect</strong><br />
+This is because it is asynchronous method.<br />
+Reading this.state may get the wrong state.</p>
+
+<p><strong>Solution:</strong><br />
+Try to use callback functions for setState().</p>
+
+<p><img src="/images/React.setState.pitfall.PNG" alt="my_image" /></p>
+
 
             </article>
         </div>

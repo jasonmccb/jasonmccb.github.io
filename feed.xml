@@ -5,9 +5,30 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 27 Dec 2022 17:32:53 +0800</pubDate>
-    <lastBuildDate>Tue, 27 Dec 2022 17:32:53 +0800</lastBuildDate>
+    <pubDate>Tue, 31 Jan 2023 21:56:04 +1300</pubDate>
+    <lastBuildDate>Tue, 31 Jan 2023 21:56:04 +1300</lastBuildDate>
     <generator>Jekyll v4.3.1</generator>
+    
+      <item>
+        <title>React state pitfall</title>
+        <description>&lt;p&gt;&lt;strong&gt;setState() may have delayed effect&lt;/strong&gt;&lt;br /&gt;
+This is because it is asynchronous method.&lt;br /&gt;
+Reading this.state may get the wrong state.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
+Try to use callback functions for setState().&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/React.setState.pitfall.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 31 Jan 2023 17:00:00 +1300</pubDate>
+        <link>http://localhost:4000/2023/01/31/React-state-pitfall/</link>
+        <guid isPermaLink="true">http://localhost:4000/2023/01/31/React-state-pitfall/</guid>
+        
+        <category>React</category>
+        
+        
+      </item>
     
       <item>
         <title>React.js basics for beginners</title>
@@ -63,7 +84,7 @@ However, other web host may fail to call the deployed web pages.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
 	Create a new .env file. Set the PUBLIC_URL in it according to the web host home page.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 27 Dec 2022 02:00:00 +0800</pubDate>
+        <pubDate>Tue, 27 Dec 2022 07:00:00 +1300</pubDate>
         <link>http://localhost:4000/2022/12/27/React.js-for-beginners/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/12/27/React.js-for-beginners/</guid>
         
@@ -94,7 +115,7 @@ However, other web host may fail to call the deployed web pages.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/dependency-libraries.2.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
 </description>
-        <pubDate>Wed, 30 Nov 2022 17:00:00 +0800</pubDate>
+        <pubDate>Wed, 30 Nov 2022 22:00:00 +1300</pubDate>
         <link>http://localhost:4000/2022/11/30/Intellij-basics/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/11/30/Intellij-basics/</guid>
         
@@ -151,7 +172,7 @@ However, other web host may fail to call the deployed web pages.&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;local-2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 </description>
-        <pubDate>Mon, 31 Oct 2022 16:00:00 +0800</pubDate>
+        <pubDate>Mon, 31 Oct 2022 21:00:00 +1300</pubDate>
         <link>http://localhost:4000/2022/10/31/Powershell-tips/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/10/31/Powershell-tips/</guid>
         
@@ -179,7 +200,7 @@ UnityContainer is one of the libraries to implement dependency injection in C#.&
 Each project needs to have its own unity container because it’s not cross project.&lt;/p&gt;
 
 </description>
-        <pubDate>Sun, 02 Oct 2022 11:00:00 +0800</pubDate>
+        <pubDate>Sun, 02 Oct 2022 16:00:00 +1300</pubDate>
         <link>http://localhost:4000/2022/10/02/Dependency-injection-via-Unity-Container/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/10/02/Dependency-injection-via-Unity-Container/</guid>
         
@@ -207,7 +228,7 @@ Add particular gem version in GEMFILE e.g.:&lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle update&lt;/code&gt; for all.&lt;/p&gt;
 
 </description>
-        <pubDate>Sun, 28 Aug 2022 18:00:00 +0800</pubDate>
+        <pubDate>Sun, 28 Aug 2022 22:00:00 +1200</pubDate>
         <link>http://localhost:4000/2022/08/28/GitHub-alert-on-old-library/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/08/28/GitHub-alert-on-old-library/</guid>
         
@@ -228,7 +249,7 @@ Use other editors e.g. Notepad++ or Visual Studio.&lt;/p&gt;
 &lt;p&gt;Notepad++ supports UTF-16
 &lt;img src=&quot;/images/notepad++_supports_UTF-16.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
 </description>
-        <pubDate>Sun, 31 Jul 2022 13:00:00 +0800</pubDate>
+        <pubDate>Sun, 31 Jul 2022 17:00:00 +1200</pubDate>
         <link>http://localhost:4000/2022/07/31/grep-does-not-support-UTF-16/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/07/31/grep-does-not-support-UTF-16/</guid>
         
@@ -380,7 +401,7 @@ Use other editors e.g. Notepad++ or Visual Studio.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 </description>
-        <pubDate>Sun, 03 Jul 2022 18:00:00 +0800</pubDate>
+        <pubDate>Sun, 03 Jul 2022 22:00:00 +1200</pubDate>
         <link>http://localhost:4000/2022/07/03/dependency-update-mechanism/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/07/03/dependency-update-mechanism/</guid>
         
@@ -405,7 +426,7 @@ Use other editors e.g. Notepad++ or Visual Studio.&lt;/p&gt;
 &lt;/ol&gt;
 
 </description>
-        <pubDate>Sat, 30 Apr 2022 18:00:00 +0800</pubDate>
+        <pubDate>Sat, 30 Apr 2022 22:00:00 +1200</pubDate>
         <link>http://localhost:4000/2022/04/30/async-and-await-in-C/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/04/30/async-and-await-in-C/</guid>
         
@@ -425,56 +446,11 @@ E.g. &lt;br /&gt;
 &lt;p&gt;If the actual log4net.dll is not under version 1.2.13.0, then the crash will happen.&lt;/p&gt;
 
 </description>
-        <pubDate>Sun, 20 Mar 2022 13:00:00 +0800</pubDate>
+        <pubDate>Sun, 20 Mar 2022 18:00:00 +1300</pubDate>
         <link>http://localhost:4000/2022/03/20/crash-before-class-instantiation/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/03/20/crash-before-class-instantiation/</guid>
         
         <category>C#</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Tips for beginners using Kotlin in Android Studio</title>
-        <description>&lt;p&gt;Some tips for beginners developing Android apps using Kotlin in Android Studio&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Useful references:
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;Google documentation &lt;br /&gt;
- &lt;a href=&quot;https://developer.android.com/topic/architecture&quot;&gt;https://developer.android.com/topic/architecture&lt;/a&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Example project in GitHub &lt;br /&gt;
- &lt;a href=&quot;https://github.com/android/sunflower&quot;&gt;https://github.com/android/sunflower&lt;/a&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Stack Overflow &lt;br /&gt;
- E.g. How to make a delay call. &lt;br /&gt;
- &lt;a href=&quot;https://stackoverflow.com/questions/3072173/how-to-call-a-method-after-a-delay-in-android&quot;&gt;https://stackoverflow.com/questions/3072173/how-to-call-a-method-after-a-delay-in-android&lt;/a&gt; &lt;br /&gt;
- &lt;img src=&quot;/images/delay call.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Kotlin language guide &lt;br /&gt;
- &lt;a href=&quot;https://book.kotlincn.net/&quot;&gt;https://book.kotlincn.net/&lt;/a&gt;&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; Emulator not responding &lt;br /&gt;
- &lt;img src=&quot;/images/UI_frozen.jpg&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt; Cold boot device in AVD &lt;br /&gt;
- &lt;img src=&quot;/images/AVD_cold_boot.jpg&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        <pubDate>Thu, 27 Jan 2022 15:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2022/01/27/Android-development/</link>
-        <guid isPermaLink="true">http://localhost:4000/2022/01/27/Android-development/</guid>
-        
-        <category>Android</category>
         
         
       </item>
