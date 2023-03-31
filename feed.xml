@@ -5,9 +5,37 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 27 Feb 2023 21:43:22 +1300</pubDate>
-    <lastBuildDate>Mon, 27 Feb 2023 21:43:22 +1300</lastBuildDate>
+    <pubDate>Fri, 31 Mar 2023 22:48:34 +1300</pubDate>
+    <lastBuildDate>Fri, 31 Mar 2023 22:48:34 +1300</lastBuildDate>
     <generator>Jekyll v4.3.1</generator>
+    
+      <item>
+        <title>Returning null trap</title>
+        <description>&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;&lt;br /&gt;
+In the example below, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GetData_1()&lt;/code&gt; throws null pointer exception whereas &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GetData_2()&lt;/code&gt; returns a value. Why?&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;n&quot;&gt;Class&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Example&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;c1&quot;&gt;// DbRepo implements DbInterface which has a `Data Query()` method&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;DbInterface&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dbRepo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;DbRepo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+	&lt;span class=&quot;c1&quot;&gt;// Class Data is already defined with public member m&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Data&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GetData_1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Data&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dbRepo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Data&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GetData_2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dbRepo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()==&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Cause&lt;/strong&gt;&lt;br /&gt;
+The Query() function may be unmanaged that the return value is destructed.&lt;br /&gt;
+Or Query() fails to convert the return value into the Data class.&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 31 Mar 2023 21:00:00 +1300</pubDate>
+        <link>http://localhost:4000/2023/03/31/Returning-null-trap/</link>
+        <guid isPermaLink="true">http://localhost:4000/2023/03/31/Returning-null-trap/</guid>
+        
+        <category>C#</category>
+        
+        
+      </item>
     
       <item>
         <title>React state life cycle</title>
@@ -428,31 +456,6 @@ Use other editors e.g. Notepad++ or Visual Studio.&lt;/p&gt;
         <pubDate>Sun, 03 Jul 2022 22:00:00 +1200</pubDate>
         <link>http://localhost:4000/2022/07/03/dependency-update-mechanism/</link>
         <guid isPermaLink="true">http://localhost:4000/2022/07/03/dependency-update-mechanism/</guid>
-        
-        <category>C#</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Async and await brief summary</title>
-        <description>&lt;p&gt;Please refer to the link below: &lt;br /&gt;
-&lt;a href=&quot;https://saebamini.com/common-async-and-await-misconceptions/&quot;&gt;https://saebamini.com/common-async-and-await-misconceptions/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Key points:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Async and await is singled threaded.&lt;/li&gt;
-  &lt;li&gt;Concurrency can happen with single threaded asynchronous code.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;We don’t need to use async/await in the whole call stack.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;“Async void f()” catches the exceptions from enclosed awaiting async, but “async Task f()” doesn’t catch until GC.&lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        <pubDate>Sat, 30 Apr 2022 22:00:00 +1200</pubDate>
-        <link>http://localhost:4000/2022/04/30/async-and-await-in-C/</link>
-        <guid isPermaLink="true">http://localhost:4000/2022/04/30/async-and-await-in-C/</guid>
         
         <category>C#</category>
         
