@@ -5,9 +5,36 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 29 Apr 2023 21:02:31 +1200</pubDate>
-    <lastBuildDate>Sat, 29 Apr 2023 21:02:31 +1200</lastBuildDate>
+    <pubDate>Fri, 26 May 2023 22:29:28 +1200</pubDate>
+    <lastBuildDate>Fri, 26 May 2023 22:29:28 +1200</lastBuildDate>
     <generator>Jekyll v4.3.1</generator>
+    
+      <item>
+        <title>Null-coalesce operator</title>
+        <description>&lt;p&gt;&lt;strong&gt;What is the output of below? 1? 3? 5? 6?&lt;/strong&gt;\&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;??&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Answer:&lt;br /&gt;
+&lt;strong&gt;5&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Explanation:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Arithmetic operators have higher precedence&lt;/li&gt;
+  &lt;li&gt;1 + null == null&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Fri, 26 May 2023 22:00:00 +1200</pubDate>
+        <link>http://localhost:4000/2023/05/26/Null-coalesce-operator/</link>
+        <guid isPermaLink="true">http://localhost:4000/2023/05/26/Null-coalesce-operator/</guid>
+        
+        <category>C#</category>
+        
+        
+      </item>
     
       <item>
         <title>some ways to share data among React components</title>
@@ -314,27 +341,6 @@ Add particular gem version in GEMFILE e.g.:&lt;br /&gt;
         <guid isPermaLink="true">http://localhost:4000/2022/08/28/GitHub-alert-on-old-library/</guid>
         
         <category>ruby on rails</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>grep does not support UTF-16</title>
-        <description>&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt;&lt;br /&gt;
-grep command in Linux doesn’t support UTF-16.
-&lt;img src=&quot;/images/grep_does_not_support_UTF-16.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
-Use other editors e.g. Notepad++ or Visual Studio.&lt;/p&gt;
-
-&lt;p&gt;Notepad++ supports UTF-16
-&lt;img src=&quot;/images/notepad++_supports_UTF-16.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 31 Jul 2022 17:00:00 +1200</pubDate>
-        <link>http://localhost:4000/2022/07/31/grep-does-not-support-UTF-16/</link>
-        <guid isPermaLink="true">http://localhost:4000/2022/07/31/grep-does-not-support-UTF-16/</guid>
-        
-        <category>Linux</category>
         
         
       </item>
