@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Serialize enums to ints with Gson - Jason's Blog</title>
+
+	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
+	<link rel="icon" href="/styles/images/favicon.jpg">
+
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/styles/css/syntax.css">
+	<link rel="canonical" href="/2023/06/25/serialize-enums-to-ints-with-Gson/">
+	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
+	
+	<meta name="keywords" content="Serialize enums to ints with Gson, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+
+	<script src="/styles/js/jquery.min.js"></script>
+	<!--[if lt IE 9]>
+    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  	<![endif]-->
+  	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?718c90aec0b27f2b5ba1b7eeb0827810";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+  	<style type="text/css">
+	  	.docs-content{
+	  		margin-bottom: 10px;
+	  	}
+  	</style>
+</head>
+
+  <body class="index">
+
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.jpg">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/categories/">Categories</a>
+        </li>
+        <li>
+          <a href="/tag">Tags</a>
+        </li>
+		<li>
+          <a href="/search">Search</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a><span id="busuanzi_container_site_pv">Total visits: <span id="busuanzi_value_site_pv"></span></span></a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a rel="nofollow" target="_blank" href="https://github.com/jasonmccb/">My Github</a></li>
+            <li><a rel="nofollow" target="_blank" href="/about/">About me</a></li>
+            <li><a rel="nofollow" href="/reference">Related links</a></li>
+            <li><a href="/feed.xml">RSS</a></li>
+            <li class="divider"></li>
+            <li><a rel="nofollow" target="_blank" href="https://github.com/jasonmccb/jasonmccb.github.io">This site in Git</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header" id="content">
+  <div class="container">
+  	
+  		<!--
+		    <h1>Serialize enums to ints with Gson</h1>
+		    <p>Post on Jun 25, 2023 by <a href="/about">Jason Liu</a></p>
+		-->
+		    <h1>The meaning of life is to explore the world</h1>			
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container">
+  	
+    	<a href="/categories/#-ref"></a>	/
+    	<a href="/tag/#Java-ref">Java</a>
+    
+  </div>
+</div>
+
+    
+	
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>Catalog</h1>
+  <ul class="nav sidenav">
+  </ul>
+  <div style="height: 200px;width: 200px;">
+    <script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"> 
+    </script>
+  </div>
+</div>
+
+ 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">Serialize enums to ints with Gson</h1>
+              <!--
+                <p class="post-meta">Jun 25, 2023</p>
+              -->
+              <div class="meta">Posted on <span class="postdate">Jun 25, 2023</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
+              <br />
+            </header>
+            <article class="post-content">
+              <p><strong>How to serialize enums to ints instead of strings with Gson?</strong><br />
+<strong>(Below answer is from chatGPT)</strong><br />
+By default, the Gson library serializes enums into strings. However, if you want to serialize enums into integers instead of strings, you can create a custom Gson serializer/deserializer for your enum class. Here’s an example of how you can achieve this:</p>
+
+<p>1.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">enum</span> <span class="nc">MyEnum</span> <span class="o">{</span>
+    <span class="no">VALUE1</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span>
+    <span class="no">VALUE2</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span>
+    <span class="no">VALUE3</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
+
+    <span class="nc">MyEnum</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getValue</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">value</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>2.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">com.google.gson.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyEnumSerializer</span> <span class="kd">implements</span> <span class="nc">JsonSerializer</span><span class="o">&lt;</span><span class="nc">MyEnum</span><span class="o">&gt;,</span> <span class="nc">JsonDeserializer</span><span class="o">&lt;</span><span class="nc">MyEnum</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">JsonElement</span> <span class="nf">serialize</span><span class="o">(</span><span class="nc">MyEnum</span> <span class="n">myEnum</span><span class="o">,</span> <span class="nc">Type</span> <span class="n">typeOfSrc</span><span class="o">,</span> <span class="nc">JsonSerializationContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">JsonPrimitive</span><span class="o">(</span><span class="n">myEnum</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">MyEnum</span> <span class="nf">deserialize</span><span class="o">(</span><span class="nc">JsonElement</span> <span class="n">json</span><span class="o">,</span> <span class="nc">Type</span> <span class="n">typeOfT</span><span class="o">,</span> <span class="nc">JsonDeserializationContext</span> <span class="n">context</span><span class="o">)</span>
+            <span class="kd">throws</span> <span class="nc">JsonParseException</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="na">getAsInt</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">MyEnum</span> <span class="n">myEnum</span> <span class="o">:</span> <span class="nc">MyEnum</span><span class="o">.</span><span class="na">values</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">myEnum</span><span class="o">.</span><span class="na">getValue</span><span class="o">()</span> <span class="o">==</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="n">myEnum</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">JsonParseException</span><span class="o">(</span><span class="s">"Invalid enum value: "</span> <span class="o">+</span> <span class="n">value</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>3.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">com.google.gson.Gson</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.google.gson.GsonBuilder</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">GsonBuilder</span> <span class="n">gsonBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GsonBuilder</span><span class="o">();</span>
+        <span class="n">gsonBuilder</span><span class="o">.</span><span class="na">registerTypeAdapter</span><span class="o">(</span><span class="nc">MyEnum</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="k">new</span> <span class="nc">MyEnumSerializer</span><span class="o">());</span>
+        <span class="nc">Gson</span> <span class="n">gson</span> <span class="o">=</span> <span class="n">gsonBuilder</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+
+        <span class="c1">// Serialize</span>
+        <span class="nc">String</span> <span class="n">json</span> <span class="o">=</span> <span class="n">gson</span><span class="o">.</span><span class="na">toJson</span><span class="o">(</span><span class="nc">MyEnum</span><span class="o">.</span><span class="na">VALUE1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">json</span><span class="o">);</span> <span class="c1">// Output: 1</span>
+
+        <span class="c1">// Deserialize</span>
+        <span class="nc">MyEnum</span> <span class="n">myEnum</span> <span class="o">=</span> <span class="n">gson</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="s">"2"</span><span class="o">,</span> <span class="nc">MyEnum</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">myEnum</span><span class="o">);</span> <span class="c1">// Output: VALUE2</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+
+            </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    <footer class="footer" role="contentinfo">
+	<div class="container">
+		<p class="copyright">Copyright &copy; 2019-2023 <a href="https://www.linkedin.com/in/junwen-liu-7261aa138/"><code>Jason Liu</code></a>.</p>
+		<p>Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme from <a href="http://lesscss.cn/">Less</a>, template from <a href="http://jekyllthemes.org/themes/Less-Or-More/">Freud Kang</a></p>
+	</div>
+</footer>
+
+<script src="/styles/js/jquery.min.js"></script>
+<script src="/styles/js/bootstrap.min.js"></script>
+<script src="/styles/js/holder.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  </body>
+</html>
