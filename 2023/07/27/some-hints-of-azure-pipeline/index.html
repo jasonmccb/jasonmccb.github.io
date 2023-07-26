@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Related links - Jason's Blog</title>
+	<title>Some hints for Azure pipeline - Jason's Blog</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/reference/">
+	<link rel="canonical" href="/2023/07/27/some-hints-of-azure-pipeline/">
 	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
 	
-	<meta name="keywords" content="Related links, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="keywords" content="Some hints for Azure pipeline, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -91,7 +91,7 @@
   <div class="container">
   	
   		<!--
-		    <h1>Related links</h1>
+		    <h1>Some hints for Azure pipeline</h1>
 		    <p>Post on Jul 27, 2023 by <a href="/about">Jason Liu</a></p>
 		-->
 		    <h1>The meaning of life is to explore the world</h1>			
@@ -103,8 +103,8 @@
 <div class="banner">
   <div class="container">
   	
-    	<a href="/categories/#theScene.Co-ref">theScene.Co</a>	/
-    	<a href="/tag/#-ref"></a>
+    	<a href="/categories/#-ref"></a>	/
+    	<a href="/tag/#Azure-ref">Azure</a>
     
   </div>
 </div>
@@ -132,7 +132,7 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">Related links</h1>
+              <h1 class="post-title">Some hints for Azure pipeline</h1>
               <!--
                 <p class="post-meta">Jul 27, 2023</p>
               -->
@@ -140,23 +140,58 @@
               <br />
             </header>
             <article class="post-content">
-              <ul id="markdown-toc">
-  <li><a href="#happygigs" id="markdown-toc-happygigs">HappyGigs</a></li>
-  <li><a href="#whitireia" id="markdown-toc-whitireia">Whitireia</a></li>
-  <li><a href="#jekyll-quickstart" id="markdown-toc-jekyll-quickstart">Jekyll Quickstart</a></li>
-</ul>
+              <p><strong>Below are some hints to use Azure pipeline</strong></p>
 
-<h1 id="happygigs">HappyGigs</h1>
+<p>1. If a variable is dependent on another, then the latter should be a constant. If both are evaludated from a non-constant expression then the value may not be correct. E.g.</p>
 
-<p><a href="https://happygigs.co.nz/">HappyGigs</a></p>
+<figure class="highlight"><pre><code class="language-yml" data-lang="yml"><span class="na">variables</span><span class="pi">:</span>
+  <span class="na">a</span><span class="pi">:</span> <span class="m">1</span>
+  <span class="na">b</span><span class="pi">:</span> <span class="s">a+1</span>
+  <span class="na">c</span><span class="pi">:</span> <span class="s">b+1</span></code></pre></figure>
 
-<h1 id="whitireia">Whitireia</h1>
+<p>2. Quote the parameters otherwise the value may not be considered as string. <br />
+E.g. stage S1 is fine whereas S2 will throw an error.</p>
 
-<p><a href="https://moodle.whitireia.ac.nz/">Whitireia</a></p>
+<figure class="highlight"><pre><code class="language-yml" data-lang="yml"><span class="na">parameters</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">envName</span>
+    <span class="na">displayName</span><span class="pi">:</span> <span class="s">environment name</span>
+    <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+    <span class="na">default</span><span class="pi">:</span> <span class="s">prod</span>
+    <span class="na">values</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">prod</span>
 
-<h1 id="jekyll-quickstart">Jekyll Quickstart</h1>
+<span class="na">stages</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">stage</span><span class="pi">:</span> <span class="s">S1</span>
+    <span class="na">condition</span><span class="pi">:</span> <span class="s">eq('${{parameters.envName}}', 'prod')</span>
+  <span class="pi">-</span> <span class="na">stage</span><span class="pi">:</span> <span class="s">S2</span>
+    <span class="na">condition</span><span class="pi">:</span> <span class="s">eq( ${{parameters.envName}} , 'prod')</span></code></pre></figure>
 
-<p><a href="https://jekyllrb.com/docs/">Jekyll</a></p>
+<p>3. Use <code class="language-plaintext highlighter-rouge">|</code> for convenience. E.g.</p>
+
+<figure class="highlight"><pre><code class="language-yml" data-lang="yml"><span class="na">condition</span><span class="pi">:</span> <span class="pi">|</span>
+  <span class="s">and (</span>
+    <span class="s">succeeded(),</span>
+    <span class="s">eq('$(version)', '1.2')</span>
+  <span class="s">)</span>
+<span class="na">script</span><span class="pi">:</span> <span class="pi">|</span>
+  <span class="s">echo aa</span>
+  <span class="s">echo bb</span></code></pre></figure>
+
+<p>4. Use single quotes to escape <code class="language-plaintext highlighter-rouge">:</code> in script. <br />
+E.g. Script S1 is fine whereas S2 throws errors</p>
+
+<figure class="highlight"><pre><code class="language-yml" data-lang="yml"><span class="pi">-</span> <span class="na">script</span><span class="pi">:</span> <span class="s1">'</span><span class="s">echo</span><span class="nv"> </span><span class="s">"TODO:</span><span class="nv"> </span><span class="s">Add</span><span class="nv"> </span><span class="s">tests"</span><span class="nv"> </span><span class="s">here'</span>
+  <span class="na">displayName</span><span class="pi">:</span> <span class="s">S1</span>
+<span class="pi">-</span> <span class="na">script</span><span class="pi">:</span> <span class="s">echo '"TODO</span><span class="err">:</span> <span class="s">Add tests" here'</span>
+  <span class="na">displayName</span><span class="pi">:</span> <span class="s">S2</span></code></pre></figure>
+
+<p>5. Use <code class="language-plaintext highlighter-rouge">dependsOn</code> to ensure job dependency. <code class="language-plaintext highlighter-rouge">succeeded()</code> does not ensure that. E.g.</p>
+
+<figure class="highlight"><pre><code class="language-yml" data-lang="yml"><span class="pi">-</span> <span class="na">job</span><span class="pi">:</span> <span class="s">j1</span>
+  <span class="na">displayName</span><span class="pi">:</span> <span class="s">Build app</span>
+<span class="pi">-</span> <span class="na">job</span><span class="pi">:</span> <span class="s">j2</span>
+  <span class="na">displayName</span><span class="pi">:</span> <span class="s">Deploy app</span>
+  <span class="na">dependsOn</span><span class="pi">:</span> <span class="s">j1</span></code></pre></figure>
 
 
             </article>
