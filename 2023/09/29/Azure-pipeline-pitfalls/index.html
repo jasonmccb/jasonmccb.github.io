@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Related links - Jason's Blog</title>
+	<title>Azure pipeline pitfalls - Jason's Blog</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/reference/">
+	<link rel="canonical" href="/2023/09/29/Azure-pipeline-pitfalls/">
 	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
 	
-	<meta name="keywords" content="Related links, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="keywords" content="Azure pipeline pitfalls, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -91,7 +91,7 @@
   <div class="container">
   	
   		<!--
-		    <h1>Related links</h1>
+		    <h1>Azure pipeline pitfalls</h1>
 		    <p>Post on Sep 29, 2023 by <a href="/about">Jason Liu</a></p>
 		-->
 		    <h1>The meaning of life is to explore the world</h1>			
@@ -103,8 +103,8 @@
 <div class="banner">
   <div class="container">
   	
-    	<a href="/categories/#theScene.Co-ref">theScene.Co</a>	/
-    	<a href="/tag/#-ref"></a>
+    	<a href="/categories/#-ref"></a>	/
+    	<a href="/tag/#Azure-ref">Azure</a>
     
   </div>
 </div>
@@ -132,7 +132,7 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">Related links</h1>
+              <h1 class="post-title">Azure pipeline pitfalls</h1>
               <!--
                 <p class="post-meta">Sep 29, 2023</p>
               -->
@@ -140,23 +140,37 @@
               <br />
             </header>
             <article class="post-content">
-              <ul id="markdown-toc">
-  <li><a href="#happygigs" id="markdown-toc-happygigs">HappyGigs</a></li>
-  <li><a href="#whitireia" id="markdown-toc-whitireia">Whitireia</a></li>
-  <li><a href="#jekyll-quickstart" id="markdown-toc-jekyll-quickstart">Jekyll Quickstart</a></li>
+              <p><strong>Some Azure pipeline pitfalls to be aware of</strong></p>
+
+<p>1. In conditions, or conditional insertion, use <code class="language-plaintext highlighter-rouge">${ { var }}</code>, otherwise use <code class="language-plaintext highlighter-rouge">$(var)</code> for variables.<br />
+	Note the difference of the script variables denoted as <code class="language-plaintext highlighter-rouge">$var</code> or <code class="language-plaintext highlighter-rouge">${var}</code>.<br />
+	E.g.</p>
+
+<figure class="highlight"><pre><code class="language-yml" data-lang="yml"><span class="na">variables</span><span class="pi">:</span>
+  <span class="s">${ { if eq( parameters.env, 'prod') }}</span><span class="err">:</span>
+    <span class="na">myEnv</span><span class="pi">:</span> <span class="s1">'</span><span class="s">prod'</span>
+<span class="err">  </span><span class="s">${ { if eq( parameters.env, 'dev') }}</span><span class="err">:</span>
+    <span class="na">myEnv</span><span class="pi">:</span> <span class="s1">'</span><span class="s">dev'</span></code></pre></figure>
+
+<p>2. <code class="language-plaintext highlighter-rouge">docker run</code> or <code class="language-plaintext highlighter-rouge">docker exec</code> or <code class="language-plaintext highlighter-rouge">docker stop</code> may return before the command actually finishes.<br />
+	Possible solutions:</p>
+<ul>
+  <li>use <code class="language-plaintext highlighter-rouge">sh -c cmd1.sh &amp;&amp; wait</code> to wait for the background processes to finish</li>
+  <li>use <code class="language-plaintext highlighter-rouge">[ "$(docker ps -q -f id=$ID)" ] &amp;&amp; docker wait $ID</code> for <code class="language-plaintext highlighter-rouge">docker stop</code></li>
+  <li>use loop and sleep</li>
 </ul>
 
-<h1 id="happygigs">HappyGigs</h1>
+<p>3. If “script” exits with 1 then the “succeeded()” in the following step will fail. E.g.<br />
+	<code class="language-plaintext highlighter-rouge">[ $? -ne 0 ] &amp;&amp; echo ''</code> can exit 1</p>
 
-<p><a href="https://happygigs.co.nz/">HappyGigs</a></p>
+<p>4. After copying to <code class="language-plaintext highlighter-rouge">$(Build.ArtifactStagingDirectory)</code>, and calling <code class="language-plaintext highlighter-rouge">PublishPipelineArtifact@1</code>, then downloading with <code class="language-plaintext highlighter-rouge">DownloadPipelineArtifact@2</code>, the file permissions may be changed to readonly.<br />
+	Possible solution: Grant execution access after downloading from artifact</p>
 
-<h1 id="whitireia">Whitireia</h1>
+<p>5. If we use “git commit –amend” then some files may not get updated when running azure pipeline.<br />
+	E.g. The change history of file content is like: a-&gt;b-&gt;b</p>
 
-<p><a href="https://moodle.whitireia.ac.nz/">Whitireia</a></p>
-
-<h1 id="jekyll-quickstart">Jekyll Quickstart</h1>
-
-<p><a href="https://jekyllrb.com/docs/">Jekyll</a></p>
+<p>6. Using a “cp” command in “script” to copy stuff to a non-existing directory will create the directory and then returns without copying.<br />
+	E.g. <code class="language-plaintext highlighter-rouge">cp myFile ./non-existing-dir/</code></p>
 
 
             </article>
