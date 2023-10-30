@@ -5,9 +5,31 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 29 Sep 2023 21:23:37 +1300</pubDate>
-    <lastBuildDate>Fri, 29 Sep 2023 21:23:37 +1300</lastBuildDate>
+    <pubDate>Mon, 30 Oct 2023 21:34:18 +1300</pubDate>
+    <lastBuildDate>Mon, 30 Oct 2023 21:34:18 +1300</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>Docker-compose port mapping</title>
+        <description>&lt;p&gt;&lt;strong&gt;How to route network traffic from same port to different containers&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;How to route network traffic to different containers if only port 443 is allowed from external?&lt;br /&gt;
+1. If there’s only one domain and one port, then reverse proxy may be necessary for URL based routing.&lt;br /&gt;
+2. If we have different domains but same port, then we can either:\&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Use port forwarding to redirect traffics to the docker host IP with different ports, mapped by docker compose file. -or-&lt;/li&gt;
+  &lt;li&gt;Assign different IPs for the containers, e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;- ports: 1.2.3.4:443:443&lt;/code&gt; (IP:Host-port:Container-port)&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Mon, 30 Oct 2023 21:00:00 +1300</pubDate>
+        <link>http://localhost:4000/2023/10/30/docker-compose-port-mapping/</link>
+        <guid isPermaLink="true">http://localhost:4000/2023/10/30/docker-compose-port-mapping/</guid>
+        
+        <category>docker</category>
+        
+        
+      </item>
     
       <item>
         <title>Azure pipeline pitfalls</title>
@@ -341,69 +363,6 @@ Try to use callback functions for setState().&lt;/p&gt;
         <pubDate>Tue, 31 Jan 2023 17:00:00 +1300</pubDate>
         <link>http://localhost:4000/2023/01/31/React-state-pitfall/</link>
         <guid isPermaLink="true">http://localhost:4000/2023/01/31/React-state-pitfall/</guid>
-        
-        <category>React</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>React.js basics for beginners</title>
-        <description>&lt;h3 id=&quot;you-may-want-to-use-npx-create-react-app-my-app-name-as-a-starting-point&quot;&gt;You may want to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npx create-react-app my-app-name&lt;/code&gt; as a starting point.&lt;/h3&gt;
-&lt;h3 id=&quot;but-there-still-can-be-issues-like-below&quot;&gt;But there still can be issues like below.&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;1. Install Node.js&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;There’s no &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npx&lt;/code&gt; command without installing Node.js first.&lt;br /&gt;
-You have to install with admin right in Windows otherwise it’ll likely come to the below error.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Creating a new React app in C:\JJJJJJ\codes\metro-learner\my-app.
-
-Installing packages. This might take a couple of minutes.
-Installing react, react-dom, and react-scripts with cra-template...
-
-npm ERR! Cannot read properties of null (reading &apos;pickAlgorithm&apos;)
-npm ERR! A complete log of this run can be found in:
-npm ERR!     C:\Users\jason.liu\AppData\Local\npm-cache\_logs\2022-10-21T01_14_53_148Z-debug-0.log
-
-Aborting installation.
-  npm install --no-audit --save --save-exact --loglevel error react react-dom react-scripts cra-template has failed.
-
-Deleting generated file... package.json
-Deleting my-app/ from C:\JJJJJJ\codes\metro-learner
-Done.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;2. Using 3rd party React libraries&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;import&lt;/code&gt; statements to the JavaScript&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;react&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ClassName&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;./the-path-to-3rd-party-library/xxxx.jsx&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Error that will likely appear:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Support for the experimental syntax &apos;jsx&apos; isn&apos;t currently enabled&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
-Do modifications on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;node_modules\react-scripts\config\webpack.config.js&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;1.Add babel reference&lt;br /&gt;
-&lt;img src=&quot;/images/webpack.config.add.babel.png&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;2.Add JSX to the test for outside app&lt;br /&gt;
-&lt;img src=&quot;/images/webpack.config.add.jsx.png&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;3. Deployment&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm run build&lt;/code&gt; to deploy the uglified web pages to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;build&lt;/code&gt; folder.&lt;br /&gt;
-However, other web host may fail to call the deployed web pages.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
-	Create a new .env file. Set the PUBLIC_URL in it according to the web host home page.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 27 Dec 2022 07:00:00 +1300</pubDate>
-        <link>http://localhost:4000/2022/12/27/React.js-for-beginners/</link>
-        <guid isPermaLink="true">http://localhost:4000/2022/12/27/React.js-for-beginners/</guid>
         
         <category>React</category>
         
