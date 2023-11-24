@@ -5,9 +5,83 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 30 Oct 2023 21:34:18 +1300</pubDate>
-    <lastBuildDate>Mon, 30 Oct 2023 21:34:18 +1300</lastBuildDate>
+    <pubDate>Fri, 24 Nov 2023 17:52:41 +1300</pubDate>
+    <lastBuildDate>Fri, 24 Nov 2023 17:52:41 +1300</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>MongoDB upgrade error in .NET</title>
+        <description>&lt;h3 id=&quot;upgrading-mongodb-driver-in-net-project-causing-dependent-assembly-error&quot;&gt;Upgrading MongoDB driver in .NET project causing dependent assembly error&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Error message&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  Calling constructor xxx.yyy()
+ ---&amp;gt; System.TimeoutException: A timeout occurred after 30000ms selecting a server using CompositeServerSelector{ Selectors = WritableServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 }, OperationsCountServerSelector }. Client view of cluster state is { ClusterId : &quot;1&quot;, Type : &quot;Unknown&quot;, State : &quot;Disconnected&quot;, Servers : [{ ServerId: &quot;{ ClusterId : 1, EndPoint : &quot;Unspecified/localhost:27017&quot; }&quot;, EndPoint: &quot;Unspecified/localhost:27017&quot;, ReasonChanged: &quot;Heartbeat&quot;, State: &quot;Disconnected&quot;, ServerVersion: , TopologyVersion: , Type: &quot;Unknown&quot;, HeartbeatException: &quot;MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server. ---&amp;gt; System.IO.FileLoadException: Could not load file or assembly &apos;System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a&apos; or one of its dependencies. The located assembly&apos;s manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;troubleshoot&lt;/strong&gt;&lt;br /&gt;
+    - Referencing the new library &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;System.Runtime.CompilerServices.Unsafe.dll&lt;/code&gt; or any Mongo related libraries in the IDE doesn’t help, either via NuGet installation or direct file reference.&lt;br /&gt;
+	&lt;img src=&quot;/images/project.reference.png&quot; alt=&quot;my_image&quot; /&gt;&lt;br /&gt;
+    - Clearing the NuGet cache (as in %USERPROFILE%.nuget) doesn’t help.&lt;br /&gt;
+    &lt;img src=&quot;/images/NuGet.options.png&quot; alt=&quot;my_image&quot; /&gt;&lt;br /&gt;
+    - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;obj\project.assets.json&lt;/code&gt; shows the resolved dependencies:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;System.Threading.Tasks.Extensions/4.5.4&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;package&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;dependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;System.Runtime.CompilerServices.Unsafe&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;4.5.3&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;frameworkAssemblies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;mscorlib&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;compile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;lib/net461/System.Threading.Tasks.Extensions.dll&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;runtime&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;lib/net461/System.Threading.Tasks.Extensions.dll&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;......&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;System.Memory/4.5.5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;package&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;dependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;System.Buffers&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;4.5.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;System.Numerics.Vectors&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;4.5.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;System.Runtime.CompilerServices.Unsafe&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;4.5.3&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;......&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;System.Threading.Tasks.Extensions/4.5.4&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;package&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;dependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;System.Runtime.CompilerServices.Unsafe&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;4.5.3&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;frameworkAssemblies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;mscorlib&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;compile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;lib/net461/System.Threading.Tasks.Extensions.dll&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;runtime&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;lib/net461/System.Threading.Tasks.Extensions.dll&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;cause&lt;/strong&gt;&lt;br /&gt;
+    .NET framework libraries are using an old version of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;System.Runtime.CompilerServices.Unsafe.dll&lt;/code&gt; e.g. 4.5.3, while &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MongoDB.Driver.Core&lt;/code&gt; is using a new version 5.0.0. NuGet resolves this conflict to the old version. It may happen again when there’s an upgrade in packages (MongoDB) or framework (.NET).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;solution&lt;/strong&gt;&lt;br /&gt;
+    Add binding redirect to each project referencing the project having the Mongo upgrade to force it to use higher version e.g. 6.0.0.0.&lt;br /&gt;
+    Follow the blog: https://nickcraver.com/blog/2020/02/11/binding-redirects/ &lt;br /&gt;
+    Note that assembly version differs from NuGet package version, e.g. (4.0.4.1 ==&amp;gt; 4.5.3)&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 24 Nov 2023 17:00:00 +1300</pubDate>
+        <link>http://localhost:4000/2023/11/24/MongoDB-upgrade-error-in-.NET/</link>
+        <guid isPermaLink="true">http://localhost:4000/2023/11/24/MongoDB-upgrade-error-in-.NET/</guid>
+        
+        <category>MongoDB</category>
+        
+        
+      </item>
     
       <item>
         <title>Docker-compose port mapping</title>
@@ -342,27 +416,6 @@ The componentDidUpdate() may trigger another rendering and even dead loop.&lt;/p
         <pubDate>Mon, 27 Feb 2023 19:00:00 +1300</pubDate>
         <link>http://localhost:4000/2023/02/27/React-state-life-cycle/</link>
         <guid isPermaLink="true">http://localhost:4000/2023/02/27/React-state-life-cycle/</guid>
-        
-        <category>React</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>React state pitfall</title>
-        <description>&lt;p&gt;&lt;strong&gt;setState() may have delayed effect&lt;/strong&gt;&lt;br /&gt;
-This is because it is asynchronous method.&lt;br /&gt;
-Reading this.state may get the wrong state.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br /&gt;
-Try to use callback functions for setState().&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/React.setState.pitfall.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 31 Jan 2023 17:00:00 +1300</pubDate>
-        <link>http://localhost:4000/2023/01/31/React-state-pitfall/</link>
-        <guid isPermaLink="true">http://localhost:4000/2023/01/31/React-state-pitfall/</guid>
         
         <category>React</category>
         
