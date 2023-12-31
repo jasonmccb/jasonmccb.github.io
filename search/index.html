@@ -137,6 +137,27 @@
 				
 				  <div class="post-item">
 					
+					<span class="post-meta">Dec 31, 2023</span>
+
+					<h2>
+					  <a class="post-link" href="/2023/12/31/PUBLIC_URL-in-React-is-not-dynamic/">
+						PUBLIC_URL in React is not dynamic
+					  </a>
+					</h2>
+
+					<div class="post-snippet"><p><strong>Symptom</strong><br />
+<code class="language-plaintext highlighter-rouge">PUBLIC_URL</code> is a system variable defined in file .env and used by Create React App.<br />
+Once we run <code class="language-plaintext highlighter-rouge">npm run build</code>, this is the base URL as a static string.<br />
+It cannot be dynamically set in a configuration file at run time.<br />
+As a result, if two builds are using different PUBLIC_URL then they have to be built separately, which is bad for containerization.</p>
+
+<p><strong>solution</strong><br />
+So far I have found no solution</p>
+</div>
+				  </div>
+				
+				  <div class="post-item">
+					
 					<span class="post-meta">Nov 24, 2023</span>
 
 					<h2>

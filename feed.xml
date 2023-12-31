@@ -5,9 +5,30 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 24 Nov 2023 17:52:41 +1300</pubDate>
-    <lastBuildDate>Fri, 24 Nov 2023 17:52:41 +1300</lastBuildDate>
+    <pubDate>Sun, 31 Dec 2023 23:14:15 +1300</pubDate>
+    <lastBuildDate>Sun, 31 Dec 2023 23:14:15 +1300</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>PUBLIC_URL in React is not dynamic</title>
+        <description>&lt;p&gt;&lt;strong&gt;Symptom&lt;/strong&gt;&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PUBLIC_URL&lt;/code&gt; is a system variable defined in file .env and used by Create React App.&lt;br /&gt;
+Once we run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm run build&lt;/code&gt;, this is the base URL as a static string.&lt;br /&gt;
+It cannot be dynamically set in a configuration file at run time.&lt;br /&gt;
+As a result, if two builds are using different PUBLIC_URL then they have to be built separately, which is bad for containerization.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;solution&lt;/strong&gt;&lt;br /&gt;
+So far I have found no solution&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 31 Dec 2023 23:00:00 +1300</pubDate>
+        <link>http://localhost:4000/2023/12/31/PUBLIC_URL-in-React-is-not-dynamic/</link>
+        <guid isPermaLink="true">http://localhost:4000/2023/12/31/PUBLIC_URL-in-React-is-not-dynamic/</guid>
+        
+        <category>React</category>
+        
+        
+      </item>
     
       <item>
         <title>MongoDB upgrade error in .NET</title>
@@ -394,30 +415,6 @@ Or Query() fails to convert the return value into the Data class.&lt;/p&gt;
         <guid isPermaLink="true">http://localhost:4000/2023/03/31/Returning-null-trap/</guid>
         
         <category>C#</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>React state life cycle</title>
-        <description>&lt;p&gt;&lt;strong&gt;React state life cycle&lt;/strong&gt;&lt;br /&gt;
-See the link from offical webiste:&lt;br /&gt;
-&lt;a href=&quot;https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/&quot;&gt;https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/ReactStateLifeycles.PNG&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Update the state from props:&lt;/strong&gt;&lt;br /&gt;
-Sometimes we need to update the state from props, as constructor will only be called once regardless of props change from parent.&lt;br /&gt;
-We can do that in getDerivedStateFromProps() or componentDidUpdate().&lt;br /&gt;
-The getDerivedStateFromProps() is static and it may not work before rendering.&lt;br /&gt;
-The componentDidUpdate() may trigger another rendering and even dead loop.&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 27 Feb 2023 19:00:00 +1300</pubDate>
-        <link>http://localhost:4000/2023/02/27/React-state-life-cycle/</link>
-        <guid isPermaLink="true">http://localhost:4000/2023/02/27/React-state-life-cycle/</guid>
-        
-        <category>React</category>
         
         
       </item>
