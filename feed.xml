@@ -5,9 +5,118 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 31 Dec 2023 23:14:15 +1300</pubDate>
-    <lastBuildDate>Sun, 31 Dec 2023 23:14:15 +1300</lastBuildDate>
+    <pubDate>Wed, 31 Jan 2024 21:31:30 +1300</pubDate>
+    <lastBuildDate>Wed, 31 Jan 2024 21:31:30 +1300</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>Move from MySql to PostgreSQL</title>
+        <description>&lt;p&gt;&lt;strong&gt;Things to be changed as migrating from MySql to PostgreSQL&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;MySql&lt;/th&gt;
+      &lt;th&gt;PostgreSQL&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;START TRANSACTION;, COMMIT;, ROLLBACK;&lt;/td&gt;
+      &lt;td&gt;BEGIN;, COMMIT;, ROLLBACK;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;`id`&lt;/td&gt;
+      &lt;td&gt;“id”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;reserved keywords xxx&lt;/td&gt;
+      &lt;td&gt;“xxx”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;“…”&lt;/td&gt;
+      &lt;td&gt;‘…’&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\”&lt;/td&gt;
+      &lt;td&gt;”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\’&lt;/td&gt;
+      &lt;td&gt;’’&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\n&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;case insensitive&lt;/td&gt;
+      &lt;td&gt;case sensitive&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;USE my_db&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\c my_db&lt;/code&gt; or just remove it as it’s not needed&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;_binary&lt;/td&gt;
+      &lt;td&gt;E’\xFFF’&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;INSERT 1 TO BIT(X) column&lt;/td&gt;
+      &lt;td&gt;INSERT B’1’ TO BIT(X) column&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LIMIT 10 OFFSET 20&lt;/td&gt;
+      &lt;td&gt;OFFSET 20 FETCH FIRST 10 ROWS ONLY;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;NOW(),CURDATE(),CURTIME(),UNIX_TIMESTAMP()&lt;/td&gt;
+      &lt;td&gt;CURRENT_TIMESTAMP,CURRENT_DATE,CURRENT_TIME,ROUND(EXTRACT(epoch FROM CURRENT_TIMESTAMP))&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;IFNULL(expr1, expr2)&lt;/td&gt;
+      &lt;td&gt;COALESCE(expr1, expr2)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;if(boolean, integer, integer)&lt;/td&gt;
+      &lt;td&gt;CASE WHEN boolean THEN integer ELSE integer END&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;#&lt;/td&gt;
+      &lt;td&gt;–&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CONCAT(str1, str2)&lt;/td&gt;
+      &lt;td&gt;str1 || str2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;||&lt;/td&gt;
+      &lt;td&gt;OR&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GRANT ALL PRIVILEGES ON db_name.* TO ‘user_name’@’%’;&lt;/td&gt;
+      &lt;td&gt;GRANT ALL PRIVILEGES ON DATABASE db_name TO user_name;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Database.initMySqlDb()&lt;/td&gt;
+      &lt;td&gt;Database.initPostgresDb()&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Remove mysql dependency in POM&lt;/td&gt;
+      &lt;td&gt;add Postgres dependency in POM&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+</description>
+        <pubDate>Wed, 31 Jan 2024 20:00:00 +1300</pubDate>
+        <link>http://localhost:4000/2024/01/31/Move-from-MySql-to-PostgreSQL/</link>
+        <guid isPermaLink="true">http://localhost:4000/2024/01/31/Move-from-MySql-to-PostgreSQL/</guid>
+        
+        <category>SQL</category>
+        
+        
+      </item>
     
       <item>
         <title>PUBLIC_URL in React is not dynamic</title>
@@ -387,34 +496,6 @@ Note:&lt;/p&gt;
         <guid isPermaLink="true">http://localhost:4000/2023/04/29/some-ways-to-share-data-among-React-components/</guid>
         
         <category>React</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Returning null trap</title>
-        <description>&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;&lt;br /&gt;
-In the example below, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GetData_1()&lt;/code&gt; throws null pointer exception whereas &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GetData_2()&lt;/code&gt; returns a value. Why?&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;n&quot;&gt;Class&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Example&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;c1&quot;&gt;// DbRepo implements DbInterface which has a `Data Query()` method&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;DbInterface&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dbRepo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;DbRepo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-	&lt;span class=&quot;c1&quot;&gt;// Class Data is already defined with public member m&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Data&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GetData_1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Data&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dbRepo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Data&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GetData_2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dbRepo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()==&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;strong&gt;Cause&lt;/strong&gt;&lt;br /&gt;
-The Query() function may be unmanaged that the return value is destructed.&lt;br /&gt;
-Or Query() fails to convert the return value into the Data class.&lt;/p&gt;
-
-</description>
-        <pubDate>Fri, 31 Mar 2023 21:00:00 +1300</pubDate>
-        <link>http://localhost:4000/2023/03/31/Returning-null-trap/</link>
-        <guid isPermaLink="true">http://localhost:4000/2023/03/31/Returning-null-trap/</guid>
-        
-        <category>C#</category>
         
         
       </item>

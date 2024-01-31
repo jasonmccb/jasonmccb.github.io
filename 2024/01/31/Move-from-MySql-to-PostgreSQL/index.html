@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Diagnose existing problems - Jason's Blog</title>
+	<title>Move from MySql to PostgreSQL - Jason's Blog</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/2019/11/12/diagnose-existing-problems/">
+	<link rel="canonical" href="/2024/01/31/Move-from-MySql-to-PostgreSQL/">
 	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
 	
-	<meta name="keywords" content="Diagnose existing problems, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="keywords" content="Move from MySql to PostgreSQL, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -91,8 +91,8 @@
   <div class="container">
   	
   		<!--
-		    <h1>Diagnose existing problems</h1>
-		    <p>Post on Nov 12, 2019 by <a href="/about">Jason Liu</a></p>
+		    <h1>Move from MySql to PostgreSQL</h1>
+		    <p>Post on Jan 31, 2024 by <a href="/about">Jason Liu</a></p>
 		-->
 		    <h1>The meaning of life is to explore the world</h1>			
     
@@ -103,8 +103,8 @@
 <div class="banner">
   <div class="container">
   	
-    	<a href="/categories/#theScene.Co-ref">theScene.Co</a>	/
-    	<a href="/tag/#DNS-ref">DNS</a>
+    	<a href="/categories/#-ref"></a>	/
+    	<a href="/tag/#SQL-ref">SQL</a>
     
   </div>
 </div>
@@ -132,23 +132,111 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">Diagnose existing problems</h1>
+              <h1 class="post-title">Move from MySql to PostgreSQL</h1>
               <!--
-                <p class="post-meta">Nov 12, 2019</p>
+                <p class="post-meta">Jan 31, 2024</p>
               -->
-              <div class="meta">Posted on <span class="postdate">Nov 12, 2019</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
+              <div class="meta">Posted on <span class="postdate">Jan 31, 2024</span> By <a target="_blank" href="http://localhost:4000">Jason Liu</a></div>
               <br />
             </header>
             <article class="post-content">
-              <p>What have been done:</p>
+              <p><strong>Things to be changed as migrating from MySql to PostgreSQL</strong></p>
 
-<ol>
-  <li>Explanation on how the 4 java modules of beer web work</li>
-  <li>Explanation on using spring and JSRs, Maven vs Nexus</li>
-  <li>Logon Godaddy (delegate access by John) to make the DNS work
-(https://dcc.godaddy.com/domains/?del_code=1)</li>
-  <li>update the IP filter in AWS</li>
-</ol>
+<table>
+  <thead>
+    <tr>
+      <th>MySql</th>
+      <th>PostgreSQL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>START TRANSACTION;, COMMIT;, ROLLBACK;</td>
+      <td>BEGIN;, COMMIT;, ROLLBACK;</td>
+    </tr>
+    <tr>
+      <td>`id`</td>
+      <td>“id”</td>
+    </tr>
+    <tr>
+      <td>reserved keywords xxx</td>
+      <td>“xxx”</td>
+    </tr>
+    <tr>
+      <td>“…”</td>
+      <td>‘…’</td>
+    </tr>
+    <tr>
+      <td>\”</td>
+      <td>”</td>
+    </tr>
+    <tr>
+      <td>\’</td>
+      <td>’’</td>
+    </tr>
+    <tr>
+      <td>\n</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>case insensitive</td>
+      <td>case sensitive</td>
+    </tr>
+    <tr>
+      <td>USE my_db</td>
+      <td><code class="language-plaintext highlighter-rouge">\c my_db</code> or just remove it as it’s not needed</td>
+    </tr>
+    <tr>
+      <td>_binary</td>
+      <td>E’\xFFF’</td>
+    </tr>
+    <tr>
+      <td>INSERT 1 TO BIT(X) column</td>
+      <td>INSERT B’1’ TO BIT(X) column</td>
+    </tr>
+    <tr>
+      <td>LIMIT 10 OFFSET 20</td>
+      <td>OFFSET 20 FETCH FIRST 10 ROWS ONLY;</td>
+    </tr>
+    <tr>
+      <td>NOW(),CURDATE(),CURTIME(),UNIX_TIMESTAMP()</td>
+      <td>CURRENT_TIMESTAMP,CURRENT_DATE,CURRENT_TIME,ROUND(EXTRACT(epoch FROM CURRENT_TIMESTAMP))</td>
+    </tr>
+    <tr>
+      <td>IFNULL(expr1, expr2)</td>
+      <td>COALESCE(expr1, expr2)</td>
+    </tr>
+    <tr>
+      <td>if(boolean, integer, integer)</td>
+      <td>CASE WHEN boolean THEN integer ELSE integer END</td>
+    </tr>
+    <tr>
+      <td>#</td>
+      <td>–</td>
+    </tr>
+    <tr>
+      <td>CONCAT(str1, str2)</td>
+      <td>str1 || str2</td>
+    </tr>
+    <tr>
+      <td>||</td>
+      <td>OR</td>
+    </tr>
+    <tr>
+      <td>GRANT ALL PRIVILEGES ON db_name.* TO ‘user_name’@’%’;</td>
+      <td>GRANT ALL PRIVILEGES ON DATABASE db_name TO user_name;</td>
+    </tr>
+    <tr>
+      <td>Database.initMySqlDb()</td>
+      <td>Database.initPostgresDb()</td>
+    </tr>
+    <tr>
+      <td>Remove mysql dependency in POM</td>
+      <td>add Postgres dependency in POM</td>
+    </tr>
+  </tbody>
+</table>
+
 
             </article>
         </div>
