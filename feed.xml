@@ -5,9 +5,88 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 31 Jan 2024 21:31:30 +1300</pubDate>
-    <lastBuildDate>Wed, 31 Jan 2024 21:31:30 +1300</lastBuildDate>
+    <pubDate>Thu, 29 Feb 2024 11:50:38 +1300</pubDate>
+    <lastBuildDate>Thu, 29 Feb 2024 11:50:38 +1300</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>Code Signing Certificate</title>
+        <description>&lt;p&gt;There’s an industry wide change of where to store the private key of a code signing certificate.
+Most if not all CAs have adopted and announced this change, e.g. DigiCert:
+&lt;a href=&quot;https://knowledge.digicert.com/generalinformation/new-private-key-storage-requirement-for-standard-code-signing-certificates-november-2022.html&quot;&gt;https://knowledge.digicert.com/generalinformation/new-private-key-storage-requirement-for-standard-code-signing-certificates-november-2022.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;One common solution is to store the private key on CA’s HSM and use their cloud based solution for signing.
+Generally we should never give others our private keys.
+But in this particular case we can if the key is only used to sign codes and not for other purposes such as encryption, because the certificate of this key is granted by CA whose legitimacy is controlled by itself anyway.&lt;/p&gt;
+
+&lt;p&gt;There’s a long guide for this cloud based signing solution including CI/CD integration if you’re using DigiCert:
+&lt;a href=&quot;https://docs.digicert.com/en/digicert-keylocker/get-started.html&quot;&gt;https://docs.digicert.com/en/digicert-keylocker/get-started.html&lt;/a&gt;
+But there’re some points to be aware of:&lt;/p&gt;
+
+&lt;p&gt;1.&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;smksp_registrar.exe register&lt;/code&gt; errors:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BCryptRegisterProvider failed with error code 0xc0000022
+BCryptAddContextFunction failed with error code 0xc0000022
+BCryptAddContextFunctionProvider failed with error code 0xc0000022
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;solution:&lt;br /&gt;
+  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;smctl credentials save &amp;lt;API key&amp;gt; &amp;lt;Client authentication certificate password&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;2.&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;smctl healthcheck&lt;/code&gt; failure:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Your client certificate path or password is incorrect. You will not be able to complete specific actions (such as sign, generate keypairs and approve releases) until these credentials are corrected.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;solution:&lt;br /&gt;
+  Don’t use set command to set variables, instead, manually set it up in “environment variables”&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;set SM_HOST=https://clientauth.one.digicert.com
+set SM_CLIENT_CERT_FILE=C:\my_path\Certificate_pkcs12.p12
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;3.”Azure pipeline cannot get thumbprint from local cert store” error:&lt;br /&gt;
+cause:&lt;br /&gt;
+  Azure Pipelines Agent (OrgName.AgentPoolName.AgentName) windows service cannot get the powershell result&lt;br /&gt;
+solution:&lt;br /&gt;
+  1. Make sure certificates are synced to key store by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;smksp_cert_sync.exe&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;certmgr.msc&lt;/code&gt;&lt;br /&gt;
+  2. Don’t use windows service, instead, use run.cmd in the agent&lt;br /&gt;
+  3. Granting any permission to a certificate in “certlm.msc” won’t work&lt;/p&gt;
+
+&lt;p&gt;4.”Cannot find certificate” error:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;##[error]C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VisualStudio\v17.0\OfficeTools\Microsoft.VisualStudio.Tools.Office.targets(164,9): Error : Cannot find the certificate that matches the project system thumbprint.  To sign the application and deployment manifests, open the Project Designer, click the Signing page tab, select an existing certificate, and try again.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;solution:&lt;br /&gt;
+  Don’t use MS-hosted agent, use self-hosted agent that has access to local certificate store. Remove codes below:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jobs:
+  - job:
+    pool:
+      vmImage: &quot;windows-latest&quot;    
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;5.”internal consistency” error:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;##[error]C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VisualStudio\v16.0\OfficeTools\Microsoft.VisualStudio.Tools.Office.targets(328,9): Error MSB3482: An error occurred while signing: An internal consistency check failed.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;solution:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;upgrade SignTool.exe to that in Windows-10 SDK&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;make sure early steps are set up properly&lt;/p&gt;
+
+    &lt;p&gt;from:&lt;br /&gt;
+    winsdksetup.exe (there’s an MSI installer for SignTool)&lt;br /&gt;
+    C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x64\signtool.exe&lt;br /&gt;
+  check:&lt;br /&gt;
+    Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\ClickOnce\SignTool&lt;br /&gt;
+  to:&lt;br /&gt;
+    C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Thu, 29 Feb 2024 11:00:00 +1300</pubDate>
+        <link>http://localhost:4000/2024/02/29/code-signing-certificiates/</link>
+        <guid isPermaLink="true">http://localhost:4000/2024/02/29/code-signing-certificiates/</guid>
+        
+        <category>project management</category>
+        
+        
+      </item>
     
       <item>
         <title>Move from MySql to PostgreSQL</title>
@@ -467,35 +546,6 @@ By default, the Gson library serializes enums into strings. However, if you want
         <guid isPermaLink="true">http://localhost:4000/2023/05/26/Null-coalesce-operator/</guid>
         
         <category>C#</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>some ways to share data among React components</title>
-        <description>&lt;p&gt;&lt;strong&gt;some ways to share data among React components&lt;/strong&gt;&lt;br /&gt;
-1.static data of a class&lt;/p&gt;
-
-&lt;p&gt;2.export const&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;n&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;freeze&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;key1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;key2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&apos;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;3.Context&lt;br /&gt;
-Note:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;useContext() can only apply to functional component&lt;/li&gt;
-  &lt;li&gt;It’s usually recommended to use MyContext.Consumer inside render() method but not outside&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        <pubDate>Sat, 29 Apr 2023 20:00:00 +1200</pubDate>
-        <link>http://localhost:4000/2023/04/29/some-ways-to-share-data-among-React-components/</link>
-        <guid isPermaLink="true">http://localhost:4000/2023/04/29/some-ways-to-share-data-among-React-components/</guid>
-        
-        <category>React</category>
         
         
       </item>
