@@ -195,12 +195,32 @@
       <td>INSERT B’1’ TO BIT(X) column</td>
     </tr>
     <tr>
+      <td>INSERT INSERT IGNORE INTO</td>
+      <td>INSERT INTO … ON CONFLICT ([COLUMN]) DO NOTHING</td>
+    </tr>
+    <tr>
       <td>LIMIT 10 OFFSET 20</td>
       <td>OFFSET 20 FETCH FIRST 10 ROWS ONLY;</td>
     </tr>
     <tr>
+      <td>DELETE t1 FROM table_1 t1 JOIN table_2 t2 ON</td>
+      <td>DELETE FROM table_1 WHERE id NOT IN (SELECT … FROM table_2)</td>
+    </tr>
+    <tr>
+      <td>LAST_INSERT_ID()</td>
+      <td>INSERT…RETURNING id</td>
+    </tr>
+    <tr>
+      <td>a JOIN b JOIN c ON a.id=b.id AND b.id=c.id</td>
+      <td>a JOIN b ON a.id=b.id JOIN c ON b.id=c.id</td>
+    </tr>
+    <tr>
+      <td>SELECT COUNT(col_a), col_b FROM …</td>
+      <td>SELECT COUNT(col_a), col_b FROM … GROUP BY col_b</td>
+    </tr>
+    <tr>
       <td>NOW(),CURDATE(),CURTIME(),UNIX_TIMESTAMP()</td>
-      <td>CURRENT_TIMESTAMP,CURRENT_DATE,CURRENT_TIME,ROUND(EXTRACT(epoch FROM CURRENT_TIMESTAMP))</td>
+      <td>CURRENT_TIMESTAMP,CURRENT_DATE,CURRENT_TIME, <br /> ROUND(EXTRACT(epoch FROM CURRENT_TIMESTAMP))</td>
     </tr>
     <tr>
       <td>IFNULL(expr1, expr2)</td>

@@ -5,8 +5,8 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 29 Feb 2024 14:07:11 +1300</pubDate>
-    <lastBuildDate>Thu, 29 Feb 2024 14:07:11 +1300</lastBuildDate>
+    <pubDate>Sun, 03 Mar 2024 15:30:05 +1300</pubDate>
+    <lastBuildDate>Sun, 03 Mar 2024 15:30:05 +1300</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
@@ -145,12 +145,32 @@ solution:&lt;br /&gt;
       &lt;td&gt;INSERT B’1’ TO BIT(X) column&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
+      &lt;td&gt;INSERT INSERT IGNORE INTO&lt;/td&gt;
+      &lt;td&gt;INSERT INTO … ON CONFLICT ([COLUMN]) DO NOTHING&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
       &lt;td&gt;LIMIT 10 OFFSET 20&lt;/td&gt;
       &lt;td&gt;OFFSET 20 FETCH FIRST 10 ROWS ONLY;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
+      &lt;td&gt;DELETE t1 FROM table_1 t1 JOIN table_2 t2 ON&lt;/td&gt;
+      &lt;td&gt;DELETE FROM table_1 WHERE id NOT IN (SELECT … FROM table_2)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LAST_INSERT_ID()&lt;/td&gt;
+      &lt;td&gt;INSERT…RETURNING id&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;a JOIN b JOIN c ON a.id=b.id AND b.id=c.id&lt;/td&gt;
+      &lt;td&gt;a JOIN b ON a.id=b.id JOIN c ON b.id=c.id&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SELECT COUNT(col_a), col_b FROM …&lt;/td&gt;
+      &lt;td&gt;SELECT COUNT(col_a), col_b FROM … GROUP BY col_b&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
       &lt;td&gt;NOW(),CURDATE(),CURTIME(),UNIX_TIMESTAMP()&lt;/td&gt;
-      &lt;td&gt;CURRENT_TIMESTAMP,CURRENT_DATE,CURRENT_TIME,ROUND(EXTRACT(epoch FROM CURRENT_TIMESTAMP))&lt;/td&gt;
+      &lt;td&gt;CURRENT_TIMESTAMP,CURRENT_DATE,CURRENT_TIME, &lt;br /&gt; ROUND(EXTRACT(epoch FROM CURRENT_TIMESTAMP))&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;IFNULL(expr1, expr2)&lt;/td&gt;
