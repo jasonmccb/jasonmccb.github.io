@@ -5,9 +5,43 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 03 Mar 2024 15:30:05 +1300</pubDate>
-    <lastBuildDate>Sun, 03 Mar 2024 15:30:05 +1300</lastBuildDate>
+    <pubDate>Sun, 31 Mar 2024 12:15:36 +1300</pubDate>
+    <lastBuildDate>Sun, 31 Mar 2024 12:15:36 +1300</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>npm install failed in Azure pipeline</title>
+        <description>&lt;p&gt;Error:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    #8 [4/5] RUN npm install
+    #8 18.80 npm ERR! code EMFILE
+    #8 18.80 npm ERR! syscall open
+    #8 18.80 npm ERR! path /root/.npm/_cacache/index-v5/a0/7a/7e48bcbef3e333c0cda8208f4902ea385bb700f4d8c414525a120c4bba14
+    #8 18.80 npm ERR! errno -24
+    #8 18.80 npm ERR! EMFILE: too many open files, open &apos;/root/.npm/_cacache/index-v5/a0/7a/7e48bcbef3e333c0cda8208f4902ea385bb700f4d8c414525a120c4bba14&apos;
+    #8 18.85 
+    #8 18.85 npm ERR! A complete log of this run can be found in: /root/.npm/_logs/2024-03-24T20_54_30_709Z-debug-0.log
+    #8 ERROR: process &quot;/bin/sh -c npm install&quot; did not complete successfully: exit code: 232
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Failed attempts:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RUN ulimit -n 65536&lt;/code&gt; in Dockerfile&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker builder prune&lt;/code&gt; to clean the cache&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RUN npm install --sequential&lt;/code&gt; to inhibit parallelization&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Solution:&lt;br /&gt;
+      &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker build --ulimit nofile=65536:65536&lt;/code&gt; in pipeline&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 31 Mar 2024 11:00:00 +1300</pubDate>
+        <link>http://localhost:4000/2024/03/31/npm-install-failed/</link>
+        <guid isPermaLink="true">http://localhost:4000/2024/03/31/npm-install-failed/</guid>
+        
+        <category>JavaScript</category>
+        
+        
+      </item>
     
       <item>
         <title>Code Signing Certificate</title>
@@ -539,33 +573,6 @@ By default, the Gson library serializes enums into strings. However, if you want
         <guid isPermaLink="true">http://localhost:4000/2023/06/25/serialize-enums-to-ints-with-Gson/</guid>
         
         <category>Java</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Null-coalesce operator</title>
-        <description>&lt;p&gt;&lt;strong&gt;What is the output of below? 1? 3? 5? 6?&lt;/strong&gt;\&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;??&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Answer:&lt;br /&gt;
-&lt;strong&gt;5&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Explanation:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Arithmetic operators have higher precedence&lt;/li&gt;
-  &lt;li&gt;1 + null == null&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        <pubDate>Fri, 26 May 2023 22:00:00 +1200</pubDate>
-        <link>http://localhost:4000/2023/05/26/Null-coalesce-operator/</link>
-        <guid isPermaLink="true">http://localhost:4000/2023/05/26/Null-coalesce-operator/</guid>
-        
-        <category>C#</category>
         
         
       </item>

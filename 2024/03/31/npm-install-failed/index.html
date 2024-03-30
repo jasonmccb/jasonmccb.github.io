@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Related links - Jason's Blog</title>
+	<title>npm install failed in Azure pipeline - Jason's Blog</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/reference/">
+	<link rel="canonical" href="/2024/03/31/npm-install-failed/">
 	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
 	
-	<meta name="keywords" content="Related links, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="keywords" content="npm install failed in Azure pipeline, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -91,7 +91,7 @@
   <div class="container">
   	
   		<!--
-		    <h1>Related links</h1>
+		    <h1>npm install failed in Azure pipeline</h1>
 		    <p>Post on Mar 31, 2024 by <a href="/about">Jason Liu</a></p>
 		-->
 		    <h1>The meaning of life is to explore the world</h1>			
@@ -103,8 +103,8 @@
 <div class="banner">
   <div class="container">
   	
-    	<a href="/categories/#theScene.Co-ref">theScene.Co</a>	/
-    	<a href="/tag/#-ref"></a>
+    	<a href="/categories/#-ref"></a>	/
+    	<a href="/tag/#JavaScript-ref">JavaScript</a>
     
   </div>
 </div>
@@ -132,7 +132,7 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">Related links</h1>
+              <h1 class="post-title">npm install failed in Azure pipeline</h1>
               <!--
                 <p class="post-meta">Mar 31, 2024</p>
               -->
@@ -140,23 +140,27 @@
               <br />
             </header>
             <article class="post-content">
-              <ul id="markdown-toc">
-  <li><a href="#happygigs" id="markdown-toc-happygigs">HappyGigs</a></li>
-  <li><a href="#whitireia" id="markdown-toc-whitireia">Whitireia</a></li>
-  <li><a href="#jekyll-quickstart" id="markdown-toc-jekyll-quickstart">Jekyll Quickstart</a></li>
+              <p>Error:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    #8 [4/5] RUN npm install
+    #8 18.80 npm ERR! code EMFILE
+    #8 18.80 npm ERR! syscall open
+    #8 18.80 npm ERR! path /root/.npm/_cacache/index-v5/a0/7a/7e48bcbef3e333c0cda8208f4902ea385bb700f4d8c414525a120c4bba14
+    #8 18.80 npm ERR! errno -24
+    #8 18.80 npm ERR! EMFILE: too many open files, open '/root/.npm/_cacache/index-v5/a0/7a/7e48bcbef3e333c0cda8208f4902ea385bb700f4d8c414525a120c4bba14'
+    #8 18.85 
+    #8 18.85 npm ERR! A complete log of this run can be found in: /root/.npm/_logs/2024-03-24T20_54_30_709Z-debug-0.log
+    #8 ERROR: process "/bin/sh -c npm install" did not complete successfully: exit code: 232
+</code></pre></div></div>
+
+<p>Failed attempts:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">RUN ulimit -n 65536</code> in Dockerfile</li>
+  <li><code class="language-plaintext highlighter-rouge">docker builder prune</code> to clean the cache</li>
+  <li><code class="language-plaintext highlighter-rouge">RUN npm install --sequential</code> to inhibit parallelization</li>
 </ul>
 
-<h1 id="happygigs">HappyGigs</h1>
-
-<p><a href="https://happygigs.co.nz/">HappyGigs</a></p>
-
-<h1 id="whitireia">Whitireia</h1>
-
-<p><a href="https://moodle.whitireia.ac.nz/">Whitireia</a></p>
-
-<h1 id="jekyll-quickstart">Jekyll Quickstart</h1>
-
-<p><a href="https://jekyllrb.com/docs/">Jekyll</a></p>
+<p>Solution:<br />
+      <code class="language-plaintext highlighter-rouge">docker build --ulimit nofile=65536:65536</code> in pipeline</p>
 
 
             </article>
