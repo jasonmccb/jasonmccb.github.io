@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Related links - Jason's Blog</title>
+	<title>Postgres connection maxed out for Hikari Connection Pool - Jason's Blog</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/reference/">
+	<link rel="canonical" href="/2024/04/28/Postgres-connection-maxed-out-issue/">
 	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
 	
-	<meta name="keywords" content="Related links, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="keywords" content="Postgres connection maxed out for Hikari Connection Pool, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -91,7 +91,7 @@
   <div class="container">
   	
   		<!--
-		    <h1>Related links</h1>
+		    <h1>Postgres connection maxed out for Hikari Connection Pool</h1>
 		    <p>Post on Apr 28, 2024 by <a href="/about">Jason Liu</a></p>
 		-->
 		    <h1>The meaning of life is to explore the world</h1>			
@@ -103,8 +103,8 @@
 <div class="banner">
   <div class="container">
   	
-    	<a href="/categories/#theScene.Co-ref">theScene.Co</a>	/
-    	<a href="/tag/#-ref"></a>
+    	<a href="/categories/#-ref"></a>	/
+    	<a href="/tag/#Java-ref">Java</a>
     
   </div>
 </div>
@@ -132,7 +132,7 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">Related links</h1>
+              <h1 class="post-title">Postgres connection maxed out for Hikari Connection Pool</h1>
               <!--
                 <p class="post-meta">Apr 28, 2024</p>
               -->
@@ -140,23 +140,24 @@
               <br />
             </header>
             <article class="post-content">
-              <ul id="markdown-toc">
-  <li><a href="#happygigs" id="markdown-toc-happygigs">HappyGigs</a></li>
-  <li><a href="#whitireia" id="markdown-toc-whitireia">Whitireia</a></li>
-  <li><a href="#jekyll-quickstart" id="markdown-toc-jekyll-quickstart">Jekyll Quickstart</a></li>
-</ul>
+              <p>Error:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>psql: error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  sorry, too many clients already
+</code></pre></div></div>
 
-<h1 id="happygigs">HappyGigs</h1>
+<p>Warning:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>com.zaxxer.hikari.pool.PoolBase(line:179) - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@765d7657 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+</code></pre></div></div>
 
-<p><a href="https://happygigs.co.nz/">HappyGigs</a></p>
+<p>Trouble shooting:</p>
 
-<h1 id="whitireia">Whitireia</h1>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">docker <span class="nb">exec</span> <span class="nt">-it</span> ff76fc38b49a psql <span class="nt">-U</span> &lt;db_user&gt; <span class="nt">-d</span> &lt;db_name&gt; <span class="nt">-c</span> <span class="s2">"SELECT count(*) FROM pg_stat_activity;"</span></code></pre></figure>
 
-<p><a href="https://moodle.whitireia.ac.nz/">Whitireia</a></p>
+<p>Solution:<br />
+    Set a shorter maxLifetime (also idleTimeout if necessary) <code class="language-plaintext highlighter-rouge">setMaxLifetime(N * 60 * 1000)</code><br />
+    Or, set minimumIdle to 0 in worst case</p>
 
-<h1 id="jekyll-quickstart">Jekyll Quickstart</h1>
-
-<p><a href="https://jekyllrb.com/docs/">Jekyll</a></p>
+<p>HikariCP document to set maxLifetime for reference:<br />
+    <a href="https://github.com/brettwooldridge/HikariCP?tab=readme-ov-file#gear-configuration-knobs-baby">https://github.com/brettwooldridge/HikariCP?tab=readme-ov-file#gear-configuration-knobs-baby</a></p>
 
 
             </article>
