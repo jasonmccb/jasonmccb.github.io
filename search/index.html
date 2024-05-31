@@ -137,6 +137,28 @@
 				
 				  <div class="post-item">
 					
+					<span class="post-meta">May 31, 2024</span>
+
+					<h2>
+					  <a class="post-link" href="/2024/05/31/Postgres-skills/">
+						Postgres SQL skills
+					  </a>
+					</h2>
+
+					<div class="post-snippet"><p>E.g.1:</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> 
+	<span class="n">TO_CHAR</span><span class="p">(</span><span class="n">DATE_TRUNC</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span> <span class="n">TO_TIMESTAMP</span><span class="p">(</span><span class="n">epoch_sec</span><span class="p">)),</span> <span class="s1">'MM/YY'</span><span class="p">)</span> <span class="k">AS</span> <span class="k">month</span><span class="p">,</span>
+	<span class="k">COUNT</span><span class="p">(</span><span class="k">CASE</span> <span class="k">WHEN</span> <span class="n">my_val</span> <span class="o">=</span> <span class="mi">3</span> <span class="k">THEN</span> <span class="mi">1</span> <span class="k">END</span><span class="p">)</span> <span class="k">AS</span> <span class="n">matched</span><span class="p">,</span>
+	<span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="n">total</span>
+<span class="k">FROM</span> <span class="n">my_tab</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="k">month</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">month</span></code></pre></figure>
+</div>
+				  </div>
+				
+				  <div class="post-item">
+					
 					<span class="post-meta">Apr 28, 2024</span>
 
 					<h2>
