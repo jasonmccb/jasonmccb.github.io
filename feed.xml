@@ -5,9 +5,55 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 31 May 2024 17:37:16 +1200</pubDate>
-    <lastBuildDate>Fri, 31 May 2024 17:37:16 +1200</lastBuildDate>
+    <pubDate>Sun, 30 Jun 2024 16:45:41 +1200</pubDate>
+    <lastBuildDate>Sun, 30 Jun 2024 16:45:41 +1200</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>Outlook web add-in traps</title>
+        <description>&lt;ol&gt;
+  &lt;li&gt;Cache of the Outlook add-in needs to be cleared before any update of it can apply
+    &lt;ul&gt;
+      &lt;li&gt;Reinstall the add-in&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;for /d %d in (&quot;%LOCALAPPDATA%\Microsoft\Office\16.0\Wef\*&quot;) do @rmdir /s /q &quot;%d&quot;&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;del /s /f /q /a:h %LOCALAPPDATA%\Packages\Microsoft.Win32WebViewHost_cw5n1h2txyewy\AC\#!123\INetCache\*&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rmdir /s /q %userprofile%\AppData\Local\Microsoft\Outlook\HubAppFileCache&lt;/code&gt;&lt;br /&gt;
+ References:&lt;br /&gt;
+ &lt;a href=&quot;https://learn.microsoft.com/en-us/office/dev/add-ins/testing/clear-cache&quot;&gt;MS docs to clear cache&lt;/a&gt;&lt;br /&gt;
+ &lt;a href=&quot;https://appfluence.com/help/article/clear-outlook-add-in-cache/&quot;&gt;Some ways to clear cache&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Local storage is not supported well for web add-in on Windows desktop.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localStorage&lt;/code&gt; has a size up to 10MB for Outlook on web, but not available on Outlook Desktop&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;indexedDB is not defined&lt;/code&gt; on Outlook desktop&lt;/li&gt;
+      &lt;li&gt;Office.RoamingSettings is available to all Outlook versions but it is limited to 32KB&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Errors caused by missing certificate while trying to connect to backend server via HTTPS
+    &lt;ul&gt;
+      &lt;li&gt;Error when no cert&lt;br /&gt;
+ &lt;img src=&quot;/images/outlook.add-in.cert.error.1.png&quot; alt=&quot;my_image&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;Error when cert has no &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-ext &quot;EKU=serverAuth&quot;&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-dname &quot;CN=localhost&quot;&lt;/code&gt;&lt;br /&gt;
+ &lt;img src=&quot;/images/outlook.add-in.cert.error.2.png&quot; alt=&quot;my_image&quot; /&gt;
+ &lt;img src=&quot;/images/outlook.add-in.cert.error.3.png&quot; alt=&quot;my_image&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;Solution:&lt;br /&gt;
+  Set up the certificate and keystore.jks properly. &lt;br /&gt;
+  It can use a self-signed cert pointing to localhost. &lt;br /&gt;
+  The cert must be installed to “Certificates - Local Computer\Trusted Root Certification Authorities”.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Sun, 30 Jun 2024 15:00:00 +1200</pubDate>
+        <link>http://localhost:4000/2024/06/30/Outlook-web-add-in-traps/</link>
+        <guid isPermaLink="true">http://localhost:4000/2024/06/30/Outlook-web-add-in-traps/</guid>
+        
+        <category>MS Office</category>
+        
+        
+      </item>
     
       <item>
         <title>Postgres SQL skills</title>
@@ -469,28 +515,6 @@ So far I have found no solution&lt;/p&gt;
         <guid isPermaLink="true">http://localhost:4000/2023/09/29/Azure-pipeline-pitfalls/</guid>
         
         <category>Azure</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>CSS table max height not working</title>
-        <description>&lt;p&gt;&lt;strong&gt;CSS &amp;lt;td&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;max-height&lt;/code&gt; is not working for large text&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;1. CSS &amp;lt;td&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;max-height&lt;/code&gt; is not working for large text. E.g.
-&lt;img src=&quot;/images/css-td-max-height-not-working.png&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;2. It can be achieved by setting the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;display&lt;/code&gt; property. E.g.
-&lt;img src=&quot;/images/css-td-max-height-working.png&quot; alt=&quot;my_image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;3. The easiest way may be using &amp;lt;div&amp;gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;max-height&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;overflow&lt;/code&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 28 Aug 2023 21:00:00 +1200</pubDate>
-        <link>http://localhost:4000/2023/08/28/CSS-table-max-height-not-working/</link>
-        <guid isPermaLink="true">http://localhost:4000/2023/08/28/CSS-table-max-height-not-working/</guid>
-        
-        <category>CSS</category>
         
         
       </item>

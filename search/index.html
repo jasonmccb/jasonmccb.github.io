@@ -137,6 +137,32 @@
 				
 				  <div class="post-item">
 					
+					<span class="post-meta">Jun 30, 2024</span>
+
+					<h2>
+					  <a class="post-link" href="/2024/06/30/Outlook-web-add-in-traps/">
+						Outlook web add-in traps
+					  </a>
+					</h2>
+
+					<div class="post-snippet"><ol>
+  <li>Cache of the Outlook add-in needs to be cleared before any update of it can apply
+    <ul>
+      <li>Reinstall the add-in</li>
+      <li><code class="language-plaintext highlighter-rouge">for /d %d in ("%LOCALAPPDATA%\Microsoft\Office\16.0\Wef\*") do @rmdir /s /q "%d"</code></li>
+      <li><code class="language-plaintext highlighter-rouge">del /s /f /q /a:h %LOCALAPPDATA%\Packages\Microsoft.Win32WebViewHost_cw5n1h2txyewy\AC\#!123\INetCache\*</code></li>
+      <li><code class="language-plaintext highlighter-rouge">rmdir /s /q %userprofile%\AppData\Local\Microsoft\Outlook\HubAppFileCache</code><br />
+ References:<br />
+ <a href="https://learn.microsoft.com/en-us/office/dev/add-ins/testing/clear-cache">MS docs to clear cache</a><br />
+ <a href="https://appfluence.com/help/article/clear-outlook-add-in-cache/">Some ways to clear cache</a></li>
+    </ul>
+  </li>
+</ol>
+</div>
+				  </div>
+				
+				  <div class="post-item">
+					
 					<span class="post-meta">May 31, 2024</span>
 
 					<h2>
