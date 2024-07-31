@@ -5,9 +5,25 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 30 Jun 2024 16:45:41 +1200</pubDate>
-    <lastBuildDate>Sun, 30 Jun 2024 16:45:41 +1200</lastBuildDate>
+    <pubDate>Wed, 31 Jul 2024 14:13:22 +1200</pubDate>
+    <lastBuildDate>Wed, 31 Jul 2024 14:13:22 +1200</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>React homepage setup</title>
+        <description>&lt;p&gt;To update my earlier blog post &lt;a href=&quot;https://jasonmccb.github.io/2023/12/31/PUBLIC_URL-in-React-is-not-dynamic/&quot;&gt;PUBLIC_URL in React is not dynamic&lt;/a&gt; , I have found a solution to it.&lt;/p&gt;
+
+&lt;p&gt;The solution is to create a “homepage: /xxxx” in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;package.json&lt;/code&gt;, then we don’t need to hardcode it in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.env&lt;/code&gt; file.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 31 Jul 2024 14:00:00 +1200</pubDate>
+        <link>http://localhost:4000/2024/07/31/React-homepage/</link>
+        <guid isPermaLink="true">http://localhost:4000/2024/07/31/React-homepage/</guid>
+        
+        <category>React</category>
+        
+        
+      </item>
     
       <item>
         <title>Outlook web add-in traps</title>
@@ -471,50 +487,6 @@ So far I have found no solution&lt;/p&gt;
         <guid isPermaLink="true">http://localhost:4000/2023/10/30/docker-compose-port-mapping/</guid>
         
         <category>docker</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Azure pipeline pitfalls</title>
-        <description>&lt;p&gt;&lt;strong&gt;Some Azure pipeline pitfalls to be aware of&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;1. In conditions, or conditional insertion, use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;${ { var }}&lt;/code&gt;, otherwise use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$(var)&lt;/code&gt; for variables.&lt;br /&gt;
-	Note the difference of the script variables denoted as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$var&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;${var}&lt;/code&gt;.&lt;br /&gt;
-	E.g.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt;&lt;span class=&quot;na&quot;&gt;variables&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;s&quot;&gt;${ { if eq( parameters.env, &apos;prod&apos;) }}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;myEnv&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;prod&apos;&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;${ { if eq( parameters.env, &apos;dev&apos;) }}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;myEnv&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dev&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;2. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker run&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker exec&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker stop&lt;/code&gt; may return before the command actually finishes.&lt;br /&gt;
-	Possible solutions:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sh -c cmd1.sh &amp;amp;&amp;amp; wait&lt;/code&gt; to wait for the background processes to finish&lt;/li&gt;
-  &lt;li&gt;use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[ &quot;$(docker ps -q -f id=$ID)&quot; ] &amp;amp;&amp;amp; docker wait $ID&lt;/code&gt; for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker stop&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;use loop and sleep&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;3. If “script” exits with 1 then the “succeeded()” in the following step will fail. E.g.&lt;br /&gt;
-	&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[ $? -ne 0 ] &amp;amp;&amp;amp; echo &apos;&apos;&lt;/code&gt; can exit 1&lt;/p&gt;
-
-&lt;p&gt;4. After copying to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$(Build.ArtifactStagingDirectory)&lt;/code&gt;, and calling &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PublishPipelineArtifact@1&lt;/code&gt;, then downloading with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DownloadPipelineArtifact@2&lt;/code&gt;, the file permissions may be changed to readonly.&lt;br /&gt;
-	Possible solution: Grant execution access after downloading from artifact&lt;/p&gt;
-
-&lt;p&gt;5. If we use “git commit –amend” then some files may not get updated when running azure pipeline.&lt;br /&gt;
-	E.g. The change history of file content is like: a-&amp;gt;b-&amp;gt;b&lt;/p&gt;
-
-&lt;p&gt;6. Using a “cp” command in “script” to copy stuff to a non-existing directory will create the directory and then returns without copying.&lt;br /&gt;
-	E.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cp myFile ./non-existing-dir/&lt;/code&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Fri, 29 Sep 2023 16:00:00 +1300</pubDate>
-        <link>http://localhost:4000/2023/09/29/Azure-pipeline-pitfalls/</link>
-        <guid isPermaLink="true">http://localhost:4000/2023/09/29/Azure-pipeline-pitfalls/</guid>
-        
-        <category>Azure</category>
         
         
       </item>
