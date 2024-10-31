@@ -5,9 +5,38 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 28 Sep 2024 19:20:11 +1200</pubDate>
-    <lastBuildDate>Sat, 28 Sep 2024 19:20:11 +1200</lastBuildDate>
+    <pubDate>Thu, 31 Oct 2024 21:32:08 +1300</pubDate>
+    <lastBuildDate>Thu, 31 Oct 2024 21:32:08 +1300</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>some tips of changing a class component to a functional component</title>
+        <description>&lt;p&gt;There are some reasons we may want to convert a class component to a functional component.&lt;br /&gt;
+E.g. Hooks are only available in functional components like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;const queryString = useLocation().search;&lt;/code&gt;&lt;br /&gt;
+This can be quite useful in React Router.&lt;/p&gt;
+
+&lt;p&gt;Lifecycle methods from class components can be converted to useEffect hooks.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;useEffect(() =&amp;gt; { ... })&lt;/code&gt; will run after every render&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;useEffect(() =&amp;gt; { ... }, [])&lt;/code&gt; will run only once after component mounts&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;useEffect(() =&amp;gt; { ... }, [dep1, dep2])&lt;/code&gt; will run only when one of the dependencies changes&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;useEffect(() =&amp;gt; { return () =&amp;gt; { ... }; }, [deps])&lt;/code&gt; will be triggered during clean up phase. i.e. triggered when:
+    &lt;ul&gt;
+      &lt;li&gt;On component unmount (if the array is empty).&lt;/li&gt;
+      &lt;li&gt;On dependency change, it cleans up the previous effect before re-running the new effect.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Thu, 31 Oct 2024 20:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2024/10/31/some-tips-of-changing-a-class-component-to-a-functional-component/</link>
+        <guid isPermaLink="true">http://localhost:4000/2024/10/31/some-tips-of-changing-a-class-component-to-a-functional-component/</guid>
+        
+        <category>React</category>
+        
+        
+      </item>
     
       <item>
         <title>Some tips for cookies in web requests</title>
@@ -407,27 +436,6 @@ solution:&lt;br /&gt;
         <guid isPermaLink="true">http://localhost:4000/2024/01/31/Move-from-MySql-to-PostgreSQL/</guid>
         
         <category>SQL</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>PUBLIC_URL in React is not dynamic</title>
-        <description>&lt;p&gt;&lt;strong&gt;Symptom&lt;/strong&gt;&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PUBLIC_URL&lt;/code&gt; is a system variable defined in file .env and used by Create React App.&lt;br /&gt;
-Once we run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm run build&lt;/code&gt;, this is the base URL as a static string.&lt;br /&gt;
-It cannot be dynamically set in a configuration file at run time.&lt;br /&gt;
-As a result, if two builds are using different PUBLIC_URL then they have to be built separately, which is bad for containerization.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;solution&lt;/strong&gt;&lt;br /&gt;
-So far I have found no solution&lt;/p&gt;
-
-</description>
-        <pubDate>Sun, 31 Dec 2023 23:00:00 +1300</pubDate>
-        <link>http://localhost:4000/2023/12/31/PUBLIC_URL-in-React-is-not-dynamic/</link>
-        <guid isPermaLink="true">http://localhost:4000/2023/12/31/PUBLIC_URL-in-React-is-not-dynamic/</guid>
-        
-        <category>React</category>
         
         
       </item>
