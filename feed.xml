@@ -5,9 +5,72 @@
     <description>True victory is not beating someone strong but being able to protect something important to you</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 31 Oct 2024 21:32:08 +1300</pubDate>
-    <lastBuildDate>Thu, 31 Oct 2024 21:32:08 +1300</lastBuildDate>
+    <pubDate>Mon, 23 Dec 2024 16:05:48 +1300</pubDate>
+    <lastBuildDate>Mon, 23 Dec 2024 16:05:48 +1300</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>Error.message in try catch block in JS</title>
+        <description>&lt;p&gt;Error class in JS has the message property.&lt;br /&gt;
+We should try to throw Error object instead of other random stuff like boolean, string etc.&lt;br /&gt;
+This includes errors thrown from Promise.reject()&lt;br /&gt;
+E.g. In the codes below, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test(f1)&lt;/code&gt; works while &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test(f2)&lt;/code&gt; does not.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;f1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;f1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;f2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;f2&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Err found: &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</description>
+        <pubDate>Mon, 23 Dec 2024 15:40:00 +1300</pubDate>
+        <link>http://localhost:4000/2024/12/23/Error.message-in-try-catch-block-in-JS/</link>
+        <guid isPermaLink="true">http://localhost:4000/2024/12/23/Error.message-in-try-catch-block-in-JS/</guid>
+        
+        <category>JavaScript</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>JS has no overloading</title>
+        <description>&lt;p&gt;JS has no overloading.&lt;br /&gt;
+Instead, the later function overwrites the earlier ones.&lt;br /&gt;
+E.g. In the codes below, the output will be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;no param&lt;/code&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MyClass&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;no param&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myClass&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MyClass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;myClass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</description>
+        <pubDate>Mon, 23 Dec 2024 15:30:00 +1300</pubDate>
+        <link>http://localhost:4000/2024/12/23/JS-has-no-overloading/</link>
+        <guid isPermaLink="true">http://localhost:4000/2024/12/23/JS-has-no-overloading/</guid>
+        
+        <category>JavaScript</category>
+        
+        
+      </item>
     
       <item>
         <title>some tips of changing a class component to a functional component</title>
@@ -228,214 +291,6 @@ However if we use &lt;code class=&quot;language-plaintext highlighter-rouge&quot
         <guid isPermaLink="true">http://localhost:4000/2024/03/31/npm-install-failed/</guid>
         
         <category>JavaScript</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Code Signing Certificate</title>
-        <description>&lt;p&gt;There’s an industry wide change of where to store the private key of a code signing certificate.
-Most if not all CAs have adopted and announced this change, e.g. DigiCert:
-&lt;a href=&quot;https://knowledge.digicert.com/generalinformation/new-private-key-storage-requirement-for-standard-code-signing-certificates-november-2022.html&quot;&gt;https://knowledge.digicert.com/generalinformation/new-private-key-storage-requirement-for-standard-code-signing-certificates-november-2022.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;One common solution is to store the private key on CA’s HSM and use their cloud based solution for signing.
-Generally we should never give others our private keys.
-But in this particular case we can if the key is only used to sign codes and not for other purposes such as encryption, because the certificate of this key is granted by CA whose legitimacy is controlled by itself anyway.&lt;/p&gt;
-
-&lt;p&gt;There’s a long guide for this cloud based signing solution including CI/CD integration if you’re using DigiCert:
-&lt;a href=&quot;https://docs.digicert.com/en/digicert-keylocker/get-started.html&quot;&gt;https://docs.digicert.com/en/digicert-keylocker/get-started.html&lt;/a&gt;
-But there’re some points to be aware of:&lt;/p&gt;
-
-&lt;p&gt;1.&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;smksp_registrar.exe register&lt;/code&gt; errors:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BCryptRegisterProvider failed with error code 0xc0000022
-BCryptAddContextFunction failed with error code 0xc0000022
-BCryptAddContextFunctionProvider failed with error code 0xc0000022
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;solution:&lt;br /&gt;
-  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;smctl credentials save &amp;lt;API key&amp;gt; &amp;lt;Client authentication certificate password&amp;gt;&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;2.&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;smctl healthcheck&lt;/code&gt; failure:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Your client certificate path or password is incorrect. You will not be able to complete specific actions (such as sign, generate keypairs and approve releases) until these credentials are corrected.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;solution:&lt;br /&gt;
-  Don’t use set command to set variables, instead, manually set it up in “environment variables”&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;set SM_HOST=https://clientauth.one.digicert.com
-set SM_CLIENT_CERT_FILE=C:\my_path\Certificate_pkcs12.p12
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;3.”Azure pipeline cannot get thumbprint from local cert store” error:&lt;br /&gt;
-cause:&lt;br /&gt;
-  Azure Pipelines Agent (OrgName.AgentPoolName.AgentName) windows service cannot get the powershell result&lt;br /&gt;
-solution:&lt;br /&gt;
-  1. Make sure certificates are synced to key store by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;smksp_cert_sync.exe&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;certmgr.msc&lt;/code&gt;&lt;br /&gt;
-  2. Don’t use windows service, instead, use run.cmd in the agent&lt;br /&gt;
-  3. Granting any permission to a certificate in “certlm.msc” won’t work&lt;/p&gt;
-
-&lt;p&gt;4.”Cannot find certificate” error:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;##[error]C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VisualStudio\v17.0\OfficeTools\Microsoft.VisualStudio.Tools.Office.targets(164,9): Error : Cannot find the certificate that matches the project system thumbprint.  To sign the application and deployment manifests, open the Project Designer, click the Signing page tab, select an existing certificate, and try again.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;solution:&lt;br /&gt;
-  Don’t use MS-hosted agent, use self-hosted agent that has access to local certificate store. Remove codes below:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jobs:
-  - job:
-    pool:
-      vmImage: &quot;windows-latest&quot;    
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;5.”internal consistency” error:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;##[error]C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VisualStudio\v16.0\OfficeTools\Microsoft.VisualStudio.Tools.Office.targets(328,9): Error MSB3482: An error occurred while signing: An internal consistency check failed.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;solution:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;upgrade SignTool.exe to that in Windows-10 SDK&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;make sure early steps are set up properly&lt;/p&gt;
-
-    &lt;p&gt;from:&lt;br /&gt;
-    winsdksetup.exe (there’s an MSI installer for SignTool)&lt;br /&gt;
-    C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x64\signtool.exe&lt;br /&gt;
-  check:&lt;br /&gt;
-    Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\ClickOnce\SignTool&lt;br /&gt;
-  to:&lt;br /&gt;
-    C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        <pubDate>Thu, 29 Feb 2024 11:00:00 +1300</pubDate>
-        <link>http://localhost:4000/2024/02/29/code-signing-certificiates/</link>
-        <guid isPermaLink="true">http://localhost:4000/2024/02/29/code-signing-certificiates/</guid>
-        
-        <category>project management</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Move from MySql to PostgreSQL</title>
-        <description>&lt;p&gt;&lt;strong&gt;Things to be changed as migrating from MySql to PostgreSQL&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;MySql&lt;/th&gt;
-      &lt;th&gt;PostgreSQL&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;START TRANSACTION;, COMMIT;, ROLLBACK;&lt;/td&gt;
-      &lt;td&gt;BEGIN;, COMMIT;, ROLLBACK;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;`id`&lt;/td&gt;
-      &lt;td&gt;“id”&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;reserved keywords xxx&lt;/td&gt;
-      &lt;td&gt;“xxx”&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;“…”&lt;/td&gt;
-      &lt;td&gt;‘…’&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\”&lt;/td&gt;
-      &lt;td&gt;”&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\’&lt;/td&gt;
-      &lt;td&gt;’’&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\n&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;case insensitive&lt;/td&gt;
-      &lt;td&gt;case sensitive&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;USE my_db&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\c my_db&lt;/code&gt; or just remove it as it’s not needed&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;_binary&lt;/td&gt;
-      &lt;td&gt;E’\xFFF’&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;INSERT 1 TO BIT(X) column&lt;/td&gt;
-      &lt;td&gt;INSERT B’1’ TO BIT(X) column&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;INSERT INSERT IGNORE INTO&lt;/td&gt;
-      &lt;td&gt;INSERT INTO … ON CONFLICT ([COLUMN]) DO NOTHING&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;LIMIT 10 OFFSET 20&lt;/td&gt;
-      &lt;td&gt;OFFSET 20 FETCH FIRST 10 ROWS ONLY;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;DELETE t1 FROM table_1 t1 JOIN table_2 t2 ON&lt;/td&gt;
-      &lt;td&gt;DELETE FROM table_1 WHERE id NOT IN (SELECT … FROM table_2)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;LAST_INSERT_ID()&lt;/td&gt;
-      &lt;td&gt;INSERT…RETURNING id&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;a JOIN b JOIN c ON a.id=b.id AND b.id=c.id&lt;/td&gt;
-      &lt;td&gt;a JOIN b ON a.id=b.id JOIN c ON b.id=c.id&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;SELECT COUNT(col_a), col_b FROM …&lt;/td&gt;
-      &lt;td&gt;SELECT COUNT(col_a), col_b FROM … GROUP BY col_b&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;NOW(),CURDATE(),CURTIME(),UNIX_TIMESTAMP()&lt;/td&gt;
-      &lt;td&gt;CURRENT_TIMESTAMP,CURRENT_DATE,CURRENT_TIME, &lt;br /&gt; ROUND(EXTRACT(epoch FROM CURRENT_TIMESTAMP))&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;IFNULL(expr1, expr2)&lt;/td&gt;
-      &lt;td&gt;COALESCE(expr1, expr2)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;if(boolean, integer, integer)&lt;/td&gt;
-      &lt;td&gt;CASE WHEN boolean THEN integer ELSE integer END&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;#&lt;/td&gt;
-      &lt;td&gt;–&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;CONCAT(str1, str2)&lt;/td&gt;
-      &lt;td&gt;str1 || str2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;||&lt;/td&gt;
-      &lt;td&gt;OR&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;GRANT ALL PRIVILEGES ON db_name.* TO ‘user_name’@’%’;&lt;/td&gt;
-      &lt;td&gt;GRANT ALL PRIVILEGES ON DATABASE db_name TO user_name;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Database.initMySqlDb()&lt;/td&gt;
-      &lt;td&gt;Database.initPostgresDb()&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Remove mysql dependency in POM&lt;/td&gt;
-      &lt;td&gt;add Postgres dependency in POM&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-</description>
-        <pubDate>Wed, 31 Jan 2024 20:00:00 +1300</pubDate>
-        <link>http://localhost:4000/2024/01/31/Move-from-MySql-to-PostgreSQL/</link>
-        <guid isPermaLink="true">http://localhost:4000/2024/01/31/Move-from-MySql-to-PostgreSQL/</guid>
-        
-        <category>SQL</category>
         
         
       </item>

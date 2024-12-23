@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Related links - Jason's Blog</title>
+	<title>JS has no overloading - Jason's Blog</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/reference/">
+	<link rel="canonical" href="/2024/12/23/JS-has-no-overloading/">
 	<link rel="alternate" type="application/rss+xml" title="Jason's Blog" href="/feed.xml">
 	
-	<meta name="keywords" content="Related links, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
+	<meta name="keywords" content="JS has no overloading, Jason's Blog, jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 	<meta name="description" content="jasonmccb;blog;世事苍茫成云烟;天地孤影任我行;meaning of life;McShh">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -91,7 +91,7 @@
   <div class="container">
   	
   		<!--
-		    <h1>Related links</h1>
+		    <h1>JS has no overloading</h1>
 		    <p>Post on Dec 23, 2024 by <a href="/about">Jason Liu</a></p>
 		-->
 		    <h1>The meaning of life is to explore the world</h1>			
@@ -103,8 +103,8 @@
 <div class="banner">
   <div class="container">
   	
-    	<a href="/categories/#theScene.Co-ref">theScene.Co</a>	/
-    	<a href="/tag/#-ref"></a>
+    	<a href="/categories/#-ref"></a>	/
+    	<a href="/tag/#JavaScript-ref">JavaScript</a>
     
   </div>
 </div>
@@ -132,7 +132,7 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">Related links</h1>
+              <h1 class="post-title">JS has no overloading</h1>
               <!--
                 <p class="post-meta">Dec 23, 2024</p>
               -->
@@ -140,23 +140,16 @@
               <br />
             </header>
             <article class="post-content">
-              <ul id="markdown-toc">
-  <li><a href="#happygigs" id="markdown-toc-happygigs">HappyGigs</a></li>
-  <li><a href="#whitireia" id="markdown-toc-whitireia">Whitireia</a></li>
-  <li><a href="#jekyll-quickstart" id="markdown-toc-jekyll-quickstart">Jekyll Quickstart</a></li>
-</ul>
+              <p>JS has no overloading.<br />
+Instead, the later function overwrites the earlier ones.<br />
+E.g. In the codes below, the output will be <code class="language-plaintext highlighter-rouge">no param</code>.</p>
 
-<h1 id="happygigs">HappyGigs</h1>
-
-<p><a href="https://happygigs.co.nz/">HappyGigs</a></p>
-
-<h1 id="whitireia">Whitireia</h1>
-
-<p><a href="https://moodle.whitireia.ac.nz/">Whitireia</a></p>
-
-<h1 id="jekyll-quickstart">Jekyll Quickstart</h1>
-
-<p><a href="https://jekyllrb.com/docs/">Jekyll</a></p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">class</span> <span class="nx">MyClass</span> <span class="p">{</span>
+	<span class="nx">f</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span> <span class="p">}</span>
+	<span class="nx">f</span><span class="p">()</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">no param</span><span class="dl">'</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">myClass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyClass</span><span class="p">();</span>
+<span class="nx">myClass</span><span class="p">.</span><span class="nx">f</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">);</span></code></pre></figure>
 
 
             </article>
